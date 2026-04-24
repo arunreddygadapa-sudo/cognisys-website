@@ -1,180 +1,321 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cognisys Soft Services & IT Solutions</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <style>
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background-color: #ffffff;
-            color: #0a1f44;
-        }
+<title>Cognisys Soft Services & IT Solutions</title>
 
-        header {
-            background-color: #0a1f44;
-            color: white;
-            padding: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
-        header img {
-            height: 60px;
-        }
+<style>
+body {
+    margin:0;
+    font-family:'Poppins',sans-serif;
+    background:#ffffff;
+}
 
-        nav a {
-            color: white;
-            margin-left: 20px;
-            text-decoration: none;
-            font-weight: bold;
-        }
+/* NAVBAR */
+header {
+    position:fixed;
+    width:100%;
+    background:#0a1f44;
+    padding:15px 60px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    z-index:1000;
+}
 
-        .hero {
-            background-color: #0a1f44;
-            color: white;
-            padding: 80px 20px;
-            text-align: center;
-        }
+header img {height:50px;}
 
-        .hero h1 {
-            font-size: 40px;
-        }
+nav a {
+    color:white;
+    margin-left:25px;
+    text-decoration:none;
+}
 
-        .hero p {
-            font-size: 18px;
-            margin-top: 10px;
-        }
+/* HERO */
+.hero {
+    height:100vh;
+    background:linear-gradient(135deg,#0a1f44,#1e4fa3);
+    color:white;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    padding-top:80px;
+}
 
-        .section {
-            padding: 60px 20px;
-            text-align: center;
-        }
+.hero h1 {font-size:48px;}
 
-        .services {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 20px;
-        }
+.hero p {
+    margin-top:15px;
+    font-size:18px;
+}
 
-        .card {
-            background: #f5f7fb;
-            padding: 20px;
-            border-radius: 10px;
-            width: 250px;
-        }
+.btn {
+    margin-top:25px;
+    padding:12px 25px;
+    background:white;
+    color:#0a1f44;
+    text-decoration:none;
+    border-radius:6px;
+    font-weight:600;
+}
 
-        .card h3 {
-            color: #0a1f44;
-        }
+/* SECTION */
+.section {
+    padding:80px 40px;
+    text-align:center;
+}
 
-        footer {
-            background-color: #0a1f44;
-            color: white;
-            padding: 30px;
-            text-align: center;
-        }
+/* ABOUT */
+.about {
+    display:flex;
+    gap:40px;
+    align-items:center;
+    flex-wrap:wrap;
+}
 
-        .btn {
-            background-color: white;
-            color: #0a1f44;
-            padding: 10px 20px;
-            border-radius: 5px;
-            text-decoration: none;
-            display: inline-block;
-            margin-top: 20px;
-            font-weight: bold;
-        }
+.about div {flex:1;}
 
-        .btn:hover {
-            background-color: #e0e6f5;
-        }
+/* SERVICES */
+.cards {
+    display:flex;
+    flex-wrap:wrap;
+    gap:30px;
+    justify-content:center;
+}
 
-        a {
-            color: #0a1f44;
-        }
+.card {
+    width:260px;
+    padding:25px;
+    background:#f4f6fb;
+    border-radius:12px;
+    transition:0.3s;
+}
 
-    </style>
+.card:hover {
+    transform:translateY(-10px);
+    box-shadow:0 10px 30px rgba(0,0,0,0.15);
+}
+
+/* WHY */
+.why {
+    background:#0a1f44;
+    color:white;
+}
+
+/* CTA */
+.cta {
+    background:#1e4fa3;
+    color:white;
+}
+
+.cta .btn {
+    background:white;
+}
+
+/* CONTACT */
+input, textarea {
+    width:80%;
+    padding:12px;
+    margin:10px;
+    border-radius:5px;
+    border:1px solid #ccc;
+}
+
+button {
+    padding:12px 25px;
+    background:#0a1f44;
+    color:white;
+    border:none;
+    border-radius:5px;
+}
+
+/* FOOTER */
+footer {
+    background:#0a1f44;
+    color:white;
+    padding:40px;
+    text-align:center;
+}
+
+/* ANIMATION */
+.fade {
+    opacity:0;
+    transform:translateY(40px);
+    transition:1s;
+}
+
+.fade.show {
+    opacity:1;
+    transform:translateY(0);
+}
+</style>
 </head>
+
 <body>
 
-    <!-- HEADER -->
-    <header>
-        <div>
-            <img src="logo.png" alt="Company Logo">
-        </div>
-        <nav>
-            <a href="#about">About</a>
-            <a href="#services">Services</a>
-            <a href="#contact">Contact</a>
-        </nav>
-    </header>
+<header>
+<img src="logo.png">
+<nav>
+<a href="#about">About</a>
+<a href="#services">Services</a>
+<a href="#contact">Contact</a>
+</nav>
+</header>
 
-    <!-- HERO -->
-    <section class="hero">
-        <h1>Cognisys Soft Services & IT Solutions</h1>
-        <p>Empowering Businesses with Smart IT Consulting Solutions</p>
-        <a class="btn" href="#contact">Get in Touch</a>
-    </section>
+<!-- HERO -->
+<section class="hero">
+<div>
+<h1>Empowering Enterprises Through Intelligent IT Solutions</h1>
+<p>
+Cloud • Cybersecurity • Networking • DevOps <br>
+AI & Automation • Data Analytics • IT Consulting • Digital Transformation
+</p>
+<a href="#contact" class="btn">Get Started</a>
+</div>
+</section>
 
-    <!-- ABOUT -->
-    <section id="about" class="section">
-        <h2>About Us</h2>
-        <p>
-            Cognisys Soft Services & IT Solutions is a leading IT consulting company
-            delivering innovative technology solutions to businesses worldwide.
-            We specialize in cloud, cybersecurity, networking, and enterprise IT services.
-        </p>
-    </section>
+<!-- ABOUT -->
+<section id="about" class="section about fade">
+<div>
+<h2>About Us</h2>
+<p>
+Cognisys Soft Services & IT Solutions delivers enterprise IT consulting solutions,
+helping businesses scale with secure, modern, and cloud-driven technologies.
+</p>
+</div>
 
-    <!-- SERVICES -->
-    <section id="services" class="section">
-        <h2>Our Services</h2>
-        <div class="services">
+<div>
+<img src="logo.png" width="250">
+</div>
+</section>
 
-            <div class="card">
-                <h3>Cloud Consulting</h3>
-                <p>AWS, Azure, and cloud architecture solutions.</p>
-            </div>
+<!-- SERVICES -->
+<section id="services" class="section fade">
+<h2>Our Services</h2>
 
-            <div class="card">
-                <h3>Cybersecurity</h3>
-                <p>Advanced security solutions and threat protection.</p>
-            </div>
+<div class="cards">
 
-            <div class="card">
-                <h3>Network Solutions</h3>
-                <p>Enterprise networking and infrastructure design.</p>
-            </div>
+<div class="card">
+<h3>Cloud Solutions</h3>
+<p>AWS, Azure, multi-cloud architecture & migration</p>
+</div>
 
-            <div class="card">
-                <h3>IT Support</h3>
-                <p>Reliable IT support and system maintenance services.</p>
-            </div>
+<div class="card">
+<h3>Cybersecurity</h3>
+<p>Threat detection, SOC, SIEM & vulnerability management</p>
+</div>
 
-        </div>
-    </section>
+<div class="card">
+<h3>Networking</h3>
+<p>Enterprise network design & optimization</p>
+</div>
 
-    <!-- CONTACT -->
-    <section id="contact" class="section">
-        <h2>Contact Us</h2>
-        <p>Email: <a href="mailto:support@cognisysitsolutions.com">support@cognisysitsolutions.com</a></p>
-        <p>
-            LinkedIn: 
-            <a href="https://www.linkedin.com/company/cognisys-soft-services/posts/?feedView=all" target="_blank">
-                Visit our page
-            </a>
-        </p>
-    </section>
+<div class="card">
+<h3>DevOps</h3>
+<p>CI/CD pipelines, automation & infrastructure as code</p>
+</div>
 
-    <!-- FOOTER -->
-    <footer>
-        <p>© 2026 Cognisys Soft Services & IT Solutions. All Rights Reserved.</p>
-    </footer>
+<div class="card">
+<h3>AI & Automation</h3>
+<p>AI-driven automation & intelligent workflows</p>
+</div>
+
+<div class="card">
+<h3>Data Analytics</h3>
+<p>Business intelligence & data insights</p>
+</div>
+
+<div class="card">
+<h3>IT Consulting</h3>
+<p>Strategic planning & digital transformation</p>
+</div>
+
+<div class="card">
+<h3>Managed Services</h3>
+<p>24/7 monitoring & enterprise support</p>
+</div>
+
+</div>
+</section>
+
+<!-- CASE STUDIES -->
+<section class="section fade">
+<h2>Case Studies</h2>
+
+<div class="cards">
+<div class="card">
+<h3>Cloud Migration</h3>
+<p>Reduced infrastructure cost by 40%</p>
+</div>
+
+<div class="card">
+<h3>Security Implementation</h3>
+<p>Implemented SOC & SIEM monitoring</p>
+</div>
+
+<div class="card">
+<h3>Network Optimization</h3>
+<p>Boosted performance by 60%</p>
+</div>
+</div>
+</section>
+
+<!-- WHY -->
+<section class="section why fade">
+<h2>Why Choose Us</h2>
+<p>✔ Expert Team | ✔ Secure Solutions | ✔ Scalable Architecture | ✔ 24/7 Support</p>
+</section>
+
+<!-- CTA -->
+<section class="section cta fade">
+<h2>Ready to Transform Your Business?</h2>
+<a href="#contact" class="btn">Contact Us</a>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="section fade">
+<h2>Contact Us</h2>
+
+<form action="https://formspree.io/f/your-id" method="POST">
+<input type="text" name="name" placeholder="Your Name" required><br>
+<input type="email" name="email" placeholder="Your Email" required><br>
+<textarea name="message" placeholder="Message"></textarea><br>
+<button type="submit">Send Message</button>
+</form>
+
+<p>Email: support@cognisysitsolutions.com</p>
+
+<p>
+<a href="https://www.linkedin.com/company/cognisys-soft-services/posts/?feedView=all" target="_blank">
+LinkedIn Profile
+</a>
+</p>
+
+</section>
+
+<!-- FOOTER -->
+<footer>
+<p>© 2026 Cognisys Soft Services & IT Solutions</p>
+</footer>
+
+<!-- SCROLL ANIMATION -->
+<script>
+const faders = document.querySelectorAll('.fade');
+
+window.addEventListener('scroll', () => {
+    faders.forEach(el => {
+        const top = el.getBoundingClientRect().top;
+        if(top < window.innerHeight - 100){
+            el.classList.add('show');
+        }
+    });
+});
+</script>
 
 </body>
 </html>
