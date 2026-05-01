@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
+    <!-- Primary Meta Tags (SEO) -->
     <title>Cognisys Soft Services & IT Solutions | USA & India IT Staffing & Services</title>
     <meta name="title" content="Cognisys Soft Services & IT Solutions | USA & India IT Staffing">
     <meta name="description" content="Cognisys specializes in premium USA IT Consulting & Staffing, combined with robust Staff Augmentation and end-to-end Enterprise IT Services delivered from India.">
@@ -12,11 +13,14 @@
     <meta name="application-name" content="Cognisys IT Solutions">
     <meta name="robots" content="index, follow">
     
+    <!-- Favicon -->
     <link rel="icon" href="/favicon.png" type="image/png">
     <link rel="shortcut icon" href="/favicon.ico">
     
+    <!-- Canonical URL -->
     <link rel="canonical" href="https://www.cognisysitsolutions.in/">
 
+    <!-- Open Graph / Facebook (Social SEO) -->
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Cognisys IT Solutions">
     <meta property="og:url" content="https://www.cognisysitsolutions.in/">
@@ -24,12 +28,14 @@
     <meta property="og:description" content="Bridging Global Talent with Enterprise IT Execution. Strategic USA consulting and scalable India-based IT services.">
     <meta property="og:image" content="https://www.cognisysitsolutions.in/logo.png">
 
+    <!-- Twitter (Social SEO) -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://www.cognisysitsolutions.in/">
     <meta property="twitter:title" content="Cognisys Soft Services & IT Solutions">
     <meta property="twitter:description" content="Bridging Global Talent with Enterprise IT Execution. Strategic USA consulting and scalable India-based IT services.">
     <meta property="twitter:image" content="https://www.cognisysitsolutions.in/logo.png">
 
+    <!-- JSON-LD Structured Data (Schema Markup for Google) -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -41,12 +47,16 @@
     }
     </script>
 
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     
+    <!-- FontAwesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
+    <!-- Premium Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     
+    <!-- Tailwind Configuration with Animations -->
     <script>
         tailwind.config = {
             theme: {
@@ -64,6 +74,18 @@
                             white: '#ffffff',
                             border: '#e5e5e5'
                         }
+                    },
+                    animation: {
+                        blob: "blob 9s infinite",
+                        'spin-slow': 'spin 12s linear infinite',
+                    },
+                    keyframes: {
+                        blob: {
+                            "0%": { transform: "translate(0px, 0px) scale(1)" },
+                            "33%": { transform: "translate(30px, -50px) scale(1.1)" },
+                            "66%": { transform: "translate(-20px, 20px) scale(0.9)" },
+                            "100%": { transform: "translate(0px, 0px) scale(1)" }
+                        }
                     }
                 }
             }
@@ -72,6 +94,7 @@
     <style>
         body { background-color: #fcfcfc; }
         
+        /* Grid background base */
         .bg-grid-pattern {
             background-image: linear-gradient(to right, #e5e5e5 1px, transparent 1px), linear-gradient(to bottom, #e5e5e5 1px, transparent 1px);
             background-size: 40px 40px;
@@ -95,25 +118,32 @@
         input:-webkit-autofill, textarea:-webkit-autofill {
             -webkit-box-shadow: 0 0 0 30px white inset !important;
         }
+
+        /* Animation Delays */
+        .animation-delay-2000 { animation-delay: 2s; }
+        .animation-delay-4000 { animation-delay: 4s; }
     </style>
 </head>
 <body class="text-brand-dark font-sans antialiased selection:bg-brand-black selection:text-white">
 
+    <!-- Navigation Bar -->
     <header>
         <nav class="fixed w-full z-50 glass-nav border-b border-gray-200 transition-all duration-300" aria-label="Main Navigation">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="flex justify-between items-center h-24">
+                    <!-- Header: Logo + Company Name -->
                     <a href="#" class="flex-shrink-0 flex items-center gap-4 group" aria-label="Cognisys Homepage">
-                        <img src="logo.png" alt="Cognisys Soft Services & IT Solutions Corporate Logo" class="h-20 w-auto object-contain transition-transform group-hover:scale-105" onerror="this.onerror=null; this.src='https://via.placeholder.com/80x80/0a0a0a/ffffff?text=C';">
+                        <img src="logo.png" alt="Cognisys Corporate Logo" class="h-20 w-auto object-contain transition-transform group-hover:scale-105" onerror="this.onerror=null; this.src='https://via.placeholder.com/80x80/0a0a0a/ffffff?text=C';">
                         <div class="flex flex-col">
                             <span class="font-heading font-extrabold text-2xl leading-tight text-brand-black tracking-tight">COGNISYS</span>
                             <span class="text-[0.7rem] font-bold uppercase tracking-widest text-brand-gray">Soft Services & IT Solutions</span>
                         </div>
                     </a>
                     
+                    <!-- Desktop Menu -->
                     <div class="hidden lg:flex space-x-8 items-center">
                         <a href="#about" class="text-xs font-bold tracking-widest text-brand-gray hover:text-brand-black uppercase transition-colors">About</a>
-                        <a href="#services" class="text-xs font-bold tracking-widest text-brand-gray hover:text-brand-black uppercase transition-colors">Services</a>
+                        <a href="services.html" class="text-xs font-bold tracking-widest text-brand-gray hover:text-brand-black uppercase transition-colors">Services</a>
                         <a href="#contact" class="bg-brand-black text-white px-6 py-2.5 text-xs font-bold uppercase tracking-widest hover:bg-white hover:text-brand-black border-2 border-brand-black transition-all duration-300">
                             Contact
                         </a>
@@ -124,8 +154,18 @@
     </header>
 
     <main>
+        <!-- Hero Section with Abstract Background Animation -->
         <section class="relative pt-40 pb-24 lg:pt-56 lg:pb-32 overflow-hidden bg-grid-pattern">
-            <div class="absolute inset-0 bg-gradient-to-b from-white/70 via-white/90 to-white"></div>
+            
+            <!-- Animated Background Blobs -->
+            <div class="absolute inset-0 flex justify-center items-center overflow-hidden z-0 pointer-events-none opacity-40">
+                <div class="absolute top-10 left-1/4 w-96 h-96 bg-gray-300 rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-blob"></div>
+                <div class="absolute top-10 right-1/4 w-96 h-96 bg-gray-200 rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-blob animation-delay-2000"></div>
+                <div class="absolute -bottom-8 left-1/3 w-96 h-96 bg-gray-100 rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-blob animation-delay-4000"></div>
+            </div>
+
+            <div class="absolute inset-0 bg-gradient-to-b from-white/40 via-white/80 to-white z-0"></div>
+            
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                 <div class="max-w-4xl mx-auto text-center">
                     <div class="flex items-center justify-center gap-3 mb-8">
@@ -141,8 +181,9 @@
                         Cognisys specializes in premium IT Consulting and Staffing in the USA, combined with robust Staff Augmentation and end-to-end IT Services delivered from India.
                     </p>
                     <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                        <a href="#services" class="bg-brand-black text-white px-8 py-4 font-bold text-sm uppercase tracking-wider hover:bg-brand-gray transition-colors duration-300">
-                            Explore Services
+                        <a href="services.html" class="bg-brand-black text-white px-8 py-4 font-bold text-sm uppercase tracking-wider hover:bg-brand-gray transition-colors duration-300 relative overflow-hidden group">
+                            <span class="relative z-10">Explore Services</span>
+                            <div class="absolute inset-0 h-full w-full bg-white/20 scale-x-0 group-hover:scale-x-100 transform origin-left transition-transform duration-500 ease-out z-0"></div>
                         </a>
                         <a href="#contact" class="bg-white text-brand-black border border-brand-border px-8 py-4 font-bold text-sm uppercase tracking-wider hover:border-brand-black transition-colors duration-300">
                             Get In Touch
@@ -152,6 +193,7 @@
             </div>
         </section>
 
+        <!-- ABOUT SECTION -->
         <section id="about" class="py-24 bg-white border-t border-brand-border">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
@@ -175,18 +217,33 @@
                             </li>
                         </ul>
                     </div>
-                    <div class="relative h-full min-h-[400px] border border-gray-200 bg-brand-light p-10 flex flex-col justify-center items-center text-center">
-                        <i class="fa-solid fa-earth-americas text-6xl text-gray-300 mb-6" aria-hidden="true"></i>
-                        <h4 class="font-heading text-2xl font-bold mb-2">Global Synergy</h4>
-                        <p class="text-brand-gray max-w-sm mx-auto">Bridging the gap between US market demands and Indian engineering brilliance.</p>
+                    
+                    <!-- Global Synergy Box with Background Image & Animated Icon -->
+                    <div class="relative h-full min-h-[400px] border border-gray-200 p-10 flex flex-col justify-center items-center text-center overflow-hidden group">
+                        <!-- Background Abstract Tech Image (Grayscale) -->
+                        <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2072&auto=format&fit=crop')] bg-cover bg-center grayscale opacity-90 transition-transform duration-1000 group-hover:scale-105"></div>
+                        <!-- Dark Overlay -->
+                        <div class="absolute inset-0 bg-black/60"></div>
+                        
+                        <div class="relative z-10 text-white">
+                            <!-- Spinning Globe Icon -->
+                            <i class="fa-solid fa-earth-americas text-6xl text-gray-300 mb-6 animate-spin-slow" aria-hidden="true"></i>
+                            <h4 class="font-heading text-2xl font-bold mb-2">Global Synergy</h4>
+                            <p class="text-gray-300 max-w-sm mx-auto">Bridging the gap between US market demands and Indian engineering brilliance.</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
+        <!-- SERVICES WRAPPER -->
         <div id="services">
-            <section class="py-24 bg-brand-black text-white">
-                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- 1. USA IT CONSULTING & STAFFING -->
+            <section class="py-24 bg-brand-black text-white relative overflow-hidden">
+                <!-- Subtle grid background for dark section -->
+                <div class="absolute inset-0 bg-[linear-gradient(to_right,#333_1px,transparent_1px),linear-gradient(to_bottom,#333_1px,transparent_1px)] bg-[size:40px_40px] opacity-20 pointer-events-none"></div>
+
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                     <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
                         <div class="lg:col-span-4">
                             <h2 class="text-xs font-bold tracking-widest text-gray-400 uppercase mb-4">Services // United States</h2>
@@ -197,7 +254,7 @@
                         </div>
                         
                         <div class="lg:col-span-8 grid grid-cols-1 sm:grid-cols-2 gap-6">
-                            <article class="border border-gray-800 bg-[#111] p-8 hover:border-gray-500 transition-colors flex flex-col justify-between">
+                            <article class="border border-gray-800 bg-black/50 backdrop-blur-sm p-8 hover:border-gray-500 transition-colors flex flex-col justify-between">
                                 <div>
                                     <i class="fa-solid fa-chess-knight text-3xl text-gray-300 mb-6" aria-hidden="true"></i>
                                     <h4 class="text-xl font-bold mb-3">Strategic IT Consulting</h4>
@@ -209,7 +266,7 @@
                                     <li><i class="fa-solid fa-check text-gray-500 mr-2"></i> Cloud Strategy & Adoption</li>
                                 </ul>
                             </article>
-                            <article class="border border-gray-800 bg-[#111] p-8 hover:border-gray-500 transition-colors flex flex-col justify-between">
+                            <article class="border border-gray-800 bg-black/50 backdrop-blur-sm p-8 hover:border-gray-500 transition-colors flex flex-col justify-between">
                                 <div>
                                     <i class="fa-solid fa-users-viewfinder text-3xl text-gray-300 mb-6" aria-hidden="true"></i>
                                     <h4 class="text-xl font-bold mb-3">USA IT Staffing</h4>
@@ -226,6 +283,7 @@
                 </div>
             </section>
 
+            <!-- 2. INDIA STAFFING & IT SERVICES -->
             <section class="py-24 bg-brand-light">
                 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div class="mb-16 text-center max-w-3xl mx-auto">
@@ -235,8 +293,8 @@
                     </div>
                     
                     <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
-                        <article class="bg-white p-10 border border-brand-border premium-card">
-                            <div class="w-12 h-12 bg-gray-100 flex items-center justify-center mb-6 text-brand-black">
+                        <article class="bg-white p-10 border border-brand-border premium-card group">
+                            <div class="w-12 h-12 bg-gray-100 flex items-center justify-center mb-6 text-brand-black group-hover:bg-brand-black group-hover:text-white transition-colors duration-300">
                                 <i class="fa-solid fa-user-plus text-xl" aria-hidden="true"></i>
                             </div>
                             <h4 class="font-heading text-2xl font-bold mb-4">India IT Staffing</h4>
@@ -248,8 +306,8 @@
                             </ul>
                         </article>
 
-                        <article class="bg-white p-10 border border-brand-border premium-card">
-                            <div class="w-12 h-12 bg-gray-100 flex items-center justify-center mb-6 text-brand-black">
+                        <article class="bg-white p-10 border border-brand-border premium-card group">
+                            <div class="w-12 h-12 bg-gray-100 flex items-center justify-center mb-6 text-brand-black group-hover:bg-brand-black group-hover:text-white transition-colors duration-300">
                                 <i class="fa-solid fa-laptop-code text-xl" aria-hidden="true"></i>
                             </div>
                             <h4 class="font-heading text-2xl font-bold mb-4">End-to-End IT Services</h4>
@@ -261,8 +319,8 @@
                             </ul>
                         </article>
 
-                        <article class="bg-white p-10 border border-brand-border premium-card">
-                            <div class="w-12 h-12 bg-gray-100 flex items-center justify-center mb-6 text-brand-black">
+                        <article class="bg-white p-10 border border-brand-border premium-card group">
+                            <div class="w-12 h-12 bg-gray-100 flex items-center justify-center mb-6 text-brand-black group-hover:bg-brand-black group-hover:text-white transition-colors duration-300">
                                 <i class="fa-solid fa-shield-halved text-xl" aria-hidden="true"></i>
                             </div>
                             <h4 class="font-heading text-2xl font-bold mb-4">Managed IT & Support</h4>
@@ -278,6 +336,7 @@
             </section>
         </div>
 
+        <!-- WHY CHOOSE US SECTION -->
         <section class="py-24 bg-brand-black text-white border-t border-gray-800">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="flex flex-col lg:flex-row gap-16 items-center">
@@ -286,19 +345,19 @@
                         <h2 class="font-heading text-4xl md:text-5xl font-bold mb-8 text-white">Why Choose Cognisys IT Services?</h2>
                         <ul class="space-y-6">
                             <li class="flex items-center">
-                                <div class="w-12 h-12 rounded-full border border-gray-700 flex items-center justify-center mr-5 shrink-0">
+                                <div class="w-12 h-12 rounded-full border border-gray-700 flex items-center justify-center mr-5 shrink-0 bg-white/5">
                                     <i class="fa-solid fa-location-dot text-gray-300"></i>
                                 </div>
                                 <span class="text-xl font-semibold text-gray-200">Expert IT consultants in Hyderabad</span>
                             </li>
                             <li class="flex items-center">
-                                <div class="w-12 h-12 rounded-full border border-gray-700 flex items-center justify-center mr-5 shrink-0">
+                                <div class="w-12 h-12 rounded-full border border-gray-700 flex items-center justify-center mr-5 shrink-0 bg-white/5">
                                     <i class="fa-solid fa-users-viewfinder text-gray-300"></i>
                                 </div>
                                 <span class="text-xl font-semibold text-gray-200">USA IT staffing solutions</span>
                             </li>
                             <li class="flex items-center">
-                                <div class="w-12 h-12 rounded-full border border-gray-700 flex items-center justify-center mr-5 shrink-0">
+                                <div class="w-12 h-12 rounded-full border border-gray-700 flex items-center justify-center mr-5 shrink-0 bg-white/5">
                                     <i class="fa-solid fa-cloud text-gray-300"></i>
                                 </div>
                                 <span class="text-xl font-semibold text-gray-200">Cloud expertise in AWS & Azure</span>
@@ -314,9 +373,11 @@
             </div>
         </section>
 
-        <section id="contact" class="py-24 bg-white border-t border-brand-border">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <!-- CONTACT SECTION -->
+        <section id="contact" class="py-24 bg-white border-t border-brand-border relative">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
+                    <!-- Contact Info -->
                     <div>
                         <h2 class="text-xs font-bold tracking-widest text-brand-gray uppercase mb-4">Get In Touch</h2>
                         <h3 class="font-heading text-4xl md:text-5xl font-bold mb-6 text-brand-black">Let's Build the Future Together.</h3>
@@ -326,7 +387,7 @@
                         
                         <div class="space-y-8">
                             <div class="flex items-start">
-                                <div class="w-12 h-12 bg-brand-light flex items-center justify-center text-brand-black mr-4 shrink-0">
+                                <div class="w-12 h-12 bg-brand-light flex items-center justify-center text-brand-black mr-4 shrink-0 shadow-sm border border-gray-100">
                                     <i class="fa-solid fa-envelope" aria-hidden="true"></i>
                                 </div>
                                 <div>
@@ -335,7 +396,7 @@
                                 </div>
                             </div>
                             <div class="flex items-start">
-                                <div class="w-12 h-12 bg-brand-light flex items-center justify-center text-brand-black mr-4 shrink-0">
+                                <div class="w-12 h-12 bg-brand-light flex items-center justify-center text-brand-black mr-4 shrink-0 shadow-sm border border-gray-100">
                                     <i class="fa-solid fa-map-location-dot" aria-hidden="true"></i>
                                 </div>
                                 <div>
@@ -344,7 +405,7 @@
                                 </div>
                             </div>
                             <div class="flex items-start">
-                                <div class="w-12 h-12 bg-brand-light flex items-center justify-center text-brand-black mr-4 shrink-0">
+                                <div class="w-12 h-12 bg-brand-light flex items-center justify-center text-brand-black mr-4 shrink-0 shadow-sm border border-gray-100">
                                     <i class="fa-brands fa-linkedin" aria-hidden="true"></i>
                                 </div>
                                 <div>
@@ -355,25 +416,26 @@
                         </div>
                     </div>
                     
-                    <div class="bg-brand-light p-10 border border-brand-border">
+                    <!-- Contact Form -->
+                    <div class="bg-white p-10 border border-brand-border shadow-[0_20px_50px_rgba(0,0,0,0.05)]">
                         <form action="#" method="POST" class="space-y-6">
                             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                                 <div>
                                     <label for="firstName" class="block text-xs font-bold tracking-widest uppercase text-brand-gray mb-2">First Name</label>
-                                    <input type="text" id="firstName" name="firstName" class="w-full bg-white border border-gray-300 px-4 py-3 text-sm focus:outline-none focus:border-brand-black transition-colors" required>
+                                    <input type="text" id="firstName" name="firstName" class="w-full bg-brand-light border border-gray-200 px-4 py-3 text-sm focus:outline-none focus:border-brand-black transition-colors" required>
                                 </div>
                                 <div>
                                     <label for="lastName" class="block text-xs font-bold tracking-widest uppercase text-brand-gray mb-2">Last Name</label>
-                                    <input type="text" id="lastName" name="lastName" class="w-full bg-white border border-gray-300 px-4 py-3 text-sm focus:outline-none focus:border-brand-black transition-colors" required>
+                                    <input type="text" id="lastName" name="lastName" class="w-full bg-brand-light border border-gray-200 px-4 py-3 text-sm focus:outline-none focus:border-brand-black transition-colors" required>
                                 </div>
                             </div>
                             <div>
                                 <label for="email" class="block text-xs font-bold tracking-widest uppercase text-brand-gray mb-2">Email Address</label>
-                                <input type="email" id="email" name="email" class="w-full bg-white border border-gray-300 px-4 py-3 text-sm focus:outline-none focus:border-brand-black transition-colors" required>
+                                <input type="email" id="email" name="email" class="w-full bg-brand-light border border-gray-200 px-4 py-3 text-sm focus:outline-none focus:border-brand-black transition-colors" required>
                             </div>
                             <div>
                                 <label for="service" class="block text-xs font-bold tracking-widest uppercase text-brand-gray mb-2">Service of Interest</label>
-                                <select id="service" name="service" class="w-full bg-white border border-gray-300 px-4 py-3 text-sm focus:outline-none focus:border-brand-black transition-colors text-brand-gray">
+                                <select id="service" name="service" class="w-full bg-brand-light border border-gray-200 px-4 py-3 text-sm focus:outline-none focus:border-brand-black transition-colors text-brand-gray">
                                     <option>USA IT Consulting</option>
                                     <option>USA IT Staffing</option>
                                     <option>India IT Staffing</option>
@@ -383,7 +445,7 @@
                             </div>
                             <div>
                                 <label for="message" class="block text-xs font-bold tracking-widest uppercase text-brand-gray mb-2">Message</label>
-                                <textarea id="message" name="message" rows="4" class="w-full bg-white border border-gray-300 px-4 py-3 text-sm focus:outline-none focus:border-brand-black transition-colors" required></textarea>
+                                <textarea id="message" name="message" rows="4" class="w-full bg-brand-light border border-gray-200 px-4 py-3 text-sm focus:outline-none focus:border-brand-black transition-colors" required></textarea>
                             </div>
                             <button type="submit" class="w-full bg-brand-black text-white px-8 py-4 font-bold text-sm uppercase tracking-wider hover:bg-brand-gray transition-colors duration-300">
                                 Send Message
@@ -395,10 +457,12 @@
         </section>
     </main>
 
-    <footer class="bg-brand-black text-white pt-20 pb-10">
+    <!-- Premium Footer -->
+    <footer class="bg-brand-black text-white pt-20 pb-10 border-t border-gray-900">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 md:grid-cols-12 gap-12 mb-16">
                 
+                <!-- Footer Branding -->
                 <div class="md:col-span-5">
                     <a href="#" class="flex items-center gap-4 mb-6">
                         <img src="logo.png" alt="Cognisys Corporate Logo" class="h-16 w-auto brightness-0 invert opacity-90" onerror="this.onerror=null; this.src='https://via.placeholder.com/64x64/ffffff/0a0a0a?text=C';">
@@ -412,6 +476,7 @@
                     </p>
                 </div>
                 
+                <!-- Why Choose Us -->
                 <div class="md:col-span-3">
                     <h3 class="text-xs font-bold tracking-widest uppercase mb-6 text-white">Why Choose Us</h3>
                     <ul class="space-y-4 text-sm text-gray-400">
@@ -430,21 +495,25 @@
                     </ul>
                 </div>
 
+                <!-- Contact Details -->
                 <div class="md:col-span-4">
                     <h3 class="text-xs font-bold tracking-widest uppercase mb-6 text-white">Contact</h3>
                     <address class="not-italic space-y-6">
+                        <!-- Email -->
                         <div class="flex items-start">
                             <i class="fa-solid fa-envelope mt-1 mr-4 text-gray-500" aria-hidden="true"></i>
                             <div>
                                 <a href="mailto:support@congnisysitsolutions.com" class="text-sm font-medium text-gray-300 hover:text-white hover:underline">support@congnisysitsolutions.com</a>
                             </div>
                         </div>
+                        <!-- LinkedIn -->
                         <div class="flex items-start">
                             <i class="fa-brands fa-linkedin mt-1 mr-4 text-gray-500" aria-hidden="true"></i>
                             <div>
                                 <a href="https://www.linkedin.com/company/cognisys-soft-services" target="_blank" rel="noopener noreferrer" class="text-sm font-medium text-gray-300 hover:text-white hover:underline">Cognisys LinkedIn Profile</a>
                             </div>
                         </div>
+                        <!-- Location -->
                         <div class="flex items-start">
                             <i class="fa-solid fa-map-location-dot mt-1 mr-4 text-gray-500" aria-hidden="true"></i>
                             <div>
