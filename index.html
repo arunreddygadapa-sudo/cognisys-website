@@ -36,6 +36,7 @@
     <meta property="twitter:image" content="https://www.cognisysitsolutions.in/logo.png">
 
     <!-- JSON-LD Structured Data (Schema Markup for Google) -->
+    <!-- 1. Organization Schema -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -44,6 +45,16 @@
       "alternateName": "Cognisys Soft Services & IT Solutions",
       "url": "https://www.cognisysitsolutions.in",
       "logo": "https://www.cognisysitsolutions.in/logo.png"
+    }
+    </script>
+
+    <!-- 2. WebSite Schema (This specifically fixes the Google Search Site Name issue) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org/",
+      "@type": "WebSite",
+      "name": "Cognisys IT Solutions",
+      "url": "https://www.cognisysitsolutions.in/"
     }
     </script>
 
@@ -146,7 +157,7 @@
             
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                 <div class="max-w-4xl mx-auto text-center">
-                    <!-- Hero Top Line (Reverted to original) -->
+                    <!-- Hero Top Line (Original styling) -->
                     <div class="flex items-center justify-center gap-3 mb-8">
                         <span class="h-[1px] w-8 bg-brand-black"></span>
                         <span class="text-xs font-bold tracking-widest uppercase text-brand-gray bg-white/50 px-2 py-1 backdrop-blur-sm rounded">Global Talent & Technology Partner</span>
@@ -399,7 +410,7 @@
             </div>
         </section>
 
-        <!-- AWARDS & RECOGNITION SECTION -->
+        <!-- AWARDS & RECOGNITION SECTION (Clean style) -->
         <section id="awards" class="py-24 bg-brand-light border-t border-brand-border">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="mb-16 text-center max-w-3xl mx-auto">
@@ -519,6 +530,7 @@
     <!-- Premium Footer -->
     <footer class="bg-brand-black text-white pt-20 pb-10 border-t border-gray-900">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- 4 Column Layout -->
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 lg:gap-12 mb-16">
                 
                 <!-- Footer Branding (Col 1) -->
@@ -582,7 +594,7 @@
                     </address>
                 </div>
 
-                <!-- Recognition (Col 4) -->
+                <!-- Recognition (Col 4 - Centered Title & Larger Logo) -->
                 <div class="lg:col-span-2 flex flex-col items-start lg:items-center text-left lg:text-center">
                     <h3 class="text-xs font-bold tracking-widest uppercase mb-6 text-white w-full lg:text-center">Recognition</h3>
                     <a href="dpiit-certificate.pdf" target="_blank" title="View Certificate" class="inline-block transition-transform hover:scale-105">
