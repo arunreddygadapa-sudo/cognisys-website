@@ -26,10 +26,12 @@
         }
     </script>
     <style>
-        body { background-color: #f3f4f6; /* Light gray background like job portals */ }
+        body { background-color: #f3f4f6; }
         .glass-nav { background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(12px); }
         .premium-card { transition: all 0.3s ease; }
         .premium-card:hover { box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.1); border-color: #0a0a0a; }
+        .loader { border-top-color: #0a0a0a; -webkit-animation: spinner 1.5s linear infinite; animation: spinner 1.5s linear infinite; border-width: 3px; }
+        @keyframes spinner { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
     </style>
 </head>
 <body class="text-brand-dark font-sans antialiased">
@@ -40,13 +42,12 @@
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="flex justify-between items-center h-24">
                     <a href="index.html" class="flex-shrink-0 flex items-center gap-4 group">
-                        <img src="logo.png" alt="Cognisys Corporate Logo" class="h-20 w-auto object-contain transition-transform group-hover:scale-105">
+                        <img src="logo.png" alt="Cognisys Corporate Logo" class="h-20 w-auto object-contain transition-transform group-hover:scale-105" onerror="this.src='https://via.placeholder.com/80x80/0a0a0a/ffffff?text=C';">
                         <div class="flex flex-col">
                             <span class="font-heading font-extrabold text-2xl leading-tight text-brand-black tracking-tight">COGNISYS</span>
                             <span class="text-[0.7rem] font-bold uppercase tracking-widest text-brand-gray">Soft Services & IT Solutions</span>
                         </div>
                     </a>
-                    
                     <div class="hidden lg:flex space-x-8 items-center">
                         <a href="index.html#about" class="text-xs font-bold tracking-widest text-brand-gray hover:text-brand-black uppercase transition-colors">About</a>
                         <a href="index.html#services" class="text-xs font-bold tracking-widest text-brand-gray hover:text-brand-black uppercase transition-colors">Services</a>
@@ -59,7 +60,7 @@
         </nav>
     </header>
 
-    <main class="pt-32 pb-24">
+    <main class="pt-32 pb-24 min-h-screen">
         
         <!-- ==========================================
              VIEW 1: JOB LISTINGS (GRID)
@@ -71,6 +72,12 @@
                 <p class="text-lg text-brand-gray">We are always on the lookout for passionate innovators, elite engineers, and strategic thinkers to join our global team.</p>
             </div>
             
+            <!-- Loading Indicator -->
+            <div id="loadingIndicator" class="flex flex-col items-center justify-center py-20">
+                <div class="loader ease-linear rounded-full border-gray-200 h-12 w-12 mb-4"></div>
+                <p class="text-brand-gray font-medium tracking-wider text-sm uppercase">Loading Jobs...</p>
+            </div>
+
             <!-- Dynamic Job Grid injected by JavaScript -->
             <div id="dynamicJobGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <!-- Javascript will load jobs here -->
@@ -87,15 +94,15 @@
 
             <!-- Detailed Header Card -->
             <div class="bg-white p-8 border border-gray-200 rounded-lg shadow-sm mb-6 relative">
-                <!-- Company Logo Top Right -->
+                <!-- Dynamic Company Logo Top Right -->
                 <div class="absolute top-8 right-8 hidden sm:block">
-                    <div class="border border-gray-100 p-2 rounded flex items-center justify-center h-16 w-16 shadow-sm">
-                        <img src="logo.png" alt="Logo" class="max-w-full max-h-full object-contain">
+                    <div class="border border-gray-100 p-2 rounded flex items-center justify-center h-20 w-20 shadow-sm bg-white">
+                        <img id="detailLogo" src="logo.png" alt="Company Logo" class="max-w-full max-h-full object-contain" onerror="this.src='logo.png';">
                     </div>
                 </div>
 
-                <h1 id="detailTitle" class="font-heading text-2xl font-bold text-brand-black mb-1 pr-20">Job Title</h1>
-                <p class="text-sm text-brand-gray mb-4">Cognisys Soft Services & IT Solutions</p>
+                <h1 id="detailTitle" class="font-heading text-2xl font-bold text-brand-black mb-1 pr-24">Job Title</h1>
+                <p class="text-sm text-brand-gray mb-4">Cognisys Staffing Solutions</p>
                 
                 <div class="flex flex-wrap items-center gap-4 sm:gap-6 text-sm text-brand-gray mb-4">
                     <span class="flex items-center gap-2"><i class="fa-solid fa-briefcase text-gray-400"></i> <span id="detailExp">0-0 Yrs</span></span>
@@ -121,7 +128,6 @@
             <!-- Job Description Card -->
             <div class="bg-white p-8 border border-gray-200 rounded-lg shadow-sm">
                 
-                <!-- Highlights -->
                 <h3 class="font-bold text-brand-black mb-3">Job highlights</h3>
                 <ul id="detailHighlights" class="list-disc pl-5 space-y-2 text-sm text-brand-gray mb-8">
                     <!-- Javascript populates -->
@@ -132,7 +138,6 @@
                     <!-- Javascript populates -->
                 </div>
 
-                <!-- Technical Details Table -->
                 <div class="space-y-3 text-sm mb-8">
                     <div class="grid grid-cols-3 sm:grid-cols-4"><span class="font-medium text-brand-black col-span-1">Role:</span> <span id="detailRole" class="text-brand-gray col-span-2 sm:col-span-3">Role Name</span></div>
                     <div class="grid grid-cols-3 sm:grid-cols-4"><span class="font-medium text-brand-black col-span-1">Industry Type:</span> <span id="detailIndustry" class="text-brand-gray col-span-2 sm:col-span-3">IT Services</span></div>
@@ -140,11 +145,9 @@
                     <div class="grid grid-cols-3 sm:grid-cols-4"><span class="font-medium text-brand-black col-span-1">Employment Type:</span> <span id="detailEmpType" class="text-brand-gray col-span-2 sm:col-span-3">Full Time, Permanent</span></div>
                 </div>
 
-                <!-- Education -->
                 <h3 class="font-bold text-brand-black mb-2">Education</h3>
                 <p class="text-sm text-brand-gray mb-8"><span id="detailEducation">Any Graduate</span></p>
 
-                <!-- Key Skills (Chips) -->
                 <h3 class="font-bold text-brand-black mb-3">Key Skills</h3>
                 <div id="detailSkills" class="flex flex-wrap gap-2">
                     <!-- Javascript populates -->
@@ -235,125 +238,93 @@
     </main>
 
     <!-- ==========================================
-         JAVASCRIPT: JOB DATABASE & PAGE LOGIC
+         JAVASCRIPT: DYNAMIC DATA & LOGIC
     =========================================== -->
     <script>
-        // --- HOW TO POST A JOB ---
-        // Just copy an existing block below, change the ID (e.g., 'job4'), and update the text!
-        const jobs = {
-            'workday': {
-                id: 'workday',
-                title: 'Senior Workday Consultant',
-                experience: '4 - 8 years',
-                salary: 'Not Disclosed',
-                location: 'Hyderabad / Remote',
-                posted: '2 days ago',
-                openings: 2,
-                highlights: [
-                    'Architect and deploy Workday HCM solutions for global enterprise clients.',
-                    'Manage EIBs, Integrations, and calculated fields.',
-                    'Direct client-facing role requiring excellent communication.'
-                ],
-                description: 'We are seeking an experienced Workday HCM specialist to join our premium US consulting team.\n\nAs a Senior Consultant, you will be responsible for end-to-end implementations, security configurations, and advanced reporting. You will work directly with our US stakeholders to understand business requirements and translate them into robust Workday architecture.\n\nMust have a strong understanding of business process frameworks and tenant setup.',
-                role: 'Workday Consultant',
-                industry: 'IT Services & Consulting',
-                department: 'Enterprise Solutions',
-                empType: 'Full Time, Permanent',
-                education: 'B.Tech/B.E. in Any Specialization, MBA/PGDM is a plus',
-                skills: ['Workday HCM', 'EIB', 'Integrations', 'HRIS', 'Cloud Architecture', 'Calculated Fields']
-            },
-            'recruiter': {
-                id: 'recruiter',
-                title: 'US IT Recruiter',
-                experience: '2 - 5 years',
-                salary: '₹ 4,00,000 - 8,00,000 P.A.',
-                location: 'Hyderabad (Night Shift)',
-                posted: 'Just now',
-                openings: 5,
-                highlights: [
-                    'Fast-paced US staffing environment.',
-                    'Full-cycle technical recruitment (Sourcing to Onboarding).',
-                    'Working directly with US Vendors and VMS platforms.'
-                ],
-                description: 'Cognisys is expanding its US staffing operations! We need aggressive, results-driven US IT Recruiters to work the EST/PST night shifts.\n\nYou will be responsible for sourcing highly qualified IT professionals for contract, contract-to-hire, and full-time roles across the United States. Must be adept at Boolean searches and using platforms like Dice, Monster, and LinkedIn Recruiter.',
-                role: 'Technical Recruiter',
-                industry: 'Recruitment / Staffing',
-                department: 'Human Resources',
-                empType: 'Full Time, Permanent',
-                education: 'Any Graduate',
-                skills: ['US Staffing', 'W2', 'C2C', '1099', 'Dice', 'Monster', 'Boolean Search', 'IT Recruitment']
-            },
-            'java': {
-                id: 'java',
-                title: 'Java/Backend Developer',
-                experience: '3 - 6 years',
-                salary: 'Not Disclosed',
-                location: 'Hyderabad, India',
-                posted: '1 week ago',
-                openings: 3,
-                highlights: [
-                    'Develop scalable backend microservices using Java and Spring Boot.',
-                    'Work closely with onshore US technical architects.',
-                    'Cloud-native development on AWS / Azure.'
-                ],
-                description: 'Seeking a strong backend engineer with expertise in Java ecosystem to build and maintain high-performance enterprise applications.\n\nYou will be involved in the entire software development lifecycle, from system design to deployment. A deep understanding of RESTful APIs, database optimization (SQL/NoSQL), and cloud infrastructure is required.',
-                role: 'Backend Developer',
-                industry: 'IT Services & Consulting',
-                department: 'Engineering',
-                empType: 'Full Time, Permanent',
-                education: 'B.Tech/B.E. in Computer Science or IT',
-                skills: ['Java 11+', 'Spring Boot', 'Hibernate', 'Microservices', 'AWS', 'REST API', 'SQL']
-            }
-        };
-
-        // Render the Grid on page load
+        // --- PASTE YOUR GOOGLE SCRIPT WEB APP URL HERE ---
+        const WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbzKMZaggPNAiaSB9bulCjAeY5e-5mPzi43rNGSSox1VrmnkffoK3wBsPfQBnMfmS7pQeQ/exec';
+        
+        let allJobsData = [];
         const gridContainer = document.getElementById('dynamicJobGrid');
-        Object.values(jobs).forEach(job => {
-            gridContainer.innerHTML += `
-                <article class="bg-white p-8 border border-brand-border premium-card flex flex-col relative group cursor-pointer" onclick="showJobDetails('${job.id}')">
-                    <div class="absolute top-0 right-0 bg-brand-black text-white text-[0.65rem] font-bold px-3 py-1.5 uppercase tracking-widest">Full-Time</div>
-                    <h4 class="font-heading text-xl font-bold mb-2 text-brand-black pr-16 mt-4 group-hover:text-blue-600 transition-colors">${job.title}</h4>
-                    <div class="flex items-center gap-4 text-sm text-brand-gray mb-4">
-                        <span class="flex items-center gap-1"><i class="fa-solid fa-location-dot text-brand-black"></i> ${job.location}</span>
-                    </div>
-                    <p class="text-brand-gray text-sm leading-relaxed mb-8 flex-grow line-clamp-3">${job.description}</p>
-                    <div class="text-xs font-bold uppercase tracking-wider text-brand-black border-b border-brand-black inline-flex items-center w-max mt-auto pb-1 group-hover:text-blue-600 group-hover:border-blue-600 transition-colors">
-                        VIEW DETAILS & APPLY <i class="fa-solid fa-arrow-right ml-2 transform group-hover:translate-x-1 transition-transform"></i>
-                    </div>
-                </article>
-            `;
-        });
+        const loadingInd = document.getElementById('loadingIndicator');
+
+        // Fetch jobs from Google Sheets on Page Load
+        fetch(WEB_APP_URL)
+            .then(response => response.json())
+            .then(data => {
+                loadingInd.style.display = 'none'; // Hide loader
+                allJobsData = data;
+                
+                if(data.length === 0) {
+                    gridContainer.innerHTML = `<p class="text-center col-span-3 text-brand-gray py-10">No current openings available. Check back soon!</p>`;
+                    return;
+                }
+
+                data.forEach(job => {
+                    // Use custom logo from sheet, or fallback to default
+                    let logoImg = job.logoUrl && job.logoUrl.trim() !== '' ? job.logoUrl : 'logo.png';
+
+                    gridContainer.innerHTML += `
+                        <article class="bg-white p-8 border border-brand-border premium-card flex flex-col relative group cursor-pointer" onclick="showJobDetails('${job.id}')">
+                            <div class="absolute top-0 right-0 bg-brand-black text-white text-[0.65rem] font-bold px-3 py-1.5 uppercase tracking-widest">${job.empType || 'Full-Time'}</div>
+                            
+                            <div class="h-10 w-10 mb-4 flex items-center justify-start">
+                                <img src="${logoImg}" alt="Company Logo" class="max-w-full max-h-full object-contain grayscale group-hover:grayscale-0 transition-all duration-300" onerror="this.src='logo.png';">
+                            </div>
+
+                            <h4 class="font-heading text-xl font-bold mb-2 text-brand-black pr-16 group-hover:text-blue-600 transition-colors line-clamp-2">${job.title}</h4>
+                            <div class="flex items-center gap-4 text-sm text-brand-gray mb-4">
+                                <span class="flex items-center gap-1 line-clamp-1"><i class="fa-solid fa-location-dot text-brand-black"></i> ${job.location}</span>
+                            </div>
+                            <p class="text-brand-gray text-sm leading-relaxed mb-8 flex-grow line-clamp-3">${job.description}</p>
+                            <div class="text-xs font-bold uppercase tracking-wider text-brand-black border-b border-brand-black inline-flex items-center w-max mt-auto pb-1 group-hover:text-blue-600 group-hover:border-blue-600 transition-colors">
+                                VIEW DETAILS & APPLY <i class="fa-solid fa-arrow-right ml-2 transform group-hover:translate-x-1 transition-transform"></i>
+                            </div>
+                        </article>
+                    `;
+                });
+            })
+            .catch(error => {
+                loadingInd.innerHTML = `<p class="text-red-500 font-bold">Failed to load jobs. Please try refreshing the page.</p>`;
+                console.error("Error fetching jobs:", error);
+            });
 
         // Navigation Logic
         const viewList = document.getElementById('jobListView');
         const viewDetail = document.getElementById('jobDetailView');
         const viewForm = document.getElementById('applicationFormView');
-        let currentJobId = null;
+        let currentJobObj = null;
 
         function showJobDetails(jobId) {
-            currentJobId = jobId;
-            const job = jobs[jobId];
+            // Find the job in our data array
+            currentJobObj = allJobsData.find(j => j.id == jobId);
+            if(!currentJobObj) return;
             
             // Populate Details
-            document.getElementById('detailTitle').innerText = job.title;
-            document.getElementById('detailExp').innerText = job.experience;
-            document.getElementById('detailSalary').innerText = job.salary;
-            document.getElementById('detailLocation').innerText = job.location;
-            document.getElementById('detailPosted').innerText = job.posted;
-            document.getElementById('detailOpenings').innerText = job.openings;
-            document.getElementById('detailDescription').innerText = job.description;
-            document.getElementById('detailRole').innerText = job.role;
-            document.getElementById('detailIndustry').innerText = job.industry;
-            document.getElementById('detailDept').innerText = job.department;
-            document.getElementById('detailEmpType').innerText = job.empType;
-            document.getElementById('detailEducation').innerText = job.education;
+            document.getElementById('detailTitle').innerText = currentJobObj.title;
+            document.getElementById('detailExp').innerText = currentJobObj.experience;
+            document.getElementById('detailSalary').innerText = currentJobObj.salary;
+            document.getElementById('detailLocation').innerText = currentJobObj.location;
+            document.getElementById('detailPosted').innerText = currentJobObj.posted;
+            document.getElementById('detailOpenings').innerText = currentJobObj.openings;
+            document.getElementById('detailDescription').innerText = currentJobObj.description;
+            document.getElementById('detailRole').innerText = currentJobObj.role;
+            document.getElementById('detailIndustry').innerText = currentJobObj.industry;
+            document.getElementById('detailDept').innerText = currentJobObj.department;
+            document.getElementById('detailEmpType').innerText = currentJobObj.empType;
+            document.getElementById('detailEducation').innerText = currentJobObj.education;
 
-            // Populate Highlights
-            document.getElementById('detailHighlights').innerHTML = job.highlights.map(h => `<li>${h}</li>`).join('');
+            // Handle Dynamic Logo in Detail view
+            document.getElementById('detailLogo').src = currentJobObj.logoUrl && currentJobObj.logoUrl.trim() !== '' ? currentJobObj.logoUrl : 'logo.png';
+
+            // Populate Highlights (Split by '|')
+            let highlightsArr = currentJobObj.highlights ? currentJobObj.highlights.split('|') : [];
+            document.getElementById('detailHighlights').innerHTML = highlightsArr.map(h => `<li>${h.trim()}</li>`).join('');
             
-            // Populate Skill Chips
-            document.getElementById('detailSkills').innerHTML = job.skills.map(s => 
-                `<span class="border border-gray-300 text-gray-600 px-3 py-1 text-xs rounded-full bg-gray-50">${s}</span>`
+            // Populate Skill Chips (Split by ',')
+            let skillsArr = currentJobObj.skills ? currentJobObj.skills.split(',') : [];
+            document.getElementById('detailSkills').innerHTML = skillsArr.map(s => 
+                `<span class="border border-gray-300 text-gray-600 px-3 py-1 text-xs rounded-full bg-gray-50">${s.trim()}</span>`
             ).join('');
 
             // Switch Views
@@ -364,9 +335,8 @@
         }
 
         function showApplicationForm() {
-            const job = jobs[currentJobId];
-            document.getElementById('formJobTitleDisplay').innerText = `Applying for: ${job.title}`;
-            document.getElementById('hiddenJobTitle').value = job.title; // For Excel sheet
+            document.getElementById('formJobTitleDisplay').innerText = `Applying for: ${currentJobObj.title}`;
+            document.getElementById('hiddenJobTitle').value = currentJobObj.title; 
             
             viewDetail.classList.add('hidden');
             viewForm.classList.remove('hidden');
@@ -386,10 +356,7 @@
             window.scrollTo(0, 0);
         }
 
-        // ==========================================
-        // GOOGLE SHEETS FORM SUBMISSION
-        // ==========================================
-        const scriptURL = 'YOUR_GOOGLE_SCRIPT_URL_HERE'; // <--- PASTE YOUR SCRIPT URL HERE
+        // Form Submission
         const form = document.forms['googleSheetForm'];
         const btn = document.getElementById('submitBtn');
         const statusText = document.getElementById('formStatus');
@@ -399,7 +366,7 @@
             btn.innerText = "Submitting...";
             btn.disabled = true;
 
-            fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+            fetch(WEB_APP_URL, { method: 'POST', body: new FormData(form)})
                 .then(response => {
                     statusText.innerText = "Application submitted successfully! Our HR team will contact you.";
                     statusText.className = "text-sm font-bold text-center mt-4 text-green-600 block";
@@ -408,7 +375,7 @@
                     btn.disabled = false;
                 })
                 .catch(error => {
-                    statusText.innerText = "Error submitting application. Please ensure your script URL is correct.";
+                    statusText.innerText = "Error submitting application. Please try again.";
                     statusText.className = "text-sm font-bold text-center mt-4 text-red-600 block";
                     btn.innerText = "Submit Application";
                     btn.disabled = false;
