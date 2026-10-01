@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>In-House Projects | Cognisys IT Solutions</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Inter', 'sans-serif'], heading: ['Plus Jakarta Sans', 'sans-serif'] },
+                    colors: { brand: { dark: '#0B1120', card: '#151e32', copper: '#b87333', gray: '#94a3b8' } }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { background-color: #0B1120; color: #f8fafc; }
+        .glass-nav { background: rgba(11, 17, 32, 0.85); backdrop-filter: blur(16px); border-bottom: 1px solid rgba(255,255,255,0.05); }
+        .glass-card { background: rgba(21, 30, 50, 0.6); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.05); }
+    </style>
+</head>
+<body class="font-sans antialiased">
+
+    <!-- Premium Navigation -->
+    <header class="fixed top-0 left-0 right-0 z-50 glass-nav">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-24">
+                <a href="index.html" class="flex items-center gap-4">
+                    <div class="bg-white p-1.5 rounded-lg shadow-lg"><img src="logo.png" alt="Cognisys Logo" class="h-12 w-auto object-contain" onerror="this.src='https://via.placeholder.com/64x64/0f172a/b87333?text=C';"></div>
+                    <div class="flex flex-col">
+                        <span class="font-heading font-extrabold text-2xl tracking-tight text-white leading-none">COGNISYS</span>
+                        <span class="text-[0.65rem] font-bold uppercase tracking-widest text-brand-copper mt-1">Soft Services & IT Solutions</span>
+                    </div>
+                </a>
+                <div class="flex items-center gap-6">
+                    <a href="index.html#contact" class="hidden sm:inline-flex items-center justify-center bg-brand-copper text-white px-6 py-3 rounded-md text-xs font-bold uppercase tracking-widest hover:bg-[#9e622b] transition-colors">Contact Us</a>
+                    <button id="menuToggleBtn" class="flex flex-col items-center justify-center w-12 h-12 bg-white/5 rounded-md border border-white/10 text-white"><i class="fa-solid fa-bars text-xl"></i></button>
+                </div>
+                <!-- Dropdown -->
+                <div id="dropdownMenu" class="absolute top-24 right-4 sm:right-8 w-64 bg-brand-card border border-white/10 shadow-2xl rounded-lg hidden flex-col z-40 backdrop-blur-xl">
+                    <a href="index.html" class="px-6 py-4 text-sm font-semibold text-gray-200 border-b border-white/5 hover:text-brand-copper">Home</a>
+                    <a href="about.html" class="px-6 py-4 text-sm font-semibold text-gray-200 border-b border-white/5 hover:text-brand-copper">Who We Are</a>
+                    <a href="innovations.html" class="px-6 py-4 text-sm font-semibold text-brand-copper border-b border-white/5 bg-white/5">In-House Projects</a>
+                    <a href="careers.html" class="px-6 py-4 text-sm font-semibold text-gray-200 hover:text-brand-copper flex justify-between items-center">Careers <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="pt-40 pb-24">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center mb-20">
+            <span class="inline-block px-3 py-1 bg-white/5 border border-white/10 rounded text-xs font-extrabold tracking-widest text-brand-copper uppercase mb-4">Cognisys Labs</span>
+            <h1 class="font-heading text-5xl font-bold text-white mb-6">Our Proprietary Ecosystems</h1>
+            <p class="text-xl text-brand-gray leading-relaxed">At Cognisys, we don't just build for clients; we incubate our own IP. Explore the architecture and vision behind our 2 major in-house projects currently scaling in the market.</p>
+        </div>
+
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 space-y-24">
+            
+            <!-- Project 1: Bitee -->
+            <div class="glass-card rounded-2xl overflow-hidden border-t-4 border-t-emerald-500">
+                <div class="grid grid-cols-1 lg:grid-cols-2">
+                    <div class="p-10 lg:p-14">
+                        <div class="inline-block bg-emerald-500/20 text-emerald-400 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-widest mb-6 border border-emerald-500/30">Live Platform</div>
+                        
+                        <div class="mb-6 bg-white p-2 rounded-lg inline-block shadow-lg">
+                            <img src="bitee-logo.png" alt="Bitee Logo" class="h-16 w-16 object-contain" onerror="this.src='https://via.placeholder.com/64x64/ffffff/0a0a0a?text=B';">
+                        </div>
+                        
+                        <h2 class="text-4xl font-heading font-bold text-white mb-4">Bitee Ecosystem</h2>
+                        <p class="text-brand-gray leading-relaxed mb-6">Bitee is a sophisticated digital commerce platform engineered specifically to handle high-throughput transactions in emerging markets. It is designed with a clean, brown-and-white minimalist aesthetic that prioritizes user flow and operational efficiency.</p>
+                        
+                        <h4 class="text-white font-bold mb-3 uppercase tracking-widest text-xs">Technical Highlights</h4>
+                        <ul class="space-y-3 text-sm text-gray-300 mb-8">
+                            <li><i class="fa-solid fa-server text-brand-copper w-6"></i> Scalable Cloud Architecture</li>
+                            <li><i class="fa-solid fa-network-wired text-brand-copper w-6"></i> Advanced Domain Configurations</li>
+                            <li><i class="fa-solid fa-mobile-screen text-brand-copper w-6"></i> Cross-Platform Mobile Accessibility</li>
+                        </ul>
+                        
+                        <a href="https://bitee.in" target="_blank" class="bg-brand-copper text-white px-8 py-3 rounded text-sm font-bold uppercase tracking-wider hover:bg-brand-copperHover transition-colors inline-block">Visit Bitee.in</a>
+                    </div>
+                    <div class="bg-[#0f172a] p-10 flex items-center justify-center border-l border-white/5">
+                        <div class="text-center text-brand-gray">
+                            <i class="fa-solid fa-mug-hot text-8xl text-brand-copper/30 mb-6"></i>
+                            <p class="text-sm font-bold uppercase tracking-widest">Consumer Web Portal</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 2: Connect -->
+            <div class="glass-card rounded-2xl overflow-hidden border-t-4 border-t-blue-500">
+                <div class="grid grid-cols-1 lg:grid-cols-2">
+                    <div class="bg-[#0f172a] p-10 flex items-center justify-center border-r border-white/5 order-2 lg:order-1">
+                        <div class="text-center text-brand-gray">
+                            <i class="fa-solid fa-car-side text-8xl text-brand-copper/30 mb-6"></i>
+                            <p class="text-sm font-bold uppercase tracking-widest">Mobility & Ride-Hailing</p>
+                        </div>
+                    </div>
+                    <div class="p-10 lg:p-14 order-1 lg:order-2">
+                        <div class="inline-block bg-blue-500/20 text-blue-400 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-widest mb-6 border border-blue-500/30">In Development (Beta)</div>
+                        
+                        <h2 class="text-4xl font-heading font-bold text-white mb-4">Connect App</h2>
+                        <p class="text-brand-gray leading-relaxed mb-6">Connect is our ambitious leap into the mobility sector. It is a next-generation ride-hailing application platform featuring uniquely optimized, highly scalable architectures. We are building it from the ground up to eliminate lag, enhance route precision, and provide a superior UX for both drivers and passengers.</p>
+                        
+                        <h4 class="text-white font-bold mb-3 uppercase tracking-widest text-xs">Technical Highlights</h4>
+                        <ul class="space-y-3 text-sm text-gray-300 mb-8">
+                            <li><i class="fa-solid fa-map-location-dot text-brand-copper w-6"></i> Real-Time Geospatial Tracking</li>
+                            <li><i class="fa-solid fa-users text-brand-copper w-6"></i> Dual-Sided UI (Driver & Passenger)</li>
+                            <li><i class="fa-solid fa-bolt text-brand-copper w-6"></i> Low-Latency Microservices Backend</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-brand-dark pt-12 pb-8 border-t border-white/10 mt-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row justify-between items-center gap-6">
+            <img src="logo.png" alt="Cognisys Logo" class="h-10 bg-white p-1 rounded" onerror="this.src='https://via.placeholder.com/64x64/ffffff/0a0a0a?text=C';">
+            <a href="dpiit-certificate.pdf" target="_blank" class="bg-white p-2 rounded-lg"><img src="startup-india-logo.png" alt="DPIIT" class="h-8" onerror="this.src='https://via.placeholder.com/150x40/0a0a0a/ffffff?text=Startup+India';"></a>
+            <p class="text-xs text-brand-gray">&copy; 2026 Cognisys Soft Services.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('menuToggleBtn').addEventListener('click', () => { document.getElementById('dropdownMenu').classList.toggle('hidden'); document.getElementById('dropdownMenu').classList.toggle('flex'); });
+    </script>
+</body>
+</html>
