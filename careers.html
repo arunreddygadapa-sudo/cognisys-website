@@ -26,14 +26,10 @@
         }
     </script>
     <style>
-        body { background-color: #fcfcfc; }
+        body { background-color: #f3f4f6; /* Light gray background like job portals */ }
         .glass-nav { background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(12px); }
         .premium-card { transition: all 0.3s ease; }
-        .premium-card:hover { transform: translateY(-4px); box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.1); border-color: #0a0a0a; }
-        
-        /* Modal Background */
-        #jobModal { transition: opacity 0.3s ease; }
-        .modal-content { transition: transform 0.3s ease; }
+        .premium-card:hover { box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.1); border-color: #0a0a0a; }
     </style>
 </head>
 <body class="text-brand-dark font-sans antialiased">
@@ -64,178 +60,336 @@
     </header>
 
     <main class="pt-32 pb-24">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <!-- ==========================================
+             VIEW 1: JOB LISTINGS (GRID)
+        =========================================== -->
+        <div id="jobListView" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 block">
             <div class="mb-16 text-center max-w-3xl mx-auto mt-10">
                 <h2 class="text-xs font-bold tracking-widest text-brand-gray uppercase mb-4">Join Our Team</h2>
                 <h1 class="font-heading text-4xl md:text-6xl font-bold text-brand-black mb-6">Current Openings</h1>
                 <p class="text-lg text-brand-gray">We are always on the lookout for passionate innovators, elite engineers, and strategic thinkers to join our global team.</p>
             </div>
             
-            <!-- Job List Grid -->
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                
-                <!-- Job 1 -->
-                <article class="bg-white p-8 border border-brand-border premium-card flex flex-col relative cursor-pointer" onclick="openJobModal('workday')">
-                    <div class="absolute top-0 right-0 bg-brand-black text-white text-[0.65rem] font-bold px-3 py-1.5 uppercase tracking-widest">Full-Time</div>
-                    <h4 class="font-heading text-xl font-bold mb-2 text-brand-black pr-16 mt-4">Senior Workday Consultant</h4>
-                    <div class="flex items-center gap-4 text-sm text-brand-gray mb-6">
-                        <span class="flex items-center gap-1"><i class="fa-solid fa-location-dot text-brand-black"></i> Hyderabad / Remote</span>
-                    </div>
-                    <p class="text-brand-gray text-sm leading-relaxed mb-8 flex-grow">Looking for an experienced Workday HCM specialist to architect and deploy enterprise HRIS solutions for our global clients.</p>
-                    <button class="text-xs font-bold uppercase tracking-wider text-brand-black border-b border-brand-black inline-flex items-center w-max mt-auto pb-1 hover:text-gray-500">
-                        View Details & Apply <i class="fa-solid fa-arrow-right ml-2"></i>
-                    </button>
-                </article>
-
-                <!-- Job 2 -->
-                <article class="bg-white p-8 border border-brand-border premium-card flex flex-col relative cursor-pointer" onclick="openJobModal('recruiter')">
-                    <div class="absolute top-0 right-0 bg-brand-black text-white text-[0.65rem] font-bold px-3 py-1.5 uppercase tracking-widest">Full-Time</div>
-                    <h4 class="font-heading text-xl font-bold mb-2 text-brand-black pr-16 mt-4">US IT Recruiter</h4>
-                    <div class="flex items-center gap-4 text-sm text-brand-gray mb-6">
-                        <span class="flex items-center gap-1"><i class="fa-solid fa-location-dot text-brand-black"></i> Hyderabad (Night Shift)</span>
-                    </div>
-                    <p class="text-brand-gray text-sm leading-relaxed mb-8 flex-grow">Join our fast-paced US staffing team. Must have experience in full-cycle technical recruitment and working directly with vendors or VMS.</p>
-                    <button class="text-xs font-bold uppercase tracking-wider text-brand-black border-b border-brand-black inline-flex items-center w-max mt-auto pb-1 hover:text-gray-500">
-                        View Details & Apply <i class="fa-solid fa-arrow-right ml-2"></i>
-                    </button>
-                </article>
-
-                <!-- Job 3 -->
-                <article class="bg-white p-8 border border-brand-border premium-card flex flex-col relative cursor-pointer" onclick="openJobModal('java')">
-                    <div class="absolute top-0 right-0 bg-brand-black text-white text-[0.65rem] font-bold px-3 py-1.5 uppercase tracking-widest">Full-Time</div>
-                    <h4 class="font-heading text-xl font-bold mb-2 text-brand-black pr-16 mt-4">Java/Backend Developer</h4>
-                    <div class="flex items-center gap-4 text-sm text-brand-gray mb-6">
-                        <span class="flex items-center gap-1"><i class="fa-solid fa-location-dot text-brand-black"></i> Hyderabad, India</span>
-                    </div>
-                    <p class="text-brand-gray text-sm leading-relaxed mb-8 flex-grow">Seeking a strong backend engineer with expertise in Java, Spring Boot, and scalable architecture for enterprise applications.</p>
-                    <button class="text-xs font-bold uppercase tracking-wider text-brand-black border-b border-brand-black inline-flex items-center w-max mt-auto pb-1 hover:text-gray-500">
-                        View Details & Apply <i class="fa-solid fa-arrow-right ml-2"></i>
-                    </button>
-                </article>
-
+            <!-- Dynamic Job Grid injected by JavaScript -->
+            <div id="dynamicJobGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Javascript will load jobs here -->
             </div>
         </div>
-    </main>
 
-    <!-- Modal for Job Details & Form -->
-    <div id="jobModal" class="fixed inset-0 z-[100] hidden items-center justify-center bg-black/60 backdrop-blur-sm p-4 opacity-0 pointer-events-none">
-        <div class="modal-content bg-white w-full max-w-4xl max-h-[90vh] overflow-y-auto border border-gray-200 shadow-2xl flex flex-col md:flex-row transform scale-95">
-            
-            <!-- Left Side: Job Details -->
-            <div class="w-full md:w-1/2 p-8 md:p-10 bg-brand-light border-b md:border-b-0 md:border-r border-brand-border">
-                <img src="logo.png" alt="Cognisys Logo" class="h-16 w-auto mb-8 object-contain">
-                
-                <h3 id="modalJobTitle" class="font-heading text-3xl font-bold text-brand-black mb-6">Job Title</h3>
-                
-                <div class="flex flex-wrap gap-3 mb-8">
-                    <span class="bg-white border border-gray-200 px-3 py-1 text-xs font-bold uppercase tracking-widest text-brand-black rounded flex items-center gap-2"><i class="fa-solid fa-users text-brand-gray"></i> <span id="modalPositions">2 Positions</span></span>
-                    <span class="bg-white border border-gray-200 px-3 py-1 text-xs font-bold uppercase tracking-widest text-brand-black rounded flex items-center gap-2"><i class="fa-solid fa-location-dot text-brand-gray"></i> <span id="modalLocation">Hyderabad</span></span>
-                    <span class="bg-brand-black border border-brand-black px-3 py-1 text-xs font-bold uppercase tracking-widest text-white rounded"><span id="modalType">Full-Time</span></span>
+        <!-- ==========================================
+             VIEW 2: DETAILED JOB PAGE
+        =========================================== -->
+        <div id="jobDetailView" class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 hidden mt-8">
+            <button onclick="showListView()" class="text-brand-gray hover:text-brand-black text-sm font-bold uppercase tracking-widest mb-6 inline-flex items-center">
+                <i class="fa-solid fa-arrow-left mr-2"></i> Back to Jobs
+            </button>
+
+            <!-- Detailed Header Card -->
+            <div class="bg-white p-8 border border-gray-200 rounded-lg shadow-sm mb-6 relative">
+                <!-- Company Logo Top Right -->
+                <div class="absolute top-8 right-8 hidden sm:block">
+                    <div class="border border-gray-100 p-2 rounded flex items-center justify-center h-16 w-16 shadow-sm">
+                        <img src="logo.png" alt="Logo" class="max-w-full max-h-full object-contain">
+                    </div>
                 </div>
 
-                <div class="prose prose-sm text-brand-gray leading-relaxed">
-                    <h4 class="font-bold text-brand-black mb-2 uppercase tracking-widest text-xs">Job Description</h4>
-                    <p id="modalDescription" class="mb-6">Description goes here...</p>
-                    
-                    <h4 class="font-bold text-brand-black mb-2 uppercase tracking-widest text-xs">Requirements</h4>
-                    <ul id="modalRequirements" class="list-disc pl-4 space-y-2">
-                        <li>Requirement 1</li>
-                        <li>Requirement 2</li>
-                    </ul>
+                <h1 id="detailTitle" class="font-heading text-2xl font-bold text-brand-black mb-1 pr-20">Job Title</h1>
+                <p class="text-sm text-brand-gray mb-4">Cognisys Soft Services & IT Solutions</p>
+                
+                <div class="flex flex-wrap items-center gap-4 sm:gap-6 text-sm text-brand-gray mb-4">
+                    <span class="flex items-center gap-2"><i class="fa-solid fa-briefcase text-gray-400"></i> <span id="detailExp">0-0 Yrs</span></span>
+                    <span class="text-gray-300">|</span>
+                    <span class="flex items-center gap-2"><i class="fa-solid fa-wallet text-gray-400"></i> <span id="detailSalary">Not Disclosed</span></span>
+                </div>
+                <div class="flex items-center gap-2 text-sm text-brand-gray mb-6 border-b border-gray-100 pb-6">
+                    <i class="fa-solid fa-location-dot text-gray-400"></i> <span id="detailLocation">Location</span>
+                </div>
+
+                <div class="flex flex-wrap justify-between items-center text-xs text-gray-500">
+                    <div>
+                        <span>Posted: <strong id="detailPosted" class="text-brand-black">Today</strong></span>
+                        <span class="mx-2">|</span>
+                        <span>Openings: <strong id="detailOpenings" class="text-brand-black">1</strong></span>
+                    </div>
+                    <button onclick="showApplicationForm()" class="bg-blue-600 text-white px-8 py-2.5 rounded-full font-bold hover:bg-blue-700 transition-colors mt-4 sm:mt-0 shadow-md">
+                        Apply Now
+                    </button>
                 </div>
             </div>
 
-            <!-- Right Side: Application Form -->
-            <div class="w-full md:w-1/2 p-8 md:p-10 bg-white relative">
-                <button onclick="closeJobModal()" class="absolute top-6 right-6 text-brand-gray hover:text-brand-black text-xl"><i class="fa-solid fa-xmark"></i></button>
+            <!-- Job Description Card -->
+            <div class="bg-white p-8 border border-gray-200 rounded-lg shadow-sm">
                 
-                <h4 class="font-heading text-2xl font-bold text-brand-black mb-2">Apply Now</h4>
-                <p class="text-xs text-brand-gray uppercase tracking-widest mb-8 font-bold">Your details will be sent directly to our HR team.</p>
+                <!-- Highlights -->
+                <h3 class="font-bold text-brand-black mb-3">Job highlights</h3>
+                <ul id="detailHighlights" class="list-disc pl-5 space-y-2 text-sm text-brand-gray mb-8">
+                    <!-- Javascript populates -->
+                </ul>
 
-                <!-- THE GOOGLE SHEETS FORM -->
-                <form id="googleSheetForm" name="googleSheetForm" class="space-y-5">
-                    <!-- Hidden field to pass job title to Excel sheet automatically -->
-                    <input type="hidden" id="formJobTitle" name="jobTitle" value="">
+                <h3 class="font-bold text-brand-black mb-3 border-t border-gray-100 pt-8">Job description</h3>
+                <div id="detailDescription" class="text-sm text-brand-gray leading-relaxed space-y-4 mb-8 whitespace-pre-line">
+                    <!-- Javascript populates -->
+                </div>
+
+                <!-- Technical Details Table -->
+                <div class="space-y-3 text-sm mb-8">
+                    <div class="grid grid-cols-3 sm:grid-cols-4"><span class="font-medium text-brand-black col-span-1">Role:</span> <span id="detailRole" class="text-brand-gray col-span-2 sm:col-span-3">Role Name</span></div>
+                    <div class="grid grid-cols-3 sm:grid-cols-4"><span class="font-medium text-brand-black col-span-1">Industry Type:</span> <span id="detailIndustry" class="text-brand-gray col-span-2 sm:col-span-3">IT Services</span></div>
+                    <div class="grid grid-cols-3 sm:grid-cols-4"><span class="font-medium text-brand-black col-span-1">Department:</span> <span id="detailDept" class="text-brand-gray col-span-2 sm:col-span-3">Dept Name</span></div>
+                    <div class="grid grid-cols-3 sm:grid-cols-4"><span class="font-medium text-brand-black col-span-1">Employment Type:</span> <span id="detailEmpType" class="text-brand-gray col-span-2 sm:col-span-3">Full Time, Permanent</span></div>
+                </div>
+
+                <!-- Education -->
+                <h3 class="font-bold text-brand-black mb-2">Education</h3>
+                <p class="text-sm text-brand-gray mb-8"><span id="detailEducation">Any Graduate</span></p>
+
+                <!-- Key Skills (Chips) -->
+                <h3 class="font-bold text-brand-black mb-3">Key Skills</h3>
+                <div id="detailSkills" class="flex flex-wrap gap-2">
+                    <!-- Javascript populates -->
+                </div>
+            </div>
+        </div>
+
+        <!-- ==========================================
+             VIEW 3: APPLICATION FORM
+        =========================================== -->
+        <div id="applicationFormView" class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 hidden mt-8">
+            <button onclick="backToDetail()" class="text-brand-gray hover:text-brand-black text-sm font-bold uppercase tracking-widest mb-6 inline-flex items-center">
+                <i class="fa-solid fa-arrow-left mr-2"></i> Back to Job Details
+            </button>
+
+            <div class="bg-white p-8 md:p-10 border border-brand-border shadow-lg">
+                <h2 class="font-heading text-3xl font-bold text-brand-black mb-2">Submit Your Application</h2>
+                <p id="formJobTitleDisplay" class="text-sm text-brand-gray mb-8 font-medium bg-gray-100 inline-block px-3 py-1 rounded">Applying for: </p>
+
+                <!-- EXTENDED GOOGLE SHEETS FORM -->
+                <form id="googleSheetForm" name="googleSheetForm" class="space-y-6">
+                    <input type="hidden" id="hiddenJobTitle" name="jobTitle" value="">
                     
-                    <div>
-                        <label class="block text-xs font-bold tracking-widest uppercase text-brand-gray mb-2">Full Name *</label>
-                        <input type="text" name="fullName" class="w-full bg-brand-light border border-gray-200 px-4 py-3 text-sm focus:outline-none focus:border-brand-black" required>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-xs font-bold tracking-widest uppercase text-brand-gray mb-2">Full Name *</label>
+                            <input type="text" name="fullName" class="w-full bg-brand-light border border-gray-200 px-4 py-3 text-sm focus:border-brand-black outline-none" required>
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold tracking-widest uppercase text-brand-gray mb-2">Email Address *</label>
+                            <input type="email" name="email" class="w-full bg-brand-light border border-gray-200 px-4 py-3 text-sm focus:border-brand-black outline-none" required>
+                        </div>
                     </div>
-                    <div>
-                        <label class="block text-xs font-bold tracking-widest uppercase text-brand-gray mb-2">Email Address *</label>
-                        <input type="email" name="email" class="w-full bg-brand-light border border-gray-200 px-4 py-3 text-sm focus:outline-none focus:border-brand-black" required>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-xs font-bold tracking-widest uppercase text-brand-gray mb-2">Phone Number *</label>
+                            <input type="tel" name="phone" class="w-full bg-brand-light border border-gray-200 px-4 py-3 text-sm focus:border-brand-black outline-none" required>
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold tracking-widest uppercase text-brand-gray mb-2">Total Experience *</label>
+                            <select name="experience" class="w-full bg-brand-light border border-gray-200 px-4 py-3 text-sm focus:border-brand-black outline-none text-brand-gray" required>
+                                <option value="">Select Experience</option>
+                                <option value="Fresher (0 Years)">Fresher (0 Years)</option>
+                                <option value="1-3 Years">1-3 Years</option>
+                                <option value="3-5 Years">3-5 Years</option>
+                                <option value="5-8 Years">5-8 Years</option>
+                                <option value="8+ Years">8+ Years</option>
+                            </select>
+                        </div>
                     </div>
-                    <div>
-                        <label class="block text-xs font-bold tracking-widest uppercase text-brand-gray mb-2">Phone Number *</label>
-                        <input type="tel" name="phone" class="w-full bg-brand-light border border-gray-200 px-4 py-3 text-sm focus:outline-none focus:border-brand-black" required>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-xs font-bold tracking-widest uppercase text-brand-gray mb-2">Current Location *</label>
+                            <input type="text" name="location" class="w-full bg-brand-light border border-gray-200 px-4 py-3 text-sm focus:border-brand-black outline-none" required>
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold tracking-widest uppercase text-brand-gray mb-2">Notice Period</label>
+                            <select name="noticePeriod" class="w-full bg-brand-light border border-gray-200 px-4 py-3 text-sm focus:border-brand-black outline-none text-brand-gray">
+                                <option value="Immediate">Immediate</option>
+                                <option value="15 Days">15 Days</option>
+                                <option value="30 Days">30 Days</option>
+                                <option value="60 Days">60 Days</option>
+                                <option value="90 Days">90 Days</option>
+                            </select>
+                        </div>
                     </div>
+
                     <div>
-                        <label class="block text-xs font-bold tracking-widest uppercase text-brand-gray mb-2">Link to Resume (Drive / LinkedIn) *</label>
-                        <input type="url" name="resumeLink" placeholder="https://" class="w-full bg-brand-light border border-gray-200 px-4 py-3 text-sm focus:outline-none focus:border-brand-black" required>
+                        <label class="block text-xs font-bold tracking-widest uppercase text-brand-gray mb-2">Link to Resume (Google Drive / DropBox) *</label>
+                        <input type="url" name="resumeLink" placeholder="Make sure the link is public/viewable" class="w-full bg-brand-light border border-gray-200 px-4 py-3 text-sm focus:border-brand-black outline-none" required>
                     </div>
-                    
-                    <button type="submit" id="submitBtn" class="w-full bg-brand-black text-white px-8 py-4 font-bold text-sm uppercase tracking-wider hover:bg-brand-gray transition-colors mt-4">
+
+                    <div>
+                        <label class="block text-xs font-bold tracking-widest uppercase text-brand-gray mb-2">LinkedIn Profile URL</label>
+                        <input type="url" name="linkedin" placeholder="https://linkedin.com/in/..." class="w-full bg-brand-light border border-gray-200 px-4 py-3 text-sm focus:border-brand-black outline-none">
+                    </div>
+
+                    <button type="submit" id="submitBtn" class="w-full bg-blue-600 text-white px-8 py-4 font-bold text-sm uppercase tracking-wider hover:bg-blue-700 transition-colors shadow-md rounded mt-4">
                         Submit Application
                     </button>
                     <p id="formStatus" class="text-sm font-bold text-center mt-4 hidden"></p>
                 </form>
             </div>
         </div>
-    </div>
 
-    <!-- Job Data & Modal Logic -->
+    </main>
+
+    <!-- ==========================================
+         JAVASCRIPT: JOB DATABASE & PAGE LOGIC
+    =========================================== -->
     <script>
+        // --- HOW TO POST A JOB ---
+        // Just copy an existing block below, change the ID (e.g., 'job4'), and update the text!
         const jobs = {
             'workday': {
-                title: 'Senior Workday Consultant', positions: '2 Openings', location: 'Hyderabad / Remote', type: 'Full-Time',
-                desc: 'Looking for an experienced Workday HCM specialist to architect and deploy enterprise HRIS solutions for our global clients. You will handle integrations, security configurations, and core HCM implementations.',
-                reqs: ['4+ years of Workday HCM experience', 'Strong knowledge of EIBs and Integrations', 'Excellent client-facing communication skills']
+                id: 'workday',
+                title: 'Senior Workday Consultant',
+                experience: '4 - 8 years',
+                salary: 'Not Disclosed',
+                location: 'Hyderabad / Remote',
+                posted: '2 days ago',
+                openings: 2,
+                highlights: [
+                    'Architect and deploy Workday HCM solutions for global enterprise clients.',
+                    'Manage EIBs, Integrations, and calculated fields.',
+                    'Direct client-facing role requiring excellent communication.'
+                ],
+                description: 'We are seeking an experienced Workday HCM specialist to join our premium US consulting team.\n\nAs a Senior Consultant, you will be responsible for end-to-end implementations, security configurations, and advanced reporting. You will work directly with our US stakeholders to understand business requirements and translate them into robust Workday architecture.\n\nMust have a strong understanding of business process frameworks and tenant setup.',
+                role: 'Workday Consultant',
+                industry: 'IT Services & Consulting',
+                department: 'Enterprise Solutions',
+                empType: 'Full Time, Permanent',
+                education: 'B.Tech/B.E. in Any Specialization, MBA/PGDM is a plus',
+                skills: ['Workday HCM', 'EIB', 'Integrations', 'HRIS', 'Cloud Architecture', 'Calculated Fields']
             },
             'recruiter': {
-                title: 'US IT Recruiter', positions: '5 Openings', location: 'Hyderabad (Night Shift)', type: 'Full-Time',
-                desc: 'Join our fast-paced US staffing team. You will be responsible for sourcing, screening, and deploying highly qualified IT professionals to meet immediate project demands across the United States.',
-                reqs: ['Experience with US Tax Terms (W2, C2C, 1099)', 'Familiarity with Dice, Monster, and LinkedIn Recruiter', 'Willingness to work EST/PST night shifts']
+                id: 'recruiter',
+                title: 'US IT Recruiter',
+                experience: '2 - 5 years',
+                salary: '₹ 4,00,000 - 8,00,000 P.A.',
+                location: 'Hyderabad (Night Shift)',
+                posted: 'Just now',
+                openings: 5,
+                highlights: [
+                    'Fast-paced US staffing environment.',
+                    'Full-cycle technical recruitment (Sourcing to Onboarding).',
+                    'Working directly with US Vendors and VMS platforms.'
+                ],
+                description: 'Cognisys is expanding its US staffing operations! We need aggressive, results-driven US IT Recruiters to work the EST/PST night shifts.\n\nYou will be responsible for sourcing highly qualified IT professionals for contract, contract-to-hire, and full-time roles across the United States. Must be adept at Boolean searches and using platforms like Dice, Monster, and LinkedIn Recruiter.',
+                role: 'Technical Recruiter',
+                industry: 'Recruitment / Staffing',
+                department: 'Human Resources',
+                empType: 'Full Time, Permanent',
+                education: 'Any Graduate',
+                skills: ['US Staffing', 'W2', 'C2C', '1099', 'Dice', 'Monster', 'Boolean Search', 'IT Recruitment']
             },
             'java': {
-                title: 'Java/Backend Developer', positions: '3 Openings', location: 'Hyderabad, India', type: 'Full-Time',
-                desc: 'Seeking a strong backend engineer with expertise in Java, Spring Boot, and scalable architecture for enterprise applications. You will work closely with onshore teams to deliver high-performance microservices.',
-                reqs: ['Proficient in Java 11+, Spring Boot, Hibernate', 'Experience with AWS or Azure cloud services', 'Understanding of RESTful APIs and SQL/NoSQL databases']
+                id: 'java',
+                title: 'Java/Backend Developer',
+                experience: '3 - 6 years',
+                salary: 'Not Disclosed',
+                location: 'Hyderabad, India',
+                posted: '1 week ago',
+                openings: 3,
+                highlights: [
+                    'Develop scalable backend microservices using Java and Spring Boot.',
+                    'Work closely with onshore US technical architects.',
+                    'Cloud-native development on AWS / Azure.'
+                ],
+                description: 'Seeking a strong backend engineer with expertise in Java ecosystem to build and maintain high-performance enterprise applications.\n\nYou will be involved in the entire software development lifecycle, from system design to deployment. A deep understanding of RESTful APIs, database optimization (SQL/NoSQL), and cloud infrastructure is required.',
+                role: 'Backend Developer',
+                industry: 'IT Services & Consulting',
+                department: 'Engineering',
+                empType: 'Full Time, Permanent',
+                education: 'B.Tech/B.E. in Computer Science or IT',
+                skills: ['Java 11+', 'Spring Boot', 'Hibernate', 'Microservices', 'AWS', 'REST API', 'SQL']
             }
         };
 
-        const modal = document.getElementById('jobModal');
-        const modalContent = document.querySelector('.modal-content');
+        // Render the Grid on page load
+        const gridContainer = document.getElementById('dynamicJobGrid');
+        Object.values(jobs).forEach(job => {
+            gridContainer.innerHTML += `
+                <article class="bg-white p-8 border border-brand-border premium-card flex flex-col relative group cursor-pointer" onclick="showJobDetails('${job.id}')">
+                    <div class="absolute top-0 right-0 bg-brand-black text-white text-[0.65rem] font-bold px-3 py-1.5 uppercase tracking-widest">Full-Time</div>
+                    <h4 class="font-heading text-xl font-bold mb-2 text-brand-black pr-16 mt-4 group-hover:text-blue-600 transition-colors">${job.title}</h4>
+                    <div class="flex items-center gap-4 text-sm text-brand-gray mb-4">
+                        <span class="flex items-center gap-1"><i class="fa-solid fa-location-dot text-brand-black"></i> ${job.location}</span>
+                    </div>
+                    <p class="text-brand-gray text-sm leading-relaxed mb-8 flex-grow line-clamp-3">${job.description}</p>
+                    <div class="text-xs font-bold uppercase tracking-wider text-brand-black border-b border-brand-black inline-flex items-center w-max mt-auto pb-1 group-hover:text-blue-600 group-hover:border-blue-600 transition-colors">
+                        VIEW DETAILS & APPLY <i class="fa-solid fa-arrow-right ml-2 transform group-hover:translate-x-1 transition-transform"></i>
+                    </div>
+                </article>
+            `;
+        });
 
-        function openJobModal(jobKey) {
-            const job = jobs[jobKey];
-            document.getElementById('modalJobTitle').innerText = job.title;
-            document.getElementById('modalPositions').innerText = job.positions;
-            document.getElementById('modalLocation').innerText = job.location;
-            document.getElementById('modalType').innerText = job.type;
-            document.getElementById('modalDescription').innerText = job.desc;
-            document.getElementById('formJobTitle').value = job.title; // Fills hidden input for excel sheet
+        // Navigation Logic
+        const viewList = document.getElementById('jobListView');
+        const viewDetail = document.getElementById('jobDetailView');
+        const viewForm = document.getElementById('applicationFormView');
+        let currentJobId = null;
 
-            const reqUl = document.getElementById('modalRequirements');
-            reqUl.innerHTML = '';
-            job.reqs.forEach(req => { reqUl.innerHTML += `<li>${req}</li>`; });
+        function showJobDetails(jobId) {
+            currentJobId = jobId;
+            const job = jobs[jobId];
+            
+            // Populate Details
+            document.getElementById('detailTitle').innerText = job.title;
+            document.getElementById('detailExp').innerText = job.experience;
+            document.getElementById('detailSalary').innerText = job.salary;
+            document.getElementById('detailLocation').innerText = job.location;
+            document.getElementById('detailPosted').innerText = job.posted;
+            document.getElementById('detailOpenings').innerText = job.openings;
+            document.getElementById('detailDescription').innerText = job.description;
+            document.getElementById('detailRole').innerText = job.role;
+            document.getElementById('detailIndustry').innerText = job.industry;
+            document.getElementById('detailDept').innerText = job.department;
+            document.getElementById('detailEmpType').innerText = job.empType;
+            document.getElementById('detailEducation').innerText = job.education;
 
-            modal.classList.remove('hidden');
-            setTimeout(() => {
-                modal.classList.remove('opacity-0', 'pointer-events-none');
-                modalContent.classList.remove('scale-95');
-            }, 10);
+            // Populate Highlights
+            document.getElementById('detailHighlights').innerHTML = job.highlights.map(h => `<li>${h}</li>`).join('');
+            
+            // Populate Skill Chips
+            document.getElementById('detailSkills').innerHTML = job.skills.map(s => 
+                `<span class="border border-gray-300 text-gray-600 px-3 py-1 text-xs rounded-full bg-gray-50">${s}</span>`
+            ).join('');
+
+            // Switch Views
+            viewList.classList.add('hidden');
+            viewForm.classList.add('hidden');
+            viewDetail.classList.remove('hidden');
+            window.scrollTo(0, 0);
         }
 
-        function closeJobModal() {
-            modal.classList.add('opacity-0', 'pointer-events-none');
-            modalContent.classList.add('scale-95');
-            setTimeout(() => { modal.classList.add('hidden'); }, 300);
-            document.getElementById('formStatus').classList.add('hidden');
+        function showApplicationForm() {
+            const job = jobs[currentJobId];
+            document.getElementById('formJobTitleDisplay').innerText = `Applying for: ${job.title}`;
+            document.getElementById('hiddenJobTitle').value = job.title; // For Excel sheet
+            
+            viewDetail.classList.add('hidden');
+            viewForm.classList.remove('hidden');
+            window.scrollTo(0, 0);
         }
 
-        // GOOGLE SHEETS FORM SUBMISSION LOGIC
-        // REPLACE THE URL BELOW WITH YOUR GOOGLE SCRIPT WEB APP URL
-        const scriptURL = 'YOUR_GOOGLE_SCRIPT_URL_HERE'; 
+        function backToDetail() {
+            viewForm.classList.add('hidden');
+            viewDetail.classList.remove('hidden');
+            window.scrollTo(0, 0);
+        }
+
+        function showListView() {
+            viewDetail.classList.add('hidden');
+            viewForm.classList.add('hidden');
+            viewList.classList.remove('hidden');
+            window.scrollTo(0, 0);
+        }
+
+        // ==========================================
+        // GOOGLE SHEETS FORM SUBMISSION
+        // ==========================================
+        const scriptURL = 'YOUR_GOOGLE_SCRIPT_URL_HERE'; // <--- PASTE YOUR SCRIPT URL HERE
         const form = document.forms['googleSheetForm'];
         const btn = document.getElementById('submitBtn');
         const statusText = document.getElementById('formStatus');
@@ -247,15 +401,14 @@
 
             fetch(scriptURL, { method: 'POST', body: new FormData(form)})
                 .then(response => {
-                    statusText.innerText = "Application submitted successfully! We will contact you soon.";
+                    statusText.innerText = "Application submitted successfully! Our HR team will contact you.";
                     statusText.className = "text-sm font-bold text-center mt-4 text-green-600 block";
                     form.reset();
                     btn.innerText = "Submit Application";
                     btn.disabled = false;
-                    setTimeout(closeJobModal, 3000); // Closes modal after 3 seconds
                 })
                 .catch(error => {
-                    statusText.innerText = "Error submitting application. Please try again.";
+                    statusText.innerText = "Error submitting application. Please ensure your script URL is correct.";
                     statusText.className = "text-sm font-bold text-center mt-4 text-red-600 block";
                     btn.innerText = "Submit Application";
                     btn.disabled = false;
