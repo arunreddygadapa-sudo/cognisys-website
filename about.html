@@ -6,99 +6,110 @@
     <title>Who We Are | Cognisys IT Solutions</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     <script>
         tailwind.config = {
             theme: {
                 extend: {
-                    fontFamily: { sans: ['Inter', 'sans-serif'], heading: ['Plus Jakarta Sans', 'sans-serif'] },
-                    colors: { brand: { dark: '#0B1120', card: '#151e32', copper: '#b87333', gray: '#94a3b8' } }
+                    fontFamily: { sans: ['Inter', 'sans-serif'], heading: ['Outfit', 'sans-serif'] },
+                    colors: { brand: { base: '#080605', surface: '#120d0a', card: '#1a130f', copper: '#c57b33', text: '#e2dcd8', muted: '#a39891' } }
                 }
             }
         }
     </script>
     <style>
-        body { background-color: #0B1120; color: #f8fafc; }
-        .glass-nav { background: rgba(11, 17, 32, 0.85); backdrop-filter: blur(16px); border-bottom: 1px solid rgba(255,255,255,0.05); }
-        .glass-card { background: rgba(21, 30, 50, 0.6); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.05); }
+        body { background-color: #080605; color: #e2dcd8; }
+        .glass-nav { background: rgba(8, 6, 5, 0.7); backdrop-filter: blur(20px); border-bottom: 1px solid rgba(197, 123, 51, 0.1); }
+        .premium-card { background: linear-gradient(145deg, #1a130f, #120d0a); border: 1px solid rgba(255,255,255,0.03); transition: all 0.5s ease; }
+        .premium-card:hover { transform: translateY(-5px); border-color: rgba(197, 123, 51, 0.4); }
     </style>
 </head>
 <body class="font-sans antialiased">
 
-    <!-- Premium Navigation -->
-    <header class="fixed top-0 left-0 right-0 z-50 glass-nav">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center h-24">
-                <a href="index.html" class="flex items-center gap-4">
-                    <div class="bg-white p-1.5 rounded-lg shadow-lg"><img src="logo.png" alt="Cognisys Logo" class="h-12 w-auto object-contain" onerror="this.src='https://via.placeholder.com/64x64/0f172a/b87333?text=C';"></div>
-                    <div class="flex flex-col">
-                        <span class="font-heading font-extrabold text-2xl tracking-tight text-white leading-none">COGNISYS</span>
-                        <span class="text-[0.65rem] font-bold uppercase tracking-widest text-brand-copper mt-1">Soft Services & IT Solutions</span>
-                    </div>
-                </a>
-                <div class="flex items-center gap-6">
-                    <a href="index.html#contact" class="hidden sm:inline-flex items-center justify-center bg-brand-copper text-white px-6 py-3 rounded-md text-xs font-bold uppercase tracking-widest hover:bg-[#9e622b] transition-colors">Contact Us</a>
-                    <button id="menuToggleBtn" class="flex flex-col items-center justify-center w-12 h-12 bg-white/5 rounded-md border border-white/10 text-white"><i class="fa-solid fa-bars text-xl"></i></button>
+    <!-- Header -->
+    <header class="fixed top-0 left-0 right-0 z-50 glass-nav transition-all duration-300 h-24 flex items-center">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full flex justify-between items-center">
+            <a href="index.html" class="flex items-center gap-4 group">
+                <div class="bg-white/5 p-1.5 rounded-lg border border-white/10 backdrop-blur-md">
+                    <img src="logo.png" alt="Cognisys Logo" class="h-12 w-auto" onerror="this.src='https://via.placeholder.com/64x64/080605/c57b33?text=C';">
                 </div>
-                <!-- Dropdown -->
-                <div id="dropdownMenu" class="absolute top-24 right-4 sm:right-8 w-64 bg-brand-card border border-white/10 shadow-2xl rounded-lg hidden flex-col z-40 backdrop-blur-xl">
-                    <a href="index.html" class="px-6 py-4 text-sm font-semibold text-gray-200 border-b border-white/5 hover:text-brand-copper">Home</a>
-                    <a href="about.html" class="px-6 py-4 text-sm font-semibold text-brand-copper border-b border-white/5 bg-white/5">Who We Are</a>
-                    <a href="innovations.html" class="px-6 py-4 text-sm font-semibold text-gray-200 border-b border-white/5 hover:text-brand-copper">In-House Projects</a>
-                    <a href="careers.html" class="px-6 py-4 text-sm font-semibold text-gray-200 hover:text-brand-copper flex justify-between items-center">Careers <i class="fa-solid fa-arrow-right"></i></a>
+                <div class="flex flex-col">
+                    <span class="font-heading font-extrabold text-2xl tracking-widest text-white leading-none">COGNISYS</span>
+                    <span class="text-[0.6rem] font-bold uppercase tracking-[0.2em] text-brand-copper mt-1">Soft Services & IT Solutions</span>
                 </div>
+            </a>
+            <div class="flex items-center gap-6 relative z-50">
+                <a href="index.html#contact" class="hidden sm:inline-flex bg-transparent border border-brand-copper text-brand-copper px-6 py-2.5 rounded-full text-xs font-bold uppercase tracking-widest hover:bg-brand-copper hover:text-white transition-all">Contact Us</a>
+                <button id="menuToggleBtn" class="flex flex-col items-center justify-center w-12 h-12 bg-white/5 rounded-full border border-white/10 text-white hover:bg-brand-copper transition-all"><i class="fa-solid fa-bars text-xl"></i></button>
+            </div>
+            <!-- Dropdown -->
+            <div id="dropdownMenu" class="absolute top-24 right-4 sm:right-8 w-64 bg-brand-surface border border-brand-copper/20 shadow-2xl rounded-xl hidden flex-col z-40 overflow-hidden">
+                <a href="index.html" class="px-6 py-4 text-sm font-semibold text-gray-300 border-b border-white/5 hover:bg-white/5 hover:text-brand-copper">Home</a>
+                <a href="about.html" class="px-6 py-4 text-sm font-semibold text-brand-copper border-b border-white/5 bg-white/5">Who We Are</a>
+                <a href="services.html" class="px-6 py-4 text-sm font-semibold text-gray-300 border-b border-white/5 hover:bg-white/5 hover:text-brand-copper">IT Services & Solutions</a>
+                <a href="innovations.html" class="px-6 py-4 text-sm font-semibold text-gray-300 border-b border-white/5 hover:bg-white/5 hover:text-brand-copper">Proprietary Innovations</a>
+                <a href="careers.html" class="px-6 py-4 text-sm font-semibold text-gray-300 hover:bg-white/5 hover:text-brand-copper flex justify-between items-center">Careers <i class="fa-solid fa-arrow-right text-xs"></i></a>
             </div>
         </div>
     </header>
 
-    <main class="pt-40 pb-24">
-        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center mb-16">
-            <h1 class="font-heading text-5xl font-bold text-white mb-6">Our Identity & Global Footprint</h1>
-            <p class="text-xl text-brand-gray leading-relaxed">We are a DPIIT Recognized corporate entity operating at the intersection of American strategic execution and Indian engineering scale.</p>
+    <main class="pt-44 pb-24">
+        <!-- Intro -->
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center mb-24">
+            <span class="text-[0.65rem] font-bold tracking-[0.2em] uppercase text-brand-copper mb-4 block">Our Identity</span>
+            <h1 class="font-heading text-5xl md:text-6xl font-bold text-white mb-6">Global Vision. Engineering Scale.</h1>
+            <p class="text-xl text-brand-muted leading-relaxed">We are a DPIIT Recognized firm dedicated to helping businesses transform digitally through innovative software, elite recruitment, and robust offshore capabilities.</p>
         </div>
 
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 mb-24">
-                <div class="glass-card p-10 rounded-2xl">
-                    <h3 class="text-2xl font-bold text-white mb-4"><i class="fa-solid fa-bullseye text-brand-copper mr-2"></i> Our Mission</h3>
-                    <p class="text-brand-gray leading-relaxed">To architect scalable, future-proof IT solutions and connect global enterprises with elite technical talent. We aim to eradicate operational bottlenecks for our clients through intelligent cloud deployments, bespoke software development, and precision IT staffing.</p>
+            <!-- Mission & Vision -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-24">
+                <div class="premium-card p-12 rounded-2xl relative overflow-hidden">
+                    <div class="absolute -right-10 -top-10 text-9xl text-white/5"><i class="fa-solid fa-bullseye"></i></div>
+                    <h3 class="font-heading text-3xl font-bold text-white mb-4">Mission</h3>
+                    <p class="text-brand-muted leading-relaxed">To architect scalable, future-proof IT solutions and connect global enterprises with elite technical talent. We streamline operations and deliver high-ROI digital assets.</p>
                 </div>
-                <div class="glass-card p-10 rounded-2xl">
-                    <h3 class="text-2xl font-bold text-white mb-4"><i class="fa-solid fa-eye text-brand-copper mr-2"></i> Our Vision</h3>
-                    <p class="text-brand-gray leading-relaxed">To be the undisputed global partner of choice for seamless IT execution and staffing innovation. By fostering a collaborative ecosystem of training, in-house development, and B2B vendorships, we are building a self-sustaining tech powerhouse.</p>
+                <div class="premium-card p-12 rounded-2xl relative overflow-hidden border-t-4 border-brand-copper">
+                    <div class="absolute -right-10 -top-10 text-9xl text-brand-copper/5"><i class="fa-solid fa-eye"></i></div>
+                    <h3 class="font-heading text-3xl font-bold text-white mb-4">Vision</h3>
+                    <p class="text-brand-muted leading-relaxed">To be the undisputed global partner of choice for seamless IT execution and staffing innovation. We are building a continuous ecosystem of learning, development, and delivery.</p>
+                </div>
+            </div>
+
+            <!-- Core Values -->
+            <div class="mb-24">
+                <h3 class="font-heading text-4xl font-bold text-white mb-12 text-center">What Makes Us Different</h3>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="bg-brand-surface border border-white/5 p-8 rounded-xl"><i class="fa-solid fa-lightbulb text-3xl text-brand-copper mb-4"></i><h4 class="text-lg font-bold text-white mb-2">Innovation</h4><p class="text-sm text-brand-muted">Exploring new architectures to deliver cutting-edge solutions.</p></div>
+                    <div class="bg-brand-surface border border-white/5 p-8 rounded-xl"><i class="fa-solid fa-shield-halved text-3xl text-brand-copper mb-4"></i><h4 class="text-lg font-bold text-white mb-2">Integrity</h4><p class="text-sm text-brand-muted">Conducting business with total transparency and IP protection.</p></div>
+                    <div class="bg-brand-surface border border-white/5 p-8 rounded-xl"><i class="fa-solid fa-medal text-3xl text-brand-copper mb-4"></i><h4 class="text-lg font-bold text-white mb-2">Quality</h4><p class="text-sm text-brand-muted">Rigorous quality standards and automated testing protocols.</p></div>
                 </div>
             </div>
 
             <!-- Global Operations -->
-            <div class="glass-card p-10 rounded-2xl mb-24 relative overflow-hidden">
-                <div class="absolute right-0 top-0 opacity-10 text-9xl"><i class="fa-solid fa-globe"></i></div>
-                <h3 class="text-3xl font-bold text-white mb-6">Global Operations: Hyderabad to the USA</h3>
-                <div class="space-y-6 text-brand-gray leading-relaxed relative z-10">
-                    <p><strong>Headquartered in Hyderabad, India:</strong> Operating from the heart of India's technology sector, our development and recruitment centers serve as the engine of our enterprise. Here, we execute domestic IT recruitment, foster our collaborative placement training programs, and incubate our proprietary in-house applications.</p>
-                    <p><strong>USA Strategic Presence:</strong> We maintain a robust operational framework across the United States. This allows us to provide high-level onshore advisory, seamless C2C/W2 IT consulting, and real-time support for our 7+ active global clients. Our offshore delivery centers (ODC) are optimized for EST/PST overlap, ensuring frictionless communication.</p>
+            <div class="premium-card p-12 rounded-2xl relative overflow-hidden">
+                <div class="absolute right-0 top-0 opacity-10 text-9xl"><i class="fa-solid fa-map-location-dot"></i></div>
+                <h3 class="font-heading text-4xl font-bold text-white mb-8">Global Footprint</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12 relative z-10">
+                    <div>
+                        <h4 class="text-brand-copper font-bold text-xl mb-3">Headquarters: Hyderabad, India</h4>
+                        <p class="text-brand-muted text-sm leading-relaxed">Our nerve center. Here, we execute domestic IT recruitment, host our collaborative placement training programs, and run robust Offshore Development Centers (ODC) for global clients.</p>
+                    </div>
+                    <div>
+                        <h4 class="text-brand-copper font-bold text-xl mb-3">Remote USA Operations</h4>
+                        <p class="text-brand-muted text-sm leading-relaxed">Strategic onshore advisory and seamless C2C/W2 IT consulting. We ensure timezone overlap (EST/PST) to provide frictionless communication for our American enterprise clients.</p>
+                    </div>
                 </div>
-            </div>
-            
-            <!-- Technologies -->
-            <div class="text-center mb-12">
-                <h3 class="text-3xl font-bold text-white mb-4">Deep Technical Expertise</h3>
-                <p class="text-brand-gray max-w-2xl mx-auto">Our engineering teams are masters of the modern stack, ensuring high scalability and military-grade security.</p>
-            </div>
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
-                <div class="glass-card p-6 rounded-xl"><i class="fa-brands fa-java text-4xl text-brand-copper mb-4"></i><h4 class="text-white font-bold">Java Ecosystem</h4></div>
-                <div class="glass-card p-6 rounded-xl"><i class="fa-brands fa-aws text-4xl text-brand-copper mb-4"></i><h4 class="text-white font-bold">Cloud (AWS/Azure)</h4></div>
-                <div class="glass-card p-6 rounded-xl"><i class="fa-solid fa-mobile-screen text-4xl text-brand-copper mb-4"></i><h4 class="text-white font-bold">Flutter & React Native</h4></div>
-                <div class="glass-card p-6 rounded-xl"><i class="fa-solid fa-database text-4xl text-brand-copper mb-4"></i><h4 class="text-white font-bold">Data & Microservices</h4></div>
             </div>
         </div>
     </main>
 
     <!-- Footer -->
-    <footer class="bg-brand-dark pt-12 pb-8 border-t border-white/10 mt-20">
+    <footer class="bg-[#050403] pt-12 pb-8 border-t border-white/5 mt-20">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row justify-between items-center gap-6">
-            <img src="logo.png" alt="Cognisys Logo" class="h-10 bg-white p-1 rounded" onerror="this.src='https://via.placeholder.com/64x64/ffffff/0a0a0a?text=C';">
-            <a href="dpiit-certificate.pdf" target="_blank" class="bg-white p-2 rounded-lg"><img src="startup-india-logo.png" alt="DPIIT" class="h-8" onerror="this.src='https://via.placeholder.com/150x40/0a0a0a/ffffff?text=Startup+India';"></a>
-            <p class="text-xs text-brand-gray">&copy; 2026 Cognisys Soft Services.</p>
+            <img src="logo.png" alt="Cognisys Logo" class="h-10 bg-white/5 p-1 rounded border border-white/10" onerror="this.src='https://via.placeholder.com/64x64/080605/c57b33?text=C';">
+            <a href="dpiit-certificate.pdf" target="_blank"><img src="startup-india-logo.png" alt="DPIIT" class="h-8" onerror="this.src='https://via.placeholder.com/150x40/080605/ffffff?text=Startup+India';"></a>
+            <p class="text-xs text-brand-muted">&copy; 2026 Cognisys Soft Services.</p>
         </div>
     </footer>
 
