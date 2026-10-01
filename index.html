@@ -48,7 +48,7 @@
     }
     </script>
 
-    <!-- 2. WebSite Schema (This specifically fixes the Google Search Site Name issue) -->
+    <!-- 2. WebSite Schema -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org/",
@@ -136,6 +136,7 @@
                         <a href="#about" class="text-xs font-bold tracking-widest text-brand-gray hover:text-brand-black uppercase transition-colors">About</a>
                         <a href="#services" class="text-xs font-bold tracking-widest text-brand-gray hover:text-brand-black uppercase transition-colors">Services</a>
                         <a href="#products" class="text-xs font-bold tracking-widest text-brand-gray hover:text-brand-black uppercase transition-colors">Products</a>
+                        <a href="#careers" class="text-xs font-bold tracking-widest text-brand-gray hover:text-brand-black uppercase transition-colors">Careers</a>
                         <a href="#contact" class="bg-brand-black text-white px-6 py-2.5 text-xs font-bold uppercase tracking-widest hover:bg-white hover:text-brand-black border-2 border-brand-black transition-all duration-300">
                             Contact
                         </a>
@@ -157,7 +158,6 @@
             
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                 <div class="max-w-4xl mx-auto text-center">
-                    <!-- Hero Top Line (Original styling) -->
                     <div class="flex items-center justify-center gap-3 mb-8">
                         <span class="h-[1px] w-8 bg-brand-black"></span>
                         <span class="text-xs font-bold tracking-widest uppercase text-brand-gray bg-white/50 px-2 py-1 backdrop-blur-sm rounded">Global Talent & Technology Partner</span>
@@ -410,7 +410,7 @@
             </div>
         </section>
 
-        <!-- AWARDS & RECOGNITION SECTION (Clean style) -->
+        <!-- AWARDS & RECOGNITION SECTION -->
         <section id="awards" class="py-24 bg-brand-light border-t border-brand-border">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="mb-16 text-center max-w-3xl mx-auto">
@@ -442,8 +442,63 @@
             </div>
         </section>
 
+        <!-- CAREERS SECTION (NEW) -->
+        <section id="careers" class="py-24 bg-white border-t border-brand-border">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="mb-16 text-center max-w-3xl mx-auto">
+                    <h2 class="text-xs font-bold tracking-widest text-brand-gray uppercase mb-4">Join Our Team</h2>
+                    <h3 class="font-heading text-4xl md:text-5xl font-bold text-brand-black mb-6">Current Openings</h3>
+                    <p class="text-lg text-brand-gray">We are always on the lookout for passionate innovators, elite engineers, and strategic thinkers to join our global team.</p>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Job 1 -->
+                    <article class="bg-brand-light p-8 border border-brand-border premium-card flex flex-col relative group">
+                        <div class="absolute top-0 right-0 bg-brand-black text-white text-[0.65rem] font-bold px-3 py-1.5 uppercase tracking-widest">Full-Time</div>
+                        <h4 class="font-heading text-xl font-bold mb-2 text-brand-black pr-16">Senior Workday Consultant</h4>
+                        <div class="flex items-center gap-4 text-sm text-brand-gray mb-6">
+                            <span class="flex items-center gap-1"><i class="fa-solid fa-location-dot text-brand-black"></i> Hyderabad / Remote</span>
+                        </div>
+                        <p class="text-brand-gray text-sm leading-relaxed mb-8 flex-grow">Looking for an experienced Workday HCM specialist to architect and deploy enterprise HRIS solutions for our global clients.</p>
+                        <!-- Apply button auto-scrolls to contact form and selects Careers -->
+                        <a href="#contact" onclick="document.getElementById('service').value='Careers / Job Application'" class="text-xs font-bold uppercase tracking-wider text-brand-black hover:text-brand-gray inline-flex items-center transition-colors group-hover:underline mt-auto">
+                            Apply Now <i class="fa-solid fa-arrow-right ml-2"></i>
+                        </a>
+                    </article>
+
+                    <!-- Job 2 -->
+                    <article class="bg-brand-light p-8 border border-brand-border premium-card flex flex-col relative group">
+                        <div class="absolute top-0 right-0 bg-brand-black text-white text-[0.65rem] font-bold px-3 py-1.5 uppercase tracking-widest">Full-Time</div>
+                        <h4 class="font-heading text-xl font-bold mb-2 text-brand-black pr-16">US IT Recruiter</h4>
+                        <div class="flex items-center gap-4 text-sm text-brand-gray mb-6">
+                            <span class="flex items-center gap-1"><i class="fa-solid fa-location-dot text-brand-black"></i> Hyderabad (Night Shift)</span>
+                        </div>
+                        <p class="text-brand-gray text-sm leading-relaxed mb-8 flex-grow">Join our fast-paced US staffing team. Must have experience in full-cycle technical recruitment and working directly with vendors or VMS.</p>
+                        <!-- Apply button auto-scrolls to contact form and selects Careers -->
+                        <a href="#contact" onclick="document.getElementById('service').value='Careers / Job Application'" class="text-xs font-bold uppercase tracking-wider text-brand-black hover:text-brand-gray inline-flex items-center transition-colors group-hover:underline mt-auto">
+                            Apply Now <i class="fa-solid fa-arrow-right ml-2"></i>
+                        </a>
+                    </article>
+
+                    <!-- Job 3 -->
+                    <article class="bg-brand-light p-8 border border-brand-border premium-card flex flex-col relative group">
+                        <div class="absolute top-0 right-0 bg-brand-black text-white text-[0.65rem] font-bold px-3 py-1.5 uppercase tracking-widest">Full-Time</div>
+                        <h4 class="font-heading text-xl font-bold mb-2 text-brand-black pr-16">Java/Backend Developer</h4>
+                        <div class="flex items-center gap-4 text-sm text-brand-gray mb-6">
+                            <span class="flex items-center gap-1"><i class="fa-solid fa-location-dot text-brand-black"></i> Hyderabad, India</span>
+                        </div>
+                        <p class="text-brand-gray text-sm leading-relaxed mb-8 flex-grow">Seeking a strong backend engineer with expertise in Java, Spring Boot, and scalable architecture for enterprise applications.</p>
+                        <!-- Apply button auto-scrolls to contact form and selects Careers -->
+                        <a href="#contact" onclick="document.getElementById('service').value='Careers / Job Application'" class="text-xs font-bold uppercase tracking-wider text-brand-black hover:text-brand-gray inline-flex items-center transition-colors group-hover:underline mt-auto">
+                            Apply Now <i class="fa-solid fa-arrow-right ml-2"></i>
+                        </a>
+                    </article>
+                </div>
+            </div>
+        </section>
+
         <!-- CONTACT SECTION -->
-        <section id="contact" class="py-24 bg-white border-t border-brand-border relative">
+        <section id="contact" class="py-24 bg-brand-light border-t border-brand-border relative">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
                     <!-- Contact Info -->
@@ -456,7 +511,7 @@
                         
                         <div class="space-y-8">
                             <div class="flex items-start">
-                                <div class="w-12 h-12 bg-brand-light flex items-center justify-center text-brand-black mr-4 shrink-0 shadow-sm border border-gray-100">
+                                <div class="w-12 h-12 bg-white flex items-center justify-center text-brand-black mr-4 shrink-0 shadow-sm border border-gray-200">
                                     <i class="fa-solid fa-envelope" aria-hidden="true"></i>
                                 </div>
                                 <div>
@@ -465,7 +520,7 @@
                                 </div>
                             </div>
                             <div class="flex items-start">
-                                <div class="w-12 h-12 bg-brand-light flex items-center justify-center text-brand-black mr-4 shrink-0 shadow-sm border border-gray-100">
+                                <div class="w-12 h-12 bg-white flex items-center justify-center text-brand-black mr-4 shrink-0 shadow-sm border border-gray-200">
                                     <i class="fa-solid fa-map-location-dot" aria-hidden="true"></i>
                                 </div>
                                 <div>
@@ -474,7 +529,7 @@
                                 </div>
                             </div>
                             <div class="flex items-start">
-                                <div class="w-12 h-12 bg-brand-light flex items-center justify-center text-brand-black mr-4 shrink-0 shadow-sm border border-gray-100">
+                                <div class="w-12 h-12 bg-white flex items-center justify-center text-brand-black mr-4 shrink-0 shadow-sm border border-gray-200">
                                     <i class="fa-brands fa-linkedin" aria-hidden="true"></i>
                                 </div>
                                 <div>
@@ -503,18 +558,19 @@
                                 <input type="email" id="email" name="email" class="w-full bg-brand-light border border-gray-200 px-4 py-3 text-sm focus:outline-none focus:border-brand-black transition-colors" required>
                             </div>
                             <div>
-                                <label for="service" class="block text-xs font-bold tracking-widest uppercase text-brand-gray mb-2">Service of Interest</label>
+                                <label for="service" class="block text-xs font-bold tracking-widest uppercase text-brand-gray mb-2">Reason for Contact</label>
                                 <select id="service" name="service" class="w-full bg-brand-light border border-gray-200 px-4 py-3 text-sm focus:outline-none focus:border-brand-black transition-colors text-brand-gray">
-                                    <option>USA IT Consulting</option>
-                                    <option>USA IT Staffing</option>
-                                    <option>India IT Staffing</option>
-                                    <option>End-to-End IT Services</option>
-                                    <option>Product Inquiry (Bitee / Connect)</option>
-                                    <option>Other / General Inquiry</option>
+                                    <option value="USA IT Consulting">USA IT Consulting</option>
+                                    <option value="USA IT Staffing">USA IT Staffing</option>
+                                    <option value="India IT Staffing">India IT Staffing</option>
+                                    <option value="End-to-End IT Services">End-to-End IT Services</option>
+                                    <option value="Product Inquiry (Bitee / Connect)">Product Inquiry (Bitee / Connect)</option>
+                                    <option value="Careers / Job Application">Careers / Job Application</option>
+                                    <option value="Other / General Inquiry">Other / General Inquiry</option>
                                 </select>
                             </div>
                             <div>
-                                <label for="message" class="block text-xs font-bold tracking-widest uppercase text-brand-gray mb-2">Message</label>
+                                <label for="message" class="block text-xs font-bold tracking-widest uppercase text-brand-gray mb-2">Message (or Link to Resume)</label>
                                 <textarea id="message" name="message" rows="4" class="w-full bg-brand-light border border-gray-200 px-4 py-3 text-sm focus:outline-none focus:border-brand-black transition-colors" required></textarea>
                             </div>
                             <button type="submit" class="w-full bg-brand-black text-white px-8 py-4 font-bold text-sm uppercase tracking-wider hover:bg-brand-gray transition-colors duration-300">
@@ -530,7 +586,6 @@
     <!-- Premium Footer -->
     <footer class="bg-brand-black text-white pt-20 pb-10 border-t border-gray-900">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <!-- 4 Column Layout -->
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 lg:gap-12 mb-16">
                 
                 <!-- Footer Branding (Col 1) -->
