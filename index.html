@@ -49,24 +49,32 @@
                     colors: {
                         brand: {
                             black: '#050505',
-                            dark: '#0f172a',      // Slate/Midnight
-                            copper: '#b87333',    // Matching logo copper/bronze
+                            dark: '#0B1120',      // Deep ambient midnight
+                            card: '#151e32',      // Elevated card background
+                            copper: '#b87333',    // Logo copper/bronze
                             copperLight: '#fdf8f4',
                             copperHover: '#9e622b',
-                            teal: '#115e59',      // Subtle teal from eagle wings
-                            gray: '#475569',
+                            teal: '#115e59',
+                            gray: '#94a3b8',
                             light: '#f8fafc',
-                            border: '#e2e8f0'
+                            border: '#1e293b'
                         }
                     },
                     animation: {
-                        'spin-slow': 'spin 10s linear infinite',
+                        'spin-slow': 'spin 12s linear infinite',
                         'fade-in-down': 'fadeInDown 0.3s ease-out forwards',
+                        'blob': 'blob 7s infinite',
                     },
                     keyframes: {
                         fadeInDown: {
                             '0%': { opacity: '0', transform: 'translateY(-10px)' },
                             '100%': { opacity: '1', transform: 'translateY(0)' },
+                        },
+                        blob: {
+                            '0%': { transform: 'translate(0px, 0px) scale(1)' },
+                            '33%': { transform: 'translate(30px, -50px) scale(1.1)' },
+                            '66%': { transform: 'translate(-20px, 20px) scale(0.9)' },
+                            '100%': { transform: 'translate(0px, 0px) scale(1)' },
                         }
                     }
                 }
@@ -74,21 +82,36 @@
         }
     </script>
     <style>
-        body { background-color: #f8fafc; color: #0f172a; }
+        body { background-color: #0B1120; color: #f8fafc; }
+        
+        /* Premium Glassmorphism */
         .glass-nav {
-            background: rgba(255, 255, 255, 0.98);
+            background: rgba(11, 17, 32, 0.85);
             backdrop-filter: blur(16px);
             -webkit-backdrop-filter: blur(16px);
-            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.03);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
         }
-        .premium-card {
-            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        .glass-card {
+            background: rgba(21, 30, 50, 0.6);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
         }
+        
+        .premium-card { transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); }
         .premium-card:hover {
             transform: translateY(-8px);
-            box-shadow: 0 20px 40px -12px rgba(184, 115, 51, 0.15);
-            border-color: #b87333;
+            box-shadow: 0 20px 40px -12px rgba(184, 115, 51, 0.2);
+            border-color: rgba(184, 115, 51, 0.5);
+            background: rgba(21, 30, 50, 0.9);
         }
+        
+        .text-gradient {
+            background: linear-gradient(to right, #b87333, #f59e0b);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
         /* Hide scrollbar for the dropdown menu */
         .no-scrollbar::-webkit-scrollbar { display: none; }
         .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
@@ -97,82 +120,87 @@
 <body class="font-sans antialiased selection:bg-brand-copper selection:text-white">
 
     <!-- Minimalist Premium Header -->
-    <header class="fixed top-0 left-0 right-0 z-50 glass-nav border-b border-brand-border/60">
+    <header class="fixed top-0 left-0 right-0 z-50 glass-nav border-b border-white/5">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-24">
                 
                 <!-- Corporate Logo -->
                 <a href="#home" class="flex items-center gap-4 group relative z-50">
-                    <img src="logo.png" alt="Cognisys Corporate Logo" class="h-16 w-auto object-contain transition-transform duration-500 group-hover:scale-105" onerror="this.onerror=null; this.src='https://via.placeholder.com/64x64/0f172a/b87333?text=C';">
+                    <!-- Added bg-white and padding to make the dark logo pop on the dark nav -->
+                    <div class="bg-white p-1.5 rounded-lg shadow-lg">
+                        <img src="logo.png" alt="Cognisys Corporate Logo" class="h-12 w-auto object-contain transition-transform duration-500 group-hover:scale-105" onerror="this.onerror=null; this.src='https://via.placeholder.com/64x64/0f172a/b87333?text=C';">
+                    </div>
                     <div class="flex flex-col">
-                        <span class="font-heading font-extrabold text-2xl tracking-tight text-brand-dark leading-none">COGNISYS</span>
+                        <span class="font-heading font-extrabold text-2xl tracking-tight text-white leading-none">COGNISYS</span>
                         <span class="text-[0.65rem] font-bold uppercase tracking-widest text-brand-copper mt-1">Soft Services & IT Solutions</span>
                     </div>
                 </a>
 
                 <!-- Right Side: Contact Button & 3-Line Hamburger Menu -->
                 <div class="flex items-center gap-6 relative z-50">
-                    <a href="#contact" class="hidden sm:inline-flex items-center justify-center bg-brand-dark text-white px-6 py-3 rounded-md text-xs font-bold uppercase tracking-widest hover:bg-brand-copper transition-colors duration-300 shadow-lg">
+                    <a href="#contact" class="hidden sm:inline-flex items-center justify-center bg-brand-copper text-white px-6 py-3 rounded-md text-xs font-bold uppercase tracking-widest hover:bg-brand-copperHover transition-colors duration-300 shadow-lg shadow-brand-copper/20">
                         Contact Us
                     </a>
                     
                     <!-- 3 Lines (Hamburger) Button -->
-                    <button id="menuToggleBtn" class="flex flex-col items-center justify-center w-12 h-12 bg-brand-copperLight rounded-md border border-brand-copper/20 text-brand-dark hover:bg-brand-copper hover:text-white transition-all cursor-pointer">
+                    <button id="menuToggleBtn" class="flex flex-col items-center justify-center w-12 h-12 bg-white/5 rounded-md border border-white/10 text-white hover:bg-brand-copper hover:border-brand-copper transition-all cursor-pointer">
                         <i class="fa-solid fa-bars text-xl"></i>
                     </button>
                 </div>
 
                 <!-- Dropdown Menu (Hidden by default) -->
-                <div id="dropdownMenu" class="absolute top-24 right-4 sm:right-8 w-64 bg-white border border-gray-100 shadow-2xl rounded-lg overflow-hidden hidden flex-col z-40 origin-top-right">
-                    <a href="#about" class="px-6 py-4 text-sm font-semibold text-brand-dark border-b border-gray-50 hover:bg-brand-copperLight hover:text-brand-copper transition-colors">About Us</a>
-                    <a href="#services" class="px-6 py-4 text-sm font-semibold text-brand-dark border-b border-gray-50 hover:bg-brand-copperLight hover:text-brand-copper transition-colors">Our Services</a>
-                    <a href="#innovations" class="px-6 py-4 text-sm font-semibold text-brand-dark border-b border-gray-50 hover:bg-brand-copperLight hover:text-brand-copper transition-colors">Proprietary Innovations</a>
-                    <a href="#technologies" class="px-6 py-4 text-sm font-semibold text-brand-dark border-b border-gray-50 hover:bg-brand-copperLight hover:text-brand-copper transition-colors">Technologies</a>
-                    <a href="careers.html" class="px-6 py-4 text-sm font-semibold text-brand-teal border-b border-gray-50 hover:bg-brand-copperLight flex justify-between items-center transition-colors">Careers / Hiring <i class="fa-solid fa-arrow-right"></i></a>
-                    <a href="#contact" class="px-6 py-4 text-sm font-semibold text-brand-dark hover:bg-brand-copperLight hover:text-brand-copper transition-colors sm:hidden">Contact Us</a>
+                <div id="dropdownMenu" class="absolute top-24 right-4 sm:right-8 w-64 bg-brand-card border border-white/10 shadow-2xl rounded-lg overflow-hidden hidden flex-col z-40 origin-top-right backdrop-blur-xl">
+                    <a href="#about" class="px-6 py-4 text-sm font-semibold text-gray-200 border-b border-white/5 hover:bg-white/5 hover:text-brand-copper transition-colors">Who We Are</a>
+                    <a href="#services" class="px-6 py-4 text-sm font-semibold text-gray-200 border-b border-white/5 hover:bg-white/5 hover:text-brand-copper transition-colors">Our Services</a>
+                    <a href="#partnerships" class="px-6 py-4 text-sm font-semibold text-gray-200 border-b border-white/5 hover:bg-white/5 hover:text-brand-copper transition-colors">Vendorship & Partners</a>
+                    <a href="#inhouse" class="px-6 py-4 text-sm font-semibold text-gray-200 border-b border-white/5 hover:bg-white/5 hover:text-brand-copper transition-colors">In-House Projects</a>
+                    <a href="careers.html" class="px-6 py-4 text-sm font-semibold text-brand-copper border-b border-white/5 hover:bg-white/5 flex justify-between items-center transition-colors">Careers / Hiring <i class="fa-solid fa-arrow-right"></i></a>
+                    <a href="#contact" class="px-6 py-4 text-sm font-semibold text-gray-200 hover:bg-white/5 hover:text-brand-copper transition-colors sm:hidden">Contact Us</a>
                 </div>
             </div>
         </div>
     </header>
 
     <main id="home">
-        <!-- Premium Hero Section -->
-        <section class="relative pt-44 pb-28 lg:pt-52 lg:pb-36 bg-brand-dark overflow-hidden text-white">
-            <!-- Subtle abstract background elements -->
-            <div class="absolute inset-0 opacity-20 bg-[url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2072&auto=format&fit=crop')] bg-cover bg-center mix-blend-overlay"></div>
-            <div class="absolute top-[-10%] right-[-5%] w-[500px] h-[500px] rounded-full bg-brand-copper blur-[120px] opacity-30"></div>
-            <div class="absolute bottom-[-10%] left-[-10%] w-[600px] h-[600px] rounded-full bg-brand-teal blur-[150px] opacity-20"></div>
+        <!-- Premium Ambient Hero Section -->
+        <section class="relative pt-44 pb-28 lg:pt-52 lg:pb-36 bg-brand-dark overflow-hidden">
+            
+            <!-- Ambient Glowing Background Blobs -->
+            <div class="absolute top-0 -left-40 w-96 h-96 bg-brand-copper rounded-full mix-blend-screen filter blur-[150px] opacity-20 animate-blob"></div>
+            <div class="absolute top-40 -right-40 w-96 h-96 bg-blue-600 rounded-full mix-blend-screen filter blur-[150px] opacity-20 animate-blob animation-delay-2000"></div>
+            <div class="absolute -bottom-40 left-20 w-96 h-96 bg-brand-teal rounded-full mix-blend-screen filter blur-[150px] opacity-20 animate-blob animation-delay-4000"></div>
+            
+            <!-- Abstract Grid Pattern -->
+            <div class="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:40px_40px]"></div>
 
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                 <div class="max-w-4xl mx-auto text-center">
                     
                     <!-- DPIIT Badge -->
-                    <div class="inline-flex items-center gap-3 mb-8">
-                        <span class="h-[1px] w-8 bg-brand-copper"></span>
-                        <span class="text-xs font-bold tracking-widest uppercase text-brand-copperLight flex items-center gap-2">
+                    <div class="inline-flex items-center gap-3 mb-8 bg-white/5 px-6 py-2 rounded-full border border-white/10 backdrop-blur-md">
+                        <span class="text-xs font-bold tracking-widest uppercase text-white flex items-center gap-2">
                             <img src="badge.png" alt="Badge" class="h-4 w-4 object-contain" onerror="this.onerror=null; this.src='https://via.placeholder.com/16/b87333/ffffff?text=*';"> 
                             DPIIT RECOGNIZED STARTUP
                         </span>
-                        <span class="h-[1px] w-8 bg-brand-copper"></span>
                     </div>
                     
                     <!-- Headline -->
-                    <h1 class="font-heading text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight mb-8 leading-[1.1]">
-                        Architecting Scale. <br />
-                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-copper to-amber-500">Delivering Excellence.</span>
+                    <h1 class="font-heading text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight mb-8 leading-[1.1] text-white">
+                        Master Growth Dynamics: <br />
+                        <span class="text-gradient">Scale, Thrive & Innovate.</span>
                     </h1>
                     
-                    <p class="text-lg md:text-xl text-gray-300 mb-12 font-light leading-relaxed max-w-3xl mx-auto">
-                        Cognisys is a premier technology partner providing Enterprise Software Development, Domestic IT Staffing, USA Consulting, and Collaborative Placement Training.
+                    <p class="text-lg md:text-xl text-brand-gray mb-12 font-light leading-relaxed max-w-3xl mx-auto">
+                        Cognisys specializes in premium IT Consulting, robust Domestic & USA Staffing Augmentation, comprehensive Cloud Solutions, and high-impact Corporate Training.
                     </p>
                     
                     <!-- CTAs -->
                     <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                        <a href="#services" class="bg-brand-copper text-white px-8 py-4 font-bold text-sm uppercase tracking-wider rounded-md hover:bg-brand-copperHover transition-colors duration-300 shadow-lg shadow-brand-copper/30">
-                            Explore Services
+                        <a href="#services" class="bg-brand-copper text-white px-8 py-4 font-bold text-sm uppercase tracking-wider rounded-md hover:bg-brand-copperHover transition-colors duration-300 shadow-lg shadow-brand-copper/30 flex items-center justify-center gap-2">
+                            Explore Services <i class="fa-solid fa-arrow-down"></i>
                         </a>
-                        <a href="#contact" class="bg-transparent border border-white/30 text-white px-8 py-4 font-bold text-sm uppercase tracking-wider rounded-md hover:bg-white hover:text-brand-dark transition-colors duration-300">
-                            Partner With Us
+                        <a href="#contact" class="glass-card text-white px-8 py-4 font-bold text-sm uppercase tracking-wider rounded-md hover:bg-white hover:text-brand-dark transition-all duration-300 flex items-center justify-center gap-2">
+                            Partner With Us <i class="fa-solid fa-arrow-right"></i>
                         </a>
                     </div>
                 </div>
@@ -180,349 +208,409 @@
         </section>
 
         <!-- Dynamic Live Statistics / Business Metrics -->
-        <section class="relative bg-white py-12 border-b border-gray-200 shadow-sm z-20 -mt-8 mx-4 sm:mx-8 lg:mx-auto max-w-6xl rounded-xl">
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center divide-y md:divide-y-0 md:divide-x divide-gray-100">
-                
-                <div class="pt-4 md:pt-0">
-                    <div class="flex items-center justify-center gap-2 text-brand-dark text-4xl font-extrabold font-heading mb-1">
-                        <i class="fa-solid fa-handshake text-brand-copper text-3xl"></i> 7+
+        <section class="relative py-12 border-b border-white/10 z-20 bg-brand-dark/50 backdrop-blur-lg">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center divide-y md:divide-y-0 md:divide-x divide-white/10">
+                    
+                    <div class="pt-4 md:pt-0">
+                        <div class="flex items-center justify-center gap-2 text-white text-4xl font-extrabold font-heading mb-1">
+                            <i class="fa-solid fa-handshake text-brand-copper text-3xl"></i> 7+
+                        </div>
+                        <p class="text-[0.65rem] uppercase tracking-widest text-brand-gray font-bold">Active Global Clients</p>
                     </div>
-                    <p class="text-[0.65rem] uppercase tracking-widest text-brand-gray font-bold">Active Clients</p>
-                </div>
 
-                <div class="pt-4 md:pt-0">
-                    <div class="flex items-center justify-center gap-2 text-brand-dark text-4xl font-extrabold font-heading mb-1">
-                        <i class="fa-solid fa-code-branch text-brand-copper text-3xl"></i> 4+
+                    <div class="pt-4 md:pt-0">
+                        <div class="flex items-center justify-center gap-2 text-white text-4xl font-extrabold font-heading mb-1">
+                            <i class="fa-solid fa-code-branch text-brand-copper text-3xl"></i> 4
+                        </div>
+                        <p class="text-[0.65rem] uppercase tracking-widest text-brand-gray font-bold">Projects Done<br><span class="text-[0.55rem] font-normal text-brand-copper">(Includes 2 In-House)</span></p>
                     </div>
-                    <p class="text-[0.65rem] uppercase tracking-widest text-brand-gray font-bold">Own Proprietary Projects</p>
-                </div>
 
-                <div class="pt-4 md:pt-0">
-                    <div class="flex items-center justify-center gap-2 text-brand-dark text-4xl font-extrabold font-heading mb-1">
-                        <i class="fa-solid fa-laptop-code text-brand-copper text-3xl"></i> 6
+                    <div class="pt-4 md:pt-0">
+                        <div class="flex items-center justify-center gap-2 text-white text-4xl font-extrabold font-heading mb-1">
+                            <i class="fa-solid fa-spinner animate-spin-slow text-brand-copper text-3xl"></i> 6
+                        </div>
+                        <p class="text-[0.65rem] uppercase tracking-widest text-brand-gray font-bold">Ongoing Client Projects</p>
                     </div>
-                    <p class="text-[0.65rem] uppercase tracking-widest text-brand-gray font-bold">Ongoing Client Projects</p>
-                </div>
 
-                <div class="pt-4 md:pt-0">
-                    <div class="flex items-center justify-center gap-2 text-brand-dark text-4xl font-extrabold font-heading mb-1">
-                        <i class="fa-solid fa-graduation-cap text-brand-copper text-3xl"></i> 100%
+                    <div class="pt-4 md:pt-0">
+                        <div class="flex items-center justify-center gap-2 text-white text-4xl font-extrabold font-heading mb-1">
+                            <i class="fa-solid fa-graduation-cap text-brand-copper text-3xl"></i> 100%
+                        </div>
+                        <p class="text-[0.65rem] uppercase tracking-widest text-brand-gray font-bold">Placement Support</p>
                     </div>
-                    <p class="text-[0.65rem] uppercase tracking-widest text-brand-gray font-bold">Placement Support</p>
-                </div>
 
+                </div>
             </div>
         </section>
 
-        <!-- ABOUT SECTION -->
-        <section id="about" class="py-28 bg-brand-light border-b border-brand-border relative overflow-hidden">
+        <!-- WHO WE ARE SECTION -->
+        <section id="about" class="py-28 relative border-b border-white/5">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-                    <div>
-                        <h2 class="text-xs font-extrabold tracking-widest text-brand-copper uppercase mb-4">Who We Are</h2>
-                        <h3 class="font-heading text-4xl md:text-5xl font-bold mb-6 text-brand-dark leading-tight">Driving Digital Excellence & Elite Team Building.</h3>
-                        <p class="text-brand-gray text-base leading-relaxed mb-6">
-                            Cognisys Soft Services & IT Solutions is a multifaceted technology firm. We don't just write code; we solve business problems. By combining rigorous engineering standards with strategic recruitment frameworks, we help global enterprises navigate complex digital transformations.
-                        </p>
-                        
-                        <div class="space-y-4 mb-8">
-                            <div class="flex items-start bg-white p-4 rounded-lg shadow-sm border border-gray-100">
-                                <div class="w-10 h-10 bg-brand-copperLight text-brand-copper rounded-md flex items-center justify-center mr-4 shrink-0">
-                                    <i class="fa-solid fa-users-viewfinder"></i>
-                                </div>
-                                <div>
-                                    <h4 class="font-bold text-sm text-brand-dark mb-1">Domestic Recruitment & Hiring</h4>
-                                    <p class="text-xs text-brand-gray leading-relaxed">We actively hire skilled developers and manage end-to-end recruitment for startups and enterprises across India.</p>
-                                </div>
-                            </div>
-                            
-                            <div class="flex items-start bg-white p-4 rounded-lg shadow-sm border border-gray-100">
-                                <div class="w-10 h-10 bg-brand-copperLight text-brand-copper rounded-md flex items-center justify-center mr-4 shrink-0">
-                                    <i class="fa-solid fa-chalkboard-user"></i>
-                                </div>
-                                <div>
-                                    <h4 class="font-bold text-sm text-brand-dark mb-1">Collaborative Training & Placements</h4>
-                                    <p class="text-xs text-brand-gray leading-relaxed">In collaboration with industry partners, we train emerging tech talent and provide direct hiring pipelines into our 7+ active clients.</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <a href="careers.html" class="inline-flex items-center text-xs font-bold uppercase tracking-widest text-brand-dark hover:text-brand-copper transition-colors border-b-2 border-brand-dark hover:border-brand-copper pb-1">
-                            View Open Positions <i class="fa-solid fa-arrow-right ml-2"></i>
-                        </a>
-                    </div>
                     
                     <!-- Visual Side -->
-                    <div class="relative h-full min-h-[500px] rounded-2xl overflow-hidden shadow-2xl">
-                        <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=2070&auto=format&fit=crop')] bg-cover bg-center"></div>
+                    <div class="relative h-full min-h-[500px] rounded-2xl overflow-hidden border border-white/10 shadow-2xl group">
+                        <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=2070&auto=format&fit=crop')] bg-cover bg-center transition-transform duration-700 group-hover:scale-105"></div>
                         <div class="absolute inset-0 bg-gradient-to-t from-brand-dark via-brand-dark/80 to-transparent"></div>
                         <div class="absolute bottom-10 left-10 right-10 text-white">
                             <i class="fa-solid fa-earth-americas text-5xl text-brand-copper mb-6 animate-spin-slow" aria-hidden="true"></i>
-                            <h4 class="font-heading text-2xl font-bold mb-2">Global Synergy</h4>
-                            <p class="text-gray-300 text-sm">Bridging the gap between US market demands and Indian engineering brilliance through seamless Offshore Development Centers (ODC).</p>
+                            <h4 class="font-heading text-3xl font-bold mb-2">Global Synergy</h4>
+                            <p class="text-brand-gray text-sm leading-relaxed">Bridging the gap between US market demands and Indian engineering brilliance through seamless Offshore Development Centers (ODC).</p>
                         </div>
                     </div>
+
+                    <div>
+                        <span class="inline-block px-3 py-1 bg-white/5 border border-white/10 rounded text-xs font-extrabold tracking-widest text-brand-copper uppercase mb-6">Who We Are</span>
+                        <h3 class="font-heading text-4xl md:text-5xl font-bold mb-6 text-white leading-tight">Driving Digital Excellence & Elite Team Building.</h3>
+                        <p class="text-brand-gray text-base leading-relaxed mb-6">
+                            At Cognisys Soft Services & IT Solutions, we envision a world where businesses not only adapt to digital transformations but actively thrive and lead. We don't just write code; we solve intricate business problems. 
+                        </p>
+                        <p class="text-brand-gray text-base leading-relaxed mb-8">
+                            By combining rigorous engineering standards with strategic recruitment frameworks, we empower modern enterprises to scale securely and efficiently across borders.
+                        </p>
+                        
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
+                            <div class="glass-card p-5 rounded-lg">
+                                <i class="fa-solid fa-users-viewfinder text-2xl text-brand-copper mb-3"></i>
+                                <h4 class="font-bold text-sm text-white mb-2">Talent Acquisition</h4>
+                                <p class="text-xs text-brand-gray leading-relaxed">End-to-end recruitment for startups and enterprises across India & USA.</p>
+                            </div>
+                            
+                            <div class="glass-card p-5 rounded-lg">
+                                <i class="fa-solid fa-chalkboard-user text-2xl text-brand-copper mb-3"></i>
+                                <h4 class="font-bold text-sm text-white mb-2">Training Ecosystem</h4>
+                                <p class="text-xs text-brand-gray leading-relaxed">Collaborative training platforms with verified placement pipelines.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
                 </div>
             </div>
         </section>
 
         <!-- SERVICES SECTION -->
-        <section id="services" class="py-24 bg-white relative">
+        <section id="services" class="py-28 relative bg-brand-dark/50 border-b border-white/5">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="text-center max-w-3xl mx-auto mb-16">
-                    <span class="text-xs font-extrabold tracking-widest text-brand-copper uppercase mb-4 block">Our Solutions</span>
-                    <h3 class="font-heading text-4xl md:text-5xl font-bold text-brand-dark mb-6">Comprehensive IT Services</h3>
-                    <p class="text-lg text-brand-gray">From bespoke software architectures to massive scale IT recruitment, we provide end-to-end technology execution tailored to drive your business success.</p>
+                <div class="text-center max-w-3xl mx-auto mb-20">
+                    <span class="inline-block px-3 py-1 bg-white/5 border border-white/10 rounded text-xs font-extrabold tracking-widest text-brand-copper uppercase mb-4">Our Services</span>
+                    <h3 class="font-heading text-4xl md:text-5xl font-bold text-white mb-6">We Offer a Wide Variety of IT Solutions</h3>
+                    <p class="text-lg text-brand-gray">From bespoke software architectures to massive-scale IT recruitment, we provide end-to-end technology execution tailored to drive your business success.</p>
                 </div>
 
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                     
-                    <!-- Custom Software -->
-                    <article class="bg-brand-light p-8 rounded-xl border border-gray-200 premium-card flex flex-col">
-                        <div class="w-14 h-14 bg-white border border-gray-200 text-brand-dark rounded-lg flex items-center justify-center text-2xl mb-6 shadow-sm">
+                    <!-- Service 1 -->
+                    <article class="glass-card p-8 rounded-xl premium-card flex flex-col group">
+                        <div class="w-14 h-14 bg-white/5 border border-white/10 text-white rounded-lg flex items-center justify-center text-2xl mb-6 group-hover:text-brand-copper transition-colors">
                             <i class="fa-solid fa-code"></i>
                         </div>
-                        <h4 class="font-heading text-xl font-bold mb-3 text-brand-dark">Custom Software Development</h4>
+                        <h4 class="font-heading text-xl font-bold mb-3 text-white">Custom Software Development</h4>
                         <p class="text-brand-gray text-sm leading-relaxed mb-6 flex-grow">Tailored software solutions designed to meet your unique business workflows, emphasizing scalable architectures and agile methodologies.</p>
                     </article>
 
-                    <!-- Domestic IT Staffing -->
-                    <article class="bg-brand-light p-8 rounded-xl border border-gray-200 premium-card flex flex-col">
-                        <div class="w-14 h-14 bg-white border border-gray-200 text-brand-dark rounded-lg flex items-center justify-center text-2xl mb-6 shadow-sm">
+                    <!-- Service 2 -->
+                    <article class="glass-card p-8 rounded-xl premium-card flex flex-col group">
+                        <div class="w-14 h-14 bg-white/5 border border-white/10 text-white rounded-lg flex items-center justify-center text-2xl mb-6 group-hover:text-brand-copper transition-colors">
                             <i class="fa-solid fa-users-viewfinder"></i>
                         </div>
-                        <h4 class="font-heading text-xl font-bold mb-3 text-brand-dark">Domestic Recruitment (India)</h4>
+                        <h4 class="font-heading text-xl font-bold mb-3 text-white">Domestic Recruitment (India)</h4>
                         <p class="text-brand-gray text-sm leading-relaxed mb-6 flex-grow">We source, screen, and deploy elite developers and IT professionals for businesses across India. Fast-track your hiring process with our vetted talent pool.</p>
                     </article>
 
-                    <!-- USA Staffing -->
-                    <article class="bg-brand-light p-8 rounded-xl border border-gray-200 premium-card flex flex-col">
-                        <div class="w-14 h-14 bg-white border border-gray-200 text-brand-dark rounded-lg flex items-center justify-center text-2xl mb-6 shadow-sm">
+                    <!-- Service 3 -->
+                    <article class="glass-card p-8 rounded-xl premium-card flex flex-col group">
+                        <div class="w-14 h-14 bg-white/5 border border-white/10 text-white rounded-lg flex items-center justify-center text-2xl mb-6 group-hover:text-brand-copper transition-colors">
                             <i class="fa-solid fa-briefcase"></i>
                         </div>
-                        <h4 class="font-heading text-xl font-bold mb-3 text-brand-dark">USA IT Consulting & Staffing</h4>
-                        <p class="text-brand-gray text-sm leading-relaxed mb-6 flex-grow">Strategic US business consulting combined with rapid deployment of highly qualified IT professionals for contract or full-time roles across the United States.</p>
+                        <h4 class="font-heading text-xl font-bold mb-3 text-white">USA IT Consulting & Staffing</h4>
+                        <p class="text-brand-gray text-sm leading-relaxed mb-6 flex-grow">Strategic US business consulting combined with rapid deployment of highly qualified IT professionals for contract, C2C, or full-time roles across the United States.</p>
                     </article>
 
-                    <!-- Cloud & AI -->
-                    <article class="bg-brand-light p-8 rounded-xl border border-gray-200 premium-card flex flex-col">
-                        <div class="w-14 h-14 bg-white border border-gray-200 text-brand-dark rounded-lg flex items-center justify-center text-2xl mb-6 shadow-sm">
+                    <!-- Service 4 -->
+                    <article class="glass-card p-8 rounded-xl premium-card flex flex-col group border-b-4 border-b-transparent hover:border-b-brand-copper">
+                        <div class="w-14 h-14 bg-white/5 border border-white/10 text-white rounded-lg flex items-center justify-center text-2xl mb-6 group-hover:text-brand-copper transition-colors">
                             <i class="fa-solid fa-cloud-arrow-up"></i>
                         </div>
-                        <h4 class="font-heading text-xl font-bold mb-3 text-brand-dark">Cloud Solutions (AWS/Azure)</h4>
-                        <p class="text-brand-gray text-sm leading-relaxed mb-6 flex-grow">Secure cloud migration, deployment, and DevOps management. We optimize your infrastructure for maximum scalability and zero downtime.</p>
+                        <h4 class="font-heading text-xl font-bold mb-3 text-white">Cloud Solutions (AWS/Azure)</h4>
+                        <p class="text-brand-gray text-sm leading-relaxed mb-6 flex-grow">Secure cloud migration, deployment, and DevOps management. We optimize your infrastructure for maximum scalability, data integrity, and zero downtime.</p>
                     </article>
 
-                    <!-- Training & Internships -->
-                    <article class="bg-brand-light p-8 rounded-xl border border-gray-200 premium-card flex flex-col border-b-4 border-b-brand-copper">
-                        <div class="w-14 h-14 bg-white border border-brand-copper/30 text-brand-copper rounded-lg flex items-center justify-center text-2xl mb-6 shadow-sm">
+                    <!-- Service 5 -->
+                    <article class="glass-card p-8 rounded-xl premium-card flex flex-col group border-b-4 border-b-transparent hover:border-b-brand-copper">
+                        <div class="w-14 h-14 bg-white/5 border border-white/10 text-white rounded-lg flex items-center justify-center text-2xl mb-6 group-hover:text-brand-copper transition-colors">
                             <i class="fa-solid fa-user-graduate"></i>
                         </div>
-                        <h4 class="font-heading text-xl font-bold mb-3 text-brand-dark">Training & Placements</h4>
+                        <h4 class="font-heading text-xl font-bold mb-3 text-white">Training & Placements</h4>
                         <p class="text-brand-gray text-sm leading-relaxed mb-6 flex-grow">Industry-relevant training programs in collaboration with corporate partners. Get hands-on live project experience with guaranteed placement drives.</p>
                     </article>
 
-                    <!-- Managed IT -->
-                    <article class="bg-brand-light p-8 rounded-xl border border-gray-200 premium-card flex flex-col">
-                        <div class="w-14 h-14 bg-white border border-gray-200 text-brand-dark rounded-lg flex items-center justify-center text-2xl mb-6 shadow-sm">
+                    <!-- Service 6 -->
+                    <article class="glass-card p-8 rounded-xl premium-card flex flex-col group">
+                        <div class="w-14 h-14 bg-white/5 border border-white/10 text-white rounded-lg flex items-center justify-center text-2xl mb-6 group-hover:text-brand-copper transition-colors">
                             <i class="fa-solid fa-shield-halved"></i>
                         </div>
-                        <h4 class="font-heading text-xl font-bold mb-3 text-brand-dark">Managed IT & Support</h4>
-                        <p class="text-brand-gray text-sm leading-relaxed mb-6 flex-grow">Proactive infrastructure management, 24/7 technical support, and operational maintenance executed from our Hyderabad delivery centers.</p>
+                        <h4 class="font-heading text-xl font-bold mb-3 text-white">Managed IT Services</h4>
+                        <p class="text-brand-gray text-sm leading-relaxed mb-6 flex-grow">Proactive infrastructure management, 24/7 technical support, and operational maintenance executed securely from our Hyderabad delivery centers.</p>
                     </article>
 
                 </div>
             </div>
         </section>
 
-        <!-- TECH STACK SECTION -->
-        <section id="technologies" class="py-24 bg-brand-dark text-white border-t border-slate-800 relative">
+        <!-- NEW: PARTNERSHIPS & VENDORSHIPS SECTION -->
+        <section id="partnerships" class="py-24 relative border-b border-white/5">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="text-center max-w-3xl mx-auto mb-16">
-                    <span class="text-xs font-extrabold tracking-widest text-brand-copper uppercase mb-4 block">Technology Stack</span>
-                    <h3 class="font-heading text-3xl sm:text-4xl font-bold text-white mb-6">Technologies We Master</h3>
-                    <p class="text-gray-400 text-sm">We leverage cutting-edge frameworks to build robust, scalable platforms tailored to your business needs.</p>
-                </div>
-
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="bg-gradient-to-br from-brand-card to-[#0a101f] border border-white/10 rounded-3xl p-10 md:p-16 shadow-2xl relative overflow-hidden">
                     
-                    <!-- Frontend -->
-                    <div class="bg-slate-800/50 p-8 rounded-xl border border-slate-700">
-                        <div class="flex items-center gap-3 mb-6 border-b border-slate-700 pb-4">
-                            <i class="fa-solid fa-layer-group text-2xl text-brand-copper"></i>
-                            <h4 class="font-bold text-lg">Frontend Technologies</h4>
+                    <!-- Decorative BG -->
+                    <div class="absolute top-0 right-0 w-64 h-64 bg-brand-copper rounded-full mix-blend-screen filter blur-[100px] opacity-10 pointer-events-none"></div>
+
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center relative z-10">
+                        <div>
+                            <span class="inline-block px-3 py-1 bg-white/5 border border-white/10 rounded text-xs font-extrabold tracking-widest text-brand-copper uppercase mb-4">Strategic Collaborations</span>
+                            <h3 class="font-heading text-3xl md:text-5xl font-bold text-white mb-6 leading-tight">Empowering Growth Through Partnerships.</h3>
+                            <p class="text-brand-gray text-base leading-relaxed mb-8">
+                                We are actively expanding our network of corporate clients, vendor partners, and educational institutions. Whether you need an influx of trained developers, a reliable staffing vendor, or a technical execution partner, Cognisys is ready to collaborate.
+                            </p>
+                            <a href="#contact" class="bg-white text-brand-dark px-8 py-4 font-bold text-sm uppercase tracking-wider rounded-md hover:bg-brand-copper hover:text-white transition-colors duration-300 inline-flex items-center gap-2">
+                                Become a Partner <i class="fa-solid fa-handshake"></i>
+                            </a>
                         </div>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="px-4 py-2 bg-slate-900 rounded text-xs font-semibold text-gray-300">React.js</span>
-                            <span class="px-4 py-2 bg-slate-900 rounded text-xs font-semibold text-gray-300">Angular</span>
-                            <span class="px-4 py-2 bg-slate-900 rounded text-xs font-semibold text-gray-300">Vue.js</span>
-                            <span class="px-4 py-2 bg-slate-900 rounded text-xs font-semibold text-gray-300">Next.js</span>
-                            <span class="px-4 py-2 bg-slate-900 rounded text-xs font-semibold text-gray-300">HTML5 / CSS3</span>
+                        
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div class="glass-card p-6 rounded-xl border border-white/10">
+                                <i class="fa-solid fa-building-user text-3xl text-brand-copper mb-4"></i>
+                                <h4 class="font-bold text-white mb-2">Corporate Clients</h4>
+                                <p class="text-xs text-brand-gray">Submit your technical requirements. We deploy entire tech teams or individual consultants rapidly.</p>
+                            </div>
+                            <div class="glass-card p-6 rounded-xl border border-white/10">
+                                <i class="fa-solid fa-hand-holding-hand text-3xl text-brand-copper mb-4"></i>
+                                <h4 class="font-bold text-white mb-2">Staffing Vendors</h4>
+                                <p class="text-xs text-brand-gray">Partner with us for C2C requirements and talent pooling in the USA and Indian markets.</p>
+                            </div>
+                            <div class="glass-card p-6 rounded-xl border border-white/10 sm:col-span-2 flex flex-col sm:flex-row items-center gap-4 text-center sm:text-left">
+                                <i class="fa-solid fa-graduation-cap text-3xl text-brand-copper"></i>
+                                <div>
+                                    <h4 class="font-bold text-white mb-1">Training Collaborations</h4>
+                                    <p class="text-xs text-brand-gray">We partner with institutions and academies to provide live-project training and guaranteed placement interviews.</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
-
-                    <!-- Backend -->
-                    <div class="bg-slate-800/50 p-8 rounded-xl border border-slate-700">
-                        <div class="flex items-center gap-3 mb-6 border-b border-slate-700 pb-4">
-                            <i class="fa-solid fa-server text-2xl text-brand-copper"></i>
-                            <h4 class="font-bold text-lg">Backend Technologies</h4>
-                        </div>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="px-4 py-2 bg-slate-900 rounded text-xs font-semibold text-gray-300">Node.js</span>
-                            <span class="px-4 py-2 bg-slate-900 rounded text-xs font-semibold text-gray-300">Python</span>
-                            <span class="px-4 py-2 bg-slate-900 rounded text-xs font-semibold text-gray-300">Java</span>
-                            <span class="px-4 py-2 bg-slate-900 rounded text-xs font-semibold text-gray-300">.NET</span>
-                            <span class="px-4 py-2 bg-slate-900 rounded text-xs font-semibold text-gray-300">Spring Boot</span>
-                        </div>
-                    </div>
-
-                    <!-- Mobile -->
-                    <div class="bg-slate-800/50 p-8 rounded-xl border border-slate-700">
-                        <div class="flex items-center gap-3 mb-6 border-b border-slate-700 pb-4">
-                            <i class="fa-solid fa-mobile-screen-button text-2xl text-brand-copper"></i>
-                            <h4 class="font-bold text-lg">Mobile Development</h4>
-                        </div>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="px-4 py-2 bg-slate-900 rounded text-xs font-semibold text-gray-300">Flutter</span>
-                            <span class="px-4 py-2 bg-slate-900 rounded text-xs font-semibold text-gray-300">React Native</span>
-                            <span class="px-4 py-2 bg-slate-900 rounded text-xs font-semibold text-gray-300">iOS (Swift)</span>
-                            <span class="px-4 py-2 bg-slate-900 rounded text-xs font-semibold text-gray-300">Android (Kotlin)</span>
-                        </div>
-                    </div>
-
-                    <!-- Database & Cloud -->
-                    <div class="bg-slate-800/50 p-8 rounded-xl border border-slate-700">
-                        <div class="flex items-center gap-3 mb-6 border-b border-slate-700 pb-4">
-                            <i class="fa-solid fa-database text-2xl text-brand-copper"></i>
-                            <h4 class="font-bold text-lg">Database & Cloud</h4>
-                        </div>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="px-4 py-2 bg-slate-900 rounded text-xs font-semibold text-gray-300">AWS</span>
-                            <span class="px-4 py-2 bg-slate-900 rounded text-xs font-semibold text-gray-300">Microsoft Azure</span>
-                            <span class="px-4 py-2 bg-slate-900 rounded text-xs font-semibold text-gray-300">MongoDB</span>
-                            <span class="px-4 py-2 bg-slate-900 rounded text-xs font-semibold text-gray-300">PostgreSQL</span>
-                            <span class="px-4 py-2 bg-slate-900 rounded text-xs font-semibold text-gray-300">MySQL</span>
-                        </div>
-                    </div>
-
                 </div>
             </div>
         </section>
 
-        <!-- PROPRIETARY INNOVATIONS SECTION -->
-        <section id="innovations" class="py-24 bg-white border-t border-brand-border">
+        <!-- IN-HOUSE PROJECTS / INNOVATIONS SECTION -->
+        <section id="inhouse" class="py-28 relative bg-brand-dark/50 border-b border-white/5">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="mb-16 text-center max-w-3xl mx-auto">
-                    <h2 class="text-xs font-extrabold tracking-widest text-brand-copper uppercase mb-4">Our Own IP</h2>
-                    <h3 class="font-heading text-4xl md:text-5xl font-bold text-brand-dark mb-6">4+ Proprietary Projects</h3>
-                    <p class="text-lg text-brand-gray">Beyond enterprise IT services, Cognisys actively incubates proprietary tech products and SaaS platforms designed to solve modern consumer and business challenges.</p>
+                <div class="text-center max-w-3xl mx-auto mb-20">
+                    <span class="inline-block px-3 py-1 bg-white/5 border border-white/10 rounded text-xs font-extrabold tracking-widest text-brand-copper uppercase mb-4">Internal Incubations</span>
+                    <h3 class="font-heading text-4xl md:text-5xl font-bold text-white mb-6">Our Proprietary Ecosystems</h3>
+                    <p class="text-lg text-brand-gray">Beyond enterprise IT client services, Cognisys actively architects, incubates, and scales its own proprietary tech products designed to solve modern consumer challenges.</p>
                 </div>
                 
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-10 max-w-5xl mx-auto">
+                    
                     <!-- Bitee Project -->
-                    <article class="bg-brand-light p-10 border border-gray-200 rounded-xl premium-card group relative overflow-hidden flex flex-col">
-                        <div class="absolute top-0 right-0 bg-brand-teal text-white text-[0.65rem] font-bold px-3 py-1.5 uppercase tracking-widest rounded-bl-lg">Live App</div>
+                    <article class="glass-card p-10 rounded-2xl premium-card group relative overflow-hidden flex flex-col border-t-4 border-t-emerald-500">
+                        <div class="absolute top-6 right-6 bg-emerald-500/20 border border-emerald-500/50 text-emerald-400 text-[0.65rem] font-bold px-4 py-1.5 uppercase tracking-widest rounded-full">Live Platform</div>
                         
-                        <div class="mb-6 h-16 w-16 transition-transform group-hover:scale-110 flex items-center justify-start">
-                            <img src="bitee-logo.png" alt="Bitee Logo" class="max-w-full max-h-full object-contain" onerror="this.onerror=null; this.src='https://via.placeholder.com/64x64/4A3728/ffffff?text=B';">
+                        <div class="mb-8 h-16 w-16 transition-transform group-hover:scale-110 flex items-center justify-start bg-white p-2 rounded-lg shadow-lg">
+                            <!-- Fallback to text if logo is missing to keep premium look -->
+                            <img src="bitee-logo.png" alt="Bitee Logo" class="max-w-full max-h-full object-contain" onerror="this.onerror=null; this.src='https://via.placeholder.com/64x64/ffffff/0a0a0a?text=B';">
                         </div>
                         
-                        <h4 class="font-heading text-2xl font-bold mb-4 text-brand-dark">Bitee Ecosystem</h4>
-                        <p class="text-brand-gray text-sm leading-relaxed mb-6 flex-grow">An innovative digital ecosystem styled in a clean, modern aesthetic. Bitee is engineered for emerging markets, built on robust web architecture designed to deliver a seamless and engaging user experience.</p>
+                        <h4 class="font-heading text-3xl font-bold mb-4 text-white">Bitee Ecosystem</h4>
+                        <p class="text-brand-gray text-sm leading-relaxed mb-8 flex-grow">An innovative digital commerce ecosystem styled in a clean, modern aesthetic. Bitee is engineered for emerging markets, built on robust web architecture designed to deliver a seamless, high-speed, and engaging user experience.</p>
                         
-                        <ul class="text-sm font-semibold space-y-2 text-brand-dark mb-8">
-                            <li><i class="fa-solid fa-check text-brand-copper mr-2 text-xs"></i> Advanced Domain Configurations</li>
-                            <li><i class="fa-solid fa-check text-brand-copper mr-2 text-xs"></i> Modern Web Architecture</li>
+                        <ul class="text-sm font-medium space-y-3 text-gray-300 mb-8">
+                            <li class="flex items-center gap-3"><i class="fa-solid fa-check-circle text-brand-copper"></i> Advanced Domain Configurations</li>
+                            <li class="flex items-center gap-3"><i class="fa-solid fa-check-circle text-brand-copper"></i> Modern Web Architecture & UI/UX</li>
+                            <li class="flex items-center gap-3"><i class="fa-solid fa-check-circle text-brand-copper"></i> Highly Scalable Database Engine</li>
                         </ul>
 
-                        <div class="flex flex-wrap gap-5 mt-auto border-t border-gray-200 pt-6">
-                            <a href="https://bitee.in" target="_blank" class="inline-flex items-center text-xs font-bold uppercase tracking-widest text-brand-dark hover:text-brand-copper transition-colors">
-                                Visit Website <i class="fa-solid fa-arrow-up-right-from-square ml-2"></i>
+                        <div class="mt-auto border-t border-white/10 pt-6">
+                            <a href="https://bitee.in" target="_blank" class="inline-flex items-center text-xs font-bold uppercase tracking-widest text-white hover:text-brand-copper transition-colors">
+                                Visit Live Website <i class="fa-solid fa-arrow-up-right-from-square ml-2"></i>
                             </a>
                         </div>
                     </article>
 
                     <!-- Connect Project -->
-                    <article class="bg-brand-light p-10 border border-gray-200 rounded-xl premium-card group relative overflow-hidden flex flex-col">
-                        <div class="absolute top-0 right-0 bg-brand-dark text-white text-[0.65rem] font-bold px-3 py-1.5 uppercase tracking-widest rounded-bl-lg">In Development</div>
-                        <div class="w-16 h-16 bg-white border border-gray-200 text-brand-dark rounded-xl flex items-center justify-center mb-6 shadow-sm transition-transform group-hover:scale-110">
-                            <i class="fa-solid fa-car text-2xl" aria-hidden="true"></i>
+                    <article class="glass-card p-10 rounded-2xl premium-card group relative overflow-hidden flex flex-col border-t-4 border-t-brand-copper">
+                        <div class="absolute top-6 right-6 bg-white/10 border border-white/20 text-gray-300 text-[0.65rem] font-bold px-4 py-1.5 uppercase tracking-widest rounded-full">In Development</div>
+                        
+                        <div class="w-16 h-16 bg-brand-card border border-white/10 text-white rounded-xl flex items-center justify-center mb-8 shadow-lg transition-transform group-hover:scale-110">
+                            <i class="fa-solid fa-car text-3xl text-brand-copper" aria-hidden="true"></i>
                         </div>
-                        <h4 class="font-heading text-2xl font-bold mb-4 text-brand-dark">Connect App</h4>
-                        <p class="text-brand-gray text-sm leading-relaxed mb-6 flex-grow">A next-generation ride-hailing application platform featuring uniquely optimized, highly scalable architectures tailored explicitly to enhance the interface and efficiency for both riders and passengers.</p>
-                        <ul class="text-sm font-semibold space-y-2 text-brand-dark mb-8">
-                            <li><i class="fa-solid fa-check text-brand-copper mr-2 text-xs"></i> Dedicated Passenger UI</li>
-                            <li><i class="fa-solid fa-check text-brand-copper mr-2 text-xs"></i> Scalable Ride-Hailing Backend</li>
+                        
+                        <h4 class="font-heading text-3xl font-bold mb-4 text-white">Connect App</h4>
+                        <p class="text-brand-gray text-sm leading-relaxed mb-8 flex-grow">A next-generation ride-hailing and mobility application platform. It features uniquely optimized, highly scalable backend architectures tailored explicitly to enhance the interface, routing speed, and efficiency for both riders and drivers.</p>
+                        
+                        <ul class="text-sm font-medium space-y-3 text-gray-300 mb-8">
+                            <li class="flex items-center gap-3"><i class="fa-solid fa-check-circle text-brand-copper"></i> Dedicated Passenger & Driver UI</li>
+                            <li class="flex items-center gap-3"><i class="fa-solid fa-check-circle text-brand-copper"></i> Real-Time Mapping Algorithms</li>
+                            <li class="flex items-center gap-3"><i class="fa-solid fa-check-circle text-brand-copper"></i> Scalable Ride-Hailing Backend</li>
                         </ul>
                     </article>
                 </div>
             </div>
         </section>
 
+        <!-- TECH STACK SECTION -->
+        <section id="technologies" class="py-24 relative border-b border-white/5">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-3xl mx-auto mb-16">
+                    <span class="inline-block px-3 py-1 bg-white/5 border border-white/10 rounded text-xs font-extrabold tracking-widest text-brand-copper uppercase mb-4">Technology Stack</span>
+                    <h3 class="font-heading text-3xl sm:text-4xl font-bold text-white mb-6">Technologies We Master</h3>
+                    <p class="text-brand-gray text-sm">We leverage cutting-edge frameworks to build robust, scalable platforms tailored to your core business focus.</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    
+                    <!-- Frontend -->
+                    <div class="glass-card p-8 rounded-xl">
+                        <div class="flex items-center gap-3 mb-6 border-b border-white/10 pb-4">
+                            <i class="fa-solid fa-layer-group text-2xl text-brand-copper"></i>
+                            <h4 class="font-bold text-lg text-white">Frontend Technologies</h4>
+                        </div>
+                        <div class="flex flex-wrap gap-3">
+                            <span class="px-4 py-2 bg-white/5 border border-white/10 rounded-md text-xs font-semibold text-gray-300">React.js</span>
+                            <span class="px-4 py-2 bg-white/5 border border-white/10 rounded-md text-xs font-semibold text-gray-300">Angular</span>
+                            <span class="px-4 py-2 bg-white/5 border border-white/10 rounded-md text-xs font-semibold text-gray-300">Vue.js</span>
+                            <span class="px-4 py-2 bg-white/5 border border-white/10 rounded-md text-xs font-semibold text-gray-300">Next.js</span>
+                            <span class="px-4 py-2 bg-white/5 border border-white/10 rounded-md text-xs font-semibold text-gray-300">Tailwind CSS</span>
+                        </div>
+                    </div>
+
+                    <!-- Backend -->
+                    <div class="glass-card p-8 rounded-xl">
+                        <div class="flex items-center gap-3 mb-6 border-b border-white/10 pb-4">
+                            <i class="fa-solid fa-server text-2xl text-brand-copper"></i>
+                            <h4 class="font-bold text-lg text-white">Backend Technologies</h4>
+                        </div>
+                        <div class="flex flex-wrap gap-3">
+                            <span class="px-4 py-2 bg-white/5 border border-white/10 rounded-md text-xs font-semibold text-gray-300">Node.js</span>
+                            <span class="px-4 py-2 bg-white/5 border border-white/10 rounded-md text-xs font-semibold text-gray-300">Python</span>
+                            <span class="px-4 py-2 bg-white/5 border border-white/10 rounded-md text-xs font-semibold text-gray-300">Java</span>
+                            <span class="px-4 py-2 bg-white/5 border border-white/10 rounded-md text-xs font-semibold text-gray-300">Spring Boot</span>
+                            <span class="px-4 py-2 bg-white/5 border border-white/10 rounded-md text-xs font-semibold text-gray-300">Microservices</span>
+                        </div>
+                    </div>
+
+                    <!-- Mobile -->
+                    <div class="glass-card p-8 rounded-xl">
+                        <div class="flex items-center gap-3 mb-6 border-b border-white/10 pb-4">
+                            <i class="fa-solid fa-mobile-screen-button text-2xl text-brand-copper"></i>
+                            <h4 class="font-bold text-lg text-white">Mobile Development</h4>
+                        </div>
+                        <div class="flex flex-wrap gap-3">
+                            <span class="px-4 py-2 bg-white/5 border border-white/10 rounded-md text-xs font-semibold text-gray-300">Flutter</span>
+                            <span class="px-4 py-2 bg-white/5 border border-white/10 rounded-md text-xs font-semibold text-gray-300">React Native</span>
+                            <span class="px-4 py-2 bg-white/5 border border-white/10 rounded-md text-xs font-semibold text-gray-300">iOS (Swift)</span>
+                            <span class="px-4 py-2 bg-white/5 border border-white/10 rounded-md text-xs font-semibold text-gray-300">Android (Kotlin)</span>
+                        </div>
+                    </div>
+
+                    <!-- Database & Cloud -->
+                    <div class="glass-card p-8 rounded-xl">
+                        <div class="flex items-center gap-3 mb-6 border-b border-white/10 pb-4">
+                            <i class="fa-solid fa-database text-2xl text-brand-copper"></i>
+                            <h4 class="font-bold text-lg text-white">Database & Cloud</h4>
+                        </div>
+                        <div class="flex flex-wrap gap-3">
+                            <span class="px-4 py-2 bg-white/5 border border-white/10 rounded-md text-xs font-semibold text-gray-300">AWS</span>
+                            <span class="px-4 py-2 bg-white/5 border border-white/10 rounded-md text-xs font-semibold text-gray-300">Microsoft Azure</span>
+                            <span class="px-4 py-2 bg-white/5 border border-white/10 rounded-md text-xs font-semibold text-gray-300">MongoDB</span>
+                            <span class="px-4 py-2 bg-white/5 border border-white/10 rounded-md text-xs font-semibold text-gray-300">PostgreSQL</span>
+                            <span class="px-4 py-2 bg-white/5 border border-white/10 rounded-md text-xs font-semibold text-gray-300">Docker</span>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- CAREERS PREVIEW SECTION -->
+        <section class="py-24 relative bg-brand-dark/50 border-b border-white/5">
+            <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <h3 class="font-heading text-4xl md:text-5xl font-bold text-white mb-6">Propel Your Career</h3>
+                <p class="text-lg text-brand-gray mb-10 max-w-2xl mx-auto">
+                    We are constantly looking for brilliant developers, visionary designers, and driven recruitment professionals. View our open positions, apply directly, or join our collaborative training programs.
+                </p>
+                <a href="careers.html" class="bg-white text-brand-dark px-10 py-4 font-bold text-sm uppercase tracking-wider rounded-md hover:bg-brand-copper hover:text-white transition-colors duration-300 inline-flex items-center gap-3 shadow-lg shadow-white/10">
+                    View Current Openings <i class="fa-solid fa-briefcase"></i>
+                </a>
+            </div>
+        </section>
+
         <!-- CONTACT SECTION -->
-        <section id="contact" class="py-24 bg-brand-light border-t border-brand-border relative">
+        <section id="contact" class="py-28 relative">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
                     
                     <!-- Contact Info -->
                     <div>
-                        <h2 class="text-xs font-extrabold tracking-widest text-brand-copper uppercase mb-4">Get In Touch</h2>
-                        <h3 class="font-heading text-4xl md:text-5xl font-bold mb-6 text-brand-dark">Let's Build the Future Together.</h3>
+                        <span class="inline-block px-3 py-1 bg-white/5 border border-white/10 rounded text-xs font-extrabold tracking-widest text-brand-copper uppercase mb-4">Get In Touch</span>
+                        <h3 class="font-heading text-4xl md:text-5xl font-bold mb-6 text-white leading-tight">Let's Discuss Your Digital Goals.</h3>
                         <p class="text-brand-gray text-lg leading-relaxed mb-10">
-                            Whether you need enterprise IT consulting, custom software development, or scalable recruitment teams in India and the US, our experts are ready to assist you.
+                            Contact us today for a free consultation. Our team responds to all corporate inquiries, partnership proposals, and vendor registrations within 24 hours.
                         </p>
                         
-                        <div class="space-y-6 border-l-2 border-brand-copper/30 pl-6">
+                        <div class="space-y-8 border-l border-white/10 pl-6">
                             <div>
                                 <h4 class="font-bold text-xs uppercase tracking-widest text-brand-gray mb-1">Email Us</h4>
-                                <a href="mailto:support@congnisysitsolutions.com" class="text-brand-dark text-lg font-semibold hover:text-brand-copper transition-colors">support@congnisysitsolutions.com</a>
+                                <a href="mailto:support@congnisysitsolutions.com" class="text-white text-lg font-semibold hover:text-brand-copper transition-colors">support@congnisysitsolutions.com</a>
                             </div>
                             <div>
                                 <h4 class="font-bold text-xs uppercase tracking-widest text-brand-gray mb-1">Global Headquarters</h4>
-                                <p class="text-brand-dark font-medium">Hyderabad, India<br><span class="text-brand-gray text-sm">Operating Remotely across the USA</span></p>
+                                <p class="text-white font-medium text-lg">Hyderabad, India<br><span class="text-brand-gray text-sm">Operating Remotely across the USA</span></p>
                             </div>
                             <div>
-                                <h4 class="font-bold text-xs uppercase tracking-widest text-brand-gray mb-1">Connect</h4>
-                                <a href="https://www.linkedin.com/company/cognisys-soft-services" target="_blank" class="inline-flex items-center gap-2 text-brand-dark hover:text-brand-copper font-medium transition-colors">
-                                    <i class="fa-brands fa-linkedin text-xl"></i> Cognisys Soft Services
+                                <h4 class="font-bold text-xs uppercase tracking-widest text-brand-gray mb-2">Connect</h4>
+                                <a href="https://www.linkedin.com/company/cognisys-soft-services" target="_blank" class="inline-flex items-center gap-2 text-white hover:text-brand-copper font-medium transition-colors border border-white/20 px-4 py-2 rounded-md bg-white/5">
+                                    <i class="fa-brands fa-linkedin text-xl text-brand-copper"></i> Cognisys Soft Services
                                 </a>
                             </div>
                         </div>
                     </div>
                     
                     <!-- Contact Form -->
-                    <div class="bg-white p-8 sm:p-10 rounded-xl border border-gray-200 shadow-xl shadow-brand-dark/5">
+                    <div class="glass-card p-8 sm:p-10 rounded-2xl border border-white/10 shadow-2xl">
+                        <h4 class="text-2xl font-bold text-white mb-6 font-heading">Send us a Message</h4>
                         <form action="#" method="POST" class="space-y-6">
                             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                                 <div>
                                     <label class="block text-xs font-bold tracking-widest uppercase text-brand-gray mb-2">First Name</label>
-                                    <input type="text" name="firstName" class="w-full bg-brand-light border border-gray-200 px-4 py-3 text-sm focus:outline-none focus:border-brand-copper rounded-md transition-colors" required>
+                                    <input type="text" name="firstName" class="w-full bg-white/5 border border-white/10 text-white px-4 py-3 text-sm focus:outline-none focus:border-brand-copper focus:bg-white/10 rounded-md transition-colors" required>
                                 </div>
                                 <div>
                                     <label class="block text-xs font-bold tracking-widest uppercase text-brand-gray mb-2">Last Name</label>
-                                    <input type="text" name="lastName" class="w-full bg-brand-light border border-gray-200 px-4 py-3 text-sm focus:outline-none focus:border-brand-copper rounded-md transition-colors" required>
+                                    <input type="text" name="lastName" class="w-full bg-white/5 border border-white/10 text-white px-4 py-3 text-sm focus:outline-none focus:border-brand-copper focus:bg-white/10 rounded-md transition-colors" required>
                                 </div>
                             </div>
                             <div>
-                                <label class="block text-xs font-bold tracking-widest uppercase text-brand-gray mb-2">Email Address</label>
-                                <input type="email" name="email" class="w-full bg-brand-light border border-gray-200 px-4 py-3 text-sm focus:outline-none focus:border-brand-copper rounded-md transition-colors" required>
+                                <label class="block text-xs font-bold tracking-widest uppercase text-brand-gray mb-2">Work Email Address</label>
+                                <input type="email" name="email" class="w-full bg-white/5 border border-white/10 text-white px-4 py-3 text-sm focus:outline-none focus:border-brand-copper focus:bg-white/10 rounded-md transition-colors" required>
                             </div>
                             <div>
                                 <label class="block text-xs font-bold tracking-widest uppercase text-brand-gray mb-2">Reason for Contact</label>
-                                <select name="service" class="w-full bg-brand-light border border-gray-200 px-4 py-3 text-sm focus:outline-none focus:border-brand-copper rounded-md transition-colors text-brand-dark">
-                                    <option value="Hire Developers">Hire Developers</option>
+                                <select name="service" class="w-full bg-brand-card border border-white/10 text-white px-4 py-3 text-sm focus:outline-none focus:border-brand-copper rounded-md transition-colors appearance-none">
+                                    <option value="Hire Developers">Hire Developers / Project Outsource</option>
                                     <option value="Domestic IT Recruitment (India)">Domestic IT Recruitment (India)</option>
                                     <option value="USA IT Consulting & Staffing">USA IT Consulting & Staffing</option>
                                     <option value="Training & Placements">Training & Placements Collaboration</option>
-                                    <option value="Product Inquiry (Bitee / Connect)">Product Inquiry (Bitee / Connect)</option>
+                                    <option value="Vendor / Partner Registration">Vendor / Partner Registration</option>
                                     <option value="Other / General Inquiry">Other / General Inquiry</option>
                                 </select>
                             </div>
                             <div>
                                 <label class="block text-xs font-bold tracking-widest uppercase text-brand-gray mb-2">Message</label>
-                                <textarea name="message" rows="4" class="w-full bg-brand-light border border-gray-200 px-4 py-3 text-sm focus:outline-none focus:border-brand-copper rounded-md transition-colors" required></textarea>
+                                <textarea name="message" rows="4" class="w-full bg-white/5 border border-white/10 text-white px-4 py-3 text-sm focus:outline-none focus:border-brand-copper focus:bg-white/10 rounded-md transition-colors" placeholder="How can we help you achieve your goals?" required></textarea>
                             </div>
-                            <button type="submit" class="w-full bg-brand-dark text-white px-8 py-4 font-bold text-sm uppercase tracking-wider rounded-md hover:bg-brand-copper transition-colors duration-300">
+                            <button type="submit" class="w-full bg-brand-copper text-white px-8 py-4 font-bold text-sm uppercase tracking-wider rounded-md hover:bg-brand-copperHover transition-colors duration-300">
                                 Send Message
                             </button>
                         </form>
@@ -532,61 +620,75 @@
         </section>
     </main>
 
-    <!-- Ultra Premium Footer (Only DPIIT Logo) -->
-    <footer class="bg-brand-dark text-white pt-20 pb-10 border-t border-slate-800">
+    <!-- Detailed Premium Footer (Reverted to specific style requested) -->
+    <footer class="bg-[#050810] text-white pt-24 pb-12 border-t border-white/10">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 mb-16">
                 
-                <!-- Footer Branding -->
-                <div class="lg:col-span-5">
+                <!-- Col 1: Brand & About -->
+                <div class="lg:col-span-4">
                     <a href="#" class="flex items-center gap-4 mb-6">
-                        <img src="logo.png" alt="Cognisys Corporate Logo" class="h-16 w-auto brightness-0 invert opacity-90" onerror="this.onerror=null; this.src='https://via.placeholder.com/64x64/ffffff/0a0a0a?text=C';">
+                        <!-- Keep white background for logo visibility -->
+                        <div class="bg-white p-1.5 rounded-lg">
+                            <img src="logo.png" alt="Cognisys Corporate Logo" class="h-12 w-auto object-contain" onerror="this.onerror=null; this.src='https://via.placeholder.com/64x64/0f172a/b87333?text=C';">
+                        </div>
                         <div class="flex flex-col">
                             <span class="font-heading font-extrabold text-2xl leading-tight text-white tracking-tight">COGNISYS</span>
-                            <span class="text-[0.7rem] font-bold uppercase tracking-widest text-brand-copper mt-1">Soft Services & IT Solutions</span>
+                            <span class="text-[0.65rem] font-bold uppercase tracking-widest text-brand-copper mt-1">Soft Services & IT Solutions</span>
                         </div>
                     </a>
-                    <p class="text-gray-400 leading-relaxed text-sm pr-4 mb-6">
-                        Specializing in Custom Software Development, Domestic IT Staffing in India, USA IT Consulting, and highly collaborative Placement Training programs. Headquartered in Hyderabad with operations across the US.
+                    <p class="text-brand-gray leading-relaxed text-sm pr-4">
+                        Specializing in Custom Software Development, Domestic IT Staffing in India, USA IT Consulting, and highly collaborative Placement Training programs.
                     </p>
                 </div>
                 
-                <!-- Quick Links -->
+                <!-- Col 2: Services / Industries -->
                 <div class="lg:col-span-3">
-                    <h3 class="text-xs font-bold tracking-widest uppercase mb-6 text-brand-copper">Quick Links</h3>
+                    <h3 class="text-xs font-bold tracking-widest uppercase mb-6 text-brand-copper">Services</h3>
                     <ul class="space-y-4 text-sm text-gray-300">
-                        <li><a href="#about" class="hover:text-white transition-colors">About Cognisys</a></li>
-                        <li><a href="#services" class="hover:text-white transition-colors">Our Services</a></li>
-                        <li><a href="#innovations" class="hover:text-white transition-colors">Innovations</a></li>
-                        <li><a href="careers.html" class="hover:text-white transition-colors">Careers / Hiring</a></li>
-                        <li><a href="#contact" class="hover:text-white transition-colors">Contact Us</a></li>
+                        <li><a href="#services" class="hover:text-white hover:underline transition-colors">Custom Software Development</a></li>
+                        <li><a href="#services" class="hover:text-white hover:underline transition-colors">Domestic IT Staffing (India)</a></li>
+                        <li><a href="#services" class="hover:text-white hover:underline transition-colors">USA IT Consulting & Staffing</a></li>
+                        <li><a href="#services" class="hover:text-white hover:underline transition-colors">Cloud Migrations & DevOps</a></li>
+                        <li><a href="#services" class="hover:text-white hover:underline transition-colors">Training & Placements</a></li>
                     </ul>
                 </div>
 
-                <!-- Recognition (DPIIT Only) -->
-                <div class="lg:col-span-4 flex flex-col items-start lg:items-end text-left lg:text-right">
-                    <h3 class="text-xs font-bold tracking-widest uppercase mb-6 text-brand-copper w-full lg:text-right">Recognition</h3>
-                    <a href="dpiit-certificate.pdf" target="_blank" title="View Certificate" class="inline-block transition-transform hover:scale-105 bg-white p-3 rounded-md shadow-lg">
-                        <img src="startup-india-logo.png" alt="DPIIT Recognized Startup" class="w-full max-w-[280px] h-auto object-contain" onerror="this.onerror=null; this.src='https://via.placeholder.com/280x80/0a0a0a/ffffff?text=Startup+India';">
+                <!-- Col 3: Quick Links & Contact -->
+                <div class="lg:col-span-3">
+                    <h3 class="text-xs font-bold tracking-widest uppercase mb-6 text-brand-copper">Quick Links</h3>
+                    <ul class="space-y-4 text-sm text-gray-300">
+                        <li><a href="#about" class="hover:text-white hover:underline transition-colors">Who We Are</a></li>
+                        <li><a href="#innovations" class="hover:text-white hover:underline transition-colors">In-House Products</a></li>
+                        <li><a href="#partnerships" class="hover:text-white hover:underline transition-colors">Vendorships & Partnerships</a></li>
+                        <li><a href="careers.html" class="hover:text-white hover:underline transition-colors">Careers / Open Positions</a></li>
+                        <li><a href="mailto:support@congnisysitsolutions.com" class="hover:text-white hover:underline transition-colors text-brand-copper">Email Support</a></li>
+                    </ul>
+                </div>
+
+                <!-- Col 4: Recognition (Centered Title & Larger Logo) -->
+                <div class="lg:col-span-2 flex flex-col items-start lg:items-center text-left lg:text-center">
+                    <h3 class="text-xs font-bold tracking-widest uppercase mb-6 text-brand-copper w-full lg:text-center">Recognition</h3>
+                    <a href="dpiit-certificate.pdf" target="_blank" title="View DPIIT Certificate" class="inline-block transition-transform hover:scale-105 bg-white p-2 rounded-lg shadow-lg">
+                        <img src="startup-india-logo.png" alt="DPIIT Recognized Startup" class="w-full max-w-[200px] h-auto object-contain" onerror="this.onerror=null; this.src='https://via.placeholder.com/200x60/0a0a0a/ffffff?text=Startup+India';">
                     </a>
                 </div>
 
             </div>
             
-            <div class="border-t border-slate-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
-                <p class="text-xs text-gray-500 font-medium uppercase tracking-wider">
+            <div class="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+                <p class="text-xs text-brand-gray font-medium uppercase tracking-wider">
                     &copy; 2026 Cognisys Soft Services & IT Solutions.
                 </p>
                 <div class="flex gap-4">
-                    <a href="https://www.linkedin.com/company/cognisys-soft-services" target="_blank" class="text-gray-500 hover:text-brand-copper transition-colors text-lg"><i class="fa-brands fa-linkedin"></i></a>
+                    <a href="https://www.linkedin.com/company/cognisys-soft-services" target="_blank" class="text-brand-gray hover:text-brand-copper transition-colors text-lg"><i class="fa-brands fa-linkedin"></i></a>
                 </div>
             </div>
         </div>
     </footer>
 
-    <!-- JavaScript for Hamburger Menu & Canvas Animation -->
+    <!-- JavaScript for Hamburger Menu -->
     <script>
-        // Dropdown Menu Toggle Logic
         const menuBtn = document.getElementById('menuToggleBtn');
         const dropMenu = document.getElementById('dropdownMenu');
         
@@ -596,29 +698,22 @@
                 dropMenu.classList.remove('hidden');
                 dropMenu.classList.add('flex', 'animate-fade-in-down');
                 menuBtn.innerHTML = '<i class="fa-solid fa-xmark text-xl"></i>';
+                menuBtn.classList.add('bg-brand-copper', 'border-brand-copper');
             } else {
                 dropMenu.classList.add('hidden');
                 dropMenu.classList.remove('flex', 'animate-fade-in-down');
                 menuBtn.innerHTML = '<i class="fa-solid fa-bars text-xl"></i>';
+                menuBtn.classList.remove('bg-brand-copper', 'border-brand-copper');
             }
         });
 
-        // Close menu when clicking outside
         document.addEventListener('click', (e) => {
             if (!dropMenu.contains(e.target) && !menuBtn.contains(e.target)) {
                 dropMenu.classList.add('hidden');
                 dropMenu.classList.remove('flex', 'animate-fade-in-down');
                 menuBtn.innerHTML = '<i class="fa-solid fa-bars text-xl"></i>';
+                menuBtn.classList.remove('bg-brand-copper', 'border-brand-copper');
             }
-        });
-
-        // Close menu when clicking a link inside it
-        dropMenu.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', () => {
-                dropMenu.classList.add('hidden');
-                dropMenu.classList.remove('flex', 'animate-fade-in-down');
-                menuBtn.innerHTML = '<i class="fa-solid fa-bars text-xl"></i>';
-            });
         });
     </script>
 </body>
