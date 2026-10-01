@@ -1,28 +1,149 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
-  <meta charset="UTF-8">
-  <title>IT Services | Cognisys Soft Services</title>
-  <meta name="description" content="IT consulting, cloud solutions, and software development services in Hyderabad and USA.">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services | Cognisys IT Solutions</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Inter', 'sans-serif'], heading: ['Outfit', 'sans-serif'] },
+                    colors: { brand: { base: '#080605', surface: '#120d0a', card: '#1a130f', copper: '#c57b33', text: '#e2dcd8', muted: '#a39891' } }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { background-color: #080605; color: #e2dcd8; }
+        .glass-nav { background: rgba(8, 6, 5, 0.7); backdrop-filter: blur(20px); border-bottom: 1px solid rgba(197, 123, 51, 0.1); }
+        .premium-card { background: linear-gradient(145deg, #1a130f, #120d0a); border: 1px solid rgba(255,255,255,0.03); transition: all 0.5s ease; }
+        .premium-card:hover { border-color: rgba(197, 123, 51, 0.4); }
+    </style>
 </head>
+<body class="font-sans antialiased">
 
-<body>
+    <!-- Header -->
+    <header class="fixed top-0 left-0 right-0 z-50 glass-nav transition-all duration-300 h-24 flex items-center">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full flex justify-between items-center">
+            <a href="index.html" class="flex items-center gap-4 group">
+                <div class="bg-white/5 p-1.5 rounded-lg border border-white/10 backdrop-blur-md">
+                    <img src="logo.png" alt="Cognisys Logo" class="h-12 w-auto" onerror="this.src='https://via.placeholder.com/64x64/080605/c57b33?text=C';">
+                </div>
+                <div class="flex flex-col">
+                    <span class="font-heading font-extrabold text-2xl tracking-widest text-white leading-none">COGNISYS</span>
+                    <span class="text-[0.6rem] font-bold uppercase tracking-[0.2em] text-brand-copper mt-1">Soft Services & IT Solutions</span>
+                </div>
+            </a>
+            <div class="flex items-center gap-6 relative z-50">
+                <a href="index.html#contact" class="hidden sm:inline-flex bg-transparent border border-brand-copper text-brand-copper px-6 py-2.5 rounded-full text-xs font-bold uppercase tracking-widest hover:bg-brand-copper hover:text-white transition-all">Contact Us</a>
+                <button id="menuToggleBtn" class="flex flex-col items-center justify-center w-12 h-12 bg-white/5 rounded-full border border-white/10 text-white hover:bg-brand-copper transition-all"><i class="fa-solid fa-bars text-xl"></i></button>
+            </div>
+            <!-- Dropdown -->
+            <div id="dropdownMenu" class="absolute top-24 right-4 sm:right-8 w-64 bg-brand-surface border border-brand-copper/20 shadow-2xl rounded-xl hidden flex-col z-40 overflow-hidden">
+                <a href="index.html" class="px-6 py-4 text-sm font-semibold text-gray-300 border-b border-white/5 hover:bg-white/5 hover:text-brand-copper">Home</a>
+                <a href="about.html" class="px-6 py-4 text-sm font-semibold text-gray-300 border-b border-white/5 hover:bg-white/5 hover:text-brand-copper">Who We Are</a>
+                <a href="services.html" class="px-6 py-4 text-sm font-semibold text-brand-copper border-b border-white/5 bg-white/5">IT Services & Solutions</a>
+                <a href="innovations.html" class="px-6 py-4 text-sm font-semibold text-gray-300 border-b border-white/5 hover:bg-white/5 hover:text-brand-copper">Proprietary Innovations</a>
+                <a href="careers.html" class="px-6 py-4 text-sm font-semibold text-gray-300 hover:bg-white/5 hover:text-brand-copper flex justify-between items-center">Careers <i class="fa-solid fa-arrow-right text-xs"></i></a>
+            </div>
+        </div>
+    </header>
 
-<h1>Our IT Services</h1>
+    <main class="pt-44 pb-24">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center mb-20">
+            <span class="text-[0.65rem] font-bold tracking-[0.2em] uppercase text-brand-copper mb-4 block">Core Capabilities</span>
+            <h1 class="font-heading text-5xl md:text-6xl font-bold text-white mb-6">End-to-End IT Execution.</h1>
+            <p class="text-xl text-brand-muted leading-relaxed">Discover our deep technological capabilities spanning software architecture, elite talent acquisition, and corporate training.</p>
+        </div>
 
-<p>
-Cognisys Soft Services & IT Solutions provides professional IT consulting, cloud solutions, and software development services in Hyderabad, India and USA.
-</p>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                
+                <!-- Custom Software -->
+                <div class="premium-card p-10 rounded-2xl flex flex-col h-full">
+                    <i class="fa-solid fa-code text-4xl text-brand-copper mb-6"></i>
+                    <h3 class="font-heading text-2xl font-bold text-white mb-4">Digital Transformation & Software</h3>
+                    <p class="text-brand-muted text-sm leading-relaxed mb-6 flex-grow">We build scalable microservices, high-performance web applications (React, Angular), and cross-platform mobile apps (Flutter, React Native). Our custom solutions are engineered to perfectly align with your business logic.</p>
+                    <ul class="space-y-2 text-xs text-gray-400 font-semibold border-t border-white/5 pt-4">
+                        <li><i class="fa-solid fa-check text-brand-copper mr-2"></i> Agile Development Methodology</li>
+                        <li><i class="fa-solid fa-check text-brand-copper mr-2"></i> UX/UI Excellence</li>
+                    </ul>
+                </div>
 
-<h2>Services We Offer</h2>
-<ul>
-  <li>Cloud Solutions (AWS, Azure)</li>
-  <li>Software Development</li>
-  <li>IT Consulting</li>
-  <li>Cybersecurity Services</li>
-</ul>
+                <!-- USA Staffing -->
+                <div class="premium-card p-10 rounded-2xl flex flex-col h-full">
+                    <i class="fa-solid fa-briefcase text-4xl text-brand-copper mb-6"></i>
+                    <h3 class="font-heading text-2xl font-bold text-white mb-4">USA IT Consulting & Staffing</h3>
+                    <p class="text-brand-muted text-sm leading-relaxed mb-6 flex-grow">We provide strategic talent augmentation for American enterprises. Our specialized recruiters handle strict W2, C2C, and 1099 compliance, ensuring you get top-tier deep tech talent rapidly.</p>
+                    <ul class="space-y-2 text-xs text-gray-400 font-semibold border-t border-white/5 pt-4">
+                        <li><i class="fa-solid fa-check text-brand-copper mr-2"></i> Contract & Permanent Staffing</li>
+                        <li><i class="fa-solid fa-check text-brand-copper mr-2"></i> Specialized Tech Screening</li>
+                    </ul>
+                </div>
 
-<a href="/">Back to Home</a>
+                <!-- Domestic Staffing -->
+                <div class="premium-card p-10 rounded-2xl flex flex-col h-full">
+                    <i class="fa-solid fa-users-viewfinder text-4xl text-brand-copper mb-6"></i>
+                    <h3 class="font-heading text-2xl font-bold text-white mb-4">Domestic IT Recruitment (India)</h3>
+                    <p class="text-brand-muted text-sm leading-relaxed mb-6 flex-grow">Leveraging our massive talent pool in Hyderabad and across India, we fulfill massive-scale IT recruitment mandates for startups, GCCs, and local enterprises.</p>
+                    <ul class="space-y-2 text-xs text-gray-400 font-semibold border-t border-white/5 pt-4">
+                        <li><i class="fa-solid fa-check text-brand-copper mr-2"></i> End-to-End Talent Acquisition</li>
+                        <li><i class="fa-solid fa-check text-brand-copper mr-2"></i> Leadership & Niche Hiring</li>
+                    </ul>
+                </div>
 
+                <!-- ODC & GCC -->
+                <div class="premium-card p-10 rounded-2xl flex flex-col h-full border-t-4 border-t-blue-600">
+                    <i class="fa-solid fa-building-flag text-4xl text-brand-copper mb-6"></i>
+                    <h3 class="font-heading text-2xl font-bold text-white mb-4">Offshore Delivery Centers (ODC)</h3>
+                    <p class="text-brand-muted text-sm leading-relaxed mb-6 flex-grow">We build, operate, and transfer (BOT) Global Capability Centers in India for Western firms. Reduce operational costs while accessing world-class engineering infrastructure.</p>
+                    <ul class="space-y-2 text-xs text-gray-400 font-semibold border-t border-white/5 pt-4">
+                        <li><i class="fa-solid fa-check text-brand-copper mr-2"></i> Dedicated Infrastructure</li>
+                        <li><i class="fa-solid fa-check text-brand-copper mr-2"></i> IP Protection & Security</li>
+                    </ul>
+                </div>
+
+                <!-- Cloud Data -->
+                <div class="premium-card p-10 rounded-2xl flex flex-col h-full">
+                    <i class="fa-solid fa-cloud-arrow-up text-4xl text-brand-copper mb-6"></i>
+                    <h3 class="font-heading text-2xl font-bold text-white mb-4">Data Engineering & Cloud</h3>
+                    <p class="text-brand-muted text-sm leading-relaxed mb-6 flex-grow">Secure cloud migration to AWS/Azure, automated CI/CD pipelines via Docker/Kubernetes, and robust data analytics strategies tailored for growth.</p>
+                    <ul class="space-y-2 text-xs text-gray-400 font-semibold border-t border-white/5 pt-4">
+                        <li><i class="fa-solid fa-check text-brand-copper mr-2"></i> Zero-Downtime Migrations</li>
+                        <li><i class="fa-solid fa-check text-brand-copper mr-2"></i> Database Optimization</li>
+                    </ul>
+                </div>
+
+                <!-- Training -->
+                <div class="premium-card p-10 rounded-2xl flex flex-col h-full border-t-4 border-t-brand-copper">
+                    <i class="fa-solid fa-graduation-cap text-4xl text-brand-copper mb-6"></i>
+                    <h3 class="font-heading text-2xl font-bold text-white mb-4">Collaborative Training Programs</h3>
+                    <p class="text-brand-muted text-sm leading-relaxed mb-6 flex-grow">We partner with universities and corporate entities to deliver hands-on, live-project training in high-demand technologies, backed by 100% placement interview guarantees.</p>
+                    <ul class="space-y-2 text-xs text-gray-400 font-semibold border-t border-white/5 pt-4">
+                        <li><i class="fa-solid fa-check text-brand-copper mr-2"></i> Real-time Enterprise Codebases</li>
+                        <li><i class="fa-solid fa-check text-brand-copper mr-2"></i> Industry Expert Mentorship</li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-[#050403] pt-12 pb-8 border-t border-white/10 mt-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row justify-between items-center gap-6">
+            <img src="logo.png" alt="Cognisys Logo" class="h-10 bg-white/5 p-1 rounded border border-white/10" onerror="this.src='https://via.placeholder.com/64x64/080605/c57b33?text=C';">
+            <a href="dpiit-certificate.pdf" target="_blank"><img src="startup-india-logo.png" alt="DPIIT" class="h-8" onerror="this.src='https://via.placeholder.com/150x40/080605/ffffff?text=Startup+India';"></a>
+            <p class="text-xs text-brand-muted">&copy; 2026 Cognisys Soft Services.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('menuToggleBtn').addEventListener('click', () => { document.getElementById('dropdownMenu').classList.toggle('hidden'); document.getElementById('dropdownMenu').classList.toggle('flex'); });
+    </script>
 </body>
 </html>
