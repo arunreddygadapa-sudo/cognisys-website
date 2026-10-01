@@ -3,27 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cognisys IT Solutions | Enterprise Software & Staffing</title>
+    <title>Cognisys IT Solutions | Premium IT Consulting & Global Staffing</title>
+    
+    <!-- Tailwind & Fonts (Using 'Outfit' for a highly premium, modern tech aesthetic) -->
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
     <script>
         tailwind.config = {
             theme: {
                 extend: {
-                    fontFamily: { sans: ['Inter', 'sans-serif'], heading: ['Plus Jakarta Sans', 'sans-serif'] },
+                    fontFamily: { sans: ['Inter', 'sans-serif'], heading: ['Outfit', 'sans-serif'] },
                     colors: {
                         brand: {
-                            dark: '#0B1120', card: '#151e32', copper: '#b87333', copperHover: '#9e622b', gray: '#94a3b8'
-                        }
-                    },
-                    animation: { 'spin-slow': 'spin 12s linear infinite', 'blob': 'blob 7s infinite' },
-                    keyframes: {
-                        blob: {
-                            '0%': { transform: 'translate(0px, 0px) scale(1)' },
-                            '33%': { transform: 'translate(30px, -50px) scale(1.1)' },
-                            '66%': { transform: 'translate(-20px, 20px) scale(0.9)' },
-                            '100%': { transform: 'translate(0px, 0px) scale(1)' }
+                            base: '#080605',      // Ultra-dark brown/black (matches logo shadows)
+                            surface: '#120d0a',   // Elevated dark surface
+                            card: '#1a130f',      // Card background
+                            copper: '#c57b33',    // Glowing metallic copper
+                            copperDark: '#8a521e',
+                            text: '#e2dcd8',      // Soft off-white for readability
+                            muted: '#a39891'
                         }
                     }
                 }
@@ -31,167 +31,351 @@
         }
     </script>
     <style>
-        body { background-color: #0B1120; color: #f8fafc; }
-        .glass-nav { background: rgba(11, 17, 32, 0.85); backdrop-filter: blur(16px); border-bottom: 1px solid rgba(255,255,255,0.05); }
-        .glass-card { background: rgba(21, 30, 50, 0.6); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.05); }
-        .text-gradient { background: linear-gradient(to right, #b87333, #f59e0b); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        body { background-color: #080605; color: #e2dcd8; overflow-x: hidden; }
+        
+        /* Premium Glass & Borders */
+        .glass-nav {
+            background: rgba(8, 6, 5, 0.7);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(197, 123, 51, 0.1);
+        }
+        .premium-card {
+            background: linear-gradient(145deg, #1a130f, #120d0a);
+            border: 1px solid rgba(255,255,255,0.03);
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .premium-card:hover {
+            transform: translateY(-10px);
+            border-color: rgba(197, 123, 51, 0.4);
+            box-shadow: 0 20px 40px -10px rgba(197, 123, 51, 0.15);
+        }
+        
+        /* Text Gradients */
+        .text-glow {
+            background: linear-gradient(to right, #ffffff, #c57b33);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Ambient Background Canvas */
+        #ambientCanvas { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; pointer-events: auto; }
+        
+        /* Dropdown reset */
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
     </style>
 </head>
 <body class="font-sans antialiased selection:bg-brand-copper selection:text-white">
 
-    <!-- Premium Navigation -->
-    <header class="fixed top-0 left-0 right-0 z-50 glass-nav">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center h-24">
-                <a href="index.html" class="flex items-center gap-4 group relative z-50">
-                    <div class="bg-white p-1.5 rounded-lg shadow-lg">
-                        <img src="logo.png" alt="Cognisys Logo" class="h-12 w-auto object-contain transition-transform duration-500 group-hover:scale-105" onerror="this.src='https://via.placeholder.com/64x64/0f172a/b87333?text=C';">
-                    </div>
-                    <div class="flex flex-col">
-                        <span class="font-heading font-extrabold text-2xl tracking-tight text-white leading-none">COGNISYS</span>
-                        <span class="text-[0.65rem] font-bold uppercase tracking-widest text-brand-copper mt-1">Soft Services & IT Solutions</span>
-                    </div>
+    <!-- Header -->
+    <header class="fixed top-0 left-0 right-0 z-50 glass-nav transition-all duration-300 h-24 flex items-center">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full flex justify-between items-center">
+            
+            <a href="index.html" class="flex items-center gap-4 group relative z-50">
+                <div class="bg-white/5 p-1.5 rounded-lg border border-white/10 backdrop-blur-md">
+                    <img src="logo.png" alt="Cognisys Logo" class="h-12 w-auto object-contain transition-transform duration-500 group-hover:scale-105" onerror="this.src='https://via.placeholder.com/64x64/080605/c57b33?text=C';">
+                </div>
+                <div class="flex flex-col">
+                    <span class="font-heading font-extrabold text-2xl tracking-widest text-white leading-none">COGNISYS</span>
+                    <span class="text-[0.6rem] font-bold uppercase tracking-[0.2em] text-brand-copper mt-1">Soft Services & IT Solutions</span>
+                </div>
+            </a>
+
+            <div class="flex items-center gap-6 relative z-50">
+                <a href="#contact" class="hidden sm:inline-flex items-center justify-center bg-transparent border border-brand-copper text-brand-copper px-6 py-2.5 rounded-full text-xs font-bold uppercase tracking-widest hover:bg-brand-copper hover:text-white transition-all duration-500">
+                    Contact Us
                 </a>
-                <div class="flex items-center gap-6 relative z-50">
-                    <a href="#contact" class="hidden sm:inline-flex items-center justify-center bg-brand-copper text-white px-6 py-3 rounded-md text-xs font-bold uppercase tracking-widest hover:bg-brand-copperHover transition-colors duration-300">Contact Us</a>
-                    <button id="menuToggleBtn" class="flex flex-col items-center justify-center w-12 h-12 bg-white/5 rounded-md border border-white/10 text-white hover:bg-brand-copper transition-all">
-                        <i class="fa-solid fa-bars text-xl"></i>
-                    </button>
-                </div>
-                
-                <!-- Multi-Page Dropdown Menu -->
-                <div id="dropdownMenu" class="absolute top-24 right-4 sm:right-8 w-64 bg-brand-card border border-white/10 shadow-2xl rounded-lg hidden flex-col z-40 backdrop-blur-xl">
-                    <a href="index.html" class="px-6 py-4 text-sm font-semibold text-brand-copper border-b border-white/5 bg-white/5">Home</a>
-                    <a href="about.html" class="px-6 py-4 text-sm font-semibold text-gray-200 border-b border-white/5 hover:text-brand-copper transition-colors">Who We Are</a>
-                    <a href="innovations.html" class="px-6 py-4 text-sm font-semibold text-gray-200 border-b border-white/5 hover:text-brand-copper transition-colors">In-House Projects</a>
-                    <a href="careers.html" class="px-6 py-4 text-sm font-semibold text-gray-200 border-b border-white/5 hover:text-brand-copper flex justify-between items-center transition-colors">Careers <i class="fa-solid fa-arrow-right"></i></a>
-                </div>
+                <button id="menuToggleBtn" class="flex flex-col items-center justify-center w-12 h-12 bg-white/5 rounded-full border border-white/10 text-white hover:bg-brand-copper transition-all">
+                    <i class="fa-solid fa-bars text-xl"></i>
+                </button>
+            </div>
+            
+            <!-- Dropdown -->
+            <div id="dropdownMenu" class="absolute top-24 right-4 sm:right-8 w-64 bg-brand-surface border border-brand-copper/20 shadow-2xl rounded-xl hidden flex-col z-40 backdrop-blur-3xl overflow-hidden">
+                <a href="index.html" class="px-6 py-4 text-sm font-semibold text-brand-copper border-b border-white/5 bg-white/5">Home</a>
+                <a href="about.html" class="px-6 py-4 text-sm font-semibold text-gray-300 border-b border-white/5 hover:bg-white/5 hover:text-brand-copper transition-colors">Who We Are</a>
+                <a href="services.html" class="px-6 py-4 text-sm font-semibold text-gray-300 border-b border-white/5 hover:bg-white/5 hover:text-brand-copper transition-colors">IT Services & Solutions</a>
+                <a href="innovations.html" class="px-6 py-4 text-sm font-semibold text-gray-300 border-b border-white/5 hover:bg-white/5 hover:text-brand-copper transition-colors">Proprietary Innovations</a>
+                <a href="careers.html" class="px-6 py-4 text-sm font-semibold text-gray-300 hover:bg-white/5 hover:text-brand-copper flex justify-between items-center transition-colors">Careers <i class="fa-solid fa-arrow-right text-xs"></i></a>
             </div>
         </div>
     </header>
 
     <main>
-        <!-- Hero Section -->
-        <section class="relative pt-44 pb-28 lg:pt-52 lg:pb-36 overflow-hidden">
-            <div class="absolute top-0 -left-40 w-96 h-96 bg-brand-copper rounded-full mix-blend-screen filter blur-[150px] opacity-20 animate-blob"></div>
-            <div class="absolute top-40 -right-40 w-96 h-96 bg-blue-600 rounded-full mix-blend-screen filter blur-[150px] opacity-20 animate-blob" style="animation-delay: 2s;"></div>
+        <!-- Hero Section with Humanized Canvas Animation -->
+        <section class="relative min-h-[90vh] flex items-center justify-center pt-24 overflow-hidden">
+            <!-- The Interactive Background -->
+            <canvas id="ambientCanvas"></canvas>
             
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
-                <div class="inline-flex items-center gap-3 mb-8 bg-white/5 px-6 py-2 rounded-full border border-white/10">
-                    <span class="text-xs font-bold tracking-widest uppercase text-white flex items-center gap-2">
-                        <img src="badge.png" alt="Badge" class="h-4 w-4" onerror="this.src='https://via.placeholder.com/16';"> DPIIT RECOGNIZED STARTUP
+            <!-- Deep Gradient Overlays for readability -->
+            <div class="absolute inset-0 bg-gradient-to-b from-brand-base/40 via-transparent to-brand-base z-10 pointer-events-none"></div>
+            <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(197,123,51,0.05)_0%,transparent_70%)] z-10 pointer-events-none"></div>
+
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20 text-center w-full">
+                
+                <div class="inline-flex items-center gap-3 mb-10 bg-brand-surface/80 px-6 py-2 rounded-full border border-brand-copper/30 backdrop-blur-md">
+                    <span class="text-[0.65rem] font-bold tracking-[0.2em] uppercase text-white flex items-center gap-2">
+                        <img src="badge.png" alt="Badge" class="h-4 w-4" onerror="this.src='https://via.placeholder.com/16/c57b33/ffffff?text=*';"> DPIIT RECOGNIZED STARTUP
                     </span>
                 </div>
                 
-                <h1 class="font-heading text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight mb-8 leading-[1.1]">
-                    Master Growth Dynamics: <br />
-                    <span class="text-gradient">Scale, Thrive & Innovate.</span>
+                <h1 class="font-heading text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight mb-8 leading-[1.05] text-white">
+                    Growth Dynamics: <br />
+                    <span class="text-glow font-extrabold">Scale and Thrive.</span>
                 </h1>
-                <p class="text-lg text-brand-gray mb-12 max-w-3xl mx-auto leading-relaxed">
-                    Cognisys provides comprehensive IT Consulting, robust Domestic & USA Staffing Augmentation, and high-impact Corporate Training with guaranteed placement strategies.
+                
+                <p class="text-lg md:text-xl text-brand-muted mb-12 max-w-3xl mx-auto leading-relaxed font-light">
+                    Ingenious IT solutions and strong partnerships drive business results. We blend digital agility, enterprise innovation, and elite staffing augmentation for sustainable global expansion.
                 </p>
-                <a href="#partnerships" class="bg-brand-copper text-white px-8 py-4 font-bold text-sm uppercase tracking-wider rounded-md hover:bg-brand-copperHover transition-colors inline-block">Partner With Us</a>
+                
+                <div class="flex flex-col sm:flex-row gap-6 justify-center items-center">
+                    <a href="services.html" class="bg-brand-copper text-white px-10 py-4 font-bold text-xs uppercase tracking-[0.15em] rounded-full hover:bg-white hover:text-brand-base transition-all duration-500 shadow-[0_0_30px_rgba(197,123,51,0.4)]">
+                        Explore Solutions
+                    </a>
+                </div>
             </div>
         </section>
 
-        <!-- Live Metrics -->
-        <section class="relative py-12 border-y border-white/10 bg-brand-dark/50 backdrop-blur-lg">
+        <!-- Live Metrics Section (Updated Data) -->
+        <section class="relative py-16 border-y border-white/5 bg-brand-surface z-20">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center divide-y md:divide-y-0 md:divide-x divide-white/10">
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center divide-y md:divide-y-0 md:divide-x divide-white/5">
                     <div class="pt-4 md:pt-0">
-                        <div class="text-4xl font-extrabold font-heading mb-1 text-white">7+</div>
-                        <p class="text-xs uppercase tracking-widest text-brand-gray font-bold">Active Clients</p>
+                        <div class="text-5xl font-extrabold font-heading mb-2 text-white">7+</div>
+                        <p class="text-[0.65rem] uppercase tracking-widest text-brand-muted font-semibold">Active Global Clients</p>
                     </div>
                     <div class="pt-4 md:pt-0">
-                        <div class="text-4xl font-extrabold font-heading mb-1 text-white">4+</div>
-                        <p class="text-xs uppercase tracking-widest text-brand-gray font-bold">Projects Completed<br><span class="text-[0.6rem] text-brand-copper">(Includes 2 In-House)</span></p>
+                        <div class="text-5xl font-extrabold font-heading mb-2 text-white">4+</div>
+                        <p class="text-[0.65rem] uppercase tracking-widest text-brand-muted font-semibold">Projects Delivered <br><span class="text-[0.55rem] text-brand-copper">(Inc. 2 Proprietary IP)</span></p>
                     </div>
                     <div class="pt-4 md:pt-0">
-                        <div class="text-4xl font-extrabold font-heading mb-1 text-white text-gradient">6</div>
-                        <p class="text-xs uppercase tracking-widest text-brand-gray font-bold">Ongoing Projects</p>
+                        <div class="text-5xl font-extrabold font-heading mb-2 text-glow">6</div>
+                        <p class="text-[0.65rem] uppercase tracking-widest text-brand-muted font-semibold">Ongoing Engagements</p>
                     </div>
                     <div class="pt-4 md:pt-0">
-                        <div class="text-4xl font-extrabold font-heading mb-1 text-white">100%</div>
-                        <p class="text-xs uppercase tracking-widest text-brand-gray font-bold">Placement Support</p>
+                        <div class="text-5xl font-extrabold font-heading mb-2 text-white">100%</div>
+                        <p class="text-[0.65rem] uppercase tracking-widest text-brand-muted font-semibold">Placement Training Success</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Deep Partnerships & Vendorships Section -->
-        <section id="partnerships" class="py-28 relative">
+        <!-- Brief Services Overview -->
+        <section class="py-32 relative">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="text-center max-w-3xl mx-auto mb-16">
-                    <span class="text-xs font-extrabold tracking-widest text-brand-copper uppercase mb-4 block">B2B Collaborations</span>
-                    <h3 class="font-heading text-4xl md:text-5xl font-bold text-white mb-6">Vendorships & Partnerships</h3>
-                    <p class="text-lg text-brand-gray">We are actively expanding our network. Cognisys seeks synergistic relationships with staffing agencies, enterprise clients, and educational academies.</p>
+                <div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-8">
+                    <div class="max-w-2xl">
+                        <span class="text-[0.7rem] font-extrabold tracking-widest text-brand-copper uppercase mb-4 block">What We Do</span>
+                        <h2 class="font-heading text-4xl md:text-5xl font-bold text-white leading-tight">Elevate Your Business With Expert IT Solutions</h2>
+                    </div>
+                    <a href="services.html" class="inline-flex items-center gap-2 text-sm font-bold uppercase tracking-widest text-brand-copper hover:text-white transition-colors">
+                        View All Services <i class="fa-solid fa-arrow-right"></i>
+                    </a>
                 </div>
 
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    <!-- Client Partnership -->
-                    <div class="glass-card p-10 rounded-2xl hover:border-brand-copper transition-colors">
-                        <i class="fa-solid fa-building-user text-4xl text-brand-copper mb-6"></i>
-                        <h4 class="font-bold text-xl text-white mb-4">Enterprise Clients</h4>
-                        <p class="text-brand-gray text-sm leading-relaxed mb-6">Looking to outsource a software module or augment your IT staff? We provide highly vetted technical talent (Java, Flutter, Cloud) for immediate deployment in India and the US.</p>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div class="premium-card p-10 rounded-2xl">
+                        <i class="fa-solid fa-code text-4xl text-brand-copper mb-8"></i>
+                        <h3 class="text-xl font-heading font-bold text-white mb-4">Digital Transformation</h3>
+                        <p class="text-sm text-brand-muted leading-relaxed">We empower businesses to thrive in the digital era through tailored custom software, web, and mobile architectures.</p>
                     </div>
-                    <!-- Staffing Vendorships -->
-                    <div class="glass-card p-10 rounded-2xl hover:border-brand-copper transition-colors">
-                        <i class="fa-solid fa-handshake-angle text-4xl text-brand-copper mb-6"></i>
-                        <h4 class="font-bold text-xl text-white mb-4">Staffing Vendors (W2/C2C)</h4>
-                        <p class="text-brand-gray text-sm leading-relaxed mb-6">We welcome Tier-1 and Tier-2 vendor registrations. Partner with our recruitment division to fulfill your C2C and 1099 US-based technical requirements swiftly.</p>
+                    <div class="premium-card p-10 rounded-2xl">
+                        <i class="fa-solid fa-users-gear text-4xl text-brand-copper mb-8"></i>
+                        <h3 class="text-xl font-heading font-bold text-white mb-4">Staff Augmentation</h3>
+                        <p class="text-sm text-brand-muted leading-relaxed">Flexible IT recruitment and staffing services across India and the USA (W2/C2C) to ensure you have the right talent instantly.</p>
                     </div>
-                    <!-- Training Collabs -->
-                    <div class="glass-card p-10 rounded-2xl hover:border-brand-copper transition-colors">
-                        <i class="fa-solid fa-graduation-cap text-4xl text-brand-copper mb-6"></i>
-                        <h4 class="font-bold text-xl text-white mb-4">Training Academies</h4>
-                        <p class="text-brand-gray text-sm leading-relaxed mb-6">We collaborate with institutions to provide real-world project exposure to fresh graduates, offering a direct pipeline to placements within our 7+ active client network.</p>
+                    <div class="premium-card p-10 rounded-2xl">
+                        <i class="fa-solid fa-building-flag text-4xl text-brand-copper mb-8"></i>
+                        <h3 class="text-xl font-heading font-bold text-white mb-4">Offshore Delivery (ODC)</h3>
+                        <p class="text-sm text-brand-muted leading-relaxed">Dedicated Global Capability Centers operating from Hyderabad, providing seamless technical execution for American enterprises.</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Contact Section -->
-        <section id="contact" class="py-24 bg-brand-card/30 border-t border-white/5">
-            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-                <h3 class="font-heading text-4xl font-bold text-white mb-6">Initiate a Partnership</h3>
-                <p class="text-brand-gray mb-10">Email us directly with your vendor requirements, staffing needs, or project scopes. We respond within 24 hours.</p>
-                <a href="mailto:support@congnisysitsolutions.com" class="bg-brand-copper text-white px-10 py-4 font-bold text-sm uppercase tracking-wider rounded-md hover:bg-brand-copperHover inline-block">support@congnisysitsolutions.com</a>
+        <!-- Industries We Serve -->
+        <section class="py-32 bg-brand-surface relative border-y border-white/5">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <span class="text-[0.7rem] font-extrabold tracking-widest text-brand-copper uppercase mb-4 block">Domains</span>
+                <h2 class="font-heading text-4xl md:text-5xl font-bold text-white mb-16">Industries We Specialize In</h2>
+                
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                    <div class="bg-brand-base border border-white/5 p-8 rounded-xl hover:border-brand-copper transition-colors group">
+                        <i class="fa-solid fa-building-columns text-3xl text-brand-muted group-hover:text-brand-copper mb-4 transition-colors"></i>
+                        <h4 class="font-bold text-sm text-white">Finance & Banking</h4>
+                    </div>
+                    <div class="bg-brand-base border border-white/5 p-8 rounded-xl hover:border-brand-copper transition-colors group">
+                        <i class="fa-solid fa-heart-pulse text-3xl text-brand-muted group-hover:text-brand-copper mb-4 transition-colors"></i>
+                        <h4 class="font-bold text-sm text-white">Healthcare & Life Sciences</h4>
+                    </div>
+                    <div class="bg-brand-base border border-white/5 p-8 rounded-xl hover:border-brand-copper transition-colors group">
+                        <i class="fa-solid fa-cart-shopping text-3xl text-brand-muted group-hover:text-brand-copper mb-4 transition-colors"></i>
+                        <h4 class="font-bold text-sm text-white">Retail & E-Commerce</h4>
+                    </div>
+                    <div class="bg-brand-base border border-white/5 p-8 rounded-xl hover:border-brand-copper transition-colors group">
+                        <i class="fa-solid fa-truck-fast text-3xl text-brand-muted group-hover:text-brand-copper mb-4 transition-colors"></i>
+                        <h4 class="font-bold text-sm text-white">Logistics & Supply</h4>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- B2B Partnerships CTA -->
+        <section id="contact" class="py-32 relative overflow-hidden">
+            <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2072&auto=format&fit=crop')] bg-cover bg-center opacity-10"></div>
+            <div class="absolute inset-0 bg-gradient-to-r from-brand-base via-brand-base/90 to-brand-copper/10"></div>
+            
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                    <div>
+                        <h2 class="font-heading text-4xl md:text-5xl font-bold text-white leading-tight mb-6">Partner with Cognisys for Seamless Technology Integration.</h2>
+                        <p class="text-brand-muted text-lg leading-relaxed mb-10">
+                            We are actively seeking vendorships, corporate staffing contracts, and educational collaborations. Let us elevate your global business with our expert IT solutions and talent pipelines.
+                        </p>
+                        <a href="mailto:support@congnisysitsolutions.com" class="inline-flex items-center justify-center bg-brand-copper text-white px-8 py-4 rounded-full text-xs font-bold uppercase tracking-widest hover:bg-white hover:text-brand-base transition-all duration-300">
+                            Get In Touch <i class="fa-solid fa-arrow-right ml-3"></i>
+                        </a>
+                    </div>
+                    
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="bg-brand-surface/80 backdrop-blur border border-white/10 p-6 rounded-xl">
+                            <h4 class="text-brand-copper font-bold mb-2">USA Operations</h4>
+                            <p class="text-xs text-brand-muted">Strategic IT Consulting & W2/C2C Staffing Partnerships.</p>
+                        </div>
+                        <div class="bg-brand-surface/80 backdrop-blur border border-white/10 p-6 rounded-xl">
+                            <h4 class="text-brand-copper font-bold mb-2">India Operations</h4>
+                            <p class="text-xs text-brand-muted">Offshore Delivery Centers & Domestic Tech Recruitment.</p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
     </main>
 
-    <!-- Footer (DPIIT Focused) -->
-    <footer class="bg-brand-dark pt-20 pb-10 border-t border-white/10">
+    <!-- Footer -->
+    <footer class="bg-[#050403] pt-24 pb-10 border-t border-white/5">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 mb-12">
-                <div class="lg:col-span-5">
-                    <img src="logo.png" alt="Cognisys Logo" class="h-12 bg-white p-1 rounded mb-4" onerror="this.src='https://via.placeholder.com/64x64/ffffff/0a0a0a?text=C';">
-                    <p class="text-brand-gray text-sm pr-4">Specializing in Custom Software Development, Domestic IT Staffing in India, USA IT Consulting, and Collaborative Placement Training programs.</p>
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-12 mb-16">
+                
+                <div class="lg:col-span-4">
+                    <img src="logo.png" alt="Cognisys Logo" class="h-14 bg-white/5 p-2 rounded-lg border border-white/10 mb-6" onerror="this.src='https://via.placeholder.com/64x64/080605/c57b33?text=C';">
+                    <p class="text-brand-muted text-sm leading-relaxed pr-4">Specializing in USA IT Consulting, Domestic India Staffing, Custom Software Development, and Guaranteed Placement Training.</p>
                 </div>
-                <div class="lg:col-span-3">
-                    <h3 class="text-xs font-bold uppercase text-brand-copper mb-4">Quick Links</h3>
-                    <ul class="space-y-3 text-sm text-gray-300">
-                        <li><a href="about.html" class="hover:text-white">Who We Are</a></li>
-                        <li><a href="innovations.html" class="hover:text-white">In-House Projects</a></li>
-                        <li><a href="careers.html" class="hover:text-white">Careers / Hiring</a></li>
+                
+                <div class="lg:col-span-2">
+                    <h3 class="text-[0.65rem] font-extrabold uppercase tracking-widest text-white mb-6">Company</h3>
+                    <ul class="space-y-4 text-sm text-brand-muted">
+                        <li><a href="about.html" class="hover:text-brand-copper transition-colors">Who We Are</a></li>
+                        <li><a href="services.html" class="hover:text-brand-copper transition-colors">Services</a></li>
+                        <li><a href="innovations.html" class="hover:text-brand-copper transition-colors">Innovations</a></li>
+                        <li><a href="careers.html" class="hover:text-brand-copper transition-colors">Careers</a></li>
                     </ul>
                 </div>
-                <div class="lg:col-span-4 flex flex-col lg:items-end">
-                    <h3 class="text-xs font-bold uppercase text-brand-copper mb-4">Recognition</h3>
-                    <a href="dpiit-certificate.pdf" target="_blank" class="bg-white p-2 rounded-lg"><img src="startup-india-logo.png" alt="DPIIT" class="w-[200px]" onerror="this.src='https://via.placeholder.com/200x60/0a0a0a/ffffff?text=Startup+India';"></a>
+
+                <div class="lg:col-span-3">
+                    <h3 class="text-[0.65rem] font-extrabold uppercase tracking-widest text-white mb-6">Contact</h3>
+                    <ul class="space-y-4 text-sm text-brand-muted">
+                        <li>Headquarters: Hyderabad, India</li>
+                        <li>Remote: United States</li>
+                        <li><a href="mailto:support@congnisysitsolutions.com" class="hover:text-brand-copper transition-colors">support@congnisysitsolutions.com</a></li>
+                    </ul>
+                </div>
+
+                <!-- Recognition -->
+                <div class="lg:col-span-3 flex flex-col items-start lg:items-end text-left lg:text-right">
+                    <h3 class="text-[0.65rem] font-extrabold uppercase tracking-widest text-white mb-6 lg:w-full lg:text-right">Recognition</h3>
+                    <a href="dpiit-certificate.pdf" target="_blank" class="bg-white/5 p-3 rounded-xl border border-white/10 hover:border-brand-copper transition-colors inline-block">
+                        <img src="startup-india-logo.png" alt="DPIIT Recognized Startup" class="w-[220px] object-contain" onerror="this.src='https://via.placeholder.com/220x60/080605/ffffff?text=Startup+India';">
+                    </a>
                 </div>
             </div>
-            <div class="border-t border-white/10 pt-6 text-xs text-brand-gray flex justify-between">
-                <p>&copy; 2026 Cognisys Soft Services & IT Solutions.</p>
-                <a href="https://www.linkedin.com/company/cognisys-soft-services" class="text-brand-gray hover:text-white text-lg"><i class="fa-brands fa-linkedin"></i></a>
+            
+            <div class="border-t border-white/5 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+                <p class="text-xs text-brand-muted font-medium tracking-wider">&copy; 2026 Cognisys Soft Services & IT Solutions.</p>
+                <div class="flex gap-4">
+                    <a href="https://www.linkedin.com/company/cognisys-soft-services" target="_blank" class="text-brand-muted hover:text-white transition-colors text-xl"><i class="fa-brands fa-linkedin"></i></a>
+                </div>
             </div>
         </div>
     </footer>
 
+    <!-- Interactive Scripts & Canvas Animation -->
     <script>
+        // Dropdown Toggle
         const menuBtn = document.getElementById('menuToggleBtn');
         const dropMenu = document.getElementById('dropdownMenu');
-        menuBtn.addEventListener('click', () => { dropMenu.classList.toggle('hidden'); dropMenu.classList.toggle('flex'); });
+        menuBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            dropMenu.classList.toggle('hidden'); dropMenu.classList.toggle('flex');
+            menuBtn.innerHTML = dropMenu.classList.contains('hidden') ? '<i class="fa-solid fa-bars text-xl"></i>' : '<i class="fa-solid fa-xmark text-xl"></i>';
+        });
+        document.addEventListener('click', (e) => {
+            if (!dropMenu.contains(e.target) && !menuBtn.contains(e.target)) {
+                dropMenu.classList.add('hidden'); dropMenu.classList.remove('flex');
+                menuBtn.innerHTML = '<i class="fa-solid fa-bars text-xl"></i>';
+            }
+        });
+
+        // Humanized Canvas Particle Animation
+        const canvas = document.getElementById('ambientCanvas');
+        const ctx = canvas.getContext('2d');
+        let width, height, particles = [];
+
+        function init() {
+            width = canvas.width = window.innerWidth;
+            height = canvas.height = document.querySelector('section').offsetHeight;
+            particles = [];
+            const count = Math.floor((width * height) / 15000); // Node density
+            for (let i = 0; i < count; i++) {
+                particles.push({
+                    x: Math.random() * width, y: Math.random() * height,
+                    vx: (Math.random() - 0.5) * 0.5, vy: (Math.random() - 0.5) * 0.5,
+                    radius: Math.random() * 2 + 1
+                });
+            }
+        }
+
+        let mouse = { x: null, y: null };
+        canvas.addEventListener('mousemove', (e) => { mouse.x = e.x; mouse.y = e.y; });
+        canvas.addEventListener('mouseleave', () => { mouse.x = null; mouse.y = null; });
+
+        function animate() {
+            requestAnimationFrame(animate);
+            ctx.clearRect(0, 0, width, height);
+            
+            particles.forEach((p, i) => {
+                p.x += p.vx; p.y += p.vy;
+                if (p.x < 0 || p.x > width) p.vx *= -1;
+                if (p.y < 0 || p.y > height) p.vy *= -1;
+                
+                // Mouse interaction (Humanized feel)
+                if (mouse.x != null && mouse.y != null) {
+                    let dx = mouse.x - p.x; let dy = mouse.y - p.y;
+                    let dist = Math.sqrt(dx * dx + dy * dy);
+                    if (dist < 100) { p.x -= dx * 0.01; p.y -= dy * 0.01; }
+                }
+
+                ctx.beginPath();
+                ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+                ctx.fillStyle = 'rgba(197, 123, 51, 0.4)'; // Copper nodes
+                ctx.fill();
+                
+                for (let j = i + 1; j < particles.length; j++) {
+                    let p2 = particles[j];
+                    let dx = p.x - p2.x; let dy = p.y - p2.y;
+                    let dist = Math.sqrt(dx * dx + dy * dy);
+                    if (dist < 150) {
+                        ctx.beginPath();
+                        ctx.strokeStyle = `rgba(197, 123, 51, ${0.15 - (dist / 150) * 0.15})`;
+                        ctx.moveTo(p.x, p.y);
+                        ctx.lineTo(p2.x, p2.y);
+                        ctx.stroke();
+                    }
+                }
+            });
+        }
+        window.addEventListener('resize', init);
+        init(); animate();
     </script>
 </body>
 </html>
