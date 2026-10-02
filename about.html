@@ -14,7 +14,7 @@
     <!-- Premium Fonts: Outfit for Headings, Inter for Body -->
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     
-    <!-- Tailwind Configuration (Teal, Copper, White Theme) -->
+    <!-- Tailwind Configuration (Dark Brown, Black, Bright White Theme) -->
     <script>
         tailwind.config = {
             theme: {
@@ -25,13 +25,14 @@
                     },
                     colors: {
                         brand: {
-                            tealDark: '#020b0d',     // Deepest background teal
-                            tealCard: '#061d23',     // Elevated teal surface
-                            tealLight: '#0a313a',    // Lighter teal for borders/hovers
-                            copper: '#c87a3f',       // Metallic Copper from logo
-                            copperLight: '#e09050',
-                            white: '#ffffff',
-                            muted: '#a5b4b7',        // Soft teal-tinted gray for text
+                            black: '#050505',        // Pure dark for deep contrast
+                            darkBrown: '#140c08',    // Deep ambient brown background
+                            cardBrown: '#1f140f',    // Elevated card surface
+                            brown: '#4A3728',        // Core brand brown
+                            copper: '#b87333',       // Metallic copper highlight
+                            white: '#ffffff',        // Bright white for typography
+                            muted: '#a89f9a',        // Soft gray-brown for readable secondary text
+                            border: 'rgba(184, 115, 51, 0.2)' 
                         }
                     }
                 }
@@ -41,29 +42,28 @@
     
     <style>
         body { 
-            background-color: #020b0d; 
+            background-color: #050505; 
             color: #ffffff; 
             overflow-x: hidden; 
         }
         
-        /* Fixed Video Background Overlay */
+        /* Video Background Overlay */
         .video-overlay {
-            background: linear-gradient(to bottom, rgba(2, 11, 13, 0.9), rgba(2, 11, 13, 0.97));
+            background: linear-gradient(to bottom, rgba(20, 12, 8, 0.85), rgba(5, 5, 5, 0.95));
         }
 
         /* Glassmorphism Navigation */
         .glass-nav {
-            background: rgba(2, 11, 13, 0.6);
+            background: rgba(5, 5, 5, 0.7);
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
-            border-bottom: 1px solid rgba(200, 122, 63, 0.2);
+            border-bottom: 1px solid rgba(184, 115, 51, 0.15);
         }
         
         /* Advanced Card Styling */
         .premium-card {
-            background: linear-gradient(160deg, rgba(6, 29, 35, 0.8), rgba(2, 11, 13, 0.9));
-            backdrop-filter: blur(12px);
-            border: 1px solid rgba(200, 122, 63, 0.15);
+            background: linear-gradient(160deg, #1f140f, #140c08);
+            border: 1px solid rgba(184, 115, 51, 0.15);
             border-radius: 1rem;
             transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
             position: relative;
@@ -74,15 +74,15 @@
             content: '';
             position: absolute;
             top: 0; left: 0; width: 100%; height: 100%;
-            background: radial-gradient(circle at top right, rgba(200, 122, 63, 0.1), transparent 60%);
+            background: radial-gradient(circle at top right, rgba(184, 115, 51, 0.1), transparent 60%);
             z-index: -1;
             opacity: 0;
             transition: opacity 0.5s ease;
         }
         .premium-card:hover {
             transform: translateY(-8px);
-            border-color: rgba(200, 122, 63, 0.6);
-            box-shadow: 0 20px 40px -10px rgba(200, 122, 63, 0.2);
+            border-color: rgba(184, 115, 51, 0.5);
+            box-shadow: 0 20px 40px -10px rgba(184, 115, 51, 0.2);
         }
         .premium-card:hover::before {
             opacity: 1;
@@ -90,7 +90,7 @@
         
         /* Typography Gradients */
         .text-glow {
-            background: linear-gradient(to right, #ffffff, #c87a3f, #ffffff);
+            background: linear-gradient(to right, #ffffff, #b87333, #ffffff);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-size: 200% auto;
@@ -102,8 +102,8 @@
         
         /* Scrollbar cleanup */
         ::-webkit-scrollbar { width: 8px; }
-        ::-webkit-scrollbar-track { background: #020b0d; }
-        ::-webkit-scrollbar-thumb { background: #c87a3f; border-radius: 4px; }
+        ::-webkit-scrollbar-track { background: #050505; }
+        ::-webkit-scrollbar-thumb { background: #b87333; border-radius: 4px; }
     </style>
 </head>
 <body class="font-sans antialiased selection:bg-brand-copper selection:text-white">
@@ -111,12 +111,12 @@
     <!-- ==============================================
          GLOBAL LIVE VIDEO BACKGROUND
     =============================================== -->
-    <div class="fixed inset-0 z-[-1] w-full h-full overflow-hidden bg-brand-tealDark">
-        <!-- Corporate handshakes, meetings, and global business video -->
-        <video autoplay loop muted playsinline class="absolute top-1/2 left-1/2 min-w-full min-h-full w-auto h-auto object-cover transform -translate-x-1/2 -translate-y-1/2 opacity-30 mix-blend-screen grayscale-[30%]">
-            <source src="https://cdn.pixabay.com/video/2023/10/22/186003-876800746_large.mp4" type="video/mp4">
+    <div class="fixed inset-0 z-[-1] w-full h-full overflow-hidden bg-brand-black">
+        <!-- Using a highly reliable direct MP4 link for the corporate video background -->
+        <video id="bg-video" autoplay loop muted playsinline class="absolute top-1/2 left-1/2 min-w-full min-h-full w-auto h-auto object-cover transform -translate-x-1/2 -translate-y-1/2 opacity-40 mix-blend-screen grayscale-[40%]">
+            <source src="https://assets.mixkit.co/videos/preview/mixkit-business-people-having-a-meeting-in-a-modern-office-4252-large.mp4" type="video/mp4">
         </video>
-        <!-- Deep teal overlay to ensure text remains readable over the moving video -->
+        <!-- Deep dark brown overlay to ensure text remains bright and readable -->
         <div class="absolute inset-0 video-overlay"></div>
     </div>
 
@@ -126,41 +126,41 @@
     <header class="fixed top-0 left-0 right-0 z-50 glass-nav transition-all duration-300 h-24 flex items-center">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full flex justify-between items-center">
             
-            <!-- Corporate Logo (Borderless) -->
+            <!-- Corporate Logo -->
             <a href="index.html" class="flex items-center gap-4 group relative z-50">
-                <img src="IOGO.png" alt="Cognisys Logo" class="h-16 w-auto object-contain transition-transform duration-700 group-hover:scale-105" onerror="this.src='https://via.placeholder.com/64x64/020b0d/c87a3f?text=C';">
+                <img src="IOGO.png" alt="Cognisys Logo" class="h-16 w-auto object-contain transition-transform duration-700 group-hover:scale-105" onerror="this.src='https://via.placeholder.com/64x64/050505/b87333?text=C';">
                 <div class="flex flex-col">
-                    <span class="font-heading font-extrabold text-2xl tracking-widest text-white leading-none">COGNISYS</span>
+                    <span class="font-heading font-extrabold text-2xl tracking-widest text-brand-white leading-none">COGNISYS</span>
                     <span class="text-[0.6rem] font-bold uppercase tracking-[0.2em] text-brand-copper mt-1">Soft Services & IT Solutions</span>
                 </div>
             </a>
 
             <!-- Right Side CTA & Hamburger Menu -->
             <div class="flex items-center gap-6 relative z-50">
-                <a href="index.html#contact" class="hidden sm:inline-flex items-center justify-center bg-transparent border border-brand-copper text-brand-copper px-8 py-3 rounded-full text-xs font-bold uppercase tracking-widest hover:bg-brand-copper hover:text-white transition-all duration-500 hover:shadow-[0_0_20px_rgba(200,122,63,0.4)]">
+                <a href="index.html#contact" class="hidden sm:inline-flex items-center justify-center bg-transparent border border-brand-copper text-brand-copper px-8 py-3 rounded-full text-xs font-bold uppercase tracking-widest hover:bg-brand-copper hover:text-brand-black transition-all duration-500 hover:shadow-[0_0_20px_rgba(184,115,51,0.4)]">
                     Let's Talk
                 </a>
                 
-                <button id="menuToggleBtn" class="flex flex-col items-center justify-center w-12 h-12 rounded-full border border-brand-copper/30 text-white hover:bg-brand-copper hover:text-white hover:border-brand-copper transition-all cursor-pointer bg-brand-tealCard/50 backdrop-blur">
+                <button id="menuToggleBtn" class="flex flex-col items-center justify-center w-12 h-12 rounded-full border border-brand-border text-white hover:bg-brand-copper hover:text-brand-black hover:border-brand-copper transition-all cursor-pointer bg-brand-cardBrown/50 backdrop-blur">
                     <i class="fa-solid fa-bars text-xl"></i>
                 </button>
             </div>
             
             <!-- Deep Informative Dropdown Menu -->
-            <div id="dropdownMenu" class="absolute top-24 right-4 sm:right-8 w-72 bg-brand-tealDark border border-brand-copper/40 shadow-2xl rounded-xl hidden flex-col z-40 overflow-hidden">
-                <a href="index.html" class="px-6 py-4 text-sm font-semibold text-white border-b border-brand-tealLight hover:bg-white/5 hover:text-brand-copper transition-colors flex items-center gap-3">
+            <div id="dropdownMenu" class="absolute top-24 right-4 sm:right-8 w-72 bg-brand-cardBrown border border-brand-copper/40 shadow-2xl rounded-xl hidden flex-col z-40 overflow-hidden">
+                <a href="index.html" class="px-6 py-4 text-sm font-semibold text-brand-white border-b border-brand-border hover:bg-white/5 hover:text-brand-copper transition-colors flex items-center gap-3">
                     <i class="fa-solid fa-house w-5"></i> Home / Dashboard
                 </a>
-                <a href="about.html" class="px-6 py-4 text-sm font-semibold text-brand-copper border-b border-brand-tealLight bg-white/5 flex items-center gap-3">
+                <a href="about.html" class="px-6 py-4 text-sm font-semibold text-brand-copper border-b border-brand-border bg-white/5 flex items-center gap-3">
                     <i class="fa-solid fa-building w-5"></i> Who We Are
                 </a>
-                <a href="services.html" class="px-6 py-4 text-sm font-semibold text-white border-b border-brand-tealLight hover:bg-white/5 hover:text-brand-copper transition-colors flex items-center gap-3">
+                <a href="services.html" class="px-6 py-4 text-sm font-semibold text-brand-white border-b border-brand-border hover:bg-white/5 hover:text-brand-copper transition-colors flex items-center gap-3">
                     <i class="fa-solid fa-server w-5"></i> Services & Solutions
                 </a>
-                <a href="innovations.html" class="px-6 py-4 text-sm font-semibold text-white border-b border-brand-tealLight hover:bg-white/5 hover:text-brand-copper transition-colors flex items-center gap-3">
+                <a href="innovations.html" class="px-6 py-4 text-sm font-semibold text-brand-white border-b border-brand-border hover:bg-white/5 hover:text-brand-copper transition-colors flex items-center gap-3">
                     <i class="fa-solid fa-lightbulb w-5"></i> In-House Projects
                 </a>
-                <a href="careers.html" class="px-6 py-4 text-sm font-semibold text-white hover:bg-brand-copper hover:text-white flex justify-between items-center transition-colors">
+                <a href="careers.html" class="px-6 py-4 text-sm font-semibold text-brand-white hover:bg-brand-copper hover:text-brand-black flex justify-between items-center transition-colors">
                     <span><i class="fa-solid fa-briefcase w-5 mr-2"></i> Careers / Hiring</span> 
                     <i class="fa-solid fa-arrow-right text-xs"></i>
                 </a>
@@ -168,14 +168,14 @@
         </div>
     </header>
 
-    <main class="pt-32 pb-24">
+    <main class="pt-40 pb-24">
         <!-- ==============================================
              HERO: OUR IDENTITY
         =============================================== -->
-        <section class="relative pt-20 pb-20 border-b border-brand-tealLight">
+        <section class="relative pt-20 pb-24 border-b border-brand-border">
             <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-20">
                 <span class="text-[0.75rem] font-extrabold tracking-[0.2em] text-brand-copper uppercase mb-6 block">Our Identity & Heritage</span>
-                <h1 class="font-heading text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-8 leading-tight drop-shadow-lg">
+                <h1 class="font-heading text-5xl md:text-6xl lg:text-7xl font-bold text-brand-white mb-8 leading-tight drop-shadow-lg">
                     Global Vision. <br />
                     <span class="text-glow">Engineering Scale.</span>
                 </h1>
@@ -188,31 +188,41 @@
         <!-- ==============================================
              THE COGNISYS STORY
         =============================================== -->
-        <section class="py-32 relative">
+        <section class="py-32 relative bg-brand-darkBrown">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
                     
                     <div class="lg:col-span-6 relative group">
-                        <div class="absolute inset-0 bg-brand-copper rounded-2xl filter blur-[50px] opacity-20 group-hover:opacity-30 transition-opacity duration-500"></div>
-                        <div class="relative rounded-2xl overflow-hidden border border-brand-tealLight shadow-2xl">
+                        <div class="absolute inset-0 bg-brand-copper rounded-2xl filter blur-[60px] opacity-10 group-hover:opacity-20 transition-opacity duration-500"></div>
+                        <div class="relative rounded-2xl overflow-hidden border border-brand-border shadow-2xl">
                             <!-- High quality corporate image overlay -->
                             <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=2070&auto=format&fit=crop" alt="Corporate Team" class="w-full h-auto object-cover transform transition-transform duration-700 group-hover:scale-105 opacity-80 mix-blend-luminosity">
-                            <div class="absolute inset-0 bg-gradient-to-t from-brand-tealDark via-brand-tealDark/50 to-transparent"></div>
+                            <div class="absolute inset-0 bg-gradient-to-t from-brand-black via-brand-black/50 to-transparent"></div>
+                            
+                            <div class="absolute bottom-10 left-10 right-10 text-white z-20">
+                                <i class="fa-solid fa-earth-americas text-4xl text-brand-copper mb-4 animate-spin-slow"></i>
+                                <h4 class="font-heading text-2xl font-bold mb-2">A Legacy of Delivery</h4>
+                                <p class="text-brand-muted text-sm leading-relaxed">Bridging the gap between US market demands and Indian engineering brilliance through seamless Offshore Development Centers.</p>
+                            </div>
                         </div>
                     </div>
 
                     <div class="lg:col-span-6 space-y-8">
                         <div>
-                            <h2 class="font-heading text-4xl font-bold text-white mb-6">The Cognisys Evolution</h2>
+                            <span class="text-[0.75rem] font-extrabold tracking-[0.2em] text-brand-copper uppercase mb-4 block flex items-center gap-2">
+                                <span class="w-8 h-[1px] bg-brand-copper"></span> Our History
+                            </span>
+                            <h2 class="font-heading text-4xl font-bold text-brand-white mb-6 leading-tight">The Cognisys Evolution</h2>
+                            
                             <div class="space-y-6 text-brand-muted text-base leading-relaxed">
                                 <p>
-                                    Founded with a singular vision to eradicate operational bottlenecks for modern enterprises, Cognisys Soft Services & IT Solutions has rapidly evolved into a multifaceted technology powerhouse.
+                                    Founded with a singular vision to eradicate operational bottlenecks for modern enterprises, Cognisys Soft Services & IT Solutions has rapidly evolved into a multifaceted technology powerhouse. We recognized early on that businesses don't just need code—they need reliable execution, scalable talent, and deeply integrated partnerships.
                                 </p>
                                 <p>
-                                    What began as a specialized software development firm has expanded into a comprehensive digital ecosystem. Today, we proudly support a global clientele by delivering custom cloud architectures, deploying massive-scale IT recruitment mandates across the USA and India, and incubating our very own proprietary SaaS platforms.
+                                    What began as a specialized software development firm has expanded into a comprehensive digital ecosystem. Today, we proudly support a global clientele by delivering custom cloud architectures, deploying massive-scale IT recruitment mandates across the USA and India, and incubating our very own proprietary SaaS platforms, such as the Bitee Ecosystem and the Connect ride-hailing app.
                                 </p>
                                 <p>
-                                    Our operational philosophy is built on three pillars: <strong>Precision</strong> in engineering, <strong>Agility</strong> in talent acquisition, and <strong>Integrity</strong> in all our B2B partnerships.
+                                    Our operational philosophy is built on three unshakeable pillars: <strong>Precision</strong> in software engineering, <strong>Agility</strong> in global talent acquisition, and <strong>Integrity</strong> in all our B2B vendorships.
                                 </p>
                             </div>
                         </div>
@@ -225,46 +235,46 @@
         <!-- ==============================================
              MISSION & VISION (DEEP DIVE)
         =============================================== -->
-        <section class="py-24 relative bg-brand-tealDark/80 border-y border-brand-tealLight">
+        <section class="py-24 relative bg-brand-black border-y border-brand-border">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
                     
                     <!-- Mission -->
                     <div class="premium-card p-12 lg:p-16 flex flex-col relative overflow-hidden">
-                        <div class="absolute -right-10 -top-10 text-9xl text-brand-tealLight opacity-20 pointer-events-none">
+                        <div class="absolute -right-10 -top-10 text-9xl text-brand-copper opacity-5 pointer-events-none">
                             <i class="fa-solid fa-bullseye"></i>
                         </div>
                         
-                        <div class="w-16 h-16 bg-brand-tealCard border border-brand-tealLight rounded-2xl flex items-center justify-center mb-8 shadow-md relative z-10">
-                            <i class="fa-solid fa-rocket text-3xl text-brand-copper"></i>
+                        <div class="w-16 h-16 bg-brand-cardBrown border border-brand-border rounded-2xl flex items-center justify-center mb-8 shadow-md relative z-10">
+                            <i class="fa-solid fa-rocket text-3xl text-brand-copper drop-shadow-md"></i>
                         </div>
                         
-                        <h3 class="font-heading text-3xl md:text-4xl font-bold text-white mb-6 relative z-10">Our Mission</h3>
+                        <h3 class="font-heading text-3xl md:text-4xl font-bold text-brand-white mb-6 relative z-10">Our Mission</h3>
                         <p class="text-brand-muted text-base leading-relaxed mb-6 flex-grow relative z-10">
                             To architect highly scalable, future-proof IT solutions and flawlessly connect global enterprises with elite technical talent. We are on a mission to completely eradicate operational technology bottlenecks for our clients through intelligent cloud deployments, bespoke software development, and precision IT staffing methodologies.
                         </p>
                         <p class="text-brand-muted text-base leading-relaxed relative z-10">
-                            We strive to ensure every line of code we write and every professional we deploy adds verifiable, high-ROI value to your operational bottom line.
+                            We strive to ensure every line of code we write, every infrastructure we deploy, and every professional we recruit adds verifiable, high-ROI value to your operational bottom line.
                         </p>
                     </div>
 
                     <!-- Vision -->
                     <div class="premium-card p-12 lg:p-16 flex flex-col relative overflow-hidden border-t-4 border-t-brand-copper">
-                        <div class="absolute -right-10 -top-10 text-9xl text-brand-tealLight opacity-20 pointer-events-none">
+                        <div class="absolute -right-10 -top-10 text-9xl text-brand-copper opacity-5 pointer-events-none">
                             <i class="fa-solid fa-eye"></i>
                         </div>
                         
-                        <div class="w-16 h-16 bg-brand-tealCard border border-brand-tealLight rounded-2xl flex items-center justify-center mb-8 shadow-md relative z-10">
-                            <i class="fa-solid fa-globe text-3xl text-brand-copper"></i>
+                        <div class="w-16 h-16 bg-brand-cardBrown border border-brand-border rounded-2xl flex items-center justify-center mb-8 shadow-md relative z-10">
+                            <i class="fa-solid fa-globe text-3xl text-brand-copper drop-shadow-md"></i>
                         </div>
                         
-                        <h3 class="font-heading text-3xl md:text-4xl font-bold text-white mb-6 relative z-10">Our Vision</h3>
+                        <h3 class="font-heading text-3xl md:text-4xl font-bold text-brand-white mb-6 relative z-10">Our Vision</h3>
                         <p class="text-brand-muted text-base leading-relaxed mb-6 flex-grow relative z-10">
                             To be the undisputed global partner of choice for seamless IT execution and staffing innovation. We envision Cognisys as a self-sustaining tech powerhouse—a place where world-class applications are built, elite talent is nurtured through collaborative training, and B2B vendorships thrive.
                         </p>
                         <p class="text-brand-muted text-base leading-relaxed relative z-10">
-                            By fostering a continuous ecosystem of learning, development, and delivery, we are shaping the future of global enterprise technology execution.
+                            By fostering a continuous ecosystem of learning, development, and delivery, we are actively shaping the future of global enterprise technology execution across continents.
                         </p>
                     </div>
 
@@ -275,50 +285,50 @@
         <!-- ==============================================
              CORE VALUES
         =============================================== -->
-        <section class="py-32 relative">
+        <section class="py-32 relative bg-brand-darkBrown">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 
                 <div class="text-center max-w-3xl mx-auto mb-20">
                     <span class="text-[0.75rem] font-extrabold tracking-[0.2em] text-brand-copper uppercase mb-4 block">Our Philosophy</span>
-                    <h2 class="font-heading text-4xl md:text-5xl font-bold text-white mb-6">What Makes Us Different</h2>
-                    <p class="text-brand-muted text-lg">Our core operating values guide every deliverable, every deployment, and every partnership we undertake.</p>
+                    <h2 class="font-heading text-4xl md:text-5xl font-bold text-brand-white mb-6">What Makes Us Different</h2>
+                    <p class="text-brand-muted text-lg">Our core operating values are not just words; they actively guide every deliverable, every deployment, and every partnership we undertake.</p>
                 </div>
 
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                     
                     <div class="premium-card p-10 group">
-                        <i class="fa-solid fa-lightbulb text-4xl text-brand-copper mb-6 group-hover:scale-110 transition-transform"></i>
-                        <h4 class="text-xl font-bold text-white mb-4">Relentless Innovation</h4>
+                        <i class="fa-solid fa-lightbulb text-4xl text-brand-copper mb-6 group-hover:scale-110 transition-transform duration-500 drop-shadow-md"></i>
+                        <h4 class="text-xl font-bold text-brand-white mb-4 font-heading">Relentless Innovation</h4>
                         <p class="text-sm text-brand-muted leading-relaxed">We continuously leverage modern frameworks, cloud patterns, and architectural paradigms to keep your business securely ahead of the technological curve.</p>
                     </div>
 
                     <div class="premium-card p-10 group">
-                        <i class="fa-solid fa-shield-halved text-4xl text-brand-copper mb-6 group-hover:scale-110 transition-transform"></i>
-                        <h4 class="text-xl font-bold text-white mb-4">Uncompromising Integrity</h4>
-                        <p class="text-sm text-brand-muted leading-relaxed">We operate with total transparency, clear commercial ethics, and non-disclosure guarantees to ensure your proprietary IP is protected at all costs.</p>
+                        <i class="fa-solid fa-shield-halved text-4xl text-brand-copper mb-6 group-hover:scale-110 transition-transform duration-500 drop-shadow-md"></i>
+                        <h4 class="text-xl font-bold text-brand-white mb-4 font-heading">Uncompromising Integrity</h4>
+                        <p class="text-sm text-brand-muted leading-relaxed">We operate with total transparency, clear commercial ethics, and strict non-disclosure guarantees to ensure your proprietary IP is protected at all costs.</p>
                     </div>
 
                     <div class="premium-card p-10 group">
-                        <i class="fa-solid fa-medal text-4xl text-brand-copper mb-6 group-hover:scale-110 transition-transform"></i>
-                        <h4 class="text-xl font-bold text-white mb-4">Quality Assurance</h4>
+                        <i class="fa-solid fa-medal text-4xl text-brand-copper mb-6 group-hover:scale-110 transition-transform duration-500 drop-shadow-md"></i>
+                        <h4 class="text-xl font-bold text-brand-white mb-4 font-heading">Quality Assurance</h4>
                         <p class="text-sm text-brand-muted leading-relaxed">We enforce rigorous automated testing protocols, highly optimized codebases, and strict performance benchmarks on every single release cycle.</p>
                     </div>
 
                     <div class="premium-card p-10 group">
-                        <i class="fa-solid fa-handshake-simple text-4xl text-brand-copper mb-6 group-hover:scale-110 transition-transform"></i>
-                        <h4 class="text-xl font-bold text-white mb-4">Customer Success</h4>
+                        <i class="fa-solid fa-handshake-simple text-4xl text-brand-copper mb-6 group-hover:scale-110 transition-transform duration-500 drop-shadow-md"></i>
+                        <h4 class="text-xl font-bold text-brand-white mb-4 font-heading">Customer Success</h4>
                         <p class="text-sm text-brand-muted leading-relaxed">We prioritize long-term client satisfaction through swift turnaround SLA responses, scalable team augmentation, and dedicated account management.</p>
                     </div>
 
                     <div class="premium-card p-10 group">
-                        <i class="fa-solid fa-users text-4xl text-brand-copper mb-6 group-hover:scale-110 transition-transform"></i>
-                        <h4 class="text-xl font-bold text-white mb-4">Deep Collaboration</h4>
+                        <i class="fa-solid fa-users text-4xl text-brand-copper mb-6 group-hover:scale-110 transition-transform duration-500 drop-shadow-md"></i>
+                        <h4 class="text-xl font-bold text-brand-white mb-4 font-heading">Deep Collaboration</h4>
                         <p class="text-sm text-brand-muted leading-relaxed">We do not operate in silos. We work harmoniously as a highly integrated, seamless extension of your internal engineering leadership and HR departments.</p>
                     </div>
 
                     <div class="premium-card p-10 group border-b-4 border-b-brand-copper">
-                        <i class="fa-solid fa-arrow-trend-up text-4xl text-brand-copper mb-6 group-hover:scale-110 transition-transform"></i>
-                        <h4 class="text-xl font-bold text-white mb-4">Continuous Improvement</h4>
+                        <i class="fa-solid fa-arrow-trend-up text-4xl text-brand-copper mb-6 group-hover:scale-110 transition-transform duration-500 drop-shadow-md"></i>
+                        <h4 class="text-xl font-bold text-brand-white mb-4 font-heading">Continuous Improvement</h4>
                         <p class="text-sm text-brand-muted leading-relaxed">We are relentlessly refining our developer velocity, upgrading our automated CI/CD pipelines, and tightening our talent screening criteria daily.</p>
                     </div>
 
@@ -329,59 +339,59 @@
         <!-- ==============================================
              GLOBAL FOOTPRINT
         =============================================== -->
-        <section class="py-32 relative bg-brand-tealCard/40 border-t border-brand-tealLight overflow-hidden">
+        <section class="py-32 relative bg-brand-black border-t border-brand-border overflow-hidden">
             <!-- Background Map graphic abstraction -->
-            <div class="absolute inset-0 opacity-[0.03] pointer-events-none flex justify-center items-center">
-                <i class="fa-solid fa-earth-americas text-[50rem] text-white"></i>
+            <div class="absolute inset-0 opacity-5 pointer-events-none flex justify-center items-center">
+                <i class="fa-solid fa-earth-americas text-[50rem] text-brand-copper"></i>
             </div>
             
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                 <div class="text-center max-w-3xl mx-auto mb-20">
                     <span class="text-[0.75rem] font-extrabold tracking-[0.2em] text-brand-copper uppercase mb-4 block">Our Presence</span>
-                    <h2 class="font-heading text-4xl md:text-5xl font-bold text-white mb-6">Global Footprint</h2>
-                    <p class="text-brand-muted text-lg">Operating across continents to provide frictionless execution and 24/7 support.</p>
+                    <h2 class="font-heading text-4xl md:text-5xl font-bold text-brand-white mb-6">Global Footprint</h2>
+                    <p class="text-brand-muted text-lg">Operating across continents to provide frictionless execution, elite talent sourcing, and 24/7 technical support.</p>
                 </div>
 
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
                     
                     <!-- India HQ -->
                     <div class="premium-card p-12">
-                        <div class="flex items-center gap-6 mb-8 border-b border-brand-tealLight pb-6">
-                            <div class="w-16 h-16 bg-brand-tealCard border border-brand-copper/30 rounded-full flex items-center justify-center text-brand-copper">
+                        <div class="flex items-center gap-6 mb-8 border-b border-brand-border pb-6">
+                            <div class="w-16 h-16 bg-brand-cardBrown border border-brand-copper/30 rounded-full flex items-center justify-center text-brand-copper shadow-md">
                                 <i class="fa-solid fa-location-dot text-2xl"></i>
                             </div>
                             <div>
-                                <h3 class="text-2xl font-bold text-white font-heading">Hyderabad, India</h3>
+                                <h3 class="text-2xl font-bold text-brand-white font-heading">Hyderabad, India</h3>
                                 <p class="text-xs uppercase tracking-widest text-brand-copper mt-1">Global Headquarters & ODC</p>
                             </div>
                         </div>
                         <div class="space-y-4 text-sm text-brand-muted leading-relaxed">
                             <p>Our nerve center and primary engineering hub. Operating from the heart of India's booming technology sector, our Hyderabad facility serves as the engine of our enterprise.</p>
-                            <ul class="list-disc pl-5 space-y-2 mt-4 text-gray-300">
-                                <li><strong>Domestic IT Recruitment:</strong> Fulfilling massive-scale staffing mandates for local startups and GCCs.</li>
-                                <li><strong>Training & Incubations:</strong> Hosting our collaborative placement training programs and incubating proprietary SaaS products like Bitee.</li>
-                                <li><strong>Offshore Development:</strong> Housing our elite engineering pods that deliver code globally.</li>
+                            <ul class="list-none space-y-3 mt-6">
+                                <li class="flex items-start gap-3"><i class="fa-solid fa-check text-brand-copper mt-1"></i> <span><strong>Domestic IT Recruitment:</strong> Fulfilling massive-scale staffing mandates for local startups and GCCs.</span></li>
+                                <li class="flex items-start gap-3"><i class="fa-solid fa-check text-brand-copper mt-1"></i> <span><strong>Training & Incubations:</strong> Hosting our collaborative placement training programs and incubating proprietary SaaS products like Bitee.</span></li>
+                                <li class="flex items-start gap-3"><i class="fa-solid fa-check text-brand-copper mt-1"></i> <span><strong>Offshore Development:</strong> Housing our elite engineering pods that deliver highly scalable code globally.</span></li>
                             </ul>
                         </div>
                     </div>
 
                     <!-- USA Operations -->
                     <div class="premium-card p-12">
-                        <div class="flex items-center gap-6 mb-8 border-b border-brand-tealLight pb-6">
-                            <div class="w-16 h-16 bg-brand-tealCard border border-brand-copper/30 rounded-full flex items-center justify-center text-brand-copper">
+                        <div class="flex items-center gap-6 mb-8 border-b border-brand-border pb-6">
+                            <div class="w-16 h-16 bg-brand-cardBrown border border-brand-copper/30 rounded-full flex items-center justify-center text-brand-copper shadow-md">
                                 <i class="fa-solid fa-building text-2xl"></i>
                             </div>
                             <div>
-                                <h3 class="text-2xl font-bold text-white font-heading">United States</h3>
+                                <h3 class="text-2xl font-bold text-brand-white font-heading">United States</h3>
                                 <p class="text-xs uppercase tracking-widest text-brand-copper mt-1">Remote Operations & Advisory</p>
                             </div>
                         </div>
                         <div class="space-y-4 text-sm text-brand-muted leading-relaxed">
-                            <p>We maintain a highly robust, remote operational framework across the United States to ensure our American enterprise clients receive immediate, high-level support.</p>
-                            <ul class="list-disc pl-5 space-y-2 mt-4 text-gray-300">
-                                <li><strong>Strategic Consulting:</strong> High-level onshore technical advisory and architecture planning.</li>
-                                <li><strong>USA IT Staffing:</strong> Seamless C2C, W2, and 1099 recruitment management, partnering with prime vendors.</li>
-                                <li><strong>Timezone Alignment:</strong> Our teams operate with strict EST/PST overlap for frictionless daily standups and sprint coordination.</li>
+                            <p>We maintain a highly robust, remote operational framework across the United States to ensure our American enterprise clients receive immediate, high-level support and flawless execution.</p>
+                            <ul class="list-none space-y-3 mt-6">
+                                <li class="flex items-start gap-3"><i class="fa-solid fa-check text-brand-copper mt-1"></i> <span><strong>Strategic Consulting:</strong> High-level onshore technical advisory and architecture planning.</span></li>
+                                <li class="flex items-start gap-3"><i class="fa-solid fa-check text-brand-copper mt-1"></i> <span><strong>USA IT Staffing:</strong> Seamless C2C, W2, and 1099 recruitment management, partnering with prime vendors.</span></li>
+                                <li class="flex items-start gap-3"><i class="fa-solid fa-check text-brand-copper mt-1"></i> <span><strong>Timezone Alignment:</strong> Our teams operate with strict EST/PST overlap for frictionless daily standups and sprint coordination.</span></li>
                             </ul>
                         </div>
                     </div>
@@ -393,17 +403,17 @@
         <!-- ==============================================
              THE COGNISYS ECOSYSTEM (Tie-in)
         =============================================== -->
-        <section class="py-24 relative bg-brand-tealDark border-t border-brand-tealLight">
+        <section class="py-24 relative bg-brand-darkBrown border-t border-brand-border">
             <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-                <h3 class="font-heading text-4xl font-bold text-white mb-8">Join The Cognisys Ecosystem</h3>
+                <h3 class="font-heading text-4xl font-bold text-brand-white mb-8">Join The Cognisys Ecosystem</h3>
                 <p class="text-brand-muted text-lg leading-relaxed mb-12">
                     Whether you are an enterprise looking for a reliable execution partner, a vendor looking for staffing collaborations, or an engineer looking to accelerate your career, we have a place for you.
                 </p>
                 <div class="flex flex-col sm:flex-row justify-center gap-6">
-                    <a href="index.html#contact" class="bg-brand-copper text-white px-8 py-4 font-bold text-xs uppercase tracking-widest rounded-md hover:bg-brand-copperLight transition-colors shadow-lg">
+                    <a href="index.html#contact" class="bg-brand-copper text-brand-black px-10 py-5 font-bold text-xs uppercase tracking-[0.15em] rounded-full hover:bg-brand-white hover:text-brand-black transition-all duration-500 shadow-[0_0_20px_rgba(184,115,51,0.4)]">
                         Partner With Us
                     </a>
-                    <a href="careers.html" class="bg-transparent border border-brand-copper text-brand-copper px-8 py-4 font-bold text-xs uppercase tracking-widest rounded-md hover:bg-brand-copper hover:text-white transition-colors">
+                    <a href="careers.html" class="bg-transparent border border-brand-border text-brand-white px-10 py-5 font-bold text-xs uppercase tracking-[0.15em] rounded-full hover:bg-brand-cardBrown hover:border-brand-copper transition-all duration-500">
                         View Careers
                     </a>
                 </div>
@@ -413,7 +423,7 @@
     </main>
 
     <!-- ==============================================
-         MASTER PREMIUM FOOTER (Identical to Home)
+         MASTER PREMIUM FOOTER (Matching Index)
     =============================================== -->
     <footer class="bg-brand-black pt-16 pb-12 border-t border-brand-border relative z-30">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -422,9 +432,10 @@
                 <!-- Col 1: Brand & About -->
                 <div class="lg:col-span-4">
                     <a href="index.html" class="flex items-center gap-4 mb-8 group">
-                        <img src="IOGO.png" alt="Cognisys Logo" class="h-14 w-auto object-contain transition-transform duration-500 group-hover:scale-105" onerror="this.src='https://via.placeholder.com/64x64/050505/c87a3f?text=C';">
+                        <!-- Borderless Logo -->
+                        <img src="IOGO.png" alt="Cognisys Logo" class="h-16 w-auto object-contain transition-transform duration-500 group-hover:scale-105" onerror="this.src='https://via.placeholder.com/64x64/050505/b87333?text=C';">
                         <div class="flex flex-col">
-                            <span class="font-heading font-extrabold text-2xl tracking-tight text-white leading-none">COGNISYS</span>
+                            <span class="font-heading font-extrabold text-2xl tracking-tight text-brand-white leading-none">COGNISYS</span>
                             <span class="text-[0.6rem] font-bold uppercase tracking-[0.2em] text-brand-copper mt-1">Soft Services & IT Solutions</span>
                         </div>
                     </a>
@@ -433,17 +444,17 @@
                     </p>
                 </div>
                 
-                <!-- Col 2: Quick Links -->
+                <!-- Col 2: Quick Links (Separated) -->
                 <div class="lg:col-span-2">
                     <h3 class="text-[0.65rem] font-extrabold tracking-widest uppercase mb-6 text-brand-copper">Quick Links</h3>
                     <ul class="space-y-4 text-sm text-brand-muted">
-                        <li><a href="about.html" class="hover:text-brand-copper transition-colors font-bold text-white">Who We Are</a></li>
+                        <li><a href="about.html" class="hover:text-brand-copper transition-colors font-bold text-brand-white">Who We Are</a></li>
                         <li><a href="innovations.html" class="hover:text-brand-copper transition-colors">In-House Products</a></li>
-                        <li><a href="careers.html" class="hover:text-brand-copper transition-colors">Careers / Hiring</a></li>
+                        <li><a href="careers.html" class="hover:text-brand-copper transition-colors font-bold text-brand-white">Careers / Hiring</a></li>
                     </ul>
                 </div>
                 
-                <!-- Col 3: Services -->
+                <!-- Col 3: Services (Separated) -->
                 <div class="lg:col-span-3">
                     <h3 class="text-[0.65rem] font-extrabold tracking-widest uppercase mb-6 text-brand-copper">Core Services</h3>
                     <ul class="space-y-4 text-sm text-brand-muted">
@@ -455,33 +466,38 @@
                     </ul>
                 </div>
 
-                <!-- Col 4: Contact Us & LinkedIn -->
+                <!-- Col 4: Contact Us, LinkedIn & DPIIT Recognition properly aligned -->
                 <div class="lg:col-span-3">
                     <h3 class="text-[0.65rem] font-extrabold tracking-widest uppercase mb-6 text-brand-copper">Contact Us</h3>
                     <div class="space-y-3 mb-6">
-                        <a href="mailto:info@cognisysitsolutions.in" class="text-xs font-semibold text-brand-muted hover:text-white transition-colors block">
+                        <a href="mailto:info@cognisysitsolutions.in" class="text-xs font-semibold text-brand-muted hover:text-brand-white transition-colors block">
                             <i class="fa-solid fa-envelope w-4"></i> info@cognisysitsolutions.in
                         </a>
-                        <a href="tel:+919885550735" class="text-xs font-semibold text-brand-muted hover:text-white transition-colors block">
+                        <a href="tel:+919885550735" class="text-xs font-semibold text-brand-muted hover:text-brand-white transition-colors block">
                             <i class="fa-solid fa-phone w-4"></i> +91 9885550735
                         </a>
                     </div>
+                    
+                    <!-- LinkedIn grouped under Contact Us -->
                     <h3 class="text-[0.65rem] font-extrabold tracking-widest uppercase mb-4 text-brand-copper">Follow Us</h3>
-                    <a href="https://www.linkedin.com/company/cognisys-soft-services" target="_blank" class="text-brand-copper hover:text-white transition-colors text-2xl inline-block">
+                    <a href="https://www.linkedin.com/company/cognisys-soft-services" target="_blank" class="text-brand-copper hover:text-brand-white transition-colors text-2xl inline-block mb-8">
                         <i class="fa-brands fa-linkedin"></i>
+                    </a>
+
+                    <!-- DPIIT Recognition properly contained in grid WITHOUT background -->
+                    <h3 class="text-[0.65rem] font-extrabold tracking-widest uppercase mb-4 text-brand-copper">Recognition</h3>
+                    <a href="dpiit-certificate.pdf" target="_blank" title="View DPIIT Certificate" class="inline-block transition-transform hover:scale-105">
+                        <img src="startup-india-logo.png" alt="DPIIT Recognized Startup" class="w-full max-w-[160px] h-auto object-contain filter grayscale hover:grayscale-0 transition-all duration-300" onerror="this.onerror=null; this.src='https://via.placeholder.com/160x40/050505/ffffff?text=Startup+India';">
                     </a>
                 </div>
 
             </div>
             
-            <div class="border-t border-brand-tealLight pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+            <!-- Bottom Copyright Bar -->
+            <div class="border-t border-brand-border pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
                 <p class="text-xs text-brand-muted font-medium uppercase tracking-wider">
-                    &copy; 2026 Cognisys Soft Services & IT Solutions.
+                    &copy; 2026 Cognisys Soft Services & IT Solutions. All rights reserved.
                 </p>
-                <!-- DPIIT image WITHOUT background -->
-                <a href="dpiit-certificate.pdf" target="_blank" title="View DPIIT Certificate" class="inline-block transition-transform hover:scale-105">
-                    <img src="startup-india-logo.png" alt="DPIIT Recognized Startup" class="w-full max-w-[160px] h-auto object-contain filter grayscale hover:grayscale-0 transition-all duration-300" style="background: transparent;" onerror="this.onerror=null; this.src='https://via.placeholder.com/160x40/020b0d/ffffff?text=Startup+India';">
-                </a>
             </div>
         </div>
     </footer>
@@ -490,6 +506,14 @@
          JAVASCRIPT LOGIC
     =============================================== -->
     <script>
+        // Force video to play to bypass some browser restrictions
+        document.addEventListener('DOMContentLoaded', () => {
+            const video = document.getElementById('bg-video');
+            if(video) {
+                video.play().catch(e => console.log("Autoplay blocked by browser. Please ensure video is muted."));
+            }
+        });
+
         const menuBtn = document.getElementById('menuToggleBtn');
         const dropMenu = document.getElementById('dropdownMenu');
         
