@@ -3,426 +3,530 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Careers | Cognisys IT Solutions</title>
+    <title>Careers & Hiring | Cognisys IT Solutions</title>
+    <meta name="title" content="Careers & Hiring | Cognisys IT Solutions">
+    <meta name="description" content="Join the Cognisys team. We are looking for passionate innovators, elite engineers, and strategic thinkers to scale our global operations.">
     
-    <!-- Tailwind CSS & Fonts -->
+    <!-- Tailwind CSS & FontAwesome -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
     
+    <!-- Brownie White, Black, and Warm Brown Palette -->
     <script>
         tailwind.config = {
             theme: {
                 extend: {
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                        heading: ['Plus Jakarta Sans', 'sans-serif'],
+                    fontFamily: { 
+                        sans: ['Inter', 'sans-serif'], 
+                        heading: ['Plus Jakarta Sans', 'sans-serif'] 
                     },
                     colors: {
-                        brand: { black: '#0a0a0a', dark: '#171717', gray: '#525252', light: '#f5f5f5', border: '#e5e5e5' }
+                        brand: {
+                            black: '#111111',
+                            dark: '#1a1a1a',
+                            brown: '#4A3728',         
+                            copper: '#9E622B',        
+                            brownieWhite: '#FAF8F5',  
+                            pureWhite: '#ffffff',
+                            muted: '#555555',
+                            border: '#EAE6E1'
+                        }
                     }
                 }
             }
         }
     </script>
+    
     <style>
-        body { background-color: #f3f4f6; }
-        .glass-nav { background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(12px); }
-        .premium-card { transition: all 0.3s ease; }
-        .premium-card:hover { box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.1); border-color: #0a0a0a; }
-        .loader { border-top-color: #0a0a0a; -webkit-animation: spinner 1.5s linear infinite; animation: spinner 1.5s linear infinite; border-width: 3px; }
-        @keyframes spinner { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+        body { 
+            background-color: #FAF8F5; 
+            color: #111111; 
+        }
+        
+        /* Video Overlays for Contrast */
+        .video-overlay-light {
+            background: rgba(250, 248, 245, 0.92); /* Brownie White at 92% opacity for a bright, clean look */
+        }
+
+        /* Glass Navigation */
+        .glass-nav {
+            background: rgba(250, 248, 245, 0.96);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid #EAE6E1;
+        }
+
+        /* Clean White Cards */
+        .clean-card {
+            background-color: #ffffff;
+            border: 1px solid #EAE6E1;
+            transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+        }
+        .clean-card:hover {
+            transform: translateY(-4px);
+            border-color: #4A3728;
+            box-shadow: 0 12px 30px -10px rgba(74, 55, 40, 0.12);
+        }
+
+        /* Dark Cards */
+        .dark-card {
+            background-color: #111111;
+            color: #ffffff;
+            border: 1px solid #222222;
+            transition: transform 0.25s ease, border-color 0.25s ease;
+        }
+        .dark-card:hover {
+            transform: translateY(-4px);
+            border-color: #9E622B;
+        }
     </style>
 </head>
-<body class="text-brand-dark font-sans antialiased">
+<body class="font-sans antialiased selection:bg-brand-brown selection:text-white">
 
-    <!-- Navigation Bar -->
-    <header>
-        <nav class="fixed w-full z-50 glass-nav border-b border-gray-200" aria-label="Main Navigation">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="flex justify-between items-center h-24">
-                    <a href="index.html" class="flex-shrink-0 flex items-center gap-4 group">
-                        <img src="logo.png" alt="Cognisys Corporate Logo" class="h-20 w-auto object-contain transition-transform group-hover:scale-105" onerror="this.src='https://via.placeholder.com/80x80/0a0a0a/ffffff?text=C';">
-                        <div class="flex flex-col">
-                            <span class="font-heading font-extrabold text-2xl leading-tight text-brand-black tracking-tight">COGNISYS</span>
-                            <span class="text-[0.7rem] font-bold uppercase tracking-widest text-brand-gray">Soft Services & IT Solutions</span>
-                        </div>
-                    </a>
-                    <div class="hidden lg:flex space-x-8 items-center">
-                        <a href="index.html#about" class="text-xs font-bold tracking-widest text-brand-gray hover:text-brand-black uppercase transition-colors">About</a>
-                        <a href="index.html#services" class="text-xs font-bold tracking-widest text-brand-gray hover:text-brand-black uppercase transition-colors">Services</a>
-                        <a href="index.html#products" class="text-xs font-bold tracking-widest text-brand-gray hover:text-brand-black uppercase transition-colors">Products</a>
-                        <a href="careers.html" class="text-xs font-bold tracking-widest text-brand-black border-b-2 border-brand-black uppercase">Careers</a>
-                        <a href="index.html#contact" class="bg-brand-black text-white px-6 py-2.5 text-xs font-bold uppercase tracking-widest hover:bg-white hover:text-brand-black border-2 border-brand-black transition-all">Contact</a>
-                    </div>
+    <!-- ==============================================
+         GLOBAL LIVE VIDEO BACKGROUND (VIDEO 5)
+    =============================================== -->
+    <div class="fixed inset-0 z-[-2] w-full h-full overflow-hidden bg-brand-brownieWhite">
+        <!-- Local Video 5 plays continuously in the background -->
+        <video id="bg-video-5" autoplay loop muted playsinline class="absolute top-1/2 left-1/2 min-w-full min-h-full w-auto h-auto object-cover transform -translate-x-1/2 -translate-y-1/2 opacity-30 mix-blend-multiply z-0">
+            <source src="background-video-5.mp4" type="video/mp4">
+        </video>
+        <div class="absolute inset-0 video-overlay-light z-0"></div>
+    </div>
+
+    <!-- ==============================================
+         1. NAVIGATION HEADER 
+    =============================================== -->
+    <header class="fixed top-0 left-0 right-0 z-50 glass-nav h-24 flex items-center">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full flex justify-between items-center">
+            
+            <!-- Corporate Logo -->
+            <a href="index.html" class="flex items-center gap-4 group">
+                <img 
+                    src="IOGO.png" 
+                    alt="Cognisys Logo" 
+                    class="h-14 w-auto object-contain"
+                    onerror="this.onerror=null; this.src='logo.png';"
+                >
+                <div class="flex flex-col">
+                    <span class="font-heading font-extrabold text-2xl tracking-tight text-brand-black leading-none">COGNISYS</span>
+                    <span class="text-[0.65rem] font-bold uppercase tracking-[0.2em] text-brand-brown mt-1">Soft Services & IT Solutions</span>
                 </div>
-            </div>
-        </nav>
-    </header>
+            </a>
 
-    <main class="pt-32 pb-24 min-h-screen">
-        
-        <!-- ==========================================
-             VIEW 1: JOB LISTINGS (GRID)
-        =========================================== -->
-        <div id="jobListView" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 block">
-            <div class="mb-16 text-center max-w-3xl mx-auto mt-10">
-                <h2 class="text-xs font-bold tracking-widest text-brand-gray uppercase mb-4">Join Our Team</h2>
-                <h1 class="font-heading text-4xl md:text-6xl font-bold text-brand-black mb-6">Current Openings</h1>
-                <p class="text-lg text-brand-gray">We are always on the lookout for passionate innovators, elite engineers, and strategic thinkers to join our global team.</p>
+            <!-- Right Controls -->
+            <div class="flex items-center gap-6">
+                <a href="index.html#contact" class="hidden sm:inline-flex items-center justify-center bg-brand-black text-white px-8 py-3 rounded-full text-xs font-bold uppercase tracking-widest hover:bg-brand-brown transition-colors">
+                    Let's Talk
+                </a>
+                
+                <button id="menuToggleBtn" aria-label="Toggle Navigation" class="flex flex-col items-center justify-center w-12 h-12 rounded-full border border-brand-border text-brand-black hover:bg-brand-black hover:text-white transition-all cursor-pointer bg-white">
+                    <i class="fa-solid fa-bars text-lg"></i>
+                </button>
             </div>
             
-            <!-- Loading Indicator -->
-            <div id="loadingIndicator" class="flex flex-col items-center justify-center py-20">
-                <div class="loader ease-linear rounded-full border-gray-200 h-12 w-12 mb-4"></div>
-                <p class="text-brand-gray font-medium tracking-wider text-sm uppercase">Loading Jobs...</p>
-            </div>
-
-            <!-- Dynamic Job Grid injected by JavaScript -->
-            <div id="dynamicJobGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Javascript will load jobs here -->
-            </div>
-        </div>
-
-        <!-- ==========================================
-             VIEW 2: DETAILED JOB PAGE
-        =========================================== -->
-        <div id="jobDetailView" class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 hidden mt-8">
-            <button onclick="showListView()" class="text-brand-gray hover:text-brand-black text-sm font-bold uppercase tracking-widest mb-6 inline-flex items-center">
-                <i class="fa-solid fa-arrow-left mr-2"></i> Back to Jobs
-            </button>
-
-            <!-- Detailed Header Card -->
-            <div class="bg-white p-8 border border-gray-200 rounded-lg shadow-sm mb-6 relative">
-                <!-- Dynamic Company Logo Top Right -->
-                <div class="absolute top-8 right-8 hidden sm:block">
-                    <div class="border border-gray-100 p-2 rounded flex items-center justify-center h-20 w-20 shadow-sm bg-white">
-                        <img id="detailLogo" src="logo.png" alt="Company Logo" class="max-w-full max-h-full object-contain" onerror="this.src='logo.png';">
-                    </div>
-                </div>
-
-                <h1 id="detailTitle" class="font-heading text-2xl font-bold text-brand-black mb-1 pr-24">Job Title</h1>
-                <p class="text-sm text-brand-gray mb-4">Cognisys Soft Services & IT Solutions</p>
-                
-                <div class="flex flex-wrap items-center gap-4 sm:gap-6 text-sm text-brand-gray mb-4">
-                    <span class="flex items-center gap-2"><i class="fa-solid fa-briefcase text-gray-400"></i> <span id="detailExp">0-0 Yrs</span></span>
-                    <span class="text-gray-300">|</span>
-                    <span class="flex items-center gap-2"><i class="fa-solid fa-wallet text-gray-400"></i> <span id="detailSalary">Not Disclosed</span></span>
-                </div>
-                <div class="flex items-center gap-2 text-sm text-brand-gray mb-6 border-b border-gray-100 pb-6">
-                    <i class="fa-solid fa-location-dot text-gray-400"></i> <span id="detailLocation">Location</span>
-                </div>
-
-                <div class="flex flex-wrap justify-between items-center text-xs text-gray-500">
-                    <div>
-                        <span>Posted: <strong id="detailPosted" class="text-brand-black">Today</strong></span>
-                        <span class="mx-2">|</span>
-                        <span>Openings: <strong id="detailOpenings" class="text-brand-black">1</strong></span>
-                    </div>
-                    <button onclick="showApplicationForm()" class="bg-blue-600 text-white px-8 py-2.5 rounded-full font-bold hover:bg-blue-700 transition-colors mt-4 sm:mt-0 shadow-md">
-                        Apply Now
-                    </button>
-                </div>
-            </div>
-
-            <!-- Job Description Card -->
-            <div class="bg-white p-8 border border-gray-200 rounded-lg shadow-sm">
-                
-                <h3 class="font-bold text-brand-black mb-3">Job highlights</h3>
-                <ul id="detailHighlights" class="list-disc pl-5 space-y-2 text-sm text-brand-gray mb-8">
-                    <!-- Javascript populates -->
-                </ul>
-
-                <h3 class="font-bold text-brand-black mb-3 border-t border-gray-100 pt-8">Job description</h3>
-                <div id="detailDescription" class="text-sm text-brand-gray leading-relaxed space-y-4 mb-8 whitespace-pre-line">
-                    <!-- Javascript populates -->
-                </div>
-
-                <div class="space-y-3 text-sm mb-8">
-                    <div class="grid grid-cols-3 sm:grid-cols-4"><span class="font-medium text-brand-black col-span-1">Role:</span> <span id="detailRole" class="text-brand-gray col-span-2 sm:col-span-3">Role Name</span></div>
-                    <div class="grid grid-cols-3 sm:grid-cols-4"><span class="font-medium text-brand-black col-span-1">Industry Type:</span> <span id="detailIndustry" class="text-brand-gray col-span-2 sm:col-span-3">IT Services</span></div>
-                    <div class="grid grid-cols-3 sm:grid-cols-4"><span class="font-medium text-brand-black col-span-1">Department:</span> <span id="detailDept" class="text-brand-gray col-span-2 sm:col-span-3">Dept Name</span></div>
-                    <div class="grid grid-cols-3 sm:grid-cols-4"><span class="font-medium text-brand-black col-span-1">Employment Type:</span> <span id="detailEmpType" class="text-brand-gray col-span-2 sm:col-span-3">Full Time, Permanent</span></div>
-                </div>
-
-                <h3 class="font-bold text-brand-black mb-2">Education</h3>
-                <p class="text-sm text-brand-gray mb-8"><span id="detailEducation">Any Graduate</span></p>
-
-                <h3 class="font-bold text-brand-black mb-3">Key Skills</h3>
-                <div id="detailSkills" class="flex flex-wrap gap-2">
-                    <!-- Javascript populates -->
-                </div>
+            <!-- Dropdown Menu -->
+            <div id="dropdownMenu" class="absolute top-24 right-4 sm:right-8 w-72 bg-white border border-brand-border shadow-2xl rounded-xl hidden flex-col z-40 overflow-hidden">
+                <a href="index.html" class="px-6 py-4 text-sm font-semibold text-brand-muted border-b border-brand-border hover:bg-brand-brownieWhite hover:text-brand-black transition-colors flex items-center gap-3">
+                    <i class="fa-solid fa-house w-4 text-brand-brown"></i> Home
+                </a>
+                <a href="about.html" class="px-6 py-4 text-sm font-semibold text-brand-muted border-b border-brand-border hover:bg-brand-brownieWhite hover:text-brand-black transition-colors flex items-center gap-3">
+                    <i class="fa-solid fa-building w-4 text-brand-brown"></i> Who We Are
+                </a>
+                <a href="services.html" class="px-6 py-4 text-sm font-semibold text-brand-muted border-b border-brand-border hover:bg-brand-brownieWhite hover:text-brand-black transition-colors flex items-center gap-3">
+                    <i class="fa-solid fa-server w-4 text-brand-brown"></i> Services & Solutions
+                </a>
+                <a href="innovations.html" class="px-6 py-4 text-sm font-semibold text-brand-muted border-b border-brand-border hover:bg-brand-brownieWhite hover:text-brand-black transition-colors flex items-center gap-3">
+                    <i class="fa-solid fa-lightbulb w-4 text-brand-brown"></i> In-House Projects
+                </a>
+                <a href="careers.html" class="px-6 py-4 text-sm font-semibold text-brand-brown border-b border-brand-border bg-brand-brownieWhite flex items-center justify-between transition-colors">
+                    <span><i class="fa-solid fa-briefcase w-4 mr-2 text-brand-brown"></i> Careers / Hiring</span> 
+                    <i class="fa-solid fa-arrow-right text-xs"></i>
+                </a>
             </div>
         </div>
+    </header>
 
-        <!-- ==========================================
-             VIEW 3: APPLICATION FORM
-        =========================================== -->
-        <div id="applicationFormView" class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 hidden mt-8">
-            <button onclick="backToDetail()" class="text-brand-gray hover:text-brand-black text-sm font-bold uppercase tracking-widest mb-6 inline-flex items-center">
-                <i class="fa-solid fa-arrow-left mr-2"></i> Back to Job Details
-            </button>
+    <main>
+        <!-- ==============================================
+             2. HERO SECTION
+        =============================================== -->
+        <section class="relative pt-48 pb-32 border-b border-brand-border">
+            <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+                <span class="text-[0.75rem] font-extrabold tracking-[0.2em] text-brand-brown uppercase mb-6 block">Join Our Global Team</span>
+                <h1 class="font-heading text-5xl md:text-6xl lg:text-7xl font-bold text-brand-black mb-8 leading-tight drop-shadow-sm">
+                    Build The Future of <br />
+                    <span class="text-brand-copper">Enterprise Tech.</span>
+                </h1>
+                <p class="text-lg md:text-xl text-brand-muted leading-relaxed max-w-4xl mx-auto">
+                    We are always on the lookout for passionate innovators, elite engineers, and strategic thinkers to scale our operations across the USA and India. Grow your career with a DPIIT Recognized industry leader.
+                </p>
+                <div class="mt-10">
+                    <a href="#openings" class="inline-flex items-center gap-3 text-xs font-bold uppercase tracking-widest text-white bg-brand-black px-8 py-4 rounded-full hover:bg-brand-brown transition-colors shadow-lg">
+                        View Open Positions <i class="fa-solid fa-arrow-down"></i>
+                    </a>
+                </div>
+            </div>
+        </section>
 
-            <div class="bg-white p-8 md:p-10 border border-brand-border shadow-lg">
-                <h2 class="font-heading text-3xl font-bold text-brand-black mb-2">Submit Your Application</h2>
-                <p id="formJobTitleDisplay" class="text-sm text-brand-gray mb-8 font-medium bg-gray-100 inline-block px-3 py-1 rounded">Applying for: </p>
+        <!-- ==============================================
+             3. WHY JOIN COGNISYS? (CULTURE & BENEFITS)
+        =============================================== -->
+        <section class="py-24 bg-white relative border-b border-brand-border">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-3xl mx-auto mb-16">
+                    <h2 class="font-heading text-3xl md:text-4xl font-bold text-brand-black mb-4">Why Work With Us?</h2>
+                    <p class="text-brand-muted text-base leading-relaxed">
+                        We don't just offer jobs; we offer careers. Cognisys is built on a culture of continuous learning, architectural excellence, and global collaboration.
+                    </p>
+                </div>
 
-                <!-- EXTENDED GOOGLE SHEETS FORM -->
-                <form id="googleSheetForm" name="googleSheetForm" class="space-y-6">
-                    <input type="hidden" id="hiddenJobTitle" name="jobTitle" value="">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                     
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        <div>
-                            <label class="block text-xs font-bold tracking-widest uppercase text-brand-gray mb-2">Full Name *</label>
-                            <input type="text" name="fullName" class="w-full bg-brand-light border border-gray-200 px-4 py-3 text-sm focus:border-brand-black outline-none" required>
+                    <div class="clean-card p-8 rounded-2xl">
+                        <div class="w-12 h-12 rounded-xl bg-brand-brownieWhite border border-brand-border flex items-center justify-center text-brand-brown text-xl mb-6">
+                            <i class="fa-solid fa-laptop-code"></i>
                         </div>
-                        <div>
-                            <label class="block text-xs font-bold tracking-widest uppercase text-brand-gray mb-2">Email Address *</label>
-                            <input type="email" name="email" class="w-full bg-brand-light border border-gray-200 px-4 py-3 text-sm focus:border-brand-black outline-none" required>
-                        </div>
+                        <h4 class="font-bold text-brand-black mb-3 text-lg">Cutting-Edge Tech Stack</h4>
+                        <p class="text-sm text-brand-muted leading-relaxed">Work with the latest architectures including scalable microservices, Flutter, React, AWS, and AI-driven automation.</p>
                     </div>
 
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        <div>
-                            <label class="block text-xs font-bold tracking-widest uppercase text-brand-gray mb-2">Phone Number *</label>
-                            <input type="tel" name="phone" class="w-full bg-brand-light border border-gray-200 px-4 py-3 text-sm focus:border-brand-black outline-none" required>
+                    <div class="clean-card p-8 rounded-2xl">
+                        <div class="w-12 h-12 rounded-xl bg-brand-brownieWhite border border-brand-border flex items-center justify-center text-brand-brown text-xl mb-6">
+                            <i class="fa-solid fa-earth-americas"></i>
                         </div>
-                        <div>
-                            <label class="block text-xs font-bold tracking-widest uppercase text-brand-gray mb-2">Total Experience *</label>
-                            <select name="experience" class="w-full bg-brand-light border border-gray-200 px-4 py-3 text-sm focus:border-brand-black outline-none text-brand-gray" required>
-                                <option value="">Select Experience</option>
-                                <option value="Fresher (0 Years)">Fresher (0 Years)</option>
-                                <option value="1-3 Years">1-3 Years</option>
-                                <option value="3-5 Years">3-5 Years</option>
-                                <option value="5-8 Years">5-8 Years</option>
-                                <option value="8+ Years">8+ Years</option>
-                            </select>
-                        </div>
+                        <h4 class="font-bold text-brand-black mb-3 text-lg">Global Exposure</h4>
+                        <p class="text-sm text-brand-muted leading-relaxed">Collaborate directly with top-tier US enterprise clients and diverse engineering teams across different time zones.</p>
                     </div>
 
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        <div>
-                            <label class="block text-xs font-bold tracking-widest uppercase text-brand-gray mb-2">Current Location *</label>
-                            <input type="text" name="location" class="w-full bg-brand-light border border-gray-200 px-4 py-3 text-sm focus:border-brand-black outline-none" required>
+                    <div class="clean-card p-8 rounded-2xl">
+                        <div class="w-12 h-12 rounded-xl bg-brand-brownieWhite border border-brand-border flex items-center justify-center text-brand-brown text-xl mb-6">
+                            <i class="fa-solid fa-arrow-trend-up"></i>
                         </div>
-                        <div>
-                            <label class="block text-xs font-bold tracking-widest uppercase text-brand-gray mb-2">Notice Period</label>
-                            <select name="noticePeriod" class="w-full bg-brand-light border border-gray-200 px-4 py-3 text-sm focus:border-brand-black outline-none text-brand-gray">
-                                <option value="Immediate">Immediate</option>
-                                <option value="15 Days">15 Days</option>
-                                <option value="30 Days">30 Days</option>
-                                <option value="60 Days">60 Days</option>
-                                <option value="90 Days">90 Days</option>
-                            </select>
+                        <h4 class="font-bold text-brand-black mb-3 text-lg">Rapid Career Growth</h4>
+                        <p class="text-sm text-brand-muted leading-relaxed">We prioritize internal promotions. Whether you want to become a Senior Architect or an Account Director, we map your trajectory.</p>
+                    </div>
+
+                    <div class="clean-card p-8 rounded-2xl">
+                        <div class="w-12 h-12 rounded-xl bg-brand-brownieWhite border border-brand-border flex items-center justify-center text-brand-brown text-xl mb-6">
+                            <i class="fa-solid fa-house-laptop"></i>
                         </div>
+                        <h4 class="font-bold text-brand-black mb-3 text-lg">Flexible Work Models</h4>
+                        <p class="text-sm text-brand-muted leading-relaxed">We support hybrid and remote working environments, empowering our teams to deliver their best work from anywhere.</p>
                     </div>
 
-                    <div>
-                        <label class="block text-xs font-bold tracking-widest uppercase text-brand-gray mb-2">Link to Resume (Google Drive / DropBox) *</label>
-                        <input type="url" name="resumeLink" placeholder="Make sure the link is public/viewable" class="w-full bg-brand-light border border-gray-200 px-4 py-3 text-sm focus:border-brand-black outline-none" required>
+                    <div class="clean-card p-8 rounded-2xl">
+                        <div class="w-12 h-12 rounded-xl bg-brand-brownieWhite border border-brand-border flex items-center justify-center text-brand-brown text-xl mb-6">
+                            <i class="fa-solid fa-chalkboard-user"></i>
+                        </div>
+                        <h4 class="font-bold text-brand-black mb-3 text-lg">Continuous Learning</h4>
+                        <p class="text-sm text-brand-muted leading-relaxed">Access to premium upskilling programs, certifications, and hands-on workshops led by senior industry veterans.</p>
                     </div>
 
-                    <div>
-                        <label class="block text-xs font-bold tracking-widest uppercase text-brand-gray mb-2">LinkedIn Profile URL</label>
-                        <input type="url" name="linkedin" placeholder="https://linkedin.com/in/..." class="w-full bg-brand-light border border-gray-200 px-4 py-3 text-sm focus:border-brand-black outline-none">
+                    <div class="clean-card p-8 rounded-2xl">
+                        <div class="w-12 h-12 rounded-xl bg-brand-brownieWhite border border-brand-border flex items-center justify-center text-brand-brown text-xl mb-6">
+                            <i class="fa-solid fa-heart-pulse"></i>
+                        </div>
+                        <h4 class="font-bold text-brand-black mb-3 text-lg">Comprehensive Benefits</h4>
+                        <p class="text-sm text-brand-muted leading-relaxed">Competitive compensation packages, health insurance coverage, and performance-based bonuses to reward excellence.</p>
                     </div>
 
-                    <button type="submit" id="submitBtn" class="w-full bg-blue-600 text-white px-8 py-4 font-bold text-sm uppercase tracking-wider hover:bg-blue-700 transition-colors shadow-md rounded mt-4">
-                        Submit Application
-                    </button>
-                    <p id="formStatus" class="text-sm font-bold text-center mt-4 hidden"></p>
-                </form>
+                </div>
             </div>
-        </div>
+        </section>
+
+        <!-- ==============================================
+             4. CURRENT OPENINGS (JOB BOARD)
+        =============================================== -->
+        <section id="openings" class="py-24 bg-brand-brownieWhite relative border-b border-brand-border">
+            <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+                
+                <div class="flex flex-col sm:flex-row justify-between items-end mb-12 gap-6 border-b border-brand-border pb-6">
+                    <div>
+                        <h2 class="font-heading text-3xl font-bold text-brand-black mb-2">Current Open Positions</h2>
+                        <p class="text-brand-muted text-sm">Join our teams in Hyderabad or apply for our remote USA consulting roles.</p>
+                    </div>
+                    <div class="shrink-0 text-sm font-bold text-brand-copper">
+                        4 Openings
+                    </div>
+                </div>
+
+                <div class="space-y-6">
+                    
+                    <!-- Job 1: Mobile App Developer Intern (From Reference) -->
+                    <div class="clean-card p-8 rounded-2xl flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
+                        <div>
+                            <span class="inline-block px-3 py-1 bg-brand-brownieWhite border border-brand-border text-brand-brown text-[0.65rem] font-bold rounded-full uppercase tracking-widest mb-4">
+                                Internship
+                            </span>
+                            <h3 class="text-xl font-bold text-brand-black mb-2">Mobile App Developer Intern</h3>
+                            <div class="flex flex-wrap items-center gap-4 text-sm text-brand-muted">
+                                <span class="flex items-center gap-1.5"><i class="fa-solid fa-location-dot text-brand-copper"></i> Hyderabad / Remote</span>
+                                <span class="flex items-center gap-1.5"><i class="fa-solid fa-clock text-brand-copper"></i> Full-Time Intern</span>
+                            </div>
+                            <p class="text-sm text-brand-muted mt-4 max-w-2xl leading-relaxed">
+                                Cognisys Soft Services & IT Solutions is looking for motivated and enthusiastic interns to join our product development team and contribute to live cross-platform mobile applications.
+                            </p>
+                        </div>
+                        <div class="shrink-0 w-full md:w-auto">
+                            <a href="#apply" class="block text-center bg-brand-black text-white px-6 py-3 text-xs font-bold uppercase tracking-widest rounded-lg hover:bg-brand-brown transition-colors">
+                                View Details & Apply
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Job 2: Senior Java Full Stack Developer -->
+                    <div class="clean-card p-8 rounded-2xl flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
+                        <div>
+                            <span class="inline-block px-3 py-1 bg-brand-brownieWhite border border-brand-border text-brand-brown text-[0.65rem] font-bold rounded-full uppercase tracking-widest mb-4">
+                                Engineering
+                            </span>
+                            <h3 class="text-xl font-bold text-brand-black mb-2">Senior Java Full Stack Developer</h3>
+                            <div class="flex flex-wrap items-center gap-4 text-sm text-brand-muted">
+                                <span class="flex items-center gap-1.5"><i class="fa-solid fa-location-dot text-brand-copper"></i> Hyderabad, India</span>
+                                <span class="flex items-center gap-1.5"><i class="fa-solid fa-clock text-brand-copper"></i> Full-Time</span>
+                                <span class="flex items-center gap-1.5"><i class="fa-solid fa-briefcase text-brand-copper"></i> 5-8 Years Exp</span>
+                            </div>
+                            <p class="text-sm text-brand-muted mt-4 max-w-2xl leading-relaxed">
+                                Seeking an experienced architect to lead enterprise-grade Spring Boot and React application deployments for our premier US clients.
+                            </p>
+                        </div>
+                        <div class="shrink-0 w-full md:w-auto">
+                            <a href="#apply" class="block text-center bg-brand-black text-white px-6 py-3 text-xs font-bold uppercase tracking-widest rounded-lg hover:bg-brand-brown transition-colors">
+                                View Details & Apply
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Job 3: US IT Recruiter -->
+                    <div class="clean-card p-8 rounded-2xl flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
+                        <div>
+                            <span class="inline-block px-3 py-1 bg-brand-brownieWhite border border-brand-border text-brand-brown text-[0.65rem] font-bold rounded-full uppercase tracking-widest mb-4">
+                                Talent Acquisition
+                            </span>
+                            <h3 class="text-xl font-bold text-brand-black mb-2">US IT Recruiter (Night Shift)</h3>
+                            <div class="flex flex-wrap items-center gap-4 text-sm text-brand-muted">
+                                <span class="flex items-center gap-1.5"><i class="fa-solid fa-location-dot text-brand-copper"></i> Hyderabad (On-Site)</span>
+                                <span class="flex items-center gap-1.5"><i class="fa-solid fa-clock text-brand-copper"></i> Full-Time (EST Hours)</span>
+                            </div>
+                            <p class="text-sm text-brand-muted mt-4 max-w-2xl leading-relaxed">
+                                Looking for dynamic recruiters experienced in W2, C2C, and 1099 hiring frameworks to source top-tier technical consultants for American enterprise roles.
+                            </p>
+                        </div>
+                        <div class="shrink-0 w-full md:w-auto">
+                            <a href="#apply" class="block text-center bg-brand-black text-white px-6 py-3 text-xs font-bold uppercase tracking-widest rounded-lg hover:bg-brand-brown transition-colors">
+                                View Details & Apply
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Job 4: DevOps Engineer -->
+                    <div class="clean-card p-8 rounded-2xl flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
+                        <div>
+                            <span class="inline-block px-3 py-1 bg-brand-brownieWhite border border-brand-border text-brand-brown text-[0.65rem] font-bold rounded-full uppercase tracking-widest mb-4">
+                                Infrastructure
+                            </span>
+                            <h3 class="text-xl font-bold text-brand-black mb-2">Cloud & DevOps Engineer</h3>
+                            <div class="flex flex-wrap items-center gap-4 text-sm text-brand-muted">
+                                <span class="flex items-center gap-1.5"><i class="fa-solid fa-location-dot text-brand-copper"></i> Remote (USA Only)</span>
+                                <span class="flex items-center gap-1.5"><i class="fa-solid fa-file-contract text-brand-copper"></i> Contract (W2/C2C)</span>
+                            </div>
+                            <p class="text-sm text-brand-muted mt-4 max-w-2xl leading-relaxed">
+                                We need a certified AWS/Azure specialist to automate CI/CD pipelines utilizing Docker and Kubernetes for zero-downtime infrastructure optimization.
+                            </p>
+                        </div>
+                        <div class="shrink-0 w-full md:w-auto">
+                            <a href="#apply" class="block text-center bg-brand-black text-white px-6 py-3 text-xs font-bold uppercase tracking-widest rounded-lg hover:bg-brand-brown transition-colors">
+                                View Details & Apply
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ==============================================
+             5. APPLICATION FORM (Quick Apply)
+        =============================================== -->
+        <section id="apply" class="py-24 bg-white relative">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-12">
+                    <h2 class="font-heading text-3xl font-bold text-brand-black mb-4">Don't See Your Role? Submit Your Resume.</h2>
+                    <p class="text-brand-muted text-sm">We are always building our talent pipeline. Send us your details, and our recruitment team will reach out when a match opens.</p>
+                </div>
+
+                <div class="clean-card p-8 md:p-12 rounded-2xl shadow-sm">
+                    <form action="#" method="POST" class="space-y-6">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-[0.65rem] font-bold tracking-widest uppercase text-brand-muted mb-2">Full Name *</label>
+                                <input type="text" name="name" required class="w-full bg-brand-brownieWhite border border-brand-border text-brand-black px-4 py-3 text-sm focus:outline-none focus:border-brand-brown rounded-lg transition-colors">
+                            </div>
+                            <div>
+                                <label class="block text-[0.65rem] font-bold tracking-widest uppercase text-brand-muted mb-2">Email Address *</label>
+                                <input type="email" name="email" required class="w-full bg-brand-brownieWhite border border-brand-border text-brand-black px-4 py-3 text-sm focus:outline-none focus:border-brand-brown rounded-lg transition-colors">
+                            </div>
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-[0.65rem] font-bold tracking-widest uppercase text-brand-muted mb-2">Phone Number *</label>
+                                <input type="tel" name="phone" required class="w-full bg-brand-brownieWhite border border-brand-border text-brand-black px-4 py-3 text-sm focus:outline-none focus:border-brand-brown rounded-lg transition-colors">
+                            </div>
+                            <div>
+                                <label class="block text-[0.65rem] font-bold tracking-widest uppercase text-brand-muted mb-2">Target Role / Designation</label>
+                                <input type="text" name="role" required class="w-full bg-brand-brownieWhite border border-brand-border text-brand-black px-4 py-3 text-sm focus:outline-none focus:border-brand-brown rounded-lg transition-colors" placeholder="e.g., Mobile App Developer">
+                            </div>
+                        </div>
+                        <div>
+                            <label class="block text-[0.65rem] font-bold tracking-widest uppercase text-brand-muted mb-2">Portfolio / LinkedIn URL</label>
+                            <input type="url" name="linkedin" class="w-full bg-brand-brownieWhite border border-brand-border text-brand-black px-4 py-3 text-sm focus:outline-none focus:border-brand-brown rounded-lg transition-colors">
+                        </div>
+                        <div>
+                            <label class="block text-[0.65rem] font-bold tracking-widest uppercase text-brand-muted mb-2">Brief Cover Letter / Experience Summary</label>
+                            <textarea name="summary" rows="4" class="w-full bg-brand-brownieWhite border border-brand-border text-brand-black px-4 py-3 text-sm focus:outline-none focus:border-brand-brown rounded-lg transition-colors" placeholder="Tell us about your technical expertise..."></textarea>
+                        </div>
+                        
+                        <div class="pt-4 flex items-center justify-between border-t border-brand-border">
+                            <div class="flex items-center gap-3">
+                                <label for="resume-upload" class="cursor-pointer inline-flex items-center gap-2 bg-brand-brownieWhite border border-brand-border px-4 py-2 rounded text-xs font-bold text-brand-black hover:border-brand-brown transition-colors">
+                                    <i class="fa-solid fa-paperclip text-brand-copper"></i> Attach Resume (PDF)
+                                </label>
+                                <input id="resume-upload" type="file" accept=".pdf,.doc,.docx" class="hidden">
+                                <span class="text-xs text-brand-muted italic" id="file-name">No file chosen</span>
+                            </div>
+                            <button type="submit" class="bg-brand-black text-white px-8 py-3.5 font-bold text-xs uppercase tracking-widest rounded-lg hover:bg-brand-brown transition-colors shadow-md">
+                                Submit Application
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
 
     </main>
 
-    <!-- ==========================================
-         JAVASCRIPT: DYNAMIC DATA & LOGIC
-    =========================================== -->
-    <script>
-        // --- PASTE YOUR GOOGLE SCRIPT WEB APP URL HERE ---
-        const WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbzKMZaggPNAiaSB9bulCjAeY5e-5mPzi43rNGSSox1VrmnkffoK3wBsPfQBnMfmS7pQeQ/exec';
-        
-        let allJobsData = [];
-        const gridContainer = document.getElementById('dynamicJobGrid');
-        const loadingInd = document.getElementById('loadingIndicator');
-
-        // Helper function to safely extract data regardless of header capitalization
-        function getSafeValue(job, keysArray) {
-            for (let key of keysArray) {
-                if (job[key] !== undefined && job[key] !== null) {
-                    return job[key];
-                }
-            }
-            return ''; // Return empty string if none of the variations match
-        }
-
-        // Fetch jobs from Google Sheets on Page Load
-        fetch(WEB_APP_URL)
-            .then(response => response.json())
-            .then(data => {
-                loadingInd.style.display = 'none'; // Hide loader
-                allJobsData = data;
+    <!-- ==============================================
+         6. MASTER FOOTER 
+    =============================================== -->
+    <footer class="bg-brand-black text-white pt-16 pb-12 border-t border-gray-900 relative z-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 mb-14">
                 
-                if(data.length === 0) {
-                    gridContainer.innerHTML = `<p class="text-center col-span-3 text-brand-gray py-10">No current openings available. Check back soon!</p>`;
-                    return;
-                }
+                <!-- Col 1: Brand & About -->
+                <div class="lg:col-span-3">
+                    <a href="index.html" class="flex items-center gap-3.5 mb-6">
+                        <img 
+                            src="IOGO.png" 
+                            alt="Cognisys Logo" 
+                            class="h-12 w-auto object-contain"
+                            onerror="this.onerror=null; this.src='logo.png';"
+                        >
+                        <div class="flex flex-col">
+                            <span class="font-heading font-extrabold text-xl tracking-tight text-white leading-none">COGNISYS</span>
+                            <span class="text-[0.6rem] font-bold uppercase tracking-[0.2em] text-gray-400 mt-1">Soft Services & IT Solutions</span>
+                        </div>
+                    </a>
+                    <p class="text-gray-400 text-xs leading-relaxed max-w-sm">
+                        Specializing in Custom Software Development, scalable Domestic IT Staffing in India, strategic USA IT Consulting, and collaborative Placement Training programs.
+                    </p>
+                </div>
+                
+                <!-- Col 2: Quick Links -->
+                <div class="lg:col-span-2 lg:pl-6">
+                    <h3 class="text-xs font-bold uppercase tracking-widest text-brand-copper mb-5">Quick Links</h3>
+                    <ul class="space-y-3 text-xs text-gray-400">
+                        <li><a href="about.html" class="hover:text-white transition-colors">Who We Are</a></li>
+                        <li><a href="innovations.html" class="hover:text-white transition-colors">In-House Products</a></li>
+                        <li><a href="careers.html" class="font-bold text-white transition-colors">Careers / Hiring</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Col 3: Core Services -->
+                <div class="lg:col-span-3">
+                    <h3 class="text-xs font-bold uppercase tracking-widest text-brand-copper mb-5">Core Services</h3>
+                    <ul class="space-y-3 text-xs text-gray-400">
+                        <li><a href="services.html" class="hover:text-white transition-colors">Custom Software Development</a></li>
+                        <li><a href="services.html" class="hover:text-white transition-colors">Domestic IT Staffing</a></li>
+                        <li><a href="services.html" class="hover:text-white transition-colors">USA IT Consulting</a></li>
+                        <li><a href="services.html" class="hover:text-white transition-colors">Cloud Migrations & DevOps</a></li>
+                        <li><a href="services.html" class="hover:text-white transition-colors">Training & Placements</a></li>
+                    </ul>
+                </div>
 
-                data.forEach(job => {
-                    // Extract data trying different capitalizations based on the user's sheet
-                    let jId = getSafeValue(job, ['id', 'Id', 'ID']);
-                    let jTitle = getSafeValue(job, ['title', 'Title']);
-                    let jEmpType = getSafeValue(job, ['empType', 'EmpType', 'Emptype', 'Employment Type']);
-                    let jLocation = getSafeValue(job, ['location', 'Location']);
-                    let jDesc = getSafeValue(job, ['description', 'Description']);
-                    let jLogo = getSafeValue(job, ['logoUrl', 'LogoUrl', 'Logourl', 'Logo']);
+                <!-- Col 4: Contact Us & LinkedIn -->
+                <div class="lg:col-span-2">
+                    <h3 class="text-xs font-bold uppercase tracking-widest text-brand-copper mb-5">Contact Us</h3>
+                    <div class="space-y-2 text-xs text-gray-400 mb-6">
+                        <p><i class="fa-solid fa-envelope w-4 text-white"></i> info@cognisysitsolutions.in</p>
+                        <p><i class="fa-solid fa-phone w-4 text-white"></i> +91 9885550735</p>
+                    </div>
                     
-                    // Fallback formatting
-                    if (!jId) jId = Math.random().toString(36).substr(2, 9); // Ensure an ID exists
-                    let logoImg = jLogo.trim() !== '' ? jLogo : 'logo.png';
-                    let displayType = jEmpType.trim() !== '' ? jEmpType : 'Full-Time';
+                    <h3 class="text-xs font-bold uppercase tracking-widest text-brand-copper mb-3">Follow Us</h3>
+                    <a href="https://www.linkedin.com/company/cognisys-soft-services" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white text-xl inline-block transition-colors">
+                        <i class="fa-brands fa-linkedin"></i>
+                    </a>
+                </div>
+
+                <!-- Col 5: DPIIT Recognition Right Side -->
+                <div class="lg:col-span-2 flex flex-col items-start lg:items-end">
+                    <h3 class="text-xs font-bold uppercase tracking-widest text-brand-copper mb-5 w-full lg:text-right">Recognition</h3>
                     
-                    // We save the cleaned ID back to the object so showJobDetails can find it easily
-                    job._cleanId = jId; 
+                    <!-- Original Colors, NO Background -->
+                    <a href="dpiit-certificate.pdf" target="_blank" title="View Certificate" class="inline-block transition-transform hover:scale-105">
+                        <img 
+                            src="startup-india-logo.png" 
+                            alt="DPIIT Recognized Startup" 
+                            class="w-full max-w-[200px] h-auto object-contain"
+                            onerror="this.style.display='none'"
+                        >
+                    </a>
+                </div>
 
-                    gridContainer.innerHTML += `
-                        <article class="bg-white p-8 border border-brand-border premium-card flex flex-col relative group cursor-pointer" onclick="showJobDetails('${jId}')">
-                            <div class="absolute top-0 right-0 bg-brand-black text-white text-[0.65rem] font-bold px-3 py-1.5 uppercase tracking-widest line-clamp-1 max-w-[50%]">${displayType}</div>
-                            
-                            <div class="h-10 w-10 mb-4 mt-2 flex items-center justify-start">
-                                <img src="${logoImg}" alt="Company Logo" class="max-w-full max-h-full object-contain grayscale group-hover:grayscale-0 transition-all duration-300" onerror="this.src='logo.png';">
-                            </div>
-
-                            <h4 class="font-heading text-xl font-bold mb-2 text-brand-black group-hover:text-blue-600 transition-colors line-clamp-2">${jTitle}</h4>
-                            <div class="flex items-center gap-4 text-sm text-brand-gray mb-4">
-                                <span class="flex items-center gap-1 line-clamp-1"><i class="fa-solid fa-location-dot text-brand-black"></i> ${jLocation}</span>
-                            </div>
-                            <p class="text-brand-gray text-sm leading-relaxed mb-8 flex-grow line-clamp-3">${jDesc}</p>
-                            <div class="text-xs font-bold uppercase tracking-wider text-brand-black border-b border-brand-black inline-flex items-center w-max mt-auto pb-1 group-hover:text-blue-600 group-hover:border-blue-600 transition-colors">
-                                VIEW DETAILS & APPLY <i class="fa-solid fa-arrow-right ml-2 transform group-hover:translate-x-1 transition-transform"></i>
-                            </div>
-                        </article>
-                    `;
-                });
-            })
-            .catch(error => {
-                loadingInd.innerHTML = `<p class="text-red-500 font-bold">Failed to load jobs. Please ensure your Google Script is deployed correctly.</p>`;
-                console.error("Error fetching jobs:", error);
-            });
-
-        // Navigation Logic
-        const viewList = document.getElementById('jobListView');
-        const viewDetail = document.getElementById('jobDetailView');
-        const viewForm = document.getElementById('applicationFormView');
-        let currentJobObj = null;
-
-        function showJobDetails(jobId) {
-            // Find the job in our data array using the cleaned ID
-            currentJobObj = allJobsData.find(j => j._cleanId == jobId);
-            if(!currentJobObj) return;
+            </div>
             
-            // Extract data safely
-            let jTitle = getSafeValue(currentJobObj, ['title', 'Title']);
-            let jExp = getSafeValue(currentJobObj, ['experience', 'Experience']);
-            let jSalary = getSafeValue(currentJobObj, ['salary', 'Salary']);
-            let jLocation = getSafeValue(currentJobObj, ['location', 'Location']);
-            let jPosted = getSafeValue(currentJobObj, ['posted', 'Posted']);
-            let jOpenings = getSafeValue(currentJobObj, ['openings', 'Openings']);
-            let jDesc = getSafeValue(currentJobObj, ['description', 'Description']);
-            let jRole = getSafeValue(currentJobObj, ['role', 'Role']);
-            let jIndustry = getSafeValue(currentJobObj, ['industry', 'Industry']);
-            let jDept = getSafeValue(currentJobObj, ['department', 'Department']);
-            let jEmpType = getSafeValue(currentJobObj, ['empType', 'EmpType', 'Emptype', 'Employment Type']);
-            let jEdu = getSafeValue(currentJobObj, ['education', 'Education']);
-            let jLogo = getSafeValue(currentJobObj, ['logoUrl', 'LogoUrl', 'Logourl', 'Logo']);
-            let jHighlights = getSafeValue(currentJobObj, ['highlights', 'Highlights']);
-            let jSkills = getSafeValue(currentJobObj, ['skills', 'Skills']);
+            <div class="border-t border-gray-900 pt-8 flex flex-col sm:flex-row justify-between items-center text-xs text-gray-500">
+                <p>&copy; 2026 Cognisys Soft Services & IT Solutions. All rights reserved.</p>
+                <p class="mt-2 sm:mt-0">DPIIT Recognized Startup • Govt. of India</p>
+            </div>
+        </div>
+    </footer>
 
-            // Populate Details
-            document.getElementById('detailTitle').innerText = jTitle || 'Job Title';
-            document.getElementById('detailExp').innerText = jExp || '0-0 Yrs';
-            document.getElementById('detailSalary').innerText = jSalary || 'Not Disclosed';
-            document.getElementById('detailLocation').innerText = jLocation || 'Location';
-            document.getElementById('detailPosted').innerText = jPosted || 'Today';
-            document.getElementById('detailOpenings').innerText = jOpenings || '1';
-            document.getElementById('detailDescription').innerText = jDesc || 'No description provided.';
-            document.getElementById('detailRole').innerText = jRole || '-';
-            document.getElementById('detailIndustry').innerText = jIndustry || '-';
-            document.getElementById('detailDept').innerText = jDept || '-';
-            document.getElementById('detailEmpType').innerText = jEmpType || 'Full Time, Permanent';
-            document.getElementById('detailEducation').innerText = jEdu || 'Any Graduate';
+    <!-- JS Logic -->
+    <script>
+        const menuBtn = document.getElementById('menuToggleBtn');
+        const dropMenu = document.getElementById('dropdownMenu');
+        
+        menuBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            dropMenu.classList.toggle('hidden');
+            dropMenu.classList.toggle('flex');
+            menuBtn.innerHTML = dropMenu.classList.contains('hidden') ? '<i class="fa-solid fa-bars text-lg"></i>' : '<i class="fa-solid fa-xmark text-lg"></i>';
+        });
 
-            // Handle Dynamic Logo in Detail view
-            document.getElementById('detailLogo').src = jLogo.trim() !== '' ? jLogo : 'logo.png';
+        document.addEventListener('click', (e) => {
+            if (!dropMenu.contains(e.target) && !menuBtn.contains(e.target)) {
+                dropMenu.classList.add('hidden');
+                dropMenu.classList.remove('flex');
+                menuBtn.innerHTML = '<i class="fa-solid fa-bars text-lg"></i>';
+            }
+        });
 
-            // Populate Highlights (Split by line breaks or '|')
-            let highlightsArr = jHighlights.includes('|') ? jHighlights.split('|') : jHighlights.split('\n');
-            document.getElementById('detailHighlights').innerHTML = highlightsArr.filter(h => h.trim() !== '').map(h => `<li>${h.trim()}</li>`).join('');
-            
-            // Populate Skill Chips (Split by ',')
-            let skillsArr = jSkills ? jSkills.split(',') : [];
-            document.getElementById('detailSkills').innerHTML = skillsArr.filter(s => s.trim() !== '').map(s => 
-                `<span class="border border-gray-300 text-gray-600 px-3 py-1 text-xs rounded-full bg-gray-50">${s.trim()}</span>`
-            ).join('');
-
-            // Switch Views
-            viewList.classList.add('hidden');
-            viewForm.classList.add('hidden');
-            viewDetail.classList.remove('hidden');
-            window.scrollTo(0, 0);
-        }
-
-        function showApplicationForm() {
-            let jTitle = getSafeValue(currentJobObj, ['title', 'Title']);
-            document.getElementById('formJobTitleDisplay').innerText = `Applying for: ${jTitle}`;
-            document.getElementById('hiddenJobTitle').value = jTitle; // For Excel sheet
-            
-            viewDetail.classList.add('hidden');
-            viewForm.classList.remove('hidden');
-            window.scrollTo(0, 0);
-        }
-
-        function backToDetail() {
-            viewForm.classList.add('hidden');
-            viewDetail.classList.remove('hidden');
-            window.scrollTo(0, 0);
-        }
-
-        function showListView() {
-            viewDetail.classList.add('hidden');
-            viewForm.classList.add('hidden');
-            viewList.classList.remove('hidden');
-            window.scrollTo(0, 0);
-        }
-
-        // ==========================================
-        // GOOGLE SHEETS FORM SUBMISSION
-        // ==========================================
-        const form = document.forms['googleSheetForm'];
-        const btn = document.getElementById('submitBtn');
-        const statusText = document.getElementById('formStatus');
-
-        form.addEventListener('submit', e => {
-            e.preventDefault();
-            btn.innerText = "Submitting...";
-            btn.disabled = true;
-
-            fetch(WEB_APP_URL, { method: 'POST', body: new FormData(form)})
-                .then(response => {
-                    statusText.innerText = "Application submitted successfully! Our HR team will contact you.";
-                    statusText.className = "text-sm font-bold text-center mt-4 text-green-600 block";
-                    form.reset();
-                    btn.innerText = "Submit Application";
-                    btn.disabled = false;
-                })
-                .catch(error => {
-                    statusText.innerText = "Error submitting application. Please ensure your script URL is correct.";
-                    statusText.className = "text-sm font-bold text-center mt-4 text-red-600 block";
-                    btn.innerText = "Submit Application";
-                    btn.disabled = false;
-                });
+        // Simple script to show selected file name in form
+        document.getElementById('resume-upload').addEventListener('change', function(e) {
+            var fileName = e.target.files[0].name;
+            document.getElementById('file-name').textContent = fileName;
+            document.getElementById('file-name').classList.remove('italic', 'text-brand-muted');
+            document.getElementById('file-name').classList.add('font-semibold', 'text-brand-black');
+        });
+        
+        // Force video play manually
+        document.addEventListener('DOMContentLoaded', () => {
+            const vid5 = document.getElementById('bg-video-5');
+            if(vid5) {
+                vid5.play().catch(e => console.log('Video 5 autoplay prevented'));
+            }
         });
     </script>
 </body>
