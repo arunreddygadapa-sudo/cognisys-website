@@ -79,23 +79,26 @@
 
     <!-- ==============================================
          GLOBAL LOCAL VIDEO BACKGROUND
-         This points to your downloaded video file.
+         Opacity set to 100% with a 90% white overlay for perfect visibility.
     =============================================== -->
     <div class="fixed inset-0 z-[-2] w-full h-full overflow-hidden bg-brand-brownieWhite">
         <!-- YOUR LOCAL VIDEO FILE -->
-        <video id="bg-video" autoplay loop muted playsinline class="absolute top-1/2 left-1/2 min-w-full min-h-full w-auto h-auto object-cover transform -translate-x-1/2 -translate-y-1/2 opacity-30 mix-blend-multiply">
+        <video id="bg-video" autoplay loop muted playsinline class="absolute top-1/2 left-1/2 min-w-full min-h-full w-auto h-auto object-cover transform -translate-x-1/2 -translate-y-1/2 opacity-100">
             <source src="background-video.mp4" type="video/mp4">
         </video>
+        <!-- Overlay to keep text readable while showing video clearly -->
+        <div class="absolute inset-0 bg-[#FAF8F5] opacity-90"></div>
     </div>
 
     <!-- ==============================================
-         1. NAVIGATION HEADER 
+         1. NAVIGATION HEADER (Blinking Fixed)
     =============================================== -->
     <header class="fixed top-0 left-0 right-0 z-50 glass-nav h-24 flex items-center">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full flex justify-between items-center">
             
             <a href="index.html" class="flex items-center gap-4 group">
-                <img src="IOGO.png" alt="Cognisys Logo" class="h-14 w-auto object-contain" onerror="this.src='https://via.placeholder.com/64x64/111111/ffffff?text=C';">
+                <!-- Removed the infinite loop onerror handler that caused blinking -->
+                <img src="IOGO.png" alt="Cognisys Logo" class="h-14 w-auto object-contain" onerror="this.onerror=null; this.src='https://via.placeholder.com/150x50/FAF8F5/111111?text=COGNISYS';">
                 <div class="flex flex-col">
                     <span class="font-heading font-extrabold text-2xl tracking-tight text-brand-black leading-none">COGNISYS</span>
                     <span class="text-[0.65rem] font-bold uppercase tracking-[0.2em] text-brand-brown mt-1">Soft Services & IT Solutions</span>
@@ -137,7 +140,7 @@
         <!-- ==============================================
              2. HERO SECTION
         =============================================== -->
-        <section class="relative pt-48 pb-28 border-b border-brand-border bg-brand-brownieWhite/95 backdrop-blur-sm">
+        <section class="relative pt-48 pb-28 border-b border-brand-border">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
                 
                 <span class="text-xs font-bold tracking-widest text-brand-brown uppercase mb-4 inline-block">
@@ -358,7 +361,7 @@
 
                     <!-- Right Column: Submission Form -->
                     <div class="lg:col-span-7">
-                        <div class="bg-brand-brownieWhite p-8 md:p-10 rounded-2xl border border-brand-border shadow-md">
+                        <div class="bg-brand-brownieWhite p-8 md:p-10 rounded-2xl border border-brand-border shadow-sm">
                             <h3 class="font-heading text-xl font-bold text-brand-black mb-6 border-b border-brand-border pb-4">
                                 Submit a Requirement
                             </h3>
@@ -411,15 +414,21 @@
 
     <!-- ==============================================
          6. FOOTER 
+         Exact Original Colors for DPIIT
     =============================================== -->
     <footer class="bg-brand-black text-white pt-16 pb-12 border-t border-gray-900 relative z-20">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 mb-14">
                 
-                <!-- Col 1: Brand & About (Span 4) -->
+                <!-- Col 1: Brand & About -->
                 <div class="lg:col-span-4">
                     <a href="index.html" class="flex items-center gap-3.5 mb-6">
-                        <img src="IOGO.png" alt="Cognisys Logo" class="h-12 w-auto object-contain" onerror="this.src='https://via.placeholder.com/64x64/111111/ffffff?text=C';">
+                        <img 
+                            src="IOGO.png" 
+                            alt="Cognisys Logo" 
+                            class="h-14 w-auto object-contain"
+                            onerror="if(this.src.indexOf('IOGO.png') !== -1){ this.src='logo.png'; } else if(this.src.indexOf('logo.png') !== -1){ this.src='Logo.png'; } else if(this.src.indexOf('Logo.png') !== -1){ this.src='iogo.png'; }"
+                        >
                         <div class="flex flex-col">
                             <span class="font-heading font-extrabold text-xl tracking-tight text-white leading-none">COGNISYS</span>
                             <span class="text-[0.6rem] font-bold uppercase tracking-[0.2em] text-gray-400 mt-1">Soft Services & IT Solutions</span>
@@ -430,7 +439,7 @@
                     </p>
                 </div>
                 
-                <!-- Col 2: Quick Links (Span 2) -->
+                <!-- Col 2: Quick Links -->
                 <div class="lg:col-span-2">
                     <h3 class="text-xs font-bold uppercase tracking-widest text-brand-copper mb-5">Quick Links</h3>
                     <ul class="space-y-3 text-xs text-gray-400">
@@ -440,7 +449,7 @@
                     </ul>
                 </div>
                 
-                <!-- Col 3: Core Services (Span 3) -->
+                <!-- Col 3: Core Services -->
                 <div class="lg:col-span-3">
                     <h3 class="text-xs font-bold uppercase tracking-widest text-brand-copper mb-5">Core Services</h3>
                     <ul class="space-y-3 text-xs text-gray-400">
@@ -452,7 +461,7 @@
                     </ul>
                 </div>
 
-                <!-- Col 4: Contact Us, LinkedIn & DPIIT Logo on Right (Span 3) -->
+                <!-- Col 4: Contact Us, LinkedIn & DPIIT Logo on Right -->
                 <div class="lg:col-span-3">
                     <h3 class="text-xs font-bold uppercase tracking-widest text-brand-copper mb-5">Contact Us</h3>
                     <div class="space-y-2 text-xs text-gray-400 mb-6">
@@ -465,13 +474,13 @@
                         <i class="fa-brands fa-linkedin"></i>
                     </a>
 
-                    <!-- DPIIT Recognition on the Right with NO Background -->
+                    <!-- DPIIT Recognition on the Right in ORIGINAL COLORS -->
                     <h3 class="text-xs font-bold uppercase tracking-widest text-brand-copper mb-3">Recognition</h3>
                     <a href="dpiit-certificate.pdf" target="_blank" title="View Certificate" class="inline-block transition-transform hover:scale-105">
                         <img 
                             src="startup-india-logo.png" 
                             alt="DPIIT Recognized Startup" 
-                            class="h-8 w-auto object-contain filter grayscale brightness-200 contrast-125"
+                            class="h-10 w-auto object-contain"
                             onerror="this.style.display='none'"
                         >
                     </a>
