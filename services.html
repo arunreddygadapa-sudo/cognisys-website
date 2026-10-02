@@ -3,147 +3,513 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Services | Cognisys IT Solutions</title>
+    <title>Services & Solutions | Cognisys IT Solutions</title>
+    <meta name="title" content="Services & Solutions | Cognisys IT Solutions">
+    <meta name="description" content="Explore Cognisys IT Solutions' core capabilities: Custom Software Development, USA & Domestic Staffing, Cloud Migrations, and Placement Training.">
+    
+    <!-- Tailwind CSS & FontAwesome -->
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Brownie White, Black, and Warm Brown Palette -->
     <script>
         tailwind.config = {
             theme: {
                 extend: {
-                    fontFamily: { sans: ['Inter', 'sans-serif'], heading: ['Outfit', 'sans-serif'] },
-                    colors: { brand: { base: '#080605', surface: '#120d0a', card: '#1a130f', copper: '#c57b33', text: '#e2dcd8', muted: '#a39891' } }
+                    fontFamily: { 
+                        sans: ['Inter', 'sans-serif'], 
+                        heading: ['Plus Jakarta Sans', 'sans-serif'] 
+                    },
+                    colors: {
+                        brand: {
+                            black: '#111111',
+                            dark: '#1a1a1a',
+                            brown: '#4A3728',         
+                            copper: '#9E622B',        
+                            brownieWhite: '#FAF8F5',  
+                            pureWhite: '#ffffff',
+                            muted: '#555555',
+                            border: '#EAE6E1'
+                        }
+                    }
                 }
             }
         }
     </script>
+    
     <style>
-        body { background-color: #080605; color: #e2dcd8; }
-        .glass-nav { background: rgba(8, 6, 5, 0.7); backdrop-filter: blur(20px); border-bottom: 1px solid rgba(197, 123, 51, 0.1); }
-        .premium-card { background: linear-gradient(145deg, #1a130f, #120d0a); border: 1px solid rgba(255,255,255,0.03); transition: all 0.5s ease; }
-        .premium-card:hover { border-color: rgba(197, 123, 51, 0.4); }
+        body { 
+            background-color: #FAF8F5; 
+            color: #111111; 
+        }
+        
+        /* Video Overlay for Readability */
+        .video-overlay-light {
+            background: rgba(250, 248, 245, 0.88); /* Brownie White at 88% opacity */
+        }
+
+        /* Glass Navigation */
+        .glass-nav {
+            background: rgba(250, 248, 245, 0.96);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid #EAE6E1;
+        }
+
+        /* Clean White Cards */
+        .clean-card {
+            background-color: #ffffff;
+            border: 1px solid #EAE6E1;
+            transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+        }
+        .clean-card:hover {
+            transform: translateY(-4px);
+            border-color: #4A3728;
+            box-shadow: 0 12px 30px -10px rgba(74, 55, 40, 0.12);
+        }
+
+        /* Dark Cards */
+        .dark-card {
+            background-color: #111111;
+            color: #ffffff;
+            border: 1px solid #222222;
+            transition: transform 0.25s ease, border-color 0.25s ease;
+        }
+        .dark-card:hover {
+            transform: translateY(-4px);
+            border-color: #9E622B;
+        }
     </style>
 </head>
-<body class="font-sans antialiased">
+<body class="font-sans antialiased selection:bg-brand-brown selection:text-white">
 
-    <!-- Header -->
-    <header class="fixed top-0 left-0 right-0 z-50 glass-nav transition-all duration-300 h-24 flex items-center">
+    <!-- ==============================================
+         GLOBAL LIVE VIDEO BACKGROUND (VIDEO 3)
+    =============================================== -->
+    <div class="fixed inset-0 z-[-2] w-full h-full overflow-hidden bg-brand-brownieWhite">
+        <!-- Local Video 3 plays continuously in the background -->
+        <video id="bg-video-3" autoplay loop muted playsinline class="absolute top-1/2 left-1/2 min-w-full min-h-full w-auto h-auto object-cover transform -translate-x-1/2 -translate-y-1/2 opacity-50 mix-blend-multiply z-0">
+            <source src="background-video-3.mp4" type="video/mp4">
+        </video>
+        <div class="absolute inset-0 video-overlay-light z-0"></div>
+    </div>
+
+    <!-- ==============================================
+         1. NAVIGATION HEADER 
+    =============================================== -->
+    <header class="fixed top-0 left-0 right-0 z-50 glass-nav h-24 flex items-center">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full flex justify-between items-center">
+            
+            <!-- Corporate Logo -->
             <a href="index.html" class="flex items-center gap-4 group">
-                <div class="bg-white/5 p-1.5 rounded-lg border border-white/10 backdrop-blur-md">
-                    <img src="logo.png" alt="Cognisys Logo" class="h-12 w-auto" onerror="this.src='https://via.placeholder.com/64x64/080605/c57b33?text=C';">
-                </div>
+                <img 
+                    src="IOGO.png" 
+                    alt="Cognisys Logo" 
+                    class="h-14 w-auto object-contain"
+                    onerror="this.onerror=null; this.src='logo.png';"
+                >
                 <div class="flex flex-col">
-                    <span class="font-heading font-extrabold text-2xl tracking-widest text-white leading-none">COGNISYS</span>
-                    <span class="text-[0.6rem] font-bold uppercase tracking-[0.2em] text-brand-copper mt-1">Soft Services & IT Solutions</span>
+                    <span class="font-heading font-extrabold text-2xl tracking-tight text-brand-black leading-none">COGNISYS</span>
+                    <span class="text-[0.65rem] font-bold uppercase tracking-[0.2em] text-brand-brown mt-1">Soft Services & IT Solutions</span>
                 </div>
             </a>
-            <div class="flex items-center gap-6 relative z-50">
-                <a href="index.html#contact" class="hidden sm:inline-flex bg-transparent border border-brand-copper text-brand-copper px-6 py-2.5 rounded-full text-xs font-bold uppercase tracking-widest hover:bg-brand-copper hover:text-white transition-all">Contact Us</a>
-                <button id="menuToggleBtn" class="flex flex-col items-center justify-center w-12 h-12 bg-white/5 rounded-full border border-white/10 text-white hover:bg-brand-copper transition-all"><i class="fa-solid fa-bars text-xl"></i></button>
+
+            <!-- Right Controls -->
+            <div class="flex items-center gap-6">
+                <a href="index.html#contact" class="hidden sm:inline-flex items-center justify-center bg-brand-black text-white px-8 py-3 rounded-full text-xs font-bold uppercase tracking-widest hover:bg-brand-brown transition-colors">
+                    Let's Talk
+                </a>
+                
+                <button id="menuToggleBtn" aria-label="Toggle Navigation" class="flex flex-col items-center justify-center w-12 h-12 rounded-full border border-brand-border text-brand-black hover:bg-brand-black hover:text-white transition-all cursor-pointer bg-white">
+                    <i class="fa-solid fa-bars text-lg"></i>
+                </button>
             </div>
-            <!-- Dropdown -->
-            <div id="dropdownMenu" class="absolute top-24 right-4 sm:right-8 w-64 bg-brand-surface border border-brand-copper/20 shadow-2xl rounded-xl hidden flex-col z-40 overflow-hidden">
-                <a href="index.html" class="px-6 py-4 text-sm font-semibold text-gray-300 border-b border-white/5 hover:bg-white/5 hover:text-brand-copper">Home</a>
-                <a href="about.html" class="px-6 py-4 text-sm font-semibold text-gray-300 border-b border-white/5 hover:bg-white/5 hover:text-brand-copper">Who We Are</a>
-                <a href="services.html" class="px-6 py-4 text-sm font-semibold text-brand-copper border-b border-white/5 bg-white/5">IT Services & Solutions</a>
-                <a href="innovations.html" class="px-6 py-4 text-sm font-semibold text-gray-300 border-b border-white/5 hover:bg-white/5 hover:text-brand-copper">Proprietary Innovations</a>
-                <a href="careers.html" class="px-6 py-4 text-sm font-semibold text-gray-300 hover:bg-white/5 hover:text-brand-copper flex justify-between items-center">Careers <i class="fa-solid fa-arrow-right text-xs"></i></a>
+            
+            <!-- Dropdown Menu -->
+            <div id="dropdownMenu" class="absolute top-24 right-4 sm:right-8 w-72 bg-white border border-brand-border shadow-2xl rounded-xl hidden flex-col z-40 overflow-hidden">
+                <a href="index.html" class="px-6 py-4 text-sm font-semibold text-brand-muted border-b border-brand-border hover:bg-brand-brownieWhite hover:text-brand-black transition-colors flex items-center gap-3">
+                    <i class="fa-solid fa-house w-4 text-brand-brown"></i> Home
+                </a>
+                <a href="about.html" class="px-6 py-4 text-sm font-semibold text-brand-muted border-b border-brand-border hover:bg-brand-brownieWhite hover:text-brand-black transition-colors flex items-center gap-3">
+                    <i class="fa-solid fa-building w-4 text-brand-brown"></i> Who We Are
+                </a>
+                <a href="services.html" class="px-6 py-4 text-sm font-semibold text-brand-brown border-b border-brand-border bg-brand-brownieWhite flex items-center gap-3">
+                    <i class="fa-solid fa-server w-4 text-brand-brown"></i> Services & Solutions
+                </a>
+                <a href="innovations.html" class="px-6 py-4 text-sm font-semibold text-brand-muted border-b border-brand-border hover:bg-brand-brownieWhite hover:text-brand-black transition-colors flex items-center gap-3">
+                    <i class="fa-solid fa-lightbulb w-4 text-brand-brown"></i> In-House Projects
+                </a>
+                <a href="careers.html" class="px-6 py-4 text-sm font-semibold text-brand-black hover:bg-brand-brownieWhite hover:text-brand-brown flex justify-between items-center transition-colors">
+                    <span><i class="fa-solid fa-briefcase w-4 mr-2 text-brand-brown"></i> Careers / Hiring</span> 
+                    <i class="fa-solid fa-arrow-right text-xs"></i>
+                </a>
             </div>
         </div>
     </header>
 
-    <main class="pt-44 pb-24">
-        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center mb-20">
-            <span class="text-[0.65rem] font-bold tracking-[0.2em] uppercase text-brand-copper mb-4 block">Core Capabilities</span>
-            <h1 class="font-heading text-5xl md:text-6xl font-bold text-white mb-6">End-to-End IT Execution.</h1>
-            <p class="text-xl text-brand-muted leading-relaxed">Discover our deep technological capabilities spanning software architecture, elite talent acquisition, and corporate training.</p>
-        </div>
+    <main>
+        <!-- ==============================================
+             2. HERO SECTION
+        =============================================== -->
+        <section class="relative pt-48 pb-32 border-b border-brand-border">
+            <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+                <span class="text-[0.75rem] font-extrabold tracking-[0.2em] text-brand-brown uppercase mb-6 block">Core Capabilities</span>
+                <h1 class="font-heading text-5xl md:text-6xl lg:text-7xl font-bold text-brand-black mb-8 leading-tight drop-shadow-sm">
+                    End-to-End <br />
+                    <span class="text-brand-copper">IT Execution.</span>
+                </h1>
+                <p class="text-lg md:text-xl text-brand-muted leading-relaxed max-w-4xl mx-auto">
+                    Discover our deep technological capabilities spanning bespoke software architecture, elite global talent acquisition, and highly rigorous corporate placement training.
+                </p>
+            </div>
+        </section>
 
+        <!-- ==============================================
+             3. DEEP DIVE: SOFTWARE ENGINEERING
+        =============================================== -->
+        <section class="py-24 bg-white relative border-b border-brand-border">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
+                    <div class="lg:col-span-5">
+                        <div class="w-16 h-16 rounded-2xl bg-brand-brownieWhite border border-brand-border flex items-center justify-center text-brand-brown text-2xl mb-8">
+                            <i class="fa-solid fa-code"></i>
+                        </div>
+                        <h2 class="font-heading text-4xl font-bold text-brand-black mb-6 leading-tight">Digital Transformation & Software</h2>
+                        <p class="text-brand-muted text-base leading-relaxed mb-6">
+                            We do not rely on boilerplate templates. Our engineering division builds highly scalable, custom microservices, high-performance web applications, and robust cross-platform mobile products tailored precisely to your operational workflow.
+                        </p>
+                        <p class="text-brand-muted text-base leading-relaxed">
+                            By leveraging React, Angular, Java Spring Boot, and Flutter, we ensure your digital assets are scalable, highly secure, and optimized for maximum speed.
+                        </p>
+                    </div>
+                    <div class="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-6">
+                        <div class="clean-card p-8 rounded-2xl">
+                            <h4 class="font-bold text-brand-black mb-3 text-lg">Agile Development</h4>
+                            <p class="text-sm text-brand-muted leading-relaxed">We operate in strict two-week sprints, ensuring continuous integration, regular client feedback, and rapid prototyping.</p>
+                        </div>
+                        <div class="clean-card p-8 rounded-2xl">
+                            <h4 class="font-bold text-brand-black mb-3 text-lg">Legacy Modernization</h4>
+                            <p class="text-sm text-brand-muted leading-relaxed">Seamlessly transition your outdated monolith systems into clean, decentralized microservice architectures.</p>
+                        </div>
+                        <div class="clean-card p-8 rounded-2xl">
+                            <h4 class="font-bold text-brand-black mb-3 text-lg">Mobile Engineering</h4>
+                            <p class="text-sm text-brand-muted leading-relaxed">Native and cross-platform mobile applications engineered for both iOS and Android, focusing on intuitive UX.</p>
+                        </div>
+                        <div class="clean-card p-8 rounded-2xl">
+                            <h4 class="font-bold text-brand-black mb-3 text-lg">API Development</h4>
+                            <p class="text-sm text-brand-muted leading-relaxed">Secure, high-throughput REST and GraphQL APIs designed to handle massive concurrency without latency.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==============================================
+             4. DEEP DIVE: USA IT CONSULTING
+        =============================================== -->
+        <section class="py-24 bg-brand-black relative border-b border-brand-border">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
+                    <div class="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-6 order-2 lg:order-1">
+                        <div class="dark-card p-8 rounded-2xl">
+                            <h4 class="font-bold text-white mb-3 text-lg">W2 & C2C Deployment</h4>
+                            <p class="text-sm text-gray-400 leading-relaxed">Full compliance management for W2 employees, Corp-to-Corp contractors, and 1099 independent professionals.</p>
+                        </div>
+                        <div class="dark-card p-8 rounded-2xl">
+                            <h4 class="font-bold text-white mb-3 text-lg">Vendor Management</h4>
+                            <p class="text-sm text-gray-400 leading-relaxed">Seamless integration with top-tier VMS platforms to act as a highly reliable implementation and staffing partner.</p>
+                        </div>
+                        <div class="dark-card p-8 rounded-2xl">
+                            <h4 class="font-bold text-white mb-3 text-lg">Executive Search</h4>
+                            <p class="text-sm text-gray-400 leading-relaxed">Sourcing critical onshore leadership roles including Enterprise Architects, DevOps Leads, and Product Managers.</p>
+                        </div>
+                        <div class="dark-card p-8 rounded-2xl">
+                            <h4 class="font-bold text-white mb-3 text-lg">Nearshore Support</h4>
+                            <p class="text-sm text-gray-400 leading-relaxed">Providing high-end technical resources that map perfectly to Eastern and Pacific Timezones for immediate support.</p>
+                        </div>
+                    </div>
+                    <div class="lg:col-span-5 order-1 lg:order-2">
+                        <div class="w-16 h-16 rounded-2xl bg-brand-dark border border-gray-800 flex items-center justify-center text-brand-copper text-2xl mb-8">
+                            <i class="fa-solid fa-briefcase"></i>
+                        </div>
+                        <h2 class="font-heading text-4xl font-bold text-white mb-6 leading-tight">USA IT Consulting & Staffing</h2>
+                        <p class="text-gray-400 text-base leading-relaxed mb-6">
+                            Navigating the complexities of the American IT labor market requires a partner with deep technical understanding and rigorous vetting processes. We provide strategic talent augmentation for American enterprises.
+                        </p>
+                        <p class="text-gray-400 text-base leading-relaxed">
+                            Our specialized recruiters handle strict W2, C2C, and 1099 compliance, ensuring you acquire top-tier deep tech talent rapidly without the overhead of traditional HR bottlenecks.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==============================================
+             5. DEEP DIVE: DOMESTIC STAFFING & ODC
+        =============================================== -->
+        <section class="py-24 bg-brand-brownieWhite relative border-b border-brand-border">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
+                    
+                    <!-- Domestic Staffing -->
+                    <div>
+                        <div class="w-16 h-16 rounded-2xl bg-white border border-brand-border flex items-center justify-center text-brand-brown text-2xl mb-8">
+                            <i class="fa-solid fa-users-viewfinder"></i>
+                        </div>
+                        <h2 class="font-heading text-3xl font-bold text-brand-black mb-5">Domestic IT Recruitment (India)</h2>
+                        <p class="text-brand-muted text-sm leading-relaxed mb-8">
+                            Leveraging our massive talent pool in Hyderabad and across India, we fulfill large-scale IT recruitment mandates for startups, GCCs, and local enterprises. We conduct rigorous pre-screening technical interviews to ensure only the top 5% of candidates reach your hiring managers.
+                        </p>
+                        <ul class="space-y-4">
+                            <li class="flex items-start gap-3">
+                                <i class="fa-solid fa-check-circle text-brand-copper mt-1"></i>
+                                <div>
+                                    <strong class="text-brand-black text-sm block">Volume & Niche Hiring</strong>
+                                    <span class="text-brand-muted text-xs">Rapid sourcing for bulk engineering pods or specialized standalone resources.</span>
+                                </div>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <i class="fa-solid fa-check-circle text-brand-copper mt-1"></i>
+                                <div>
+                                    <strong class="text-brand-black text-sm block">Contract-to-Hire</strong>
+                                    <span class="text-brand-muted text-xs">Flexible probation models allowing you to evaluate talent before full-time commitment.</span>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- ODC -->
+                    <div>
+                        <div class="w-16 h-16 rounded-2xl bg-white border border-brand-border flex items-center justify-center text-brand-brown text-2xl mb-8">
+                            <i class="fa-solid fa-building-flag"></i>
+                        </div>
+                        <h2 class="font-heading text-3xl font-bold text-brand-black mb-5">Offshore Delivery Centers (ODC)</h2>
+                        <p class="text-brand-muted text-sm leading-relaxed mb-8">
+                            For global enterprises looking to scale operations cost-effectively, we build, operate, and transfer (BOT) Global Capability Centers in India. These centers act as highly secure, seamless extensions of your internal teams, fortified by strict IP protection protocols.
+                        </p>
+                        <ul class="space-y-4">
+                            <li class="flex items-start gap-3">
+                                <i class="fa-solid fa-check-circle text-brand-copper mt-1"></i>
+                                <div>
+                                    <strong class="text-brand-black text-sm block">Dedicated Infrastructure</strong>
+                                    <span class="text-brand-muted text-xs">Fully managed physical and cloud environments tailored to your security requirements.</span>
+                                </div>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <i class="fa-solid fa-check-circle text-brand-copper mt-1"></i>
+                                <div>
+                                    <strong class="text-brand-black text-sm block">BOT Methodology</strong>
+                                    <span class="text-brand-muted text-xs">We Build the team, Operate the workflows, and Transfer ownership when you are ready.</span>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ==============================================
+             6. DEEP DIVE: CLOUD & TRAINING
+        =============================================== -->
+        <section class="py-24 bg-white relative border-b border-brand-border">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
+                    
+                    <!-- Cloud -->
+                    <div class="clean-card p-10 lg:p-12 rounded-2xl">
+                        <i class="fa-solid fa-cloud-arrow-up text-4xl text-brand-brown mb-6"></i>
+                        <h3 class="font-heading text-2xl font-bold text-brand-black mb-4">Cloud Data & DevOps</h3>
+                        <p class="text-brand-muted text-sm leading-relaxed mb-6">
+                            Transitioning to the cloud requires a flawless strategy. We orchestrate secure data migrations to AWS and Microsoft Azure without compromising uptime. Furthermore, our DevOps engineers establish automated CI/CD pipelines using Docker and Kubernetes, vastly accelerating your release cycles and reducing human error in deployments.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mt-4">
+                            <span class="px-3 py-1 bg-brand-brownieWhite border border-brand-border rounded text-xs font-bold text-brand-black">AWS</span>
+                            <span class="px-3 py-1 bg-brand-brownieWhite border border-brand-border rounded text-xs font-bold text-brand-black">Azure</span>
+                            <span class="px-3 py-1 bg-brand-brownieWhite border border-brand-border rounded text-xs font-bold text-brand-black">Docker</span>
+                            <span class="px-3 py-1 bg-brand-brownieWhite border border-brand-border rounded text-xs font-bold text-brand-black">Kubernetes</span>
+                            <span class="px-3 py-1 bg-brand-brownieWhite border border-brand-border rounded text-xs font-bold text-brand-black">Jenkins</span>
+                        </div>
+                    </div>
+
+                    <!-- Training -->
+                    <div class="clean-card p-10 lg:p-12 rounded-2xl">
+                        <i class="fa-solid fa-graduation-cap text-4xl text-brand-brown mb-6"></i>
+                        <h3 class="font-heading text-2xl font-bold text-brand-black mb-4">Corporate Training & Placements</h3>
+                        <p class="text-brand-muted text-sm leading-relaxed mb-6">
+                            We bridge the critical gap between academic theory and industry reality. We partner with leading universities and corporate entities to deliver hands-on, live-project training in high-demand technologies (Java, Flutter, Python, QA). Candidates who pass our strict evaluations are backed by 100% placement interview guarantees within our vendor network.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mt-4">
+                            <span class="px-3 py-1 bg-brand-brownieWhite border border-brand-border rounded text-xs font-bold text-brand-black">Live Codebases</span>
+                            <span class="px-3 py-1 bg-brand-brownieWhite border border-brand-border rounded text-xs font-bold text-brand-black">Expert Mentors</span>
+                            <span class="px-3 py-1 bg-brand-brownieWhite border border-brand-border rounded text-xs font-bold text-brand-black">Placement Drives</span>
+                            <span class="px-3 py-1 bg-brand-brownieWhite border border-brand-border rounded text-xs font-bold text-brand-black">Mock Interviews</span>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ==============================================
+             7. OUR ENGAGEMENT METHODOLOGY
+        =============================================== -->
+        <section class="py-24 bg-brand-brownieWhite relative">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-3xl mx-auto mb-16">
+                    <h2 class="font-heading text-3xl md:text-4xl font-bold text-brand-black mb-4">Our Engagement Methodology</h2>
+                    <p class="text-brand-muted text-base">A transparent, structured approach ensuring consistent delivery from day one.</p>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <div class="text-center group">
+                        <div class="w-20 h-20 mx-auto bg-white border border-brand-border rounded-full flex items-center justify-center text-brand-brown text-2xl mb-6 relative z-10 group-hover:bg-brand-brown group-hover:text-white transition-colors">
+                            1
+                        </div>
+                        <h4 class="font-bold text-brand-black mb-2">Discovery & Audit</h4>
+                        <p class="text-xs text-brand-muted">Deep dive into your operational pain points, tech debt, and immediate requirements.</p>
+                    </div>
+                    <div class="text-center group">
+                        <div class="w-20 h-20 mx-auto bg-white border border-brand-border rounded-full flex items-center justify-center text-brand-brown text-2xl mb-6 relative z-10 group-hover:bg-brand-brown group-hover:text-white transition-colors">
+                            2
+                        </div>
+                        <h4 class="font-bold text-brand-black mb-2">Architecture Planning</h4>
+                        <p class="text-xs text-brand-muted">Structuring the scalable code foundation or defining the precise talent acquisition pipeline.</p>
+                    </div>
+                    <div class="text-center group">
+                        <div class="w-20 h-20 mx-auto bg-white border border-brand-border rounded-full flex items-center justify-center text-brand-brown text-2xl mb-6 relative z-10 group-hover:bg-brand-brown group-hover:text-white transition-colors">
+                            3
+                        </div>
+                        <h4 class="font-bold text-brand-black mb-2">Agile Execution</h4>
+                        <p class="text-xs text-brand-muted">Continuous 2-week sprints delivering working software or vetted candidate profiles.</p>
+                    </div>
+                    <div class="text-center group">
+                        <div class="w-20 h-20 mx-auto bg-white border border-brand-border rounded-full flex items-center justify-center text-brand-brown text-2xl mb-6 relative z-10 group-hover:bg-brand-brown group-hover:text-white transition-colors">
+                            4
+                        </div>
+                        <h4 class="font-bold text-brand-black mb-2">Delivery & Support</h4>
+                        <p class="text-xs text-brand-muted">Zero-downtime deployment, candidate onboarding, and continuous maintenance.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ==============================================
+         8. MASTER FOOTER 
+         Exact 5-Column layout requested: DPIIT Original Colors on Right
+    =============================================== -->
+    <footer class="bg-brand-black text-white pt-16 pb-12 border-t border-gray-900 relative z-20">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 mb-14">
                 
-                <!-- Custom Software -->
-                <div class="premium-card p-10 rounded-2xl flex flex-col h-full">
-                    <i class="fa-solid fa-code text-4xl text-brand-copper mb-6"></i>
-                    <h3 class="font-heading text-2xl font-bold text-white mb-4">Digital Transformation & Software</h3>
-                    <p class="text-brand-muted text-sm leading-relaxed mb-6 flex-grow">We build scalable microservices, high-performance web applications (React, Angular), and cross-platform mobile apps (Flutter, React Native). Our custom solutions are engineered to perfectly align with your business logic.</p>
-                    <ul class="space-y-2 text-xs text-gray-400 font-semibold border-t border-white/5 pt-4">
-                        <li><i class="fa-solid fa-check text-brand-copper mr-2"></i> Agile Development Methodology</li>
-                        <li><i class="fa-solid fa-check text-brand-copper mr-2"></i> UX/UI Excellence</li>
+                <!-- Col 1: Brand & About (Span 3) -->
+                <div class="lg:col-span-3">
+                    <a href="index.html" class="flex items-center gap-3.5 mb-6">
+                        <img 
+                            src="IOGO.png" 
+                            alt="Cognisys Logo" 
+                            class="h-12 w-auto object-contain"
+                            onerror="this.onerror=null; this.src='logo.png';"
+                        >
+                        <div class="flex flex-col">
+                            <span class="font-heading font-extrabold text-xl tracking-tight text-white leading-none">COGNISYS</span>
+                            <span class="text-[0.6rem] font-bold uppercase tracking-[0.2em] text-gray-400 mt-1">Soft Services & IT Solutions</span>
+                        </div>
+                    </a>
+                    <p class="text-gray-400 text-xs leading-relaxed max-w-sm">
+                        Specializing in Custom Software Development, scalable Domestic IT Staffing in India, strategic USA IT Consulting, and collaborative Placement Training programs.
+                    </p>
+                </div>
+                
+                <!-- Col 2: Quick Links (Span 2) -->
+                <div class="lg:col-span-2 lg:pl-6">
+                    <h3 class="text-xs font-bold uppercase tracking-widest text-brand-copper mb-5">Quick Links</h3>
+                    <ul class="space-y-3 text-xs text-gray-400">
+                        <li><a href="about.html" class="hover:text-white transition-colors">Who We Are</a></li>
+                        <li><a href="innovations.html" class="hover:text-white transition-colors">In-House Products</a></li>
+                        <li><a href="careers.html" class="hover:text-white transition-colors font-bold text-white">Careers / Hiring</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Col 3: Core Services (Span 3) -->
+                <div class="lg:col-span-3">
+                    <h3 class="text-xs font-bold uppercase tracking-widest text-brand-copper mb-5">Core Services</h3>
+                    <ul class="space-y-3 text-xs text-gray-400">
+                        <li><a href="services.html" class="font-bold text-white transition-colors">Custom Software Development</a></li>
+                        <li><a href="services.html" class="font-bold text-white transition-colors">Domestic IT Staffing</a></li>
+                        <li><a href="services.html" class="font-bold text-white transition-colors">USA IT Consulting</a></li>
+                        <li><a href="services.html" class="font-bold text-white transition-colors">Cloud Migrations & DevOps</a></li>
+                        <li><a href="services.html" class="font-bold text-white transition-colors">Training & Placements</a></li>
                     </ul>
                 </div>
 
-                <!-- USA Staffing -->
-                <div class="premium-card p-10 rounded-2xl flex flex-col h-full">
-                    <i class="fa-solid fa-briefcase text-4xl text-brand-copper mb-6"></i>
-                    <h3 class="font-heading text-2xl font-bold text-white mb-4">USA IT Consulting & Staffing</h3>
-                    <p class="text-brand-muted text-sm leading-relaxed mb-6 flex-grow">We provide strategic talent augmentation for American enterprises. Our specialized recruiters handle strict W2, C2C, and 1099 compliance, ensuring you get top-tier deep tech talent rapidly.</p>
-                    <ul class="space-y-2 text-xs text-gray-400 font-semibold border-t border-white/5 pt-4">
-                        <li><i class="fa-solid fa-check text-brand-copper mr-2"></i> Contract & Permanent Staffing</li>
-                        <li><i class="fa-solid fa-check text-brand-copper mr-2"></i> Specialized Tech Screening</li>
-                    </ul>
+                <!-- Col 4: Contact Us & LinkedIn (Span 2) -->
+                <div class="lg:col-span-2">
+                    <h3 class="text-xs font-bold uppercase tracking-widest text-brand-copper mb-5">Contact Us</h3>
+                    <div class="space-y-2 text-xs text-gray-400 mb-6">
+                        <p><i class="fa-solid fa-envelope w-4 text-white"></i> info@cognisysitsolutions.in</p>
+                        <p><i class="fa-solid fa-phone w-4 text-white"></i> +91 9885550735</p>
+                    </div>
+                    
+                    <h3 class="text-xs font-bold uppercase tracking-widest text-brand-copper mb-3">Follow Us</h3>
+                    <a href="https://www.linkedin.com/company/cognisys-soft-services" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white text-xl inline-block transition-colors">
+                        <i class="fa-brands fa-linkedin"></i>
+                    </a>
                 </div>
 
-                <!-- Domestic Staffing -->
-                <div class="premium-card p-10 rounded-2xl flex flex-col h-full">
-                    <i class="fa-solid fa-users-viewfinder text-4xl text-brand-copper mb-6"></i>
-                    <h3 class="font-heading text-2xl font-bold text-white mb-4">Domestic IT Recruitment (India)</h3>
-                    <p class="text-brand-muted text-sm leading-relaxed mb-6 flex-grow">Leveraging our massive talent pool in Hyderabad and across India, we fulfill massive-scale IT recruitment mandates for startups, GCCs, and local enterprises.</p>
-                    <ul class="space-y-2 text-xs text-gray-400 font-semibold border-t border-white/5 pt-4">
-                        <li><i class="fa-solid fa-check text-brand-copper mr-2"></i> End-to-End Talent Acquisition</li>
-                        <li><i class="fa-solid fa-check text-brand-copper mr-2"></i> Leadership & Niche Hiring</li>
-                    </ul>
-                </div>
-
-                <!-- ODC & GCC -->
-                <div class="premium-card p-10 rounded-2xl flex flex-col h-full border-t-4 border-t-blue-600">
-                    <i class="fa-solid fa-building-flag text-4xl text-brand-copper mb-6"></i>
-                    <h3 class="font-heading text-2xl font-bold text-white mb-4">Offshore Delivery Centers (ODC)</h3>
-                    <p class="text-brand-muted text-sm leading-relaxed mb-6 flex-grow">We build, operate, and transfer (BOT) Global Capability Centers in India for Western firms. Reduce operational costs while accessing world-class engineering infrastructure.</p>
-                    <ul class="space-y-2 text-xs text-gray-400 font-semibold border-t border-white/5 pt-4">
-                        <li><i class="fa-solid fa-check text-brand-copper mr-2"></i> Dedicated Infrastructure</li>
-                        <li><i class="fa-solid fa-check text-brand-copper mr-2"></i> IP Protection & Security</li>
-                    </ul>
-                </div>
-
-                <!-- Cloud Data -->
-                <div class="premium-card p-10 rounded-2xl flex flex-col h-full">
-                    <i class="fa-solid fa-cloud-arrow-up text-4xl text-brand-copper mb-6"></i>
-                    <h3 class="font-heading text-2xl font-bold text-white mb-4">Data Engineering & Cloud</h3>
-                    <p class="text-brand-muted text-sm leading-relaxed mb-6 flex-grow">Secure cloud migration to AWS/Azure, automated CI/CD pipelines via Docker/Kubernetes, and robust data analytics strategies tailored for growth.</p>
-                    <ul class="space-y-2 text-xs text-gray-400 font-semibold border-t border-white/5 pt-4">
-                        <li><i class="fa-solid fa-check text-brand-copper mr-2"></i> Zero-Downtime Migrations</li>
-                        <li><i class="fa-solid fa-check text-brand-copper mr-2"></i> Database Optimization</li>
-                    </ul>
-                </div>
-
-                <!-- Training -->
-                <div class="premium-card p-10 rounded-2xl flex flex-col h-full border-t-4 border-t-brand-copper">
-                    <i class="fa-solid fa-graduation-cap text-4xl text-brand-copper mb-6"></i>
-                    <h3 class="font-heading text-2xl font-bold text-white mb-4">Collaborative Training Programs</h3>
-                    <p class="text-brand-muted text-sm leading-relaxed mb-6 flex-grow">We partner with universities and corporate entities to deliver hands-on, live-project training in high-demand technologies, backed by 100% placement interview guarantees.</p>
-                    <ul class="space-y-2 text-xs text-gray-400 font-semibold border-t border-white/5 pt-4">
-                        <li><i class="fa-solid fa-check text-brand-copper mr-2"></i> Real-time Enterprise Codebases</li>
-                        <li><i class="fa-solid fa-check text-brand-copper mr-2"></i> Industry Expert Mentorship</li>
-                    </ul>
+                <!-- Col 5: DPIIT Recognition Right Side (Span 2) -->
+                <div class="lg:col-span-2 flex flex-col items-start lg:items-end">
+                    <h3 class="text-xs font-bold uppercase tracking-widest text-brand-copper mb-5 w-full lg:text-right">Recognition</h3>
+                    
+                    <!-- Original Colors, NO Background box -->
+                    <a href="dpiit-certificate.pdf" target="_blank" title="View Certificate" class="inline-block transition-transform hover:scale-105">
+                        <img 
+                            src="startup-india-logo.png" 
+                            alt="DPIIT Recognized Startup" 
+                            class="w-full max-w-[200px] h-auto object-contain"
+                            onerror="this.style.display='none'"
+                        >
+                    </a>
                 </div>
 
             </div>
-        </div>
-    </main>
-
-    <!-- Footer -->
-    <footer class="bg-[#050403] pt-12 pb-8 border-t border-white/10 mt-20">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row justify-between items-center gap-6">
-            <img src="logo.png" alt="Cognisys Logo" class="h-10 bg-white/5 p-1 rounded border border-white/10" onerror="this.src='https://via.placeholder.com/64x64/080605/c57b33?text=C';">
-            <a href="dpiit-certificate.pdf" target="_blank"><img src="startup-india-logo.png" alt="DPIIT" class="h-8" onerror="this.src='https://via.placeholder.com/150x40/080605/ffffff?text=Startup+India';"></a>
-            <p class="text-xs text-brand-muted">&copy; 2026 Cognisys Soft Services.</p>
+            
+            <div class="border-t border-gray-900 pt-8 flex flex-col sm:flex-row justify-between items-center text-xs text-gray-500">
+                <p>&copy; 2026 Cognisys Soft Services & IT Solutions. All rights reserved.</p>
+                <p class="mt-2 sm:mt-0">DPIIT Recognized Startup • Govt. of India</p>
+            </div>
         </div>
     </footer>
 
+    <!-- JS Logic -->
     <script>
-        document.getElementById('menuToggleBtn').addEventListener('click', () => { document.getElementById('dropdownMenu').classList.toggle('hidden'); document.getElementById('dropdownMenu').classList.toggle('flex'); });
+        const menuBtn = document.getElementById('menuToggleBtn');
+        const dropMenu = document.getElementById('dropdownMenu');
+        
+        menuBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            dropMenu.classList.toggle('hidden');
+            dropMenu.classList.toggle('flex');
+            menuBtn.innerHTML = dropMenu.classList.contains('hidden') ? '<i class="fa-solid fa-bars text-lg"></i>' : '<i class="fa-solid fa-xmark text-lg"></i>';
+        });
+
+        document.addEventListener('click', (e) => {
+            if (!dropMenu.contains(e.target) && !menuBtn.contains(e.target)) {
+                dropMenu.classList.add('hidden');
+                dropMenu.classList.remove('flex');
+                menuBtn.innerHTML = '<i class="fa-solid fa-bars text-lg"></i>';
+            }
+        });
+        
+        // Force video play manually
+        document.addEventListener('DOMContentLoaded', () => {
+            const vid3 = document.getElementById('bg-video-3');
+            if(vid3) {
+                vid3.play().catch(e => console.log('Video 3 autoplay prevented'));
+            }
+        });
     </script>
 </body>
 </html>
