@@ -26,7 +26,7 @@
                             dark: '#1a1a1a',
                             brown: '#4A3728',         
                             copper: '#9E622B',        
-                            brownieWhite: '#FAF8F5',  /* Soft Warm White Background */
+                            brownieWhite: '#FAF8F5',  
                             pureWhite: '#ffffff',
                             muted: '#555555',
                             border: '#EAE6E1'
@@ -42,18 +42,15 @@
             background-color: #FAF8F5; 
             color: #111111; 
         }
-        
-        /* Video Background Overlay to ensure text readability */
-        .video-overlay {
-            background: rgba(250, 248, 245, 0.88); /* Brownie White with 88% opacity */
-        }
 
+        /* Nav Glass Effect */
         .glass-nav {
-            background: rgba(250, 248, 245, 0.96);
+            background: rgba(250, 248, 245, 0.95);
             backdrop-filter: blur(10px);
             border-bottom: 1px solid #EAE6E1;
         }
 
+        /* Clean White Cards */
         .clean-card {
             background-color: #ffffff;
             border: 1px solid #EAE6E1;
@@ -64,20 +61,31 @@
             border-color: #4A3728;
             box-shadow: 0 12px 30px -10px rgba(74, 55, 40, 0.12);
         }
+
+        /* Dark Contrast Cards */
+        .dark-card {
+            background-color: #111111;
+            color: #ffffff;
+            border: 1px solid #222222;
+            transition: transform 0.25s ease, border-color 0.25s ease;
+        }
+        .dark-card:hover {
+            transform: translateY(-4px);
+            border-color: #9E622B;
+        }
     </style>
 </head>
 <body class="font-sans antialiased selection:bg-brand-brown selection:text-white">
 
     <!-- ==============================================
-         GLOBAL LIVE VIDEO BACKGROUND
+         GLOBAL LOCAL VIDEO BACKGROUND
+         This points to your downloaded video file.
     =============================================== -->
     <div class="fixed inset-0 z-[-2] w-full h-full overflow-hidden bg-brand-brownieWhite">
-        <!-- Live Corporate Video -->
-        <video id="bg-video" autoplay loop muted playsinline class="absolute top-1/2 left-1/2 min-w-full min-h-full w-auto h-auto object-cover transform -translate-x-1/2 -translate-y-1/2 opacity-50 mix-blend-multiply">
-            <source src="https://assets.mixkit.co/videos/preview/mixkit-business-people-having-a-meeting-in-a-modern-office-4252-large.mp4" type="video/mp4">
+        <!-- YOUR LOCAL VIDEO FILE -->
+        <video id="bg-video" autoplay loop muted playsinline class="absolute top-1/2 left-1/2 min-w-full min-h-full w-auto h-auto object-cover transform -translate-x-1/2 -translate-y-1/2 opacity-30 mix-blend-multiply">
+            <source src="background-video.mp4" type="video/mp4">
         </video>
-        <!-- Light Brownie White Overlay -->
-        <div class="absolute inset-0 video-overlay"></div>
     </div>
 
     <!-- ==============================================
@@ -86,21 +94,14 @@
     <header class="fixed top-0 left-0 right-0 z-50 glass-nav h-24 flex items-center">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full flex justify-between items-center">
             
-            <!-- Corporate Logo with Multi-Filename Auto-Fallback -->
             <a href="index.html" class="flex items-center gap-4 group">
-                <img 
-                    src="IOGO.png" 
-                    alt="Cognisys Logo" 
-                    class="h-14 w-auto object-contain"
-                    onerror="if(this.src.indexOf('IOGO.png') !== -1){ this.src='logo.png'; } else if(this.src.indexOf('logo.png') !== -1){ this.src='Logo.png'; } else if(this.src.indexOf('Logo.png') !== -1){ this.src='iogo.png'; }"
-                >
+                <img src="IOGO.png" alt="Cognisys Logo" class="h-14 w-auto object-contain" onerror="this.src='https://via.placeholder.com/64x64/111111/ffffff?text=C';">
                 <div class="flex flex-col">
                     <span class="font-heading font-extrabold text-2xl tracking-tight text-brand-black leading-none">COGNISYS</span>
                     <span class="text-[0.65rem] font-bold uppercase tracking-[0.2em] text-brand-brown mt-1">Soft Services & IT Solutions</span>
                 </div>
             </a>
 
-            <!-- Right Controls -->
             <div class="flex items-center gap-6">
                 <a href="#contact" class="hidden sm:inline-flex items-center justify-center bg-brand-black text-white px-8 py-3 rounded-full text-xs font-bold uppercase tracking-widest hover:bg-brand-brown transition-colors">
                     Let's Talk
@@ -111,7 +112,6 @@
                 </button>
             </div>
             
-            <!-- Dropdown Menu -->
             <div id="dropdownMenu" class="absolute top-24 right-4 sm:right-8 w-72 bg-white border border-brand-border shadow-2xl rounded-xl hidden flex-col z-40 overflow-hidden">
                 <a href="index.html" class="px-6 py-4 text-sm font-semibold text-brand-brown border-b border-brand-border bg-brand-brownieWhite flex items-center gap-3">
                     <i class="fa-solid fa-house w-4 text-brand-brown"></i> Home
@@ -135,9 +135,9 @@
 
     <main>
         <!-- ==============================================
-             2. HERO SECTION 
+             2. HERO SECTION
         =============================================== -->
-        <section class="relative pt-48 pb-28 border-b border-brand-border">
+        <section class="relative pt-48 pb-28 border-b border-brand-border bg-brand-brownieWhite/95 backdrop-blur-sm">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
                 
                 <span class="text-xs font-bold tracking-widest text-brand-brown uppercase mb-4 inline-block">
@@ -154,10 +154,10 @@
                 </p>
                 
                 <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
-                    <a href="#services" class="w-full sm:w-auto bg-brand-black text-white px-9 py-4 font-bold text-xs uppercase tracking-widest rounded-full hover:bg-brand-brown transition-colors">
+                    <a href="#services" class="w-full sm:w-auto bg-brand-black text-white px-9 py-4 font-bold text-xs uppercase tracking-widest rounded-full hover:bg-brand-brown transition-colors shadow-lg">
                         Explore Our Solutions <i class="fa-solid fa-arrow-down ml-2"></i>
                     </a>
-                    <a href="about.html" class="w-full sm:w-auto bg-white border border-brand-border text-brand-black px-9 py-4 font-bold text-xs uppercase tracking-widest rounded-full hover:bg-brand-brownieWhite transition-colors">
+                    <a href="about.html" class="w-full sm:w-auto bg-white border border-brand-border text-brand-black px-9 py-4 font-bold text-xs uppercase tracking-widest rounded-full hover:bg-brand-brownieWhite transition-colors shadow-md">
                         Discover Who We Are <i class="fa-solid fa-arrow-right ml-2"></i>
                     </a>
                 </div>
@@ -167,7 +167,7 @@
         <!-- ==============================================
              3. BUSINESS METRICS 
         =============================================== -->
-        <section class="py-16 bg-brand-black text-white border-y border-brand-dark relative z-10">
+        <section class="py-16 bg-brand-black/95 backdrop-blur-md text-white border-y border-brand-dark relative z-10">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center divide-y md:divide-y-0 md:divide-x divide-gray-800">
                     
@@ -200,9 +200,9 @@
         </section>
 
         <!-- ==============================================
-             4. CORE SERVICES SECTION (All Clean White Cards)
+             4. CORE SERVICES SECTION
         =============================================== -->
-        <section id="services" class="py-28 bg-white border-b border-brand-border relative z-10">
+        <section id="services" class="py-28 bg-brand-brownieWhite/95 backdrop-blur-sm border-b border-brand-border relative z-10">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 
                 <div class="flex flex-col lg:flex-row justify-between items-end mb-16 gap-6">
@@ -212,15 +212,14 @@
                             Comprehensive Software & Talent Architecture
                         </h2>
                     </div>
-                    <a href="services.html" class="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-brand-black border border-brand-border bg-brand-brownieWhite px-7 py-3.5 rounded-full hover:bg-brand-black hover:text-white transition-colors">
+                    <a href="services.html" class="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-brand-black border border-brand-border bg-white px-7 py-3.5 rounded-full hover:bg-brand-black hover:text-white transition-colors shadow-sm">
                         View Detailed Breakdown <i class="fa-solid fa-arrow-right"></i>
                     </a>
                 </div>
 
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                     
-                    <!-- 01: Software Development -->
-                    <div class="clean-card p-9 rounded-2xl flex flex-col justify-between">
+                    <div class="clean-card p-9 rounded-2xl flex flex-col justify-between shadow-sm">
                         <div>
                             <div class="w-12 h-12 rounded-xl bg-brand-brownieWhite border border-brand-border flex items-center justify-center text-brand-brown text-xl mb-6">
                                 <i class="fa-solid fa-code"></i>
@@ -236,8 +235,7 @@
                         </ul>
                     </div>
 
-                    <!-- 02: Domestic IT Recruitment -->
-                    <div class="clean-card p-9 rounded-2xl flex flex-col justify-between">
+                    <div class="clean-card p-9 rounded-2xl flex flex-col justify-between shadow-sm">
                         <div>
                             <div class="w-12 h-12 rounded-xl bg-brand-brownieWhite border border-brand-border flex items-center justify-center text-brand-brown text-xl mb-6">
                                 <i class="fa-solid fa-users-viewfinder"></i>
@@ -253,25 +251,23 @@
                         </ul>
                     </div>
 
-                    <!-- 03: USA IT Consulting (Now matching other clean cards) -->
-                    <div class="clean-card p-9 rounded-2xl flex flex-col justify-between">
+                    <div class="dark-card p-9 rounded-2xl flex flex-col justify-between shadow-lg">
                         <div>
-                            <div class="w-12 h-12 rounded-xl bg-brand-brownieWhite border border-brand-border flex items-center justify-center text-brand-brown text-xl mb-6">
+                            <div class="w-12 h-12 rounded-xl bg-brand-dark border border-gray-800 flex items-center justify-center text-brand-copper text-xl mb-6">
                                 <i class="fa-solid fa-briefcase"></i>
                             </div>
-                            <h3 class="text-xl font-heading font-bold text-brand-black mb-3">USA IT Staff Augmentation</h3>
-                            <p class="text-sm text-brand-muted leading-relaxed mb-6">
+                            <h3 class="text-xl font-heading font-bold text-white mb-3">USA IT Staff Augmentation</h3>
+                            <p class="text-sm text-gray-400 leading-relaxed mb-6">
                                 Strategic staffing support operating under strict W2, C2C, and 1099 compliance frameworks to provide US-based enterprises with vetted talent.
                             </p>
                         </div>
-                        <ul class="text-xs font-semibold text-brand-black space-y-2.5 border-t border-brand-border pt-5">
+                        <ul class="text-xs font-semibold text-white space-y-2.5 border-t border-gray-800 pt-5">
                             <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-copper"></i> Vendor Management Integration</li>
                             <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-copper"></i> W2 / C2C / 1099 Sourcing</li>
                         </ul>
                     </div>
 
-                    <!-- 04: Cloud & DevOps -->
-                    <div class="clean-card p-9 rounded-2xl flex flex-col justify-between">
+                    <div class="clean-card p-9 rounded-2xl flex flex-col justify-between shadow-sm">
                         <div>
                             <div class="w-12 h-12 rounded-xl bg-brand-brownieWhite border border-brand-border flex items-center justify-center text-brand-brown text-xl mb-6">
                                 <i class="fa-solid fa-cloud-arrow-up"></i>
@@ -287,8 +283,7 @@
                         </ul>
                     </div>
 
-                    <!-- 05: Offshore Delivery Centers -->
-                    <div class="clean-card p-9 rounded-2xl flex flex-col justify-between">
+                    <div class="clean-card p-9 rounded-2xl flex flex-col justify-between shadow-sm">
                         <div>
                             <div class="w-12 h-12 rounded-xl bg-brand-brownieWhite border border-brand-border flex items-center justify-center text-brand-brown text-xl mb-6">
                                 <i class="fa-solid fa-building-flag"></i>
@@ -304,8 +299,7 @@
                         </ul>
                     </div>
 
-                    <!-- 06: Training & Placements -->
-                    <div class="clean-card p-9 rounded-2xl flex flex-col justify-between">
+                    <div class="clean-card p-9 rounded-2xl flex flex-col justify-between shadow-sm">
                         <div>
                             <div class="w-12 h-12 rounded-xl bg-brand-brownieWhite border border-brand-border flex items-center justify-center text-brand-brown text-xl mb-6">
                                 <i class="fa-solid fa-graduation-cap"></i>
@@ -328,7 +322,7 @@
         <!-- ==============================================
              5. CONTACT & INQUIRY FORM SECTION
         =============================================== -->
-        <section id="contact" class="py-28 bg-brand-brownieWhite border-b border-brand-border relative z-10">
+        <section id="contact" class="py-28 bg-white border-b border-brand-border relative z-10">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
                     
@@ -364,7 +358,7 @@
 
                     <!-- Right Column: Submission Form -->
                     <div class="lg:col-span-7">
-                        <div class="bg-white p-8 md:p-10 rounded-2xl border border-brand-border shadow-sm">
+                        <div class="bg-brand-brownieWhite p-8 md:p-10 rounded-2xl border border-brand-border shadow-md">
                             <h3 class="font-heading text-xl font-bold text-brand-black mb-6 border-b border-brand-border pb-4">
                                 Submit a Requirement
                             </h3>
@@ -372,26 +366,26 @@
                                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
                                     <div>
                                         <label class="block text-xs font-bold uppercase tracking-widest text-brand-muted mb-2">First Name *</label>
-                                        <input type="text" name="firstName" required class="w-full bg-brand-brownieWhite border border-brand-border px-4 py-3 text-sm rounded-lg focus:border-brand-brown outline-none">
+                                        <input type="text" name="firstName" required class="w-full bg-white border border-brand-border px-4 py-3 text-sm rounded-lg focus:border-brand-brown outline-none shadow-sm">
                                     </div>
                                     <div>
                                         <label class="block text-xs font-bold uppercase tracking-widest text-brand-muted mb-2">Last Name *</label>
-                                        <input type="text" name="lastName" required class="w-full bg-brand-brownieWhite border border-brand-border px-4 py-3 text-sm rounded-lg focus:border-brand-brown outline-none">
+                                        <input type="text" name="lastName" required class="w-full bg-white border border-brand-border px-4 py-3 text-sm rounded-lg focus:border-brand-brown outline-none shadow-sm">
                                     </div>
                                 </div>
                                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
                                     <div>
                                         <label class="block text-xs font-bold uppercase tracking-widest text-brand-muted mb-2">Work Email *</label>
-                                        <input type="email" name="email" required class="w-full bg-brand-brownieWhite border border-brand-border px-4 py-3 text-sm rounded-lg focus:border-brand-brown outline-none">
+                                        <input type="email" name="email" required class="w-full bg-white border border-brand-border px-4 py-3 text-sm rounded-lg focus:border-brand-brown outline-none shadow-sm">
                                     </div>
                                     <div>
                                         <label class="block text-xs font-bold uppercase tracking-widest text-brand-muted mb-2">Phone Number *</label>
-                                        <input type="tel" name="phone" required class="w-full bg-brand-brownieWhite border border-brand-border px-4 py-3 text-sm rounded-lg focus:border-brand-brown outline-none">
+                                        <input type="tel" name="phone" required class="w-full bg-white border border-brand-border px-4 py-3 text-sm rounded-lg focus:border-brand-brown outline-none shadow-sm">
                                     </div>
                                 </div>
                                 <div>
                                     <label class="block text-xs font-bold uppercase tracking-widest text-brand-muted mb-2">Inquiry Type</label>
-                                    <select name="type" class="w-full bg-brand-brownieWhite border border-brand-border px-4 py-3 text-sm rounded-lg focus:border-brand-brown outline-none text-brand-black">
+                                    <select name="type" class="w-full bg-white border border-brand-border px-4 py-3 text-sm rounded-lg focus:border-brand-brown outline-none text-brand-black shadow-sm">
                                         <option>Custom Software Development</option>
                                         <option>Domestic IT Staffing (India)</option>
                                         <option>USA IT Staff Augmentation</option>
@@ -401,9 +395,9 @@
                                 </div>
                                 <div>
                                     <label class="block text-xs font-bold uppercase tracking-widest text-brand-muted mb-2">Message *</label>
-                                    <textarea name="message" rows="4" required class="w-full bg-brand-brownieWhite border border-brand-border px-4 py-3 text-sm rounded-lg focus:border-brand-brown outline-none" placeholder="Provide details regarding your requirement..."></textarea>
+                                    <textarea name="message" rows="4" required class="w-full bg-white border border-brand-border px-4 py-3 text-sm rounded-lg focus:border-brand-brown outline-none shadow-sm" placeholder="Provide details regarding your requirement..."></textarea>
                                 </div>
-                                <button type="submit" class="w-full bg-brand-black text-white px-8 py-4 font-bold text-xs uppercase tracking-widest rounded-lg hover:bg-brand-brown transition-colors">
+                                <button type="submit" class="w-full bg-brand-black text-white px-8 py-4 font-bold text-xs uppercase tracking-widest rounded-lg hover:bg-brand-brown transition-colors shadow-md">
                                     Submit Request
                                 </button>
                             </form>
@@ -417,21 +411,15 @@
 
     <!-- ==============================================
          6. FOOTER 
-         Exact 5-Column layout requested: DPIIT Original Colors on Right
     =============================================== -->
     <footer class="bg-brand-black text-white pt-16 pb-12 border-t border-gray-900 relative z-20">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 mb-14">
                 
-                <!-- Col 1: Brand & About (Span 3) -->
-                <div class="lg:col-span-3">
+                <!-- Col 1: Brand & About (Span 4) -->
+                <div class="lg:col-span-4">
                     <a href="index.html" class="flex items-center gap-3.5 mb-6">
-                        <img 
-                            src="IOGO.png" 
-                            alt="Cognisys Logo" 
-                            class="h-12 w-auto object-contain bg-white rounded p-1"
-                            onerror="if(this.src.indexOf('IOGO.png') !== -1){ this.src='logo.png'; } else if(this.src.indexOf('logo.png') !== -1){ this.src='Logo.png'; } else if(this.src.indexOf('Logo.png') !== -1){ this.src='iogo.png'; }"
-                        >
+                        <img src="IOGO.png" alt="Cognisys Logo" class="h-12 w-auto object-contain" onerror="this.src='https://via.placeholder.com/64x64/111111/ffffff?text=C';">
                         <div class="flex flex-col">
                             <span class="font-heading font-extrabold text-xl tracking-tight text-white leading-none">COGNISYS</span>
                             <span class="text-[0.6rem] font-bold uppercase tracking-[0.2em] text-gray-400 mt-1">Soft Services & IT Solutions</span>
@@ -443,7 +431,7 @@
                 </div>
                 
                 <!-- Col 2: Quick Links (Span 2) -->
-                <div class="lg:col-span-2 lg:pl-6">
+                <div class="lg:col-span-2">
                     <h3 class="text-xs font-bold uppercase tracking-widest text-brand-copper mb-5">Quick Links</h3>
                     <ul class="space-y-3 text-xs text-gray-400">
                         <li><a href="about.html" class="hover:text-white transition-colors">Who We Are</a></li>
@@ -464,8 +452,8 @@
                     </ul>
                 </div>
 
-                <!-- Col 4: Contact Us & LinkedIn (Span 2) -->
-                <div class="lg:col-span-2">
+                <!-- Col 4: Contact Us, LinkedIn & DPIIT Logo on Right (Span 3) -->
+                <div class="lg:col-span-3">
                     <h3 class="text-xs font-bold uppercase tracking-widest text-brand-copper mb-5">Contact Us</h3>
                     <div class="space-y-2 text-xs text-gray-400 mb-6">
                         <p><i class="fa-solid fa-envelope w-4 text-white"></i> info@cognisysitsolutions.in</p>
@@ -473,21 +461,17 @@
                     </div>
                     
                     <h3 class="text-xs font-bold uppercase tracking-widest text-brand-copper mb-3">Follow Us</h3>
-                    <a href="https://www.linkedin.com/company/cognisys-soft-services" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white text-xl inline-block transition-colors">
+                    <a href="https://www.linkedin.com/company/cognisys-soft-services" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white text-xl inline-block mb-6 transition-colors">
                         <i class="fa-brands fa-linkedin"></i>
                     </a>
-                </div>
 
-                <!-- Col 5: DPIIT Recognition Right Side (Span 2) -->
-                <div class="lg:col-span-2 flex flex-col items-start lg:items-end">
-                    <h3 class="text-xs font-bold uppercase tracking-widest text-brand-copper mb-5 w-full lg:text-right">Recognition</h3>
-                    
-                    <!-- Original Colors, Larger Size, NO Background box -->
+                    <!-- DPIIT Recognition on the Right with NO Background -->
+                    <h3 class="text-xs font-bold uppercase tracking-widest text-brand-copper mb-3">Recognition</h3>
                     <a href="dpiit-certificate.pdf" target="_blank" title="View Certificate" class="inline-block transition-transform hover:scale-105">
                         <img 
                             src="startup-india-logo.png" 
                             alt="DPIIT Recognized Startup" 
-                            class="w-full max-w-[200px] h-auto object-contain"
+                            class="h-8 w-auto object-contain filter grayscale brightness-200 contrast-125"
                             onerror="this.style.display='none'"
                         >
                     </a>
@@ -502,7 +486,7 @@
         </div>
     </footer>
 
-    <!-- Dropdown Menu Logic -->
+    <!-- JS Logic -->
     <script>
         const menuBtn = document.getElementById('menuToggleBtn');
         const dropMenu = document.getElementById('dropdownMenu');
@@ -519,16 +503,6 @@
                 dropMenu.classList.add('hidden');
                 dropMenu.classList.remove('flex');
                 menuBtn.innerHTML = '<i class="fa-solid fa-bars text-lg"></i>';
-            }
-        });
-        
-        // Force video play manually to override strict browser policies
-        document.addEventListener('DOMContentLoaded', () => {
-            const vid = document.getElementById('bg-video');
-            if(vid) {
-                vid.play().catch(e => {
-                    console.log('Video autoplay prevented by browser');
-                });
             }
         });
     </script>
