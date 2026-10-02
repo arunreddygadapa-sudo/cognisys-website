@@ -14,7 +14,7 @@
     <!-- Premium Fonts: Outfit for Headings, Inter for Body -->
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     
-    <!-- Tailwind Configuration (Dark Brown, Black, & Bright White Theme) -->
+    <!-- Tailwind Configuration (Dark Brown, Black, Bright White Theme) -->
     <script>
         tailwind.config = {
             theme: {
@@ -25,14 +25,14 @@
                     },
                     colors: {
                         brand: {
-                            black: '#050505',        // Pure dark for deep contrast
-                            darkBrown: '#140c08',    // Deep ambient brown background
-                            cardBrown: '#1f140f',    // Elevated card surface
+                            black: '#030303',        // Pure dark for deep contrast
+                            darkBrown: '#0f0a07',    // Deep ambient brown background
+                            cardBrown: '#1a110c',    // Elevated card surface
                             brown: '#4A3728',        // Core brand brown
-                            copper: '#b87333',       // Metallic copper highlight
+                            copper: '#c58b38',       // Metallic copper highlight
                             white: '#ffffff',        // Bright white for typography
                             muted: '#a89f9a',        // Soft gray-brown for readable secondary text
-                            border: 'rgba(184, 115, 51, 0.2)' 
+                            border: 'rgba(197, 139, 56, 0.15)' 
                         }
                     }
                 }
@@ -42,28 +42,23 @@
     
     <style>
         body { 
-            background-color: #050505; 
+            background-color: #030303; 
             color: #ffffff; 
             overflow-x: hidden; 
-        }
-        
-        /* Video Background Overlay */
-        .video-overlay {
-            background: linear-gradient(to bottom, rgba(20, 12, 8, 0.85), rgba(5, 5, 5, 0.95));
         }
 
         /* Glassmorphism Navigation */
         .glass-nav {
-            background: rgba(5, 5, 5, 0.7);
+            background: rgba(3, 3, 3, 0.8);
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
-            border-bottom: 1px solid rgba(184, 115, 51, 0.15);
+            border-bottom: 1px solid rgba(197, 139, 56, 0.15);
         }
         
         /* Advanced Card Styling */
         .premium-card {
-            background: linear-gradient(160deg, #1f140f, #140c08);
-            border: 1px solid rgba(184, 115, 51, 0.15);
+            background: linear-gradient(160deg, #1a110c, #0f0a07);
+            border: 1px solid rgba(197, 139, 56, 0.15);
             border-radius: 1rem;
             transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
             position: relative;
@@ -74,15 +69,15 @@
             content: '';
             position: absolute;
             top: 0; left: 0; width: 100%; height: 100%;
-            background: radial-gradient(circle at top right, rgba(184, 115, 51, 0.1), transparent 60%);
+            background: radial-gradient(circle at top right, rgba(197, 139, 56, 0.1), transparent 60%);
             z-index: -1;
             opacity: 0;
             transition: opacity 0.5s ease;
         }
         .premium-card:hover {
             transform: translateY(-8px);
-            border-color: rgba(184, 115, 51, 0.5);
-            box-shadow: 0 20px 40px -10px rgba(184, 115, 51, 0.2);
+            border-color: rgba(197, 139, 56, 0.5);
+            box-shadow: 0 20px 40px -10px rgba(197, 139, 56, 0.2);
         }
         .premium-card:hover::before {
             opacity: 1;
@@ -90,7 +85,7 @@
         
         /* Typography Gradients */
         .text-glow {
-            background: linear-gradient(to right, #ffffff, #b87333, #ffffff);
+            background: linear-gradient(to right, #ffffff, #c58b38, #ffffff);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-size: 200% auto;
@@ -102,12 +97,12 @@
         
         /* Scrollbar cleanup */
         ::-webkit-scrollbar { width: 8px; }
-        ::-webkit-scrollbar-track { background: #050505; }
-        ::-webkit-scrollbar-thumb { background: #b87333; border-radius: 4px; }
+        ::-webkit-scrollbar-track { background: #030303; }
+        ::-webkit-scrollbar-thumb { background: #c58b38; border-radius: 4px; }
         
         /* Input autofill styling override */
-        input:-webkit-autofill, textarea:-webkit-autofill {
-            -webkit-box-shadow: 0 0 0 30px #140c08 inset !important;
+        input:-webkit-autofill, textarea:-webkit-autofill, select:-webkit-autofill {
+            -webkit-box-shadow: 0 0 0 30px #1a110c inset !important;
             -webkit-text-fill-color: white !important;
         }
     </style>
@@ -116,15 +111,14 @@
 
     <!-- ==============================================
          GLOBAL LIVE VIDEO BACKGROUND
+         Fixed position so it plays behind all content globally
     =============================================== -->
-    <div class="fixed inset-0 z-[-1] w-full h-full overflow-hidden bg-brand-black">
-        <!-- Using a highly reliable direct MP4 link. Auto-plays silently. -->
-        <video id="bg-video" autoplay loop muted playsinline class="absolute top-1/2 left-1/2 min-w-full min-h-full w-auto h-auto object-cover transform -translate-x-1/2 -translate-y-1/2 opacity-40 mix-blend-screen grayscale-[40%]">
-            <source src="https://assets.mixkit.co/videos/preview/mixkit-business-people-having-a-meeting-in-a-modern-office-4252-large.mp4" type="video/mp4">
-        </video>
-        <!-- Deep dark brown overlay to ensure text remains bright and readable -->
-        <div class="absolute inset-0 video-overlay"></div>
-    </div>
+    <video id="bg-video" autoplay loop muted playsinline class="fixed top-0 left-0 min-w-full min-h-full w-auto h-auto object-cover z-[-2] opacity-30 grayscale-[50%] pointer-events-none">
+        <!-- High quality corporate handshake/moving video -->
+        <source src="https://cdn.pixabay.com/video/2023/10/22/186003-876800746_large.mp4" type="video/mp4">
+    </video>
+    <!-- Deep gradient overlay to ensure text is always readable over the video -->
+    <div class="fixed inset-0 z-[-1] bg-gradient-to-b from-brand-black/95 via-brand-darkBrown/85 to-brand-black/95 pointer-events-none"></div>
 
     <!-- ==============================================
          ULTRA-PREMIUM NAVIGATION HEADER
@@ -134,20 +128,20 @@
             
             <!-- Corporate Logo (Restored and Borderless) -->
             <a href="index.html" class="flex items-center gap-4 group relative z-50">
-                <img src="IOGO.png" alt="Cognisys Logo" class="h-16 w-auto object-contain transition-transform duration-700 group-hover:scale-105" onerror="this.src='https://via.placeholder.com/64x64/050505/b87333?text=C';">
+                <img src="IOGO.png" alt="Cognisys Logo" class="h-16 w-auto object-contain transition-transform duration-700 group-hover:scale-105" onerror="this.src='https://via.placeholder.com/64x64/030303/c58b38?text=C';">
                 <div class="flex flex-col">
                     <span class="font-heading font-extrabold text-2xl tracking-widest text-brand-white leading-none">COGNISYS</span>
-                    <span class="text-[0.6rem] font-bold uppercase tracking-[0.2em] text-brand-copper mt-1">Soft Services & IT Solutions</span>
+                    <span class="text-[0.55rem] font-bold uppercase tracking-[0.25em] text-brand-copper mt-1">Soft Services & IT Solutions</span>
                 </div>
             </a>
 
             <!-- Right Side CTA & Hamburger Menu -->
             <div class="flex items-center gap-6 relative z-50">
-                <a href="#contact" class="hidden sm:inline-flex items-center justify-center bg-transparent border border-brand-copper text-brand-copper px-8 py-3 rounded-full text-xs font-bold uppercase tracking-widest hover:bg-brand-copper hover:text-white transition-all duration-500 hover:shadow-[0_0_20px_rgba(184,115,51,0.4)]">
+                <a href="#contact" class="hidden sm:inline-flex items-center justify-center bg-transparent border border-brand-copper text-brand-copper px-8 py-3 rounded-full text-xs font-bold uppercase tracking-widest hover:bg-brand-copper hover:text-brand-black transition-all duration-500 hover:shadow-[0_0_20px_rgba(197,139,56,0.4)]">
                     Let's Talk
                 </a>
                 
-                <button id="menuToggleBtn" class="flex flex-col items-center justify-center w-12 h-12 rounded-full border border-brand-border text-white hover:bg-brand-copper hover:text-white hover:border-brand-copper transition-all cursor-pointer bg-brand-cardBrown/50 backdrop-blur">
+                <button id="menuToggleBtn" class="flex flex-col items-center justify-center w-12 h-12 rounded-full border border-brand-border text-white hover:bg-brand-copper hover:text-brand-black hover:border-brand-copper transition-all cursor-pointer bg-brand-cardBrown/50 backdrop-blur">
                     <i class="fa-solid fa-bars text-xl"></i>
                 </button>
             </div>
@@ -166,7 +160,7 @@
                 <a href="innovations.html" class="px-6 py-4 text-sm font-semibold text-brand-white border-b border-brand-border hover:bg-white/5 hover:text-brand-copper transition-colors flex items-center gap-3">
                     <i class="fa-solid fa-lightbulb w-5"></i> In-House Projects
                 </a>
-                <a href="careers.html" class="px-6 py-4 text-sm font-semibold text-brand-white hover:bg-brand-copper hover:text-white flex justify-between items-center transition-colors">
+                <a href="careers.html" class="px-6 py-4 text-sm font-semibold text-brand-white hover:bg-brand-copper hover:text-brand-black flex justify-between items-center transition-colors">
                     <span><i class="fa-solid fa-briefcase w-5 mr-2"></i> Careers / Hiring</span> 
                     <i class="fa-solid fa-arrow-right text-xs"></i>
                 </a>
@@ -178,7 +172,7 @@
         <!-- ==============================================
              HERO SECTION 
         =============================================== -->
-        <section class="relative min-h-[100vh] flex items-center justify-center pt-24 overflow-hidden border-b border-brand-border">
+        <section class="relative min-h-[100vh] flex items-center justify-center pt-24 border-b border-brand-border">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20 text-center w-full mt-10">
                 
                 <h1 class="font-heading text-5xl md:text-7xl lg:text-[5.5rem] font-extrabold tracking-tight mb-8 leading-[1.1] text-brand-white drop-shadow-2xl">
@@ -186,15 +180,15 @@
                     <span class="text-glow font-extrabold drop-shadow-lg">Strategies for Scaling.</span>
                 </h1>
                 
-                <p class="text-lg md:text-xl text-brand-muted mb-12 max-w-4xl mx-auto leading-relaxed font-light drop-shadow-md">
+                <p class="text-lg md:text-xl text-gray-300 mb-12 max-w-4xl mx-auto leading-relaxed font-light drop-shadow-md">
                     Ingenious IT solutions and strong partnerships drive business results. Cognisys blends digital agility, enterprise innovation, and elite staffing augmentation for sustainable global expansion.
                 </p>
                 
                 <div class="flex flex-col sm:flex-row gap-6 justify-center items-center">
-                    <a href="#services" class="bg-brand-copper text-brand-white px-10 py-5 font-bold text-xs uppercase tracking-[0.15em] rounded-full hover:bg-brand-white hover:text-brand-black transition-all duration-500 shadow-[0_0_30px_rgba(184,115,51,0.4)] flex items-center gap-3">
+                    <a href="#services" class="bg-brand-copper text-brand-black px-10 py-5 font-bold text-xs uppercase tracking-[0.15em] rounded-full hover:bg-white transition-all duration-500 shadow-[0_0_30px_rgba(197,139,56,0.4)] flex items-center gap-3">
                         Explore Our Solutions <i class="fa-solid fa-arrow-down"></i>
                     </a>
-                    <a href="about.html" class="bg-brand-cardBrown/80 border border-brand-copper/30 text-brand-white px-10 py-5 font-bold text-xs uppercase tracking-[0.15em] rounded-full hover:bg-brand-copper hover:text-brand-white transition-all duration-500 flex items-center gap-3 backdrop-blur-md">
+                    <a href="about.html" class="bg-brand-cardBrown/50 border border-brand-copper/50 text-white px-10 py-5 font-bold text-xs uppercase tracking-[0.15em] rounded-full hover:bg-brand-copper hover:text-brand-black transition-all duration-500 flex items-center gap-3 backdrop-blur-md">
                         Discover Who We Are <i class="fa-solid fa-arrow-right"></i>
                     </a>
                 </div>
@@ -204,13 +198,13 @@
         <!-- ==============================================
              BUSINESS METRICS
         =============================================== -->
-        <section class="relative py-20 border-b border-brand-border z-20 bg-brand-darkBrown/50 backdrop-blur-md">
+        <section class="relative py-20 border-b border-brand-border z-20 bg-brand-darkBrown/60 backdrop-blur-md">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="grid grid-cols-2 md:grid-cols-4 gap-10 text-center divide-y md:divide-y-0 md:divide-x divide-brand-border">
                     
                     <div class="pt-6 md:pt-0 group">
                         <div class="flex items-center justify-center gap-3 text-brand-white text-5xl font-extrabold font-heading mb-3 transition-transform group-hover:scale-110 duration-500">
-                            <i class="fa-solid fa-globe text-brand-copper text-4xl drop-shadow-[0_0_15px_rgba(184,115,51,0.5)]"></i> 7+
+                            <i class="fa-solid fa-globe text-brand-copper text-4xl drop-shadow-[0_0_15px_rgba(197,139,56,0.5)]"></i> 7+
                         </div>
                         <p class="text-[0.7rem] uppercase tracking-widest text-brand-white font-bold">Active Clients</p>
                         <p class="text-[0.65rem] text-brand-muted mt-2 max-w-[150px] mx-auto leading-relaxed hidden md:block">Partnering with businesses across the USA and India.</p>
@@ -218,7 +212,7 @@
 
                     <div class="pt-6 md:pt-0 group">
                         <div class="flex items-center justify-center gap-3 text-brand-white text-5xl font-extrabold font-heading mb-3 transition-transform group-hover:scale-110 duration-500">
-                            <i class="fa-solid fa-layer-group text-brand-copper text-4xl drop-shadow-[0_0_15px_rgba(184,115,51,0.5)]"></i> 4+
+                            <i class="fa-solid fa-layer-group text-brand-copper text-4xl drop-shadow-[0_0_15px_rgba(197,139,56,0.5)]"></i> 4+
                         </div>
                         <p class="text-[0.7rem] uppercase tracking-widest text-brand-white font-bold">Completed Projects</p>
                         <p class="text-[0.65rem] text-brand-copper mt-2 max-w-[150px] mx-auto font-bold hidden md:block">Includes 2 In-House Proprietary Platforms</p>
@@ -226,7 +220,7 @@
 
                     <div class="pt-6 md:pt-0 group">
                         <div class="flex items-center justify-center gap-3 text-brand-white text-5xl font-extrabold font-heading mb-3 transition-transform group-hover:scale-110 duration-500 text-glow">
-                            <i class="fa-solid fa-spinner animate-spin-slow text-brand-copper text-4xl drop-shadow-[0_0_15px_rgba(184,115,51,0.5)]"></i> 6
+                            <i class="fa-solid fa-spinner animate-spin-slow text-brand-copper text-4xl drop-shadow-[0_0_15px_rgba(197,139,56,0.5)]"></i> 6
                         </div>
                         <p class="text-[0.7rem] uppercase tracking-widest text-brand-white font-bold">Ongoing Projects</p>
                         <p class="text-[0.65rem] text-brand-muted mt-2 max-w-[150px] mx-auto leading-relaxed hidden md:block">Active agile sprints and staffing deployments.</p>
@@ -234,7 +228,7 @@
 
                     <div class="pt-6 md:pt-0 group">
                         <div class="flex items-center justify-center gap-3 text-brand-white text-5xl font-extrabold font-heading mb-3 transition-transform group-hover:scale-110 duration-500">
-                            <i class="fa-solid fa-award text-brand-copper text-4xl drop-shadow-[0_0_15px_rgba(184,115,51,0.5)]"></i> 100%
+                            <i class="fa-solid fa-award text-brand-copper text-4xl drop-shadow-[0_0_15px_rgba(197,139,56,0.5)]"></i> 100%
                         </div>
                         <p class="text-[0.7rem] uppercase tracking-widest text-brand-white font-bold">Placement Support</p>
                         <p class="text-[0.65rem] text-brand-muted mt-2 max-w-[150px] mx-auto leading-relaxed hidden md:block">Dedicated hiring pipelines for our trainees.</p>
@@ -247,8 +241,8 @@
         <!-- ==============================================
              COMPREHENSIVE SERVICES (DEEP INFORMATION)
         =============================================== -->
-        <section id="services" class="py-32 relative bg-brand-darkBrown/90">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <section id="services" class="py-32 relative">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                 
                 <div class="flex flex-col lg:flex-row justify-between items-end mb-20 gap-8">
                     <div class="max-w-3xl">
@@ -260,7 +254,7 @@
                             <span class="text-brand-muted">Expert IT Solutions.</span>
                         </h2>
                     </div>
-                    <a href="services.html" class="inline-flex items-center gap-3 text-xs font-bold uppercase tracking-widest text-brand-white bg-brand-cardBrown border border-brand-copper/30 px-8 py-4 rounded-full hover:bg-brand-copper hover:text-brand-white transition-colors whitespace-nowrap shadow-lg">
+                    <a href="services.html" class="inline-flex items-center gap-3 text-xs font-bold uppercase tracking-widest text-brand-white bg-brand-cardBrown border border-brand-copper/30 px-8 py-4 rounded-full hover:bg-brand-copper hover:text-brand-black transition-colors whitespace-nowrap shadow-lg">
                         View Deep Dive <i class="fa-solid fa-arrow-right"></i>
                     </a>
                 </div>
@@ -376,8 +370,8 @@
         <!-- ==============================================
              INDUSTRIES WE SERVE
         =============================================== -->
-        <section class="py-32 relative bg-brand-cardBrown/40 border-t border-brand-border">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <section class="py-32 relative bg-brand-cardBrown/50 border-t border-brand-border">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
                 <span class="text-[0.75rem] font-extrabold tracking-[0.2em] text-brand-copper uppercase mb-4 block">Domain Expertise</span>
                 <h2 class="font-heading text-4xl md:text-5xl font-bold text-brand-white mb-16">Industries We Specialize In</h2>
                 
@@ -422,9 +416,6 @@
              THE CONTACT & FORM SECTION
         =============================================== -->
         <section id="contact" class="py-32 relative bg-brand-darkBrown border-t border-brand-border overflow-hidden">
-            <!-- Ambient Light behind form -->
-            <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[80vw] h-[80vw] bg-brand-copper rounded-full mix-blend-screen filter blur-[250px] opacity-[0.05] pointer-events-none"></div>
-            
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                 <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
                     
@@ -442,7 +433,6 @@
                             </p>
                         </div>
                         
-                        <!-- The Exact Details Requested -->
                         <div class="space-y-8 border-l border-brand-border pl-8 mt-10">
                             <div>
                                 <h4 class="font-bold text-xs uppercase tracking-[0.15em] text-brand-muted mb-2"><i class="fa-solid fa-envelope mr-2 text-brand-copper"></i> Email Us</h4>
@@ -501,7 +491,7 @@
                                     <label class="block text-[0.65rem] font-bold tracking-widest uppercase text-brand-muted mb-2">Project Details / Message</label>
                                     <textarea name="message" rows="5" class="w-full bg-brand-cardBrown border border-brand-border text-white px-4 py-3.5 text-sm focus:outline-none focus:border-brand-copper focus:bg-brand-darkBrown rounded-lg transition-colors" placeholder="Please provide specific details regarding your operational requirements..." required></textarea>
                                 </div>
-                                <button type="submit" class="w-full bg-brand-copper text-brand-white px-8 py-5 font-bold text-xs uppercase tracking-widest rounded-lg hover:bg-brand-brown transition-all duration-300 shadow-[0_0_15px_rgba(184,115,51,0.3)] hover:shadow-lg mt-2 border border-brand-copper">
+                                <button type="submit" class="w-full bg-brand-copper text-brand-black px-8 py-5 font-bold text-xs uppercase tracking-widest rounded-lg hover:bg-brand-white transition-all duration-300 shadow-[0_0_15px_rgba(197,139,56,0.3)] hover:shadow-lg mt-2">
                                     Submit Request
                                 </button>
                             </form>
@@ -514,7 +504,8 @@
     </main>
 
     <!-- ==============================================
-         MASTER PREMIUM FOOTER (Correctly Aligned DPIIT)
+         MASTER PREMIUM FOOTER 
+         Exact layout requested: Links separated, Contact separated, DPIIT on right, LinkedIn under Contact
     =============================================== -->
     <footer class="bg-brand-black pt-16 pb-12 border-t border-brand-border relative z-30">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -523,11 +514,10 @@
                 <!-- Col 1: Brand & About -->
                 <div class="lg:col-span-4">
                     <a href="index.html" class="flex items-center gap-4 mb-8 group">
-                        <!-- Borderless Logo -->
-                        <img src="IOGO.png" alt="Cognisys Logo" class="h-16 w-auto object-contain transition-transform duration-500 group-hover:scale-105" onerror="this.src='https://via.placeholder.com/64x64/050505/b87333?text=C';">
+                        <img src="IOGO.png" alt="Cognisys Logo" class="h-16 w-auto object-contain transition-transform duration-500 group-hover:scale-105" onerror="this.src='https://via.placeholder.com/64x64/030303/c58b38?text=C';">
                         <div class="flex flex-col">
                             <span class="font-heading font-extrabold text-2xl tracking-tight text-brand-white leading-none">COGNISYS</span>
-                            <span class="text-[0.6rem] font-bold uppercase tracking-[0.2em] text-brand-copper mt-1">Soft Services & IT Solutions</span>
+                            <span class="text-[0.55rem] font-bold uppercase tracking-[0.25em] text-brand-copper mt-1">Soft Services & IT Solutions</span>
                         </div>
                     </a>
                     <p class="text-brand-muted leading-relaxed text-sm pr-4">
@@ -539,9 +529,9 @@
                 <div class="lg:col-span-2">
                     <h3 class="text-[0.65rem] font-extrabold tracking-widest uppercase mb-6 text-brand-copper">Quick Links</h3>
                     <ul class="space-y-4 text-sm text-brand-muted">
-                        <li><a href="about.html" class="hover:text-brand-copper transition-colors">Who We Are</a></li>
-                        <li><a href="innovations.html" class="hover:text-brand-copper transition-colors">In-House Products</a></li>
-                        <li><a href="careers.html" class="hover:text-brand-copper transition-colors font-bold text-brand-white">Careers / Hiring</a></li>
+                        <li><a href="about.html" class="hover:text-brand-white transition-colors">Who We Are</a></li>
+                        <li><a href="innovations.html" class="hover:text-brand-white transition-colors">In-House Products</a></li>
+                        <li><a href="careers.html" class="hover:text-brand-white transition-colors font-bold text-brand-white">Careers / Hiring</a></li>
                     </ul>
                 </div>
                 
@@ -549,15 +539,15 @@
                 <div class="lg:col-span-3">
                     <h3 class="text-[0.65rem] font-extrabold tracking-widest uppercase mb-6 text-brand-copper">Core Services</h3>
                     <ul class="space-y-4 text-sm text-brand-muted">
-                        <li><a href="services.html" class="hover:text-brand-copper transition-colors flex items-center gap-2"><i class="fa-solid fa-angle-right text-[0.5rem] text-brand-copper"></i> Software Development</a></li>
-                        <li><a href="services.html" class="hover:text-brand-copper transition-colors flex items-center gap-2"><i class="fa-solid fa-angle-right text-[0.5rem] text-brand-copper"></i> Domestic IT Staffing</a></li>
-                        <li><a href="services.html" class="hover:text-brand-copper transition-colors flex items-center gap-2"><i class="fa-solid fa-angle-right text-[0.5rem] text-brand-copper"></i> USA IT Consulting</a></li>
-                        <li><a href="services.html" class="hover:text-brand-copper transition-colors flex items-center gap-2"><i class="fa-solid fa-angle-right text-[0.5rem] text-brand-copper"></i> Cloud Migrations</a></li>
-                        <li><a href="services.html" class="hover:text-brand-copper transition-colors flex items-center gap-2"><i class="fa-solid fa-angle-right text-[0.5rem] text-brand-copper"></i> Training & Placements</a></li>
+                        <li><a href="services.html" class="hover:text-brand-white transition-colors flex items-center gap-2"><i class="fa-solid fa-angle-right text-[0.5rem] text-brand-copper"></i> Software Development</a></li>
+                        <li><a href="services.html" class="hover:text-brand-white transition-colors flex items-center gap-2"><i class="fa-solid fa-angle-right text-[0.5rem] text-brand-copper"></i> Domestic IT Staffing</a></li>
+                        <li><a href="services.html" class="hover:text-brand-white transition-colors flex items-center gap-2"><i class="fa-solid fa-angle-right text-[0.5rem] text-brand-copper"></i> USA IT Consulting</a></li>
+                        <li><a href="services.html" class="hover:text-brand-white transition-colors flex items-center gap-2"><i class="fa-solid fa-angle-right text-[0.5rem] text-brand-copper"></i> Cloud Migrations</a></li>
+                        <li><a href="services.html" class="hover:text-brand-white transition-colors flex items-center gap-2"><i class="fa-solid fa-angle-right text-[0.5rem] text-brand-copper"></i> Training & Placements</a></li>
                     </ul>
                 </div>
 
-                <!-- Col 4: Contact Us, LinkedIn & DPIIT Recognition properly aligned -->
+                <!-- Col 4: Contact Us, LinkedIn & DPIIT Recognition -->
                 <div class="lg:col-span-3">
                     <h3 class="text-[0.65rem] font-extrabold tracking-widest uppercase mb-6 text-brand-copper">Contact Us</h3>
                     <div class="space-y-3 mb-6">
@@ -569,22 +559,20 @@
                         </a>
                     </div>
                     
-                    <!-- LinkedIn grouped under Contact Us -->
                     <h3 class="text-[0.65rem] font-extrabold tracking-widest uppercase mb-4 text-brand-copper">Follow Us</h3>
                     <a href="https://www.linkedin.com/company/cognisys-soft-services" target="_blank" class="text-brand-copper hover:text-brand-white transition-colors text-2xl inline-block mb-8">
                         <i class="fa-brands fa-linkedin"></i>
                     </a>
 
-                    <!-- DPIIT Recognition properly contained in grid -->
+                    <!-- DPIIT Recognition properly aligned on the right, NO BACKGROUND -->
                     <h3 class="text-[0.65rem] font-extrabold tracking-widest uppercase mb-4 text-brand-copper">Recognition</h3>
                     <a href="dpiit-certificate.pdf" target="_blank" title="View DPIIT Certificate" class="inline-block transition-transform hover:scale-105">
-                        <img src="startup-india-logo.png" alt="DPIIT Recognized Startup" class="w-full max-w-[160px] h-auto object-contain filter grayscale hover:grayscale-0 transition-all duration-300" onerror="this.onerror=null; this.src='https://via.placeholder.com/160x40/050505/ffffff?text=Startup+India';">
+                        <img src="startup-india-logo.png" alt="DPIIT Recognized Startup" class="w-full max-w-[160px] h-auto object-contain filter grayscale hover:grayscale-0 transition-all duration-300" onerror="this.onerror=null; this.src='https://via.placeholder.com/160x40/030303/ffffff?text=Startup+India';">
                     </a>
                 </div>
 
             </div>
             
-            <!-- Bottom Copyright Bar -->
             <div class="border-t border-brand-border pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
                 <p class="text-xs text-brand-muted font-medium uppercase tracking-wider">
                     &copy; 2026 Cognisys Soft Services & IT Solutions. All rights reserved.
@@ -597,14 +585,15 @@
          JAVASCRIPT LOGIC
     =============================================== -->
     <script>
-        // Force video to play to bypass some browser restrictions
+        // Force video to play to bypass strict browser autoplay policies
         document.addEventListener('DOMContentLoaded', () => {
             const video = document.getElementById('bg-video');
             if(video) {
-                video.play().catch(e => console.log("Autoplay blocked by browser. Please ensure video is muted."));
+                video.play().catch(e => console.log("Autoplay blocked by browser. Video must be muted."));
             }
         });
 
+        // Dropdown Menu Logic
         const menuBtn = document.getElementById('menuToggleBtn');
         const dropMenu = document.getElementById('dropdownMenu');
         
