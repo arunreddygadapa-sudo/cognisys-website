@@ -3,9 +3,77 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cognisys IT Solutions | Enterprise Software & Global Staffing</title>
-    <meta name="description" content="Cognisys provides comprehensive IT Consulting, Domestic & USA Staffing Augmentation, Cloud Engineering, and Placement Training.">
     
+    <!-- ==========================================
+         GOOGLE SEARCH SITE NAME & SEO META TAGS
+    =========================================== -->
+    <title>Cognisys IT Solutions | Enterprise Software & Global Staffing</title>
+    <meta name="application-name" content="Cognisys IT Solutions">
+    <meta name="apple-mobile-web-app-title" content="Cognisys IT Solutions">
+    <meta name="description" content="Cognisys IT Solutions provides comprehensive IT Consulting, Domestic & USA Staffing Augmentation, Cloud Engineering, and Placement Training.">
+    <link rel="canonical" href="https://cognisysitsolutions.in/">
+
+    <!-- Open Graph Tags for Google & Social Previews -->
+    <meta property="og:site_name" content="Cognisys IT Solutions">
+    <meta property="og:title" content="Cognisys IT Solutions | Enterprise Software & Global Staffing">
+    <meta property="og:description" content="Cognisys IT Solutions provides comprehensive IT Consulting, Domestic & USA Staffing Augmentation, Cloud Engineering, and Placement Training.">
+    <meta property="og:url" content="https://cognisysitsolutions.in/">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://cognisysitsolutions.in/logo.png">
+
+    <!-- ==========================================
+         FAVICON TAGS (Shows Logo in Google Search & Browser Tab)
+    =========================================== -->
+    <link rel="icon" type="image/png" sizes="32x32" href="https://cognisysitsolutions.in/logo.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="https://cognisysitsolutions.in/logo.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="https://cognisysitsolutions.in/logo.png">
+    <link rel="shortcut icon" href="https://cognisysitsolutions.in/logo.png">
+
+    <!-- ==========================================
+         GOOGLE STRUCTURED DATA (Forces "Cognisys IT Solutions" Name & Logo in Google Search)
+    =========================================== -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebSite",
+          "@id": "https://cognisysitsolutions.in/#website",
+          "url": "https://cognisysitsolutions.in/",
+          "name": "Cognisys IT Solutions",
+          "alternateName": ["Cognisys Soft Services & IT Solutions", "Cognisys", "cognisysitsolutions.in"],
+          "publisher": {
+            "@id": "https://cognisysitsolutions.in/#organization"
+          }
+        },
+        {
+          "@type": "Organization",
+          "@id": "https://cognisysitsolutions.in/#organization",
+          "name": "Cognisys IT Solutions",
+          "legalName": "Cognisys Soft Services & IT Solutions LLP",
+          "url": "https://cognisysitsolutions.in/",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://cognisysitsolutions.in/logo.png",
+            "width": 512,
+            "height": 512
+          },
+          "contactPoint": {
+            "@type": "ContactPoint",
+            "telephone": "+91-9885550735",
+            "contactType": "customer service",
+            "email": "info@cognisysitsolutions.in",
+            "areaServed": ["IN", "US"],
+            "availableLanguage": ["English"]
+          },
+          "sameAs": [
+            "https://www.linkedin.com/company/cognisys-soft-services"
+          ]
+        }
+      ]
+    }
+    </script>
+
     <!-- Tailwind CSS & FontAwesome -->
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
@@ -28,7 +96,7 @@
                             copper: '#9E622B',        
                             brownieWhite: '#FAF8F5',  
                             pureWhite: '#ffffff',
-                            muted: '#555555',
+                            muted: '#3f3f46',
                             border: '#EAE6E1'
                         }
                     }
@@ -43,62 +111,96 @@
             color: #111111; 
         }
 
-        /* Nav Glass Effect */
-        .glass-nav {
-            background: rgba(250, 248, 245, 0.95);
-            backdrop-filter: blur(60px);
-            border-bottom: 1px solid #EAE6E1;
+        /* ==========================================
+           iOS 27 SPATIAL GLASSMORPHISM SYSTEM
+        =========================================== */
+        /* Floating Glass Navigation Bar */
+        .ios-glass-nav {
+            background: rgba(250, 248, 245, 0.62);
+            backdrop-filter: blur(28px) saturate(190%);
+            -webkit-backdrop-filter: blur(28px) saturate(190%);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.75);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.04);
         }
 
-        /* Clean White Cards */
-        .clean-card {
-            background-color: #ffffff;
-            border: 1px solid #EAE6E1;
-            transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+        /* Translucent Section Backdrop (Lets background video show clearly) */
+        .ios-glass-section {
+            background: rgba(250, 248, 245, 0.42);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
         }
-        .clean-card:hover {
-            transform: translateY(-3px);
+
+        /* iOS 27 Frosted Glass Cards */
+        .ios-glass-card {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.72) 0%, rgba(250, 248, 245, 0.52) 100%);
+            backdrop-filter: blur(24px) saturate(180%);
+            -webkit-backdrop-filter: blur(24px) saturate(180%);
+            border: 1px solid rgba(255, 255, 255, 0.85);
+            box-shadow: 
+                0 10px 35px -5px rgba(74, 55, 40, 0.08),
+                inset 0 1px 1px 0 rgba(255, 255, 255, 0.95);
+            transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.3s ease, border-color 0.3s ease;
+        }
+        .ios-glass-card:hover {
+            transform: translateY(-6px);
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.84) 0%, rgba(250, 248, 245, 0.68) 100%);
+            border-color: rgba(74, 55, 40, 0.45);
+            box-shadow: 
+                0 20px 45px -10px rgba(74, 55, 40, 0.16),
+                inset 0 1px 2px 0 rgba(255, 255, 255, 1);
+        }
+
+        /* iOS Dark Glass Bar (For Metrics & Dropdowns) */
+        .ios-dark-glass {
+            background: rgba(17, 17, 17, 0.78);
+            backdrop-filter: blur(24px) saturate(180%);
+            -webkit-backdrop-filter: blur(24px) saturate(180%);
+            border-top: 1px solid rgba(255, 255, 255, 0.15);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+        }
+
+        /* Frosted Input Fields */
+        .ios-input {
+            background: rgba(255, 255, 255, 0.75);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(74, 55, 40, 0.18);
+            transition: all 0.2s ease;
+        }
+        .ios-input:focus {
+            background: rgba(255, 255, 255, 0.95);
             border-color: #4A3728;
-            box-shadow: 0 12px 30px -10px rgba(74, 55, 40, 0.12);
-        }
-
-        /* Dark Contrast Cards */
-        .dark-card {
-            background-color: #111111;
-            color: #ffffff;
-            border: 1px solid #222222;
-            transition: transform 0.25s ease, border-color 0.25s ease;
-        }
-        .dark-card:hover {
-            transform: translateY(-3px);
-            border-color: #9E622B;
+            box-shadow: 0 0 0 4px rgba(74, 55, 40, 0.08);
         }
     </style>
 </head>
 <body class="font-sans antialiased selection:bg-brand-brown selection:text-white">
 
     <!-- ==============================================
-         GLOBAL LOCAL VIDEO BACKGROUND
-         Opacity set to 100% with a 90% white overlay for perfect visibility.
+         GLOBAL LOCAL VIDEO BACKGROUND (High Clarity)
+          Overlay reduced to 52% so video is clear & vivid
     =============================================== -->
     <div class="fixed inset-0 z-[-2] w-full h-full overflow-hidden bg-brand-brownieWhite">
-        <!-- YOUR LOCAL VIDEO FILE -->
-        <video id="bg-video" autoplay loop muted playsinline class="absolute top-1/2 left-1/2 min-w-full min-h-full w-auto h-auto object-cover transform -translate-x-1/2 -translate-y-1/2 opacity-100">
+        <video id="bg-video" autoplay loop muted playsinline class="absolute top-1/2 left-1/2 min-w-full min-h-full w-auto h-auto object-cover transform -translate-x-1/2 -translate-y-1/2 opacity-90 contrast-105">
             <source src="background-video.mp4" type="video/mp4">
         </video>
-        <!-- Overlay to keep text readable while showing video clearly -->
-        <div class="absolute inset-0 bg-[#FAF8F5] opacity-90"></div>
+        <!-- Soft Translucent Glass Veil -->
+        <div class="absolute inset-0 bg-[#FAF8F5]/52"></div>
     </div>
 
     <!-- ==============================================
-         1. NAVIGATION HEADER (Blinking Fixed)
+         1. NAVIGATION HEADER (Logo Fixed + iOS Glass)
     =============================================== -->
-    <header class="fixed top-0 left-0 right-0 z-50 glass-nav h-24 flex items-center">
+    <header class="fixed top-0 left-0 right-0 z-50 ios-glass-nav h-24 flex items-center">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full flex justify-between items-center">
             
             <a href="index.html" class="flex items-center gap-4 group">
-                <!-- Removed the infinite loop onerror handler that caused blinking -->
-                <img src="IOGO.png" alt="Cognisys Logo" class="h-14 w-auto object-contain" onerror="this.onerror=null; this.src='https://via.placeholder.com/150x50/FAF8F5/111111?text=COGNISYS';">
+                <!-- Primary src set to logo.png with fallback to IOGO.png -->
+                <img 
+                    src="logo.png" 
+                    alt="Cognisys IT Solutions Logo" 
+                    class="h-14 w-auto object-contain drop-shadow-sm transition-transform duration-300 group-hover:scale-105" 
+                    onerror="this.onerror=null; this.src='IOGO.png';"
+                >
                 <div class="flex flex-col">
                     <span class="font-heading font-extrabold text-2xl tracking-tight text-brand-black leading-none">COGNISYS</span>
                     <span class="text-[0.65rem] font-bold uppercase tracking-[0.2em] text-brand-brown mt-1">Soft Services & IT Solutions</span>
@@ -106,29 +208,30 @@
             </a>
 
             <div class="flex items-center gap-6">
-                <a href="#contact" class="hidden sm:inline-flex items-center justify-center bg-brand-black text-white px-8 py-3 rounded-full text-xs font-bold uppercase tracking-widest hover:bg-brand-brown transition-colors">
+                <a href="#contact" class="hidden sm:inline-flex items-center justify-center bg-brand-black/90 backdrop-blur-md text-white px-8 py-3 rounded-full text-xs font-bold uppercase tracking-widest hover:bg-brand-brown transition-colors shadow-sm">
                     Let's Talk
                 </a>
                 
-                <button id="menuToggleBtn" aria-label="Toggle Navigation" class="flex flex-col items-center justify-center w-12 h-12 rounded-full border border-brand-border text-brand-black hover:bg-brand-black hover:text-white transition-all cursor-pointer bg-white">
+                <button id="menuToggleBtn" aria-label="Toggle Navigation" class="flex flex-col items-center justify-center w-12 h-12 rounded-full border border-white/80 text-brand-black hover:bg-brand-black hover:text-white transition-all cursor-pointer bg-white/70 backdrop-blur-md shadow-sm">
                     <i class="fa-solid fa-bars text-lg"></i>
                 </button>
             </div>
             
-            <div id="dropdownMenu" class="absolute top-24 right-4 sm:right-8 w-72 bg-white border border-brand-border shadow-2xl rounded-xl hidden flex-col z-40 overflow-hidden">
-                <a href="index.html" class="px-6 py-4 text-sm font-semibold text-brand-brown border-b border-brand-border bg-brand-brownieWhite flex items-center gap-3">
+            <!-- iOS Glass Dropdown Menu -->
+            <div id="dropdownMenu" class="absolute top-24 right-4 sm:right-8 w-72 ios-glass-card rounded-2xl hidden flex-col z-40 overflow-hidden shadow-2xl">
+                <a href="index.html" class="px-6 py-4 text-sm font-semibold text-brand-brown border-b border-black/5 bg-white/50 flex items-center gap-3">
                     <i class="fa-solid fa-house w-4 text-brand-brown"></i> Home
                 </a>
-                <a href="about.html" class="px-6 py-4 text-sm font-semibold text-brand-muted border-b border-brand-border hover:bg-brand-brownieWhite hover:text-brand-black transition-colors flex items-center gap-3">
+                <a href="about.html" class="px-6 py-4 text-sm font-semibold text-brand-black border-b border-black/5 hover:bg-white/60 transition-colors flex items-center gap-3">
                     <i class="fa-solid fa-building w-4 text-brand-brown"></i> Who We Are
                 </a>
-                <a href="services.html" class="px-6 py-4 text-sm font-semibold text-brand-muted border-b border-brand-border hover:bg-brand-brownieWhite hover:text-brand-black transition-colors flex items-center gap-3">
+                <a href="services.html" class="px-6 py-4 text-sm font-semibold text-brand-black border-b border-black/5 hover:bg-white/60 transition-colors flex items-center gap-3">
                     <i class="fa-solid fa-server w-4 text-brand-brown"></i> Services & Solutions
                 </a>
-                <a href="innovations.html" class="px-6 py-4 text-sm font-semibold text-brand-muted border-b border-brand-border hover:bg-brand-brownieWhite hover:text-brand-black transition-colors flex items-center gap-3">
+                <a href="innovations.html" class="px-6 py-4 text-sm font-semibold text-brand-black border-b border-black/5 hover:bg-white/60 transition-colors flex items-center gap-3">
                     <i class="fa-solid fa-lightbulb w-4 text-brand-brown"></i> In-House Projects
                 </a>
-                <a href="careers.html" class="px-6 py-4 text-sm font-semibold text-brand-black hover:bg-brand-brownieWhite hover:text-brand-brown flex justify-between items-center transition-colors">
+                <a href="careers.html" class="px-6 py-4 text-sm font-semibold text-brand-black hover:bg-white/60 flex justify-between items-center transition-colors">
                     <span><i class="fa-solid fa-briefcase w-4 mr-2 text-brand-brown"></i> Careers / Hiring</span> 
                     <i class="fa-solid fa-arrow-right text-xs"></i>
                 </a>
@@ -138,21 +241,25 @@
 
     <main>
         <!-- ==============================================
-             2. HERO SECTION
+             2. HERO SECTION (Clear Video Visibility)
         =============================================== -->
-        <section class="relative pt-48 pb-28 border-b border-brand-border">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+        <section class="relative pt-48 pb-28 border-b border-white/60">
+            <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
                 
-                <span class="text-xs font-bold tracking-widest text-brand-brown uppercase mb-4 inline-block">
-                    Architecting Enterprise Scale
-                </span>
+                <!-- Glass Pill Badge -->
+                <div class="inline-flex items-center gap-2 px-5 py-2 rounded-full ios-glass-card mb-6">
+                    <span class="w-2 h-2 rounded-full bg-brand-copper"></span>
+                    <span class="text-xs font-bold tracking-widest text-brand-brown uppercase">
+                        Architecting Enterprise Scale
+                    </span>
+                </div>
                 
-                <h1 class="font-heading text-5xl md:text-7xl font-extrabold tracking-tight mb-8 leading-[1.1] text-brand-black">
+                <h1 class="font-heading text-5xl md:text-7xl font-extrabold tracking-tight mb-8 leading-[1.1] text-brand-black drop-shadow-sm">
                     Growth Dynamics: <br />
                     <span class="text-brand-brown">Strategies for Scaling.</span>
                 </h1>
                 
-                <p class="text-base sm:text-lg text-brand-muted mb-12 max-w-3xl mx-auto leading-relaxed">
+                <p class="text-base sm:text-lg text-brand-black/80 font-medium mb-12 max-w-3xl mx-auto leading-relaxed">
                     Cognisys operates at the intersection of American strategic execution and Indian engineering capability. We empower enterprises through custom software architecture, domestic and US staffing augmentation, and cloud transformations.
                 </p>
                 
@@ -160,7 +267,7 @@
                     <a href="#services" class="w-full sm:w-auto bg-brand-black text-white px-9 py-4 font-bold text-xs uppercase tracking-widest rounded-full hover:bg-brand-brown transition-colors shadow-lg">
                         Explore Our Solutions <i class="fa-solid fa-arrow-down ml-2"></i>
                     </a>
-                    <a href="about.html" class="w-full sm:w-auto bg-white border border-brand-border text-brand-black px-9 py-4 font-bold text-xs uppercase tracking-widest rounded-full hover:bg-brand-brownieWhite transition-colors shadow-md">
+                    <a href="about.html" class="w-full sm:w-auto ios-glass-card text-brand-black px-9 py-4 font-bold text-xs uppercase tracking-widest rounded-full hover:bg-white/90 transition-colors">
                         Discover Who We Are <i class="fa-solid fa-arrow-right ml-2"></i>
                     </a>
                 </div>
@@ -168,34 +275,34 @@
         </section>
 
         <!-- ==============================================
-             3. BUSINESS METRICS 
+             3. BUSINESS METRICS (iOS Dark Translucent Glass)
         =============================================== -->
-        <section class="py-16 bg-brand-black/95 backdrop-blur-md text-white border-y border-brand-dark relative z-10">
+        <section class="py-16 ios-dark-glass text-white relative z-10">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center divide-y md:divide-y-0 md:divide-x divide-gray-800">
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center divide-y md:divide-y-0 md:divide-x divide-white/15">
                     
                     <div class="pt-4 md:pt-0">
                         <div class="text-4xl md:text-5xl font-extrabold font-heading mb-2">7+</div>
-                        <p class="text-xs uppercase tracking-widest text-gray-300 font-bold">Active Clients</p>
-                        <p class="text-[0.7rem] text-gray-500 mt-1 hidden md:block">India & USA Engagements</p>
+                        <p class="text-xs uppercase tracking-widest text-gray-200 font-bold">Active Clients</p>
+                        <p class="text-[0.7rem] text-gray-400 mt-1 hidden md:block">India & USA Engagements</p>
                     </div>
 
                     <div class="pt-4 md:pt-0">
                         <div class="text-4xl md:text-5xl font-extrabold font-heading mb-2">4+</div>
-                        <p class="text-xs uppercase tracking-widest text-gray-300 font-bold">Completed Projects</p>
+                        <p class="text-xs uppercase tracking-widest text-gray-200 font-bold">Completed Projects</p>
                         <p class="text-[0.7rem] text-brand-copper mt-1 font-semibold hidden md:block">Includes 2 In-House Platforms</p>
                     </div>
 
                     <div class="pt-4 md:pt-0">
                         <div class="text-4xl md:text-5xl font-extrabold font-heading mb-2 text-brand-copper">6</div>
-                        <p class="text-xs uppercase tracking-widest text-gray-300 font-bold">Ongoing Projects</p>
-                        <p class="text-[0.7rem] text-gray-500 mt-1 hidden md:block">Active Production Deployments</p>
+                        <p class="text-xs uppercase tracking-widest text-gray-200 font-bold">Ongoing Projects</p>
+                        <p class="text-[0.7rem] text-gray-400 mt-1 hidden md:block">Active Production Deployments</p>
                     </div>
 
                     <div class="pt-4 md:pt-0">
                         <div class="text-4xl md:text-5xl font-extrabold font-heading mb-2">100%</div>
-                        <p class="text-xs uppercase tracking-widest text-gray-300 font-bold">Placement Support</p>
-                        <p class="text-[0.7rem] text-gray-500 mt-1 hidden md:block">Verified Training Pipelines</p>
+                        <p class="text-xs uppercase tracking-widest text-gray-200 font-bold">Placement Support</p>
+                        <p class="text-[0.7rem] text-gray-400 mt-1 hidden md:block">Verified Training Pipelines</p>
                     </div>
 
                 </div>
@@ -203,9 +310,9 @@
         </section>
 
         <!-- ==============================================
-             4. CORE SERVICES SECTION
+             4. CORE SERVICES SECTION (All 6 Cards in iOS Frosted Glass)
         =============================================== -->
-        <section id="services" class="py-28 bg-brand-brownieWhite/95 backdrop-blur-sm border-b border-brand-border relative z-10">
+        <section id="services" class="py-28 ios-glass-section border-b border-white/60 relative z-10">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 
                 <div class="flex flex-col lg:flex-row justify-between items-end mb-16 gap-6">
@@ -215,16 +322,17 @@
                             Comprehensive Software & Talent Architecture
                         </h2>
                     </div>
-                    <a href="services.html" class="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-brand-black border border-brand-border bg-white px-7 py-3.5 rounded-full hover:bg-brand-black hover:text-white transition-colors shadow-sm">
+                    <a href="services.html" class="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-brand-black ios-glass-card px-7 py-3.5 rounded-full hover:bg-brand-black hover:text-white transition-colors">
                         View Detailed Breakdown <i class="fa-solid fa-arrow-right"></i>
                     </a>
                 </div>
 
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                     
-                    <div class="clean-card p-9 rounded-2xl flex flex-col justify-between shadow-sm">
+                    <!-- 01: Software Development -->
+                    <div class="ios-glass-card p-9 rounded-3xl flex flex-col justify-between">
                         <div>
-                            <div class="w-12 h-12 rounded-xl bg-brand-brownieWhite border border-brand-border flex items-center justify-center text-brand-brown text-xl mb-6">
+                            <div class="w-12 h-12 rounded-2xl bg-white/80 border border-white flex items-center justify-center text-brand-brown text-xl mb-6 shadow-sm">
                                 <i class="fa-solid fa-code"></i>
                             </div>
                             <h3 class="text-xl font-heading font-bold text-brand-black mb-3">Custom Software Engineering</h3>
@@ -232,15 +340,16 @@
                                 Bespoke microservices, high-performance web applications, and mobile products engineered with modular architectures using React, Java Spring Boot, and Flutter.
                             </p>
                         </div>
-                        <ul class="text-xs font-semibold text-brand-black space-y-2.5 border-t border-brand-border pt-5">
+                        <ul class="text-xs font-semibold text-brand-black space-y-2.5 border-t border-black/10 pt-5">
                             <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-copper"></i> Microservice Architecture</li>
                             <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-copper"></i> Cross-Platform Mobile Applications</li>
                         </ul>
                     </div>
 
-                    <div class="clean-card p-9 rounded-2xl flex flex-col justify-between shadow-sm">
+                    <!-- 02: Domestic IT Recruitment -->
+                    <div class="ios-glass-card p-9 rounded-3xl flex flex-col justify-between">
                         <div>
-                            <div class="w-12 h-12 rounded-xl bg-brand-brownieWhite border border-brand-border flex items-center justify-center text-brand-brown text-xl mb-6">
+                            <div class="w-12 h-12 rounded-2xl bg-white/80 border border-white flex items-center justify-center text-brand-brown text-xl mb-6 shadow-sm">
                                 <i class="fa-solid fa-users-viewfinder"></i>
                             </div>
                             <h3 class="text-xl font-heading font-bold text-brand-black mb-3">Domestic IT Staffing (India)</h3>
@@ -248,31 +357,33 @@
                                 End-to-end technical recruitment across tier-1 technology hubs in India. We source, screen, and deploy developers for permanent and contract positions.
                             </p>
                         </div>
-                        <ul class="text-xs font-semibold text-brand-black space-y-2.5 border-t border-brand-border pt-5">
+                        <ul class="text-xs font-semibold text-brand-black space-y-2.5 border-t border-black/10 pt-5">
                             <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-copper"></i> Technical Screening Assessment</li>
                             <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-copper"></i> Direct Hire & Contract Sourcing</li>
                         </ul>
                     </div>
 
-                    <div class="dark-card p-9 rounded-2xl flex flex-col justify-between shadow-lg">
+                    <!-- 03: USA IT Staff Augmentation (Matched to iOS Frosted Glass) -->
+                    <div class="ios-glass-card p-9 rounded-3xl flex flex-col justify-between">
                         <div>
-                            <div class="w-12 h-12 rounded-xl bg-brand-dark border border-gray-800 flex items-center justify-center text-brand-copper text-xl mb-6">
+                            <div class="w-12 h-12 rounded-2xl bg-white/80 border border-white flex items-center justify-center text-brand-brown text-xl mb-6 shadow-sm">
                                 <i class="fa-solid fa-briefcase"></i>
                             </div>
-                            <h3 class="text-xl font-heading font-bold text-white mb-3">USA IT Staff Augmentation</h3>
-                            <p class="text-sm text-gray-400 leading-relaxed mb-6">
+                            <h3 class="text-xl font-heading font-bold text-brand-black mb-3">USA IT Staff Augmentation</h3>
+                            <p class="text-sm text-brand-muted leading-relaxed mb-6">
                                 Strategic staffing support operating under strict W2, C2C, and 1099 compliance frameworks to provide US-based enterprises with vetted talent.
                             </p>
                         </div>
-                        <ul class="text-xs font-semibold text-white space-y-2.5 border-t border-gray-800 pt-5">
+                        <ul class="text-xs font-semibold text-brand-black space-y-2.5 border-t border-black/10 pt-5">
                             <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-copper"></i> Vendor Management Integration</li>
                             <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-copper"></i> W2 / C2C / 1099 Sourcing</li>
                         </ul>
                     </div>
 
-                    <div class="clean-card p-9 rounded-2xl flex flex-col justify-between shadow-sm">
+                    <!-- 04: Cloud & DevOps -->
+                    <div class="ios-glass-card p-9 rounded-3xl flex flex-col justify-between">
                         <div>
-                            <div class="w-12 h-12 rounded-xl bg-brand-brownieWhite border border-brand-border flex items-center justify-center text-brand-brown text-xl mb-6">
+                            <div class="w-12 h-12 rounded-2xl bg-white/80 border border-white flex items-center justify-center text-brand-brown text-xl mb-6 shadow-sm">
                                 <i class="fa-solid fa-cloud-arrow-up"></i>
                             </div>
                             <h3 class="text-xl font-heading font-bold text-brand-black mb-3">Cloud Migrations & DevOps</h3>
@@ -280,15 +391,16 @@
                                 Architecture planning and migration to AWS and Azure environments. Automated build and container orchestration with Docker and Kubernetes.
                             </p>
                         </div>
-                        <ul class="text-xs font-semibold text-brand-black space-y-2.5 border-t border-brand-border pt-5">
+                        <ul class="text-xs font-semibold text-brand-black space-y-2.5 border-t border-black/10 pt-5">
                             <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-copper"></i> CI/CD Pipeline Automation</li>
                             <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-copper"></i> Cloud Infrastructure Optimization</li>
                         </ul>
                     </div>
 
-                    <div class="clean-card p-9 rounded-2xl flex flex-col justify-between shadow-sm">
+                    <!-- 05: Offshore Delivery Centers -->
+                    <div class="ios-glass-card p-9 rounded-3xl flex flex-col justify-between">
                         <div>
-                            <div class="w-12 h-12 rounded-xl bg-brand-brownieWhite border border-brand-border flex items-center justify-center text-brand-brown text-xl mb-6">
+                            <div class="w-12 h-12 rounded-2xl bg-white/80 border border-white flex items-center justify-center text-brand-brown text-xl mb-6 shadow-sm">
                                 <i class="fa-solid fa-building-flag"></i>
                             </div>
                             <h3 class="text-xl font-heading font-bold text-brand-black mb-3">Offshore Delivery Centers (ODC)</h3>
@@ -296,15 +408,16 @@
                                 Setting up and managing dedicated development pods in Hyderabad that function as seamless technical extensions of onshore teams.
                             </p>
                         </div>
-                        <ul class="text-xs font-semibold text-brand-black space-y-2.5 border-t border-brand-border pt-5">
+                        <ul class="text-xs font-semibold text-brand-black space-y-2.5 border-t border-black/10 pt-5">
                             <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-copper"></i> Build-Operate-Transfer Models</li>
                             <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-copper"></i> Dedicated Security Protocols</li>
                         </ul>
                     </div>
 
-                    <div class="clean-card p-9 rounded-2xl flex flex-col justify-between shadow-sm">
+                    <!-- 06: Training & Placements -->
+                    <div class="ios-glass-card p-9 rounded-3xl flex flex-col justify-between">
                         <div>
-                            <div class="w-12 h-12 rounded-xl bg-brand-brownieWhite border border-brand-border flex items-center justify-center text-brand-brown text-xl mb-6">
+                            <div class="w-12 h-12 rounded-2xl bg-white/80 border border-white flex items-center justify-center text-brand-brown text-xl mb-6 shadow-sm">
                                 <i class="fa-solid fa-graduation-cap"></i>
                             </div>
                             <h3 class="text-xl font-heading font-bold text-brand-black mb-3">Collaborative Training & Placements</h3>
@@ -312,7 +425,7 @@
                                 Practical, project-based developer training in collaboration with academic institutions, backed by direct hiring pipelines into our partner network.
                             </p>
                         </div>
-                        <ul class="text-xs font-semibold text-brand-black space-y-2.5 border-t border-brand-border pt-5">
+                        <ul class="text-xs font-semibold text-brand-black space-y-2.5 border-t border-black/10 pt-5">
                             <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-copper"></i> Real-World Codebase Experience</li>
                             <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-copper"></i> Verified Placement Drives</li>
                         </ul>
@@ -323,14 +436,14 @@
         </section>
 
         <!-- ==============================================
-             5. CONTACT & INQUIRY FORM SECTION
+             5. CONTACT & INQUIRY FORM SECTION (iOS Glass Container)
         =============================================== -->
-        <section id="contact" class="py-28 bg-white border-b border-brand-border relative z-10">
+        <section id="contact" class="py-28 relative z-10">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
                     
-                    <!-- Left Column: Contact Data -->
-                    <div class="lg:col-span-5">
+                    <!-- Left Column: Contact Data in Frosted Glass Card -->
+                    <div class="lg:col-span-5 ios-glass-card p-8 md:p-10 rounded-3xl">
                         <span class="text-xs font-bold tracking-widest text-brand-brown uppercase mb-3 block">Get In Touch</span>
                         <h2 class="font-heading text-3xl sm:text-4xl font-bold text-brand-black leading-tight mb-6">
                             Let's Discuss Your Project or Staffing Needs.
@@ -339,7 +452,7 @@
                             Our team responds to all corporate inquiries, partnership proposals, and candidate applications within 24 business hours.
                         </p>
                         
-                        <div class="space-y-6 border-l-2 border-brand-border pl-6">
+                        <div class="space-y-6 border-l-2 border-brand-brown/30 pl-6">
                             <div>
                                 <h4 class="font-bold text-xs uppercase tracking-widest text-brand-brown mb-1">Email Inquiry</h4>
                                 <a href="mailto:info@cognisysitsolutions.in" class="text-sm font-semibold text-brand-black hover:text-brand-brown transition-colors">
@@ -361,34 +474,34 @@
 
                     <!-- Right Column: Submission Form -->
                     <div class="lg:col-span-7">
-                        <div class="bg-brand-brownieWhite p-8 md:p-10 rounded-2xl border border-brand-border shadow-sm">
-                            <h3 class="font-heading text-xl font-bold text-brand-black mb-6 border-b border-brand-border pb-4">
+                        <div class="ios-glass-card p-8 md:p-10 rounded-3xl">
+                            <h3 class="font-heading text-xl font-bold text-brand-black mb-6 border-b border-black/10 pb-4">
                                 Submit a Requirement
                             </h3>
                             <form action="#" method="POST" class="space-y-5">
                                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
                                     <div>
-                                        <label class="block text-xs font-bold uppercase tracking-widest text-brand-muted mb-2">First Name *</label>
-                                        <input type="text" name="firstName" required class="w-full bg-white border border-brand-border px-4 py-3 text-sm rounded-lg focus:border-brand-brown outline-none shadow-sm">
+                                        <label class="block text-xs font-bold uppercase tracking-widest text-brand-black mb-2">First Name *</label>
+                                        <input type="text" name="firstName" required class="w-full ios-input px-4 py-3 text-sm rounded-xl outline-none">
                                     </div>
                                     <div>
-                                        <label class="block text-xs font-bold uppercase tracking-widest text-brand-muted mb-2">Last Name *</label>
-                                        <input type="text" name="lastName" required class="w-full bg-white border border-brand-border px-4 py-3 text-sm rounded-lg focus:border-brand-brown outline-none shadow-sm">
+                                        <label class="block text-xs font-bold uppercase tracking-widest text-brand-black mb-2">Last Name *</label>
+                                        <input type="text" name="lastName" required class="w-full ios-input px-4 py-3 text-sm rounded-xl outline-none">
                                     </div>
                                 </div>
                                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
                                     <div>
-                                        <label class="block text-xs font-bold uppercase tracking-widest text-brand-muted mb-2">Work Email *</label>
-                                        <input type="email" name="email" required class="w-full bg-white border border-brand-border px-4 py-3 text-sm rounded-lg focus:border-brand-brown outline-none shadow-sm">
+                                        <label class="block text-xs font-bold uppercase tracking-widest text-brand-black mb-2">Work Email *</label>
+                                        <input type="email" name="email" required class="w-full ios-input px-4 py-3 text-sm rounded-xl outline-none">
                                     </div>
                                     <div>
-                                        <label class="block text-xs font-bold uppercase tracking-widest text-brand-muted mb-2">Phone Number *</label>
-                                        <input type="tel" name="phone" required class="w-full bg-white border border-brand-border px-4 py-3 text-sm rounded-lg focus:border-brand-brown outline-none shadow-sm">
+                                        <label class="block text-xs font-bold uppercase tracking-widest text-brand-black mb-2">Phone Number *</label>
+                                        <input type="tel" name="phone" required class="w-full ios-input px-4 py-3 text-sm rounded-xl outline-none">
                                     </div>
                                 </div>
                                 <div>
-                                    <label class="block text-xs font-bold uppercase tracking-widest text-brand-muted mb-2">Inquiry Type</label>
-                                    <select name="type" class="w-full bg-white border border-brand-border px-4 py-3 text-sm rounded-lg focus:border-brand-brown outline-none text-brand-black shadow-sm">
+                                    <label class="block text-xs font-bold uppercase tracking-widest text-brand-black mb-2">Inquiry Type</label>
+                                    <select name="type" class="w-full ios-input px-4 py-3 text-sm rounded-xl outline-none text-brand-black">
                                         <option>Custom Software Development</option>
                                         <option>Domestic IT Staffing (India)</option>
                                         <option>USA IT Staff Augmentation</option>
@@ -397,10 +510,10 @@
                                     </select>
                                 </div>
                                 <div>
-                                    <label class="block text-xs font-bold uppercase tracking-widest text-brand-muted mb-2">Message *</label>
-                                    <textarea name="message" rows="4" required class="w-full bg-white border border-brand-border px-4 py-3 text-sm rounded-lg focus:border-brand-brown outline-none shadow-sm" placeholder="Provide details regarding your requirement..."></textarea>
+                                    <label class="block text-xs font-bold uppercase tracking-widest text-brand-black mb-2">Message *</label>
+                                    <textarea name="message" rows="4" required class="w-full ios-input px-4 py-3 text-sm rounded-xl outline-none" placeholder="Provide details regarding your requirement..."></textarea>
                                 </div>
-                                <button type="submit" class="w-full bg-brand-black text-white px-8 py-4 font-bold text-xs uppercase tracking-widest rounded-lg hover:bg-brand-brown transition-colors shadow-md">
+                                <button type="submit" class="w-full bg-brand-black text-white px-8 py-4 font-bold text-xs uppercase tracking-widest rounded-xl hover:bg-brand-brown transition-colors shadow-lg">
                                     Submit Request
                                 </button>
                             </form>
@@ -413,21 +526,20 @@
     </main>
 
     <!-- ==============================================
-         6. FOOTER 
-         Exact Original Colors for DPIIT
+         6. FOOTER (5-Column Layout + DPIIT Right Side Original Colors)
     =============================================== -->
     <footer class="bg-brand-black text-white pt-16 pb-12 border-t border-gray-900 relative z-20">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 mb-14">
                 
-                <!-- Col 1: Brand & About -->
-                <div class="lg:col-span-4">
+                <!-- Col 1: Brand & About (Span 3) -->
+                <div class="lg:col-span-3">
                     <a href="index.html" class="flex items-center gap-3.5 mb-6">
                         <img 
-                            src="IOGO.png" 
-                            alt="Cognisys Logo" 
+                            src="logo.png" 
+                            alt="Cognisys IT Solutions Logo" 
                             class="h-14 w-auto object-contain"
-                            onerror="if(this.src.indexOf('IOGO.png') !== -1){ this.src='logo.png'; } else if(this.src.indexOf('logo.png') !== -1){ this.src='Logo.png'; } else if(this.src.indexOf('Logo.png') !== -1){ this.src='iogo.png'; }"
+                            onerror="this.onerror=null; this.src='IOGO.png';"
                         >
                         <div class="flex flex-col">
                             <span class="font-heading font-extrabold text-xl tracking-tight text-white leading-none">COGNISYS</span>
@@ -439,8 +551,8 @@
                     </p>
                 </div>
                 
-                <!-- Col 2: Quick Links -->
-                <div class="lg:col-span-2">
+                <!-- Col 2: Quick Links (Span 2) -->
+                <div class="lg:col-span-2 lg:pl-6">
                     <h3 class="text-xs font-bold uppercase tracking-widest text-brand-copper mb-5">Quick Links</h3>
                     <ul class="space-y-3 text-xs text-gray-400">
                         <li><a href="about.html" class="hover:text-white transition-colors">Who We Are</a></li>
@@ -449,7 +561,7 @@
                     </ul>
                 </div>
                 
-                <!-- Col 3: Core Services -->
+                <!-- Col 3: Core Services (Span 3) -->
                 <div class="lg:col-span-3">
                     <h3 class="text-xs font-bold uppercase tracking-widest text-brand-copper mb-5">Core Services</h3>
                     <ul class="space-y-3 text-xs text-gray-400">
@@ -461,8 +573,8 @@
                     </ul>
                 </div>
 
-                <!-- Col 4: Contact Us, LinkedIn & DPIIT Logo on Right -->
-                <div class="lg:col-span-3">
+                <!-- Col 4: Contact Us & LinkedIn (Span 2) -->
+                <div class="lg:col-span-2">
                     <h3 class="text-xs font-bold uppercase tracking-widest text-brand-copper mb-5">Contact Us</h3>
                     <div class="space-y-2 text-xs text-gray-400 mb-6">
                         <p><i class="fa-solid fa-envelope w-4 text-white"></i> info@cognisysitsolutions.in</p>
@@ -470,17 +582,19 @@
                     </div>
                     
                     <h3 class="text-xs font-bold uppercase tracking-widest text-brand-copper mb-3">Follow Us</h3>
-                    <a href="https://www.linkedin.com/company/cognisys-soft-services" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white text-xl inline-block mb-6 transition-colors">
+                    <a href="https://www.linkedin.com/company/cognisys-soft-services" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white text-xl inline-block transition-colors">
                         <i class="fa-brands fa-linkedin"></i>
                     </a>
+                </div>
 
-                    <!-- DPIIT Recognition on the Right in ORIGINAL COLORS -->
-                    <h3 class="text-xs font-bold uppercase tracking-widest text-brand-copper mb-3">Recognition</h3>
-                    <a href="dpiit-certificate.pdf" target="_blank" title="View Certificate" class="inline-block transition-transform hover:scale-105">
+                <!-- Col 5: DPIIT Recognition Far Right Side in Original Colors (Span 2) -->
+                <div class="lg:col-span-2 flex flex-col items-start lg:items-end">
+                    <h3 class="text-xs font-bold uppercase tracking-widest text-brand-copper mb-5 w-full lg:text-right">Recognition</h3>
+                    <a href="dpiit-certificate.pdf" target="_blank" title="View DPIIT Certificate" class="inline-block transition-transform hover:scale-105">
                         <img 
                             src="startup-india-logo.png" 
                             alt="DPIIT Recognized Startup" 
-                            class="h-10 w-auto object-contain"
+                            class="w-full max-w-[190px] h-auto object-contain"
                             onerror="this.style.display='none'"
                         >
                     </a>
@@ -512,6 +626,13 @@
                 dropMenu.classList.add('hidden');
                 dropMenu.classList.remove('flex');
                 menuBtn.innerHTML = '<i class="fa-solid fa-bars text-lg"></i>';
+            }
+        });
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const vid = document.getElementById('bg-video');
+            if(vid) {
+                vid.play().catch(e => console.log('Video autoplay handled'));
             }
         });
     </script>
