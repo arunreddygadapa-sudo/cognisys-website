@@ -67,35 +67,36 @@
         .ambient-video {
             position: absolute; top: 50%; left: 50%; min-width: 100%; min-height: 100%;
             width: auto; height: auto; object-fit: cover;
-            transform: translate(-50%, -50%) scale(1.06);
-            filter: blur(6px) saturate(110%); opacity: 0.85;
+            transform: translate(-50%, -50%) scale(1.02);
+            filter: blur(1.5px) contrast(105%) saturate(115%);
+            opacity: 0.92;
         }
         .ios-glass-nav {
-            background: rgba(250, 248, 245, 0.68);
+            background: rgba(250, 248, 245, 0.72);
             backdrop-filter: blur(28px) saturate(190%); -webkit-backdrop-filter: blur(28px) saturate(190%);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.8);
-            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.04);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.85);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
         }
         .ios-glass-section {
-            background: rgba(250, 248, 245, 0.45);
-            backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+            background: rgba(250, 248, 245, 0.36);
+            backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px);
         }
         .ios-glass-card {
-            background: linear-gradient(135deg, rgba(255, 255, 255, 0.78) 0%, rgba(250, 248, 245, 0.58) 100%);
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.82) 0%, rgba(250, 248, 245, 0.64) 100%);
             backdrop-filter: blur(24px) saturate(180%); -webkit-backdrop-filter: blur(24px) saturate(180%);
-            border: 1px solid rgba(255, 255, 255, 0.88);
+            border: 1px solid rgba(255, 255, 255, 0.9);
             box-shadow: 0 10px 35px -5px rgba(74, 55, 40, 0.08), inset 0 1px 1px 0 rgba(255, 255, 255, 0.95);
             transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.3s ease, border-color 0.3s ease;
         }
         .ios-glass-card:hover {
             transform: translateY(-5px);
-            background: linear-gradient(135deg, rgba(255, 255, 255, 0.88) 0%, rgba(250, 248, 245, 0.72) 100%);
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.92) 0%, rgba(250, 248, 245, 0.78) 100%);
             border-color: rgba(74, 55, 40, 0.45);
             box-shadow: 0 20px 45px -10px rgba(74, 55, 40, 0.15), inset 0 1px 2px 0 rgba(255, 255, 255, 1);
         }
         .ios-input {
-            background: rgba(255, 255, 255, 0.78); backdrop-filter: blur(12px);
-            border: 1px solid rgba(74, 55, 40, 0.18); transition: all 0.2s ease;
+            background: rgba(255, 255, 255, 0.82); backdrop-filter: blur(12px);
+            border: 1px solid rgba(74, 55, 40, 0.22); transition: all 0.2s ease;
         }
         .ios-input:focus {
             background: rgba(255, 255, 255, 0.98); border-color: #4A3728;
@@ -105,17 +106,17 @@
 </head>
 <body class="font-sans antialiased selection:bg-brand-brown selection:text-white">
 
-    <!-- SOFT-BLURRED AMBIENT VIDEO 5 BACKGROUND -->
+    <!-- CLEAR AMBIENT VIDEO 5 BACKGROUND -->
     <div class="fixed inset-0 z-[-2] w-full h-full overflow-hidden bg-brand-brownieWhite">
         <video id="bg-video-5" autoplay loop muted playsinline class="ambient-video">
             <source src="background-video-5.mp4" type="video/mp4">
         </video>
-        <div class="absolute inset-0 bg-[#FAF8F5]/65"></div>
+        <div class="absolute inset-0 bg-[#FAF8F5]/48"></div>
     </div>
 
-    <!-- 1. HEADER -->
-    <header class="fixed top-0 left-0 right-0 z-50 ios-glass-nav h-24 flex items-center">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full flex justify-between items-center">
+    <!-- 1. HEADER WITH ENLARGED NAVIGATION BAR -->
+    <header class="fixed top-0 left-0 right-0 z-50 ios-glass-nav py-4">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full flex flex-wrap justify-between items-center gap-4">
             <a href="index.html" class="flex items-center gap-4 group">
                 <img src="IOGO.png" alt="Cognisys IT Solutions" class="h-14 w-auto object-contain transition-transform duration-300 group-hover:scale-105" onerror="this.onerror=null; this.src='logo.png';">
                 <div class="flex flex-col">
@@ -124,34 +125,23 @@
                 </div>
             </a>
 
-            <nav aria-label="Main Navigation" class="hidden lg:flex items-center gap-1 px-3 py-1.5 rounded-full ios-glass-card">
-                <a href="index.html" class="px-4 py-2 rounded-full text-xs font-semibold text-brand-black hover:bg-white/70 transition-colors">Home</a>
-                <a href="about.html" class="px-4 py-2 rounded-full text-xs font-semibold text-brand-black hover:bg-white/70 transition-colors">Who We Are</a>
-                <a href="services.html" class="px-4 py-2 rounded-full text-xs font-semibold text-brand-black hover:bg-white/70 transition-colors">Services & Solutions</a>
-                <a href="innovations.html" class="px-4 py-2 rounded-full text-xs font-semibold text-brand-black hover:bg-white/70 transition-colors">In-House Projects</a>
-                <a href="careers.html" class="px-4 py-2 rounded-full text-xs font-bold bg-brand-black text-white">Careers</a>
+            <nav aria-label="Main Navigation" class="flex flex-wrap items-center justify-center gap-1.5 sm:gap-2 px-3 py-2 rounded-full ios-glass-card order-3 lg:order-2 w-full lg:w-auto">
+                <a href="index.html" class="px-5 py-2.5 rounded-full text-sm md:text-base font-bold text-brand-black hover:bg-brand-brown hover:text-white transition-all">Home</a>
+                <a href="about.html" class="px-5 py-2.5 rounded-full text-sm md:text-base font-bold text-brand-black hover:bg-brand-brown hover:text-white transition-all">Who We Are</a>
+                <a href="services.html" class="px-5 py-2.5 rounded-full text-sm md:text-base font-bold text-brand-black hover:bg-brand-brown hover:text-white transition-all">Services & Solutions</a>
+                <a href="innovations.html" class="px-5 py-2.5 rounded-full text-sm md:text-base font-bold text-brand-black hover:bg-brand-brown hover:text-white transition-all">In-House Projects</a>
+                <a href="careers.html" class="px-5 py-2.5 rounded-full text-sm md:text-base font-bold bg-brand-black text-white shadow-sm transition-all">Careers</a>
             </nav>
 
-            <div class="flex items-center gap-4">
-                <a href="index.html#contact" class="hidden sm:inline-flex items-center justify-center bg-brand-black text-white px-7 py-3 rounded-full text-xs font-bold uppercase tracking-widest hover:bg-brand-brown transition-colors shadow-sm">Let's Talk</a>
-                <button id="menuToggleBtn" aria-label="Toggle Navigation" class="flex flex-col items-center justify-center w-12 h-12 rounded-full border border-white/80 text-brand-black hover:bg-brand-black hover:text-white transition-all cursor-pointer bg-white/75 backdrop-blur-md shadow-sm">
-                    <i class="fa-solid fa-bars text-lg"></i>
-                </button>
-            </div>
-            
-            <div id="dropdownMenu" class="absolute top-24 right-4 sm:right-8 w-72 ios-glass-card rounded-2xl hidden flex-col z-40 overflow-hidden shadow-2xl">
-                <a href="index.html" class="px-6 py-4 text-sm font-semibold text-brand-black border-b border-black/5 hover:bg-white/60 transition-colors flex items-center gap-3"><i class="fa-solid fa-house w-4 text-brand-brown"></i> Home</a>
-                <a href="about.html" class="px-6 py-4 text-sm font-semibold text-brand-black border-b border-black/5 hover:bg-white/60 transition-colors flex items-center gap-3"><i class="fa-solid fa-building w-4 text-brand-brown"></i> Who We Are</a>
-                <a href="services.html" class="px-6 py-4 text-sm font-semibold text-brand-black border-b border-black/5 hover:bg-white/60 transition-colors flex items-center gap-3"><i class="fa-solid fa-server w-4 text-brand-brown"></i> Services & Solutions</a>
-                <a href="innovations.html" class="px-6 py-4 text-sm font-semibold text-brand-black border-b border-black/5 hover:bg-white/60 transition-colors flex items-center gap-3"><i class="fa-solid fa-lightbulb w-4 text-brand-brown"></i> In-House Projects</a>
-                <a href="careers.html" class="px-6 py-4 text-sm font-semibold text-brand-brown bg-white/50 flex justify-between items-center transition-colors"><span><i class="fa-solid fa-briefcase w-4 mr-2 text-brand-brown"></i> Careers / Hiring</span><i class="fa-solid fa-arrow-right text-xs"></i></a>
+            <div class="flex items-center order-2 lg:order-3">
+                <a href="index.html#contact" class="inline-flex items-center justify-center bg-brand-black text-white px-8 py-3.5 rounded-full text-xs sm:text-sm font-bold uppercase tracking-widest hover:bg-brand-brown transition-colors shadow-md">Contact Us</a>
             </div>
         </div>
     </header>
 
     <main>
         <!-- 2. HERO SECTION -->
-        <section class="relative pt-48 pb-28 border-b border-white/60">
+        <section class="relative pt-48 lg:pt-44 pb-28 border-b border-white/60">
             <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
                 <div class="inline-flex items-center gap-2 px-5 py-2 rounded-full ios-glass-card mb-6">
                     <span class="w-2 h-2 rounded-full bg-brand-copper"></span>
@@ -160,8 +150,8 @@
                 <h1 class="font-heading text-5xl md:text-6xl lg:text-7xl font-extrabold text-brand-black mb-8 leading-tight">
                     Build The Future of <br /><span class="text-brand-brown">Enterprise Tech.</span>
                 </h1>
-                <p class="text-lg md:text-xl text-brand-black/80 font-medium leading-relaxed max-w-4xl mx-auto mb-10">
-                    We are always on the lookout for passionate innovators, elite engineers, and strategic thinkers to scale our operations across the USA and India.
+                <p class="text-lg md:text-xl text-brand-black/85 font-medium leading-relaxed max-w-4xl mx-auto mb-10">
+                    We are always on the lookout for passionate innovators, elite engineers, and technical recruiters to scale our operations across the USA and India.
                 </p>
                 <a href="#openings" class="inline-flex items-center gap-3 text-xs font-bold uppercase tracking-widest text-white bg-brand-black px-9 py-4 rounded-full hover:bg-brand-brown transition-colors shadow-lg">
                     View Open Positions <i class="fa-solid fa-arrow-down"></i>
@@ -179,7 +169,7 @@
 
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                     <div class="ios-glass-card p-8 rounded-3xl"><div class="w-12 h-12 rounded-2xl bg-white/80 flex items-center justify-center text-brand-brown text-xl mb-5 shadow-sm"><i class="fa-solid fa-laptop-code"></i></div><h4 class="font-bold text-brand-black mb-2 text-lg">Cutting-Edge Tech Stack</h4><p class="text-sm text-brand-muted leading-relaxed">Work with scalable microservices, Flutter, React, AWS, and AI-driven enterprise automation.</p></div>
-                    <div class="ios-glass-card p-8 rounded-3xl"><div class="w-12 h-12 rounded-2xl bg-white/80 flex items-center justify-center text-brand-brown text-xl mb-5 shadow-sm"><i class="fa-solid fa-earth-americas"></i></div><h4 class="font-bold text-brand-black mb-2 text-lg">Global Exposure</h4><p class="text-sm text-brand-muted leading-relaxed">Collaborate directly with US enterprise clients and cross-functional engineering teams.</p></div>
+                    <div class="ios-glass-card p-8 rounded-3xl"><div class="w-12 h-12 rounded-2xl bg-white/80 flex items-center justify-center text-brand-brown text-xl mb-5 shadow-sm"><i class="fa-solid fa-earth-americas"></i></div><h4 class="font-bold text-brand-black mb-2 text-lg">Global Exposure</h4><p class="text-sm text-brand-muted leading-relaxed">Collaborate directly with US enterprise clients, prime vendors, and cross-functional engineering teams.</p></div>
                     <div class="ios-glass-card p-8 rounded-3xl"><div class="w-12 h-12 rounded-2xl bg-white/80 flex items-center justify-center text-brand-brown text-xl mb-5 shadow-sm"><i class="fa-solid fa-arrow-trend-up"></i></div><h4 class="font-bold text-brand-black mb-2 text-lg">Rapid Career Growth</h4><p class="text-sm text-brand-muted leading-relaxed">Clear internal progression paths from developer to Senior Architect or Account Director.</p></div>
                     <div class="ios-glass-card p-8 rounded-3xl"><div class="w-12 h-12 rounded-2xl bg-white/80 flex items-center justify-center text-brand-brown text-xl mb-5 shadow-sm"><i class="fa-solid fa-house-laptop"></i></div><h4 class="font-bold text-brand-black mb-2 text-lg">Flexible Work Models</h4><p class="text-sm text-brand-muted leading-relaxed">Hybrid and remote work environments empowering teams to deliver high-impact results.</p></div>
                     <div class="ios-glass-card p-8 rounded-3xl"><div class="w-12 h-12 rounded-2xl bg-white/80 flex items-center justify-center text-brand-brown text-xl mb-5 shadow-sm"><i class="fa-solid fa-chalkboard-user"></i></div><h4 class="font-bold text-brand-black mb-2 text-lg">Continuous Learning</h4><p class="text-sm text-brand-muted leading-relaxed">Access to upskilling programs, cloud certifications, and mentorship from industry veterans.</p></div>
@@ -194,7 +184,7 @@
                 <div class="flex flex-col sm:flex-row justify-between items-end mb-12 gap-6">
                     <div>
                         <h2 class="font-heading text-3xl font-bold text-brand-black mb-2">Current Open Positions</h2>
-                        <p class="text-brand-muted text-sm">Join our teams in Hyderabad or apply for our remote USA consulting roles.</p>
+                        <p class="text-brand-muted text-sm">Join our internal teams in Hyderabad or apply for our client/vendor deployment roles across India and the USA.</p>
                     </div>
                     <div class="px-4 py-1.5 rounded-full ios-glass-card text-xs font-bold text-brand-brown">4 Active Openings</div>
                 </div>
@@ -221,20 +211,20 @@
                                 <span><i class="fa-solid fa-location-dot text-brand-copper mr-1"></i> Hyderabad, India</span>
                                 <span><i class="fa-solid fa-briefcase text-brand-copper mr-1"></i> 5-8 Years Exp</span>
                             </div>
-                            <p class="text-sm text-brand-muted max-w-2xl">Seeking an experienced architect to lead enterprise-grade Spring Boot and React application deployments for our US clients.</p>
+                            <p class="text-sm text-brand-muted max-w-2xl">Seeking an experienced architect to lead enterprise-grade Spring Boot and React application deployments for our US and domestic clients.</p>
                         </div>
                         <a href="#apply" class="shrink-0 bg-brand-black text-white px-6 py-3 text-xs font-bold uppercase tracking-widest rounded-full hover:bg-brand-brown transition-colors">Apply Now</a>
                     </div>
 
                     <div class="ios-glass-card p-8 rounded-3xl flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
                         <div>
-                            <span class="inline-block px-3 py-1 bg-white/80 text-brand-brown text-[0.65rem] font-bold rounded-full uppercase tracking-widest mb-3">Talent Acquisition</span>
-                            <h3 class="text-xl font-bold text-brand-black mb-2">US IT Recruiter (Night Shift)</h3>
+                            <span class="inline-block px-3 py-1 bg-white/80 text-brand-brown text-[0.65rem] font-bold rounded-full uppercase tracking-widest mb-3">Talent Acquisition & Bench Sales</span>
+                            <h3 class="text-xl font-bold text-brand-black mb-2">US & Domestic IT Recruiter</h3>
                             <div class="flex flex-wrap items-center gap-4 text-xs font-semibold text-brand-muted mb-3">
                                 <span><i class="fa-solid fa-location-dot text-brand-copper mr-1"></i> Hyderabad (On-Site)</span>
-                                <span><i class="fa-solid fa-clock text-brand-copper mr-1"></i> Full-Time (EST Hours)</span>
+                                <span><i class="fa-solid fa-clock text-brand-copper mr-1"></i> Full-Time</span>
                             </div>
-                            <p class="text-sm text-brand-muted max-w-2xl">Dynamic recruiters experienced in W2, C2C, and 1099 hiring frameworks to source technical consultants for American enterprise roles.</p>
+                            <p class="text-sm text-brand-muted max-w-2xl">Dynamic recruiters experienced in W2, C2C, 1099, and domestic C2H/permanent sourcing, executing 2-level candidate screening for client and prime vendor requirements.</p>
                         </div>
                         <a href="#apply" class="shrink-0 bg-brand-black text-white px-6 py-3 text-xs font-bold uppercase tracking-widest rounded-full hover:bg-brand-brown transition-colors">Apply Now</a>
                     </div>
@@ -244,8 +234,8 @@
                             <span class="inline-block px-3 py-1 bg-white/80 text-brand-brown text-[0.65rem] font-bold rounded-full uppercase tracking-widest mb-3">Infrastructure</span>
                             <h3 class="text-xl font-bold text-brand-black mb-2">Cloud & DevOps Engineer</h3>
                             <div class="flex flex-wrap items-center gap-4 text-xs font-semibold text-brand-muted mb-3">
-                                <span><i class="fa-solid fa-location-dot text-brand-copper mr-1"></i> Remote (USA Only)</span>
-                                <span><i class="fa-solid fa-file-contract text-brand-copper mr-1"></i> Contract (W2/C2C)</span>
+                                <span><i class="fa-solid fa-location-dot text-brand-copper mr-1"></i> Remote (USA & India)</span>
+                                <span><i class="fa-solid fa-file-contract text-brand-copper mr-1"></i> Contract (W2/C2C/C2H)</span>
                             </div>
                             <p class="text-sm text-brand-muted max-w-2xl">Certified AWS/Azure specialist to automate CI/CD pipelines utilizing Docker and Kubernetes for zero-downtime infrastructure optimization.</p>
                         </div>
@@ -260,7 +250,7 @@
             <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="ios-glass-card p-8 md:p-12 rounded-3xl">
                     <h2 class="font-heading text-2xl sm:text-3xl font-bold text-brand-black mb-2">Submit Your Application</h2>
-                    <p class="text-brand-muted text-sm mb-8 border-b border-black/10 pb-4">Send us your profile and our recruitment team will reach out within 24 hours.</p>
+                    <p class="text-brand-muted text-sm mb-8 border-b border-black/10 pb-4">Send us your profile to enter our 2-level screening pipeline for internal and client opportunities.</p>
                     <form action="#" method="POST" class="space-y-5">
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
                             <div><label class="block text-xs font-bold uppercase tracking-widest text-brand-black mb-2">Full Name *</label><input type="text" name="name" required class="w-full ios-input px-4 py-3 text-sm rounded-xl outline-none"></div>
@@ -299,7 +289,7 @@
                             <span class="text-[0.6rem] font-bold uppercase tracking-[0.2em] text-gray-400 mt-1">Soft Services & IT Solutions</span>
                         </div>
                     </a>
-                    <p class="text-gray-400 text-xs leading-relaxed max-w-sm">Specializing in Custom Software Development, scalable Domestic IT Staffing in India, strategic USA IT Consulting, and collaborative Placement Training programs.</p>
+                    <p class="text-gray-400 text-xs leading-relaxed max-w-sm">Specializing in Custom Software Development, 2-Level Screened Domestic & USA IT Staffing, Client Empanelment, and Sub-Vendorship across India and the USA.</p>
                 </div>
                 <div class="lg:col-span-2 lg:pl-6">
                     <h3 class="text-xs font-bold uppercase tracking-widest text-brand-copper mb-5">Quick Links</h3>
@@ -313,10 +303,10 @@
                     <h3 class="text-xs font-bold uppercase tracking-widest text-brand-copper mb-5">Core Services</h3>
                     <ul class="space-y-3 text-xs text-gray-400">
                         <li><a href="services.html" class="hover:text-white transition-colors">Custom Software Development</a></li>
-                        <li><a href="services.html" class="hover:text-white transition-colors">Domestic IT Staffing</a></li>
-                        <li><a href="services.html" class="hover:text-white transition-colors">USA IT Consulting</a></li>
-                        <li><a href="services.html" class="hover:text-white transition-colors">Cloud Migrations & DevOps</a></li>
-                        <li><a href="services.html" class="hover:text-white transition-colors">Training & Placements</a></li>
+                        <li><a href="services.html" class="hover:text-white transition-colors">Domestic IT Staffing (India)</a></li>
+                        <li><a href="services.html" class="hover:text-white transition-colors">USA IT Consulting & Staffing</a></li>
+                        <li><a href="services.html" class="hover:text-white transition-colors">Client Empanelment & Sub-Vendorship</a></li>
+                        <li><a href="services.html" class="hover:text-white transition-colors">Cloud Migrations & Training</a></li>
                     </ul>
                 </div>
                 <div class="lg:col-span-2">
@@ -343,19 +333,6 @@
     </footer>
 
     <script>
-        const menuBtn = document.getElementById('menuToggleBtn');
-        const dropMenu = document.getElementById('dropdownMenu');
-        menuBtn.addEventListener('click', (e) => {
-            e.stopPropagation();
-            dropMenu.classList.toggle('hidden'); dropMenu.classList.toggle('flex');
-            menuBtn.innerHTML = dropMenu.classList.contains('hidden') ? '<i class="fa-solid fa-bars text-lg"></i>' : '<i class="fa-solid fa-xmark text-lg"></i>';
-        });
-        document.addEventListener('click', (e) => {
-            if (!dropMenu.contains(e.target) && !menuBtn.contains(e.target)) {
-                dropMenu.classList.add('hidden'); dropMenu.classList.remove('flex');
-                menuBtn.innerHTML = '<i class="fa-solid fa-bars text-lg"></i>';
-            }
-        });
         document.getElementById('resume-upload').addEventListener('change', function(e) {
             if (e.target.files.length > 0) {
                 document.getElementById('file-name').textContent = e.target.files[0].name;
