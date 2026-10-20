@@ -3,34 +3,58 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Careers & Hiring | Cognisys IT Solutions</title>
-    <meta name="title" content="Careers & Hiring | Cognisys IT Solutions">
-    <meta name="description" content="Join the Cognisys team. We are looking for passionate innovators, elite engineers, and strategic thinkers to scale our global operations.">
     
-    <!-- Tailwind CSS & FontAwesome -->
+    <title>Careers | Cognisys IT Solutions</title>
+    <meta name="application-name" content="Cognisys IT Solutions">
+    <meta name="description" content="Join Cognisys IT Solutions. Explore open engineering, US IT recruitment, DevOps, and mobile development internship positions in Hyderabad and the USA.">
+    <link rel="canonical" href="https://www.cognisysitsolutions.in/careers.html">
+
+    <meta property="og:site_name" content="Cognisys IT Solutions">
+    <meta property="og:title" content="Careers | Cognisys IT Solutions">
+    <meta property="og:url" content="https://www.cognisysitsolutions.in/careers.html">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://www.cognisysitsolutions.in/IOGO.png">
+
+    <link rel="icon" type="image/png" sizes="32x32" href="https://www.cognisysitsolutions.in/IOGO.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="https://www.cognisysitsolutions.in/IOGO.png">
+    <link rel="shortcut icon" href="IOGO.png">
+
+    <!-- Child WebPage & Breadcrumb Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebPage",
+          "@id": "https://www.cognisysitsolutions.in/careers.html#webpage",
+          "url": "https://www.cognisysitsolutions.in/careers.html",
+          "name": "Careers",
+          "isPartOf": { "@id": "https://www.cognisysitsolutions.in/#website" }
+        },
+        {
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Cognisys IT Solutions", "item": "https://www.cognisysitsolutions.in/" },
+            { "@type": "ListItem", "position": 2, "name": "Careers", "item": "https://www.cognisysitsolutions.in/careers.html" }
+          ]
+        }
+      ]
+    }
+    </script>
+
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
     
-    <!-- Brownie White, Black, and Warm Brown Palette -->
     <script>
         tailwind.config = {
             theme: {
                 extend: {
-                    fontFamily: { 
-                        sans: ['Inter', 'sans-serif'], 
-                        heading: ['Plus Jakarta Sans', 'sans-serif'] 
-                    },
+                    fontFamily: { sans: ['Inter', 'sans-serif'], heading: ['Plus Jakarta Sans', 'sans-serif'] },
                     colors: {
                         brand: {
-                            black: '#111111',
-                            dark: '#1a1a1a',
-                            brown: '#4A3728',         
-                            copper: '#9E622B',        
-                            brownieWhite: '#FAF8F5',  
-                            pureWhite: '#ffffff',
-                            muted: '#555555',
-                            border: '#EAE6E1'
+                            black: '#111111', dark: '#1a1a1a', brown: '#4A3728',
+                            copper: '#9E622B', brownieWhite: '#FAF8F5', muted: '#3f3f46', border: '#EAE6E1'
                         }
                     }
                 }
@@ -39,401 +63,244 @@
     </script>
     
     <style>
-        body { 
-            background-color: #FAF8F5; 
-            color: #111111; 
+        body { background-color: #FAF8F5; color: #111111; overflow-x: hidden; }
+        .ambient-video {
+            position: absolute; top: 50%; left: 50%; min-width: 100%; min-height: 100%;
+            width: auto; height: auto; object-fit: cover;
+            transform: translate(-50%, -50%) scale(1.06);
+            filter: blur(6px) saturate(110%); opacity: 0.85;
         }
-        
-        /* Video Overlays for Contrast */
-        .video-overlay-light {
-            background: rgba(250, 248, 245, 0.92); /* Brownie White at 92% opacity for a bright, clean look */
+        .ios-glass-nav {
+            background: rgba(250, 248, 245, 0.68);
+            backdrop-filter: blur(28px) saturate(190%); -webkit-backdrop-filter: blur(28px) saturate(190%);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.8);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.04);
         }
-
-        /* Glass Navigation */
-        .glass-nav {
-            background: rgba(250, 248, 245, 0.96);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid #EAE6E1;
+        .ios-glass-section {
+            background: rgba(250, 248, 245, 0.45);
+            backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
         }
-
-        /* Clean White Cards */
-        .clean-card {
-            background-color: #ffffff;
-            border: 1px solid #EAE6E1;
-            transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+        .ios-glass-card {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.78) 0%, rgba(250, 248, 245, 0.58) 100%);
+            backdrop-filter: blur(24px) saturate(180%); -webkit-backdrop-filter: blur(24px) saturate(180%);
+            border: 1px solid rgba(255, 255, 255, 0.88);
+            box-shadow: 0 10px 35px -5px rgba(74, 55, 40, 0.08), inset 0 1px 1px 0 rgba(255, 255, 255, 0.95);
+            transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.3s ease, border-color 0.3s ease;
         }
-        .clean-card:hover {
-            transform: translateY(-4px);
-            border-color: #4A3728;
-            box-shadow: 0 12px 30px -10px rgba(74, 55, 40, 0.12);
+        .ios-glass-card:hover {
+            transform: translateY(-5px);
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.88) 0%, rgba(250, 248, 245, 0.72) 100%);
+            border-color: rgba(74, 55, 40, 0.45);
+            box-shadow: 0 20px 45px -10px rgba(74, 55, 40, 0.15), inset 0 1px 2px 0 rgba(255, 255, 255, 1);
         }
-
-        /* Dark Cards */
-        .dark-card {
-            background-color: #111111;
-            color: #ffffff;
-            border: 1px solid #222222;
-            transition: transform 0.25s ease, border-color 0.25s ease;
+        .ios-input {
+            background: rgba(255, 255, 255, 0.78); backdrop-filter: blur(12px);
+            border: 1px solid rgba(74, 55, 40, 0.18); transition: all 0.2s ease;
         }
-        .dark-card:hover {
-            transform: translateY(-4px);
-            border-color: #9E622B;
+        .ios-input:focus {
+            background: rgba(255, 255, 255, 0.98); border-color: #4A3728;
+            box-shadow: 0 0 0 4px rgba(74, 55, 40, 0.08);
         }
     </style>
 </head>
 <body class="font-sans antialiased selection:bg-brand-brown selection:text-white">
 
-    <!-- ==============================================
-         GLOBAL LIVE VIDEO BACKGROUND (VIDEO 5)
-    =============================================== -->
+    <!-- SOFT-BLURRED AMBIENT VIDEO 5 BACKGROUND -->
     <div class="fixed inset-0 z-[-2] w-full h-full overflow-hidden bg-brand-brownieWhite">
-        <!-- Local Video 5 plays continuously in the background -->
-        <video id="bg-video-5" autoplay loop muted playsinline class="absolute top-1/2 left-1/2 min-w-full min-h-full w-auto h-auto object-cover transform -translate-x-1/2 -translate-y-1/2 opacity-30 mix-blend-multiply z-0">
+        <video id="bg-video-5" autoplay loop muted playsinline class="ambient-video">
             <source src="background-video-5.mp4" type="video/mp4">
         </video>
-        <div class="absolute inset-0 video-overlay-light z-0"></div>
+        <div class="absolute inset-0 bg-[#FAF8F5]/65"></div>
     </div>
 
-    <!-- ==============================================
-         1. NAVIGATION HEADER 
-    =============================================== -->
-    <header class="fixed top-0 left-0 right-0 z-50 glass-nav h-24 flex items-center">
+    <!-- 1. HEADER -->
+    <header class="fixed top-0 left-0 right-0 z-50 ios-glass-nav h-24 flex items-center">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full flex justify-between items-center">
-            
-            <!-- Corporate Logo -->
             <a href="index.html" class="flex items-center gap-4 group">
-                <img 
-                    src="IOGO.png" 
-                    alt="Cognisys Logo" 
-                    class="h-14 w-auto object-contain"
-                    onerror="this.onerror=null; this.src='logo.png';"
-                >
+                <img src="IOGO.png" alt="Cognisys IT Solutions" class="h-14 w-auto object-contain transition-transform duration-300 group-hover:scale-105" onerror="this.onerror=null; this.src='logo.png';">
                 <div class="flex flex-col">
                     <span class="font-heading font-extrabold text-2xl tracking-tight text-brand-black leading-none">COGNISYS</span>
                     <span class="text-[0.65rem] font-bold uppercase tracking-[0.2em] text-brand-brown mt-1">Soft Services & IT Solutions</span>
                 </div>
             </a>
 
-            <!-- Right Controls -->
-            <div class="flex items-center gap-6">
-                <a href="index.html#contact" class="hidden sm:inline-flex items-center justify-center bg-brand-black text-white px-8 py-3 rounded-full text-xs font-bold uppercase tracking-widest hover:bg-brand-brown transition-colors">
-                    Let's Talk
-                </a>
-                
-                <button id="menuToggleBtn" aria-label="Toggle Navigation" class="flex flex-col items-center justify-center w-12 h-12 rounded-full border border-brand-border text-brand-black hover:bg-brand-black hover:text-white transition-all cursor-pointer bg-white">
+            <nav aria-label="Main Navigation" class="hidden lg:flex items-center gap-1 px-3 py-1.5 rounded-full ios-glass-card">
+                <a href="index.html" class="px-4 py-2 rounded-full text-xs font-semibold text-brand-black hover:bg-white/70 transition-colors">Home</a>
+                <a href="about.html" class="px-4 py-2 rounded-full text-xs font-semibold text-brand-black hover:bg-white/70 transition-colors">Who We Are</a>
+                <a href="services.html" class="px-4 py-2 rounded-full text-xs font-semibold text-brand-black hover:bg-white/70 transition-colors">Services & Solutions</a>
+                <a href="innovations.html" class="px-4 py-2 rounded-full text-xs font-semibold text-brand-black hover:bg-white/70 transition-colors">In-House Projects</a>
+                <a href="careers.html" class="px-4 py-2 rounded-full text-xs font-bold bg-brand-black text-white">Careers</a>
+            </nav>
+
+            <div class="flex items-center gap-4">
+                <a href="index.html#contact" class="hidden sm:inline-flex items-center justify-center bg-brand-black text-white px-7 py-3 rounded-full text-xs font-bold uppercase tracking-widest hover:bg-brand-brown transition-colors shadow-sm">Let's Talk</a>
+                <button id="menuToggleBtn" aria-label="Toggle Navigation" class="flex flex-col items-center justify-center w-12 h-12 rounded-full border border-white/80 text-brand-black hover:bg-brand-black hover:text-white transition-all cursor-pointer bg-white/75 backdrop-blur-md shadow-sm">
                     <i class="fa-solid fa-bars text-lg"></i>
                 </button>
             </div>
             
-            <!-- Dropdown Menu -->
-            <div id="dropdownMenu" class="absolute top-24 right-4 sm:right-8 w-72 bg-white border border-brand-border shadow-2xl rounded-xl hidden flex-col z-40 overflow-hidden">
-                <a href="index.html" class="px-6 py-4 text-sm font-semibold text-brand-muted border-b border-brand-border hover:bg-brand-brownieWhite hover:text-brand-black transition-colors flex items-center gap-3">
-                    <i class="fa-solid fa-house w-4 text-brand-brown"></i> Home
-                </a>
-                <a href="about.html" class="px-6 py-4 text-sm font-semibold text-brand-muted border-b border-brand-border hover:bg-brand-brownieWhite hover:text-brand-black transition-colors flex items-center gap-3">
-                    <i class="fa-solid fa-building w-4 text-brand-brown"></i> Who We Are
-                </a>
-                <a href="services.html" class="px-6 py-4 text-sm font-semibold text-brand-muted border-b border-brand-border hover:bg-brand-brownieWhite hover:text-brand-black transition-colors flex items-center gap-3">
-                    <i class="fa-solid fa-server w-4 text-brand-brown"></i> Services & Solutions
-                </a>
-                <a href="innovations.html" class="px-6 py-4 text-sm font-semibold text-brand-muted border-b border-brand-border hover:bg-brand-brownieWhite hover:text-brand-black transition-colors flex items-center gap-3">
-                    <i class="fa-solid fa-lightbulb w-4 text-brand-brown"></i> In-House Projects
-                </a>
-                <a href="careers.html" class="px-6 py-4 text-sm font-semibold text-brand-brown border-b border-brand-border bg-brand-brownieWhite flex items-center justify-between transition-colors">
-                    <span><i class="fa-solid fa-briefcase w-4 mr-2 text-brand-brown"></i> Careers / Hiring</span> 
-                    <i class="fa-solid fa-arrow-right text-xs"></i>
-                </a>
+            <div id="dropdownMenu" class="absolute top-24 right-4 sm:right-8 w-72 ios-glass-card rounded-2xl hidden flex-col z-40 overflow-hidden shadow-2xl">
+                <a href="index.html" class="px-6 py-4 text-sm font-semibold text-brand-black border-b border-black/5 hover:bg-white/60 transition-colors flex items-center gap-3"><i class="fa-solid fa-house w-4 text-brand-brown"></i> Home</a>
+                <a href="about.html" class="px-6 py-4 text-sm font-semibold text-brand-black border-b border-black/5 hover:bg-white/60 transition-colors flex items-center gap-3"><i class="fa-solid fa-building w-4 text-brand-brown"></i> Who We Are</a>
+                <a href="services.html" class="px-6 py-4 text-sm font-semibold text-brand-black border-b border-black/5 hover:bg-white/60 transition-colors flex items-center gap-3"><i class="fa-solid fa-server w-4 text-brand-brown"></i> Services & Solutions</a>
+                <a href="innovations.html" class="px-6 py-4 text-sm font-semibold text-brand-black border-b border-black/5 hover:bg-white/60 transition-colors flex items-center gap-3"><i class="fa-solid fa-lightbulb w-4 text-brand-brown"></i> In-House Projects</a>
+                <a href="careers.html" class="px-6 py-4 text-sm font-semibold text-brand-brown bg-white/50 flex justify-between items-center transition-colors"><span><i class="fa-solid fa-briefcase w-4 mr-2 text-brand-brown"></i> Careers / Hiring</span><i class="fa-solid fa-arrow-right text-xs"></i></a>
             </div>
         </div>
     </header>
 
     <main>
-        <!-- ==============================================
-             2. HERO SECTION
-        =============================================== -->
-        <section class="relative pt-48 pb-32 border-b border-brand-border">
+        <!-- 2. HERO SECTION -->
+        <section class="relative pt-48 pb-28 border-b border-white/60">
             <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
-                <span class="text-[0.75rem] font-extrabold tracking-[0.2em] text-brand-brown uppercase mb-6 block">Join Our Global Team</span>
-                <h1 class="font-heading text-5xl md:text-6xl lg:text-7xl font-bold text-brand-black mb-8 leading-tight drop-shadow-sm">
-                    Build The Future of <br />
-                    <span class="text-brand-copper">Enterprise Tech.</span>
-                </h1>
-                <p class="text-lg md:text-xl text-brand-muted leading-relaxed max-w-4xl mx-auto">
-                    We are always on the lookout for passionate innovators, elite engineers, and strategic thinkers to scale our operations across the USA and India. Grow your career with a DPIIT Recognized industry leader.
-                </p>
-                <div class="mt-10">
-                    <a href="#openings" class="inline-flex items-center gap-3 text-xs font-bold uppercase tracking-widest text-white bg-brand-black px-8 py-4 rounded-full hover:bg-brand-brown transition-colors shadow-lg">
-                        View Open Positions <i class="fa-solid fa-arrow-down"></i>
-                    </a>
+                <div class="inline-flex items-center gap-2 px-5 py-2 rounded-full ios-glass-card mb-6">
+                    <span class="w-2 h-2 rounded-full bg-brand-copper"></span>
+                    <span class="text-xs font-bold tracking-widest text-brand-brown uppercase">Join Our Global Team</span>
                 </div>
+                <h1 class="font-heading text-5xl md:text-6xl lg:text-7xl font-extrabold text-brand-black mb-8 leading-tight">
+                    Build The Future of <br /><span class="text-brand-brown">Enterprise Tech.</span>
+                </h1>
+                <p class="text-lg md:text-xl text-brand-black/80 font-medium leading-relaxed max-w-4xl mx-auto mb-10">
+                    We are always on the lookout for passionate innovators, elite engineers, and strategic thinkers to scale our operations across the USA and India.
+                </p>
+                <a href="#openings" class="inline-flex items-center gap-3 text-xs font-bold uppercase tracking-widest text-white bg-brand-black px-9 py-4 rounded-full hover:bg-brand-brown transition-colors shadow-lg">
+                    View Open Positions <i class="fa-solid fa-arrow-down"></i>
+                </a>
             </div>
         </section>
 
-        <!-- ==============================================
-             3. WHY JOIN COGNISYS? (CULTURE & BENEFITS)
-        =============================================== -->
-        <section class="py-24 bg-white relative border-b border-brand-border">
+        <!-- 3. WHY WORK WITH US -->
+        <section class="py-24 ios-glass-section border-b border-white/60 relative z-10">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center max-w-3xl mx-auto mb-16">
                     <h2 class="font-heading text-3xl md:text-4xl font-bold text-brand-black mb-4">Why Work With Us?</h2>
-                    <p class="text-brand-muted text-base leading-relaxed">
-                        We don't just offer jobs; we offer careers. Cognisys is built on a culture of continuous learning, architectural excellence, and global collaboration.
-                    </p>
+                    <p class="text-brand-muted text-base">Cognisys is built on a culture of continuous learning, architectural excellence, and global collaboration.</p>
                 </div>
 
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    
-                    <div class="clean-card p-8 rounded-2xl">
-                        <div class="w-12 h-12 rounded-xl bg-brand-brownieWhite border border-brand-border flex items-center justify-center text-brand-brown text-xl mb-6">
-                            <i class="fa-solid fa-laptop-code"></i>
-                        </div>
-                        <h4 class="font-bold text-brand-black mb-3 text-lg">Cutting-Edge Tech Stack</h4>
-                        <p class="text-sm text-brand-muted leading-relaxed">Work with the latest architectures including scalable microservices, Flutter, React, AWS, and AI-driven automation.</p>
-                    </div>
-
-                    <div class="clean-card p-8 rounded-2xl">
-                        <div class="w-12 h-12 rounded-xl bg-brand-brownieWhite border border-brand-border flex items-center justify-center text-brand-brown text-xl mb-6">
-                            <i class="fa-solid fa-earth-americas"></i>
-                        </div>
-                        <h4 class="font-bold text-brand-black mb-3 text-lg">Global Exposure</h4>
-                        <p class="text-sm text-brand-muted leading-relaxed">Collaborate directly with top-tier US enterprise clients and diverse engineering teams across different time zones.</p>
-                    </div>
-
-                    <div class="clean-card p-8 rounded-2xl">
-                        <div class="w-12 h-12 rounded-xl bg-brand-brownieWhite border border-brand-border flex items-center justify-center text-brand-brown text-xl mb-6">
-                            <i class="fa-solid fa-arrow-trend-up"></i>
-                        </div>
-                        <h4 class="font-bold text-brand-black mb-3 text-lg">Rapid Career Growth</h4>
-                        <p class="text-sm text-brand-muted leading-relaxed">We prioritize internal promotions. Whether you want to become a Senior Architect or an Account Director, we map your trajectory.</p>
-                    </div>
-
-                    <div class="clean-card p-8 rounded-2xl">
-                        <div class="w-12 h-12 rounded-xl bg-brand-brownieWhite border border-brand-border flex items-center justify-center text-brand-brown text-xl mb-6">
-                            <i class="fa-solid fa-house-laptop"></i>
-                        </div>
-                        <h4 class="font-bold text-brand-black mb-3 text-lg">Flexible Work Models</h4>
-                        <p class="text-sm text-brand-muted leading-relaxed">We support hybrid and remote working environments, empowering our teams to deliver their best work from anywhere.</p>
-                    </div>
-
-                    <div class="clean-card p-8 rounded-2xl">
-                        <div class="w-12 h-12 rounded-xl bg-brand-brownieWhite border border-brand-border flex items-center justify-center text-brand-brown text-xl mb-6">
-                            <i class="fa-solid fa-chalkboard-user"></i>
-                        </div>
-                        <h4 class="font-bold text-brand-black mb-3 text-lg">Continuous Learning</h4>
-                        <p class="text-sm text-brand-muted leading-relaxed">Access to premium upskilling programs, certifications, and hands-on workshops led by senior industry veterans.</p>
-                    </div>
-
-                    <div class="clean-card p-8 rounded-2xl">
-                        <div class="w-12 h-12 rounded-xl bg-brand-brownieWhite border border-brand-border flex items-center justify-center text-brand-brown text-xl mb-6">
-                            <i class="fa-solid fa-heart-pulse"></i>
-                        </div>
-                        <h4 class="font-bold text-brand-black mb-3 text-lg">Comprehensive Benefits</h4>
-                        <p class="text-sm text-brand-muted leading-relaxed">Competitive compensation packages, health insurance coverage, and performance-based bonuses to reward excellence.</p>
-                    </div>
-
+                    <div class="ios-glass-card p-8 rounded-3xl"><div class="w-12 h-12 rounded-2xl bg-white/80 flex items-center justify-center text-brand-brown text-xl mb-5 shadow-sm"><i class="fa-solid fa-laptop-code"></i></div><h4 class="font-bold text-brand-black mb-2 text-lg">Cutting-Edge Tech Stack</h4><p class="text-sm text-brand-muted leading-relaxed">Work with scalable microservices, Flutter, React, AWS, and AI-driven enterprise automation.</p></div>
+                    <div class="ios-glass-card p-8 rounded-3xl"><div class="w-12 h-12 rounded-2xl bg-white/80 flex items-center justify-center text-brand-brown text-xl mb-5 shadow-sm"><i class="fa-solid fa-earth-americas"></i></div><h4 class="font-bold text-brand-black mb-2 text-lg">Global Exposure</h4><p class="text-sm text-brand-muted leading-relaxed">Collaborate directly with US enterprise clients and cross-functional engineering teams.</p></div>
+                    <div class="ios-glass-card p-8 rounded-3xl"><div class="w-12 h-12 rounded-2xl bg-white/80 flex items-center justify-center text-brand-brown text-xl mb-5 shadow-sm"><i class="fa-solid fa-arrow-trend-up"></i></div><h4 class="font-bold text-brand-black mb-2 text-lg">Rapid Career Growth</h4><p class="text-sm text-brand-muted leading-relaxed">Clear internal progression paths from developer to Senior Architect or Account Director.</p></div>
+                    <div class="ios-glass-card p-8 rounded-3xl"><div class="w-12 h-12 rounded-2xl bg-white/80 flex items-center justify-center text-brand-brown text-xl mb-5 shadow-sm"><i class="fa-solid fa-house-laptop"></i></div><h4 class="font-bold text-brand-black mb-2 text-lg">Flexible Work Models</h4><p class="text-sm text-brand-muted leading-relaxed">Hybrid and remote work environments empowering teams to deliver high-impact results.</p></div>
+                    <div class="ios-glass-card p-8 rounded-3xl"><div class="w-12 h-12 rounded-2xl bg-white/80 flex items-center justify-center text-brand-brown text-xl mb-5 shadow-sm"><i class="fa-solid fa-chalkboard-user"></i></div><h4 class="font-bold text-brand-black mb-2 text-lg">Continuous Learning</h4><p class="text-sm text-brand-muted leading-relaxed">Access to upskilling programs, cloud certifications, and mentorship from industry veterans.</p></div>
+                    <div class="ios-glass-card p-8 rounded-3xl"><div class="w-12 h-12 rounded-2xl bg-white/80 flex items-center justify-center text-brand-brown text-xl mb-5 shadow-sm"><i class="fa-solid fa-heart-pulse"></i></div><h4 class="font-bold text-brand-black mb-2 text-lg">Comprehensive Benefits</h4><p class="text-sm text-brand-muted leading-relaxed">Competitive compensation packages, health insurance coverage, and performance bonuses.</p></div>
                 </div>
             </div>
         </section>
 
-        <!-- ==============================================
-             4. CURRENT OPENINGS (JOB BOARD)
-        =============================================== -->
-        <section id="openings" class="py-24 bg-brand-brownieWhite relative border-b border-brand-border">
+        <!-- 4. CURRENT OPENINGS -->
+        <section id="openings" class="py-24 relative z-10 border-b border-white/60">
             <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-                
-                <div class="flex flex-col sm:flex-row justify-between items-end mb-12 gap-6 border-b border-brand-border pb-6">
+                <div class="flex flex-col sm:flex-row justify-between items-end mb-12 gap-6">
                     <div>
                         <h2 class="font-heading text-3xl font-bold text-brand-black mb-2">Current Open Positions</h2>
                         <p class="text-brand-muted text-sm">Join our teams in Hyderabad or apply for our remote USA consulting roles.</p>
                     </div>
-                    <div class="shrink-0 text-sm font-bold text-brand-copper">
-                        4 Openings
-                    </div>
+                    <div class="px-4 py-1.5 rounded-full ios-glass-card text-xs font-bold text-brand-brown">4 Active Openings</div>
                 </div>
 
                 <div class="space-y-6">
-                    
-                    <!-- Job 1: Mobile App Developer Intern (From Reference) -->
-                    <div class="clean-card p-8 rounded-2xl flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
+                    <div class="ios-glass-card p-8 rounded-3xl flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
                         <div>
-                            <span class="inline-block px-3 py-1 bg-brand-brownieWhite border border-brand-border text-brand-brown text-[0.65rem] font-bold rounded-full uppercase tracking-widest mb-4">
-                                Internship
-                            </span>
+                            <span class="inline-block px-3 py-1 bg-white/80 text-brand-brown text-[0.65rem] font-bold rounded-full uppercase tracking-widest mb-3">Internship</span>
                             <h3 class="text-xl font-bold text-brand-black mb-2">Mobile App Developer Intern</h3>
-                            <div class="flex flex-wrap items-center gap-4 text-sm text-brand-muted">
-                                <span class="flex items-center gap-1.5"><i class="fa-solid fa-location-dot text-brand-copper"></i> Hyderabad / Remote</span>
-                                <span class="flex items-center gap-1.5"><i class="fa-solid fa-clock text-brand-copper"></i> Full-Time Intern</span>
+                            <div class="flex flex-wrap items-center gap-4 text-xs font-semibold text-brand-muted mb-3">
+                                <span><i class="fa-solid fa-location-dot text-brand-copper mr-1"></i> Hyderabad / Remote</span>
+                                <span><i class="fa-solid fa-clock text-brand-copper mr-1"></i> Full-Time Intern</span>
                             </div>
-                            <p class="text-sm text-brand-muted mt-4 max-w-2xl leading-relaxed">
-                                Cognisys Soft Services & IT Solutions is looking for motivated and enthusiastic interns to join our product development team and contribute to live cross-platform mobile applications.
-                            </p>
+                            <p class="text-sm text-brand-muted max-w-2xl">Cognisys Soft Services & IT Solutions is looking for motivated interns to join our product development team and contribute to live cross-platform mobile applications.</p>
                         </div>
-                        <div class="shrink-0 w-full md:w-auto">
-                            <a href="#apply" class="block text-center bg-brand-black text-white px-6 py-3 text-xs font-bold uppercase tracking-widest rounded-lg hover:bg-brand-brown transition-colors">
-                                View Details & Apply
-                            </a>
-                        </div>
+                        <a href="#apply" class="shrink-0 bg-brand-black text-white px-6 py-3 text-xs font-bold uppercase tracking-widest rounded-full hover:bg-brand-brown transition-colors">Apply Now</a>
                     </div>
 
-                    <!-- Job 2: Senior Java Full Stack Developer -->
-                    <div class="clean-card p-8 rounded-2xl flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
+                    <div class="ios-glass-card p-8 rounded-3xl flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
                         <div>
-                            <span class="inline-block px-3 py-1 bg-brand-brownieWhite border border-brand-border text-brand-brown text-[0.65rem] font-bold rounded-full uppercase tracking-widest mb-4">
-                                Engineering
-                            </span>
+                            <span class="inline-block px-3 py-1 bg-white/80 text-brand-brown text-[0.65rem] font-bold rounded-full uppercase tracking-widest mb-3">Engineering</span>
                             <h3 class="text-xl font-bold text-brand-black mb-2">Senior Java Full Stack Developer</h3>
-                            <div class="flex flex-wrap items-center gap-4 text-sm text-brand-muted">
-                                <span class="flex items-center gap-1.5"><i class="fa-solid fa-location-dot text-brand-copper"></i> Hyderabad, India</span>
-                                <span class="flex items-center gap-1.5"><i class="fa-solid fa-clock text-brand-copper"></i> Full-Time</span>
-                                <span class="flex items-center gap-1.5"><i class="fa-solid fa-briefcase text-brand-copper"></i> 5-8 Years Exp</span>
+                            <div class="flex flex-wrap items-center gap-4 text-xs font-semibold text-brand-muted mb-3">
+                                <span><i class="fa-solid fa-location-dot text-brand-copper mr-1"></i> Hyderabad, India</span>
+                                <span><i class="fa-solid fa-briefcase text-brand-copper mr-1"></i> 5-8 Years Exp</span>
                             </div>
-                            <p class="text-sm text-brand-muted mt-4 max-w-2xl leading-relaxed">
-                                Seeking an experienced architect to lead enterprise-grade Spring Boot and React application deployments for our premier US clients.
-                            </p>
+                            <p class="text-sm text-brand-muted max-w-2xl">Seeking an experienced architect to lead enterprise-grade Spring Boot and React application deployments for our US clients.</p>
                         </div>
-                        <div class="shrink-0 w-full md:w-auto">
-                            <a href="#apply" class="block text-center bg-brand-black text-white px-6 py-3 text-xs font-bold uppercase tracking-widest rounded-lg hover:bg-brand-brown transition-colors">
-                                View Details & Apply
-                            </a>
-                        </div>
+                        <a href="#apply" class="shrink-0 bg-brand-black text-white px-6 py-3 text-xs font-bold uppercase tracking-widest rounded-full hover:bg-brand-brown transition-colors">Apply Now</a>
                     </div>
 
-                    <!-- Job 3: US IT Recruiter -->
-                    <div class="clean-card p-8 rounded-2xl flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
+                    <div class="ios-glass-card p-8 rounded-3xl flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
                         <div>
-                            <span class="inline-block px-3 py-1 bg-brand-brownieWhite border border-brand-border text-brand-brown text-[0.65rem] font-bold rounded-full uppercase tracking-widest mb-4">
-                                Talent Acquisition
-                            </span>
+                            <span class="inline-block px-3 py-1 bg-white/80 text-brand-brown text-[0.65rem] font-bold rounded-full uppercase tracking-widest mb-3">Talent Acquisition</span>
                             <h3 class="text-xl font-bold text-brand-black mb-2">US IT Recruiter (Night Shift)</h3>
-                            <div class="flex flex-wrap items-center gap-4 text-sm text-brand-muted">
-                                <span class="flex items-center gap-1.5"><i class="fa-solid fa-location-dot text-brand-copper"></i> Hyderabad (On-Site)</span>
-                                <span class="flex items-center gap-1.5"><i class="fa-solid fa-clock text-brand-copper"></i> Full-Time (EST Hours)</span>
+                            <div class="flex flex-wrap items-center gap-4 text-xs font-semibold text-brand-muted mb-3">
+                                <span><i class="fa-solid fa-location-dot text-brand-copper mr-1"></i> Hyderabad (On-Site)</span>
+                                <span><i class="fa-solid fa-clock text-brand-copper mr-1"></i> Full-Time (EST Hours)</span>
                             </div>
-                            <p class="text-sm text-brand-muted mt-4 max-w-2xl leading-relaxed">
-                                Looking for dynamic recruiters experienced in W2, C2C, and 1099 hiring frameworks to source top-tier technical consultants for American enterprise roles.
-                            </p>
+                            <p class="text-sm text-brand-muted max-w-2xl">Dynamic recruiters experienced in W2, C2C, and 1099 hiring frameworks to source technical consultants for American enterprise roles.</p>
                         </div>
-                        <div class="shrink-0 w-full md:w-auto">
-                            <a href="#apply" class="block text-center bg-brand-black text-white px-6 py-3 text-xs font-bold uppercase tracking-widest rounded-lg hover:bg-brand-brown transition-colors">
-                                View Details & Apply
-                            </a>
-                        </div>
+                        <a href="#apply" class="shrink-0 bg-brand-black text-white px-6 py-3 text-xs font-bold uppercase tracking-widest rounded-full hover:bg-brand-brown transition-colors">Apply Now</a>
                     </div>
 
-                    <!-- Job 4: DevOps Engineer -->
-                    <div class="clean-card p-8 rounded-2xl flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
+                    <div class="ios-glass-card p-8 rounded-3xl flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
                         <div>
-                            <span class="inline-block px-3 py-1 bg-brand-brownieWhite border border-brand-border text-brand-brown text-[0.65rem] font-bold rounded-full uppercase tracking-widest mb-4">
-                                Infrastructure
-                            </span>
+                            <span class="inline-block px-3 py-1 bg-white/80 text-brand-brown text-[0.65rem] font-bold rounded-full uppercase tracking-widest mb-3">Infrastructure</span>
                             <h3 class="text-xl font-bold text-brand-black mb-2">Cloud & DevOps Engineer</h3>
-                            <div class="flex flex-wrap items-center gap-4 text-sm text-brand-muted">
-                                <span class="flex items-center gap-1.5"><i class="fa-solid fa-location-dot text-brand-copper"></i> Remote (USA Only)</span>
-                                <span class="flex items-center gap-1.5"><i class="fa-solid fa-file-contract text-brand-copper"></i> Contract (W2/C2C)</span>
+                            <div class="flex flex-wrap items-center gap-4 text-xs font-semibold text-brand-muted mb-3">
+                                <span><i class="fa-solid fa-location-dot text-brand-copper mr-1"></i> Remote (USA Only)</span>
+                                <span><i class="fa-solid fa-file-contract text-brand-copper mr-1"></i> Contract (W2/C2C)</span>
                             </div>
-                            <p class="text-sm text-brand-muted mt-4 max-w-2xl leading-relaxed">
-                                We need a certified AWS/Azure specialist to automate CI/CD pipelines utilizing Docker and Kubernetes for zero-downtime infrastructure optimization.
-                            </p>
+                            <p class="text-sm text-brand-muted max-w-2xl">Certified AWS/Azure specialist to automate CI/CD pipelines utilizing Docker and Kubernetes for zero-downtime infrastructure optimization.</p>
                         </div>
-                        <div class="shrink-0 w-full md:w-auto">
-                            <a href="#apply" class="block text-center bg-brand-black text-white px-6 py-3 text-xs font-bold uppercase tracking-widest rounded-lg hover:bg-brand-brown transition-colors">
-                                View Details & Apply
-                            </a>
-                        </div>
+                        <a href="#apply" class="shrink-0 bg-brand-black text-white px-6 py-3 text-xs font-bold uppercase tracking-widest rounded-full hover:bg-brand-brown transition-colors">Apply Now</a>
                     </div>
-
                 </div>
-
             </div>
         </section>
 
-        <!-- ==============================================
-             5. APPLICATION FORM (Quick Apply)
-        =============================================== -->
-        <section id="apply" class="py-24 bg-white relative">
+        <!-- 5. APPLICATION FORM -->
+        <section id="apply" class="py-24 ios-glass-section relative z-10">
             <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="text-center mb-12">
-                    <h2 class="font-heading text-3xl font-bold text-brand-black mb-4">Don't See Your Role? Submit Your Resume.</h2>
-                    <p class="text-brand-muted text-sm">We are always building our talent pipeline. Send us your details, and our recruitment team will reach out when a match opens.</p>
-                </div>
-
-                <div class="clean-card p-8 md:p-12 rounded-2xl shadow-sm">
-                    <form action="#" method="POST" class="space-y-6">
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                            <div>
-                                <label class="block text-[0.65rem] font-bold tracking-widest uppercase text-brand-muted mb-2">Full Name *</label>
-                                <input type="text" name="name" required class="w-full bg-brand-brownieWhite border border-brand-border text-brand-black px-4 py-3 text-sm focus:outline-none focus:border-brand-brown rounded-lg transition-colors">
-                            </div>
-                            <div>
-                                <label class="block text-[0.65rem] font-bold tracking-widest uppercase text-brand-muted mb-2">Email Address *</label>
-                                <input type="email" name="email" required class="w-full bg-brand-brownieWhite border border-brand-border text-brand-black px-4 py-3 text-sm focus:outline-none focus:border-brand-brown rounded-lg transition-colors">
-                            </div>
+                <div class="ios-glass-card p-8 md:p-12 rounded-3xl">
+                    <h2 class="font-heading text-2xl sm:text-3xl font-bold text-brand-black mb-2">Submit Your Application</h2>
+                    <p class="text-brand-muted text-sm mb-8 border-b border-black/10 pb-4">Send us your profile and our recruitment team will reach out within 24 hours.</p>
+                    <form action="#" method="POST" class="space-y-5">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+                            <div><label class="block text-xs font-bold uppercase tracking-widest text-brand-black mb-2">Full Name *</label><input type="text" name="name" required class="w-full ios-input px-4 py-3 text-sm rounded-xl outline-none"></div>
+                            <div><label class="block text-xs font-bold uppercase tracking-widest text-brand-black mb-2">Email Address *</label><input type="email" name="email" required class="w-full ios-input px-4 py-3 text-sm rounded-xl outline-none"></div>
                         </div>
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                            <div>
-                                <label class="block text-[0.65rem] font-bold tracking-widest uppercase text-brand-muted mb-2">Phone Number *</label>
-                                <input type="tel" name="phone" required class="w-full bg-brand-brownieWhite border border-brand-border text-brand-black px-4 py-3 text-sm focus:outline-none focus:border-brand-brown rounded-lg transition-colors">
-                            </div>
-                            <div>
-                                <label class="block text-[0.65rem] font-bold tracking-widest uppercase text-brand-muted mb-2">Target Role / Designation</label>
-                                <input type="text" name="role" required class="w-full bg-brand-brownieWhite border border-brand-border text-brand-black px-4 py-3 text-sm focus:outline-none focus:border-brand-brown rounded-lg transition-colors" placeholder="e.g., Mobile App Developer">
-                            </div>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+                            <div><label class="block text-xs font-bold uppercase tracking-widest text-brand-black mb-2">Phone Number *</label><input type="tel" name="phone" required class="w-full ios-input px-4 py-3 text-sm rounded-xl outline-none"></div>
+                            <div><label class="block text-xs font-bold uppercase tracking-widest text-brand-black mb-2">Target Role *</label><input type="text" name="role" required class="w-full ios-input px-4 py-3 text-sm rounded-xl outline-none" placeholder="e.g., Mobile App Developer Intern"></div>
                         </div>
-                        <div>
-                            <label class="block text-[0.65rem] font-bold tracking-widest uppercase text-brand-muted mb-2">Portfolio / LinkedIn URL</label>
-                            <input type="url" name="linkedin" class="w-full bg-brand-brownieWhite border border-brand-border text-brand-black px-4 py-3 text-sm focus:outline-none focus:border-brand-brown rounded-lg transition-colors">
-                        </div>
-                        <div>
-                            <label class="block text-[0.65rem] font-bold tracking-widest uppercase text-brand-muted mb-2">Brief Cover Letter / Experience Summary</label>
-                            <textarea name="summary" rows="4" class="w-full bg-brand-brownieWhite border border-brand-border text-brand-black px-4 py-3 text-sm focus:outline-none focus:border-brand-brown rounded-lg transition-colors" placeholder="Tell us about your technical expertise..."></textarea>
-                        </div>
-                        
-                        <div class="pt-4 flex items-center justify-between border-t border-brand-border">
+                        <div><label class="block text-xs font-bold uppercase tracking-widest text-brand-black mb-2">Experience Summary</label><textarea name="summary" rows="4" class="w-full ios-input px-4 py-3 text-sm rounded-xl outline-none" placeholder="Tell us about your technical expertise..."></textarea></div>
+                        <div class="pt-4 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 border-t border-black/10">
                             <div class="flex items-center gap-3">
-                                <label for="resume-upload" class="cursor-pointer inline-flex items-center gap-2 bg-brand-brownieWhite border border-brand-border px-4 py-2 rounded text-xs font-bold text-brand-black hover:border-brand-brown transition-colors">
+                                <label for="resume-upload" class="cursor-pointer inline-flex items-center gap-2 bg-white/90 border border-black/15 px-4 py-2.5 rounded-xl text-xs font-bold text-brand-black hover:border-brand-brown transition-colors">
                                     <i class="fa-solid fa-paperclip text-brand-copper"></i> Attach Resume (PDF)
                                 </label>
                                 <input id="resume-upload" type="file" accept=".pdf,.doc,.docx" class="hidden">
                                 <span class="text-xs text-brand-muted italic" id="file-name">No file chosen</span>
                             </div>
-                            <button type="submit" class="bg-brand-black text-white px-8 py-3.5 font-bold text-xs uppercase tracking-widest rounded-lg hover:bg-brand-brown transition-colors shadow-md">
-                                Submit Application
-                            </button>
+                            <button type="submit" class="w-full sm:w-auto bg-brand-black text-white px-8 py-3.5 font-bold text-xs uppercase tracking-widest rounded-xl hover:bg-brand-brown transition-colors shadow-lg">Submit Application</button>
                         </div>
                     </form>
                 </div>
             </div>
         </section>
-
     </main>
 
-    <!-- ==============================================
-         6. MASTER FOOTER 
-    =============================================== -->
+    <!-- 6. MASTER FOOTER -->
     <footer class="bg-brand-black text-white pt-16 pb-12 border-t border-gray-900 relative z-20">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 mb-14">
-                
-                <!-- Col 1: Brand & About -->
                 <div class="lg:col-span-3">
                     <a href="index.html" class="flex items-center gap-3.5 mb-6">
-                        <img 
-                            src="IOGO.png" 
-                            alt="Cognisys Logo" 
-                            class="h-12 w-auto object-contain"
-                            onerror="this.onerror=null; this.src='logo.png';"
-                        >
+                        <img src="IOGO.png" alt="Cognisys IT Solutions" class="h-14 w-auto object-contain" onerror="this.onerror=null; this.src='logo.png';">
                         <div class="flex flex-col">
                             <span class="font-heading font-extrabold text-xl tracking-tight text-white leading-none">COGNISYS</span>
                             <span class="text-[0.6rem] font-bold uppercase tracking-[0.2em] text-gray-400 mt-1">Soft Services & IT Solutions</span>
                         </div>
                     </a>
-                    <p class="text-gray-400 text-xs leading-relaxed max-w-sm">
-                        Specializing in Custom Software Development, scalable Domestic IT Staffing in India, strategic USA IT Consulting, and collaborative Placement Training programs.
-                    </p>
+                    <p class="text-gray-400 text-xs leading-relaxed max-w-sm">Specializing in Custom Software Development, scalable Domestic IT Staffing in India, strategic USA IT Consulting, and collaborative Placement Training programs.</p>
                 </div>
-                
-                <!-- Col 2: Quick Links -->
                 <div class="lg:col-span-2 lg:pl-6">
                     <h3 class="text-xs font-bold uppercase tracking-widest text-brand-copper mb-5">Quick Links</h3>
                     <ul class="space-y-3 text-xs text-gray-400">
@@ -442,8 +309,6 @@
                         <li><a href="careers.html" class="font-bold text-white transition-colors">Careers / Hiring</a></li>
                     </ul>
                 </div>
-                
-                <!-- Col 3: Core Services -->
                 <div class="lg:col-span-3">
                     <h3 class="text-xs font-bold uppercase tracking-widest text-brand-copper mb-5">Core Services</h3>
                     <ul class="space-y-3 text-xs text-gray-400">
@@ -454,38 +319,22 @@
                         <li><a href="services.html" class="hover:text-white transition-colors">Training & Placements</a></li>
                     </ul>
                 </div>
-
-                <!-- Col 4: Contact Us & LinkedIn -->
                 <div class="lg:col-span-2">
                     <h3 class="text-xs font-bold uppercase tracking-widest text-brand-copper mb-5">Contact Us</h3>
                     <div class="space-y-2 text-xs text-gray-400 mb-6">
                         <p><i class="fa-solid fa-envelope w-4 text-white"></i> info@cognisysitsolutions.in</p>
                         <p><i class="fa-solid fa-phone w-4 text-white"></i> +91 9885550735</p>
                     </div>
-                    
                     <h3 class="text-xs font-bold uppercase tracking-widest text-brand-copper mb-3">Follow Us</h3>
-                    <a href="https://www.linkedin.com/company/cognisys-soft-services" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white text-xl inline-block transition-colors">
-                        <i class="fa-brands fa-linkedin"></i>
-                    </a>
+                    <a href="https://www.linkedin.com/company/cognisys-soft-services" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white text-xl inline-block transition-colors"><i class="fa-brands fa-linkedin"></i></a>
                 </div>
-
-                <!-- Col 5: DPIIT Recognition Right Side -->
                 <div class="lg:col-span-2 flex flex-col items-start lg:items-end">
                     <h3 class="text-xs font-bold uppercase tracking-widest text-brand-copper mb-5 w-full lg:text-right">Recognition</h3>
-                    
-                    <!-- Original Colors, NO Background -->
-                    <a href="dpiit-certificate.pdf" target="_blank" title="View Certificate" class="inline-block transition-transform hover:scale-105">
-                        <img 
-                            src="startup-india-logo.png" 
-                            alt="DPIIT Recognized Startup" 
-                            class="w-full max-w-[200px] h-auto object-contain"
-                            onerror="this.style.display='none'"
-                        >
+                    <a href="dpiit-certificate.pdf" target="_blank" title="View DPIIT Certificate" class="inline-block transition-transform hover:scale-105">
+                        <img src="startup-india-logo.png" alt="DPIIT Recognized Startup" class="w-full max-w-[190px] h-auto object-contain" onerror="this.style.display='none'">
                     </a>
                 </div>
-
             </div>
-            
             <div class="border-t border-gray-900 pt-8 flex flex-col sm:flex-row justify-between items-center text-xs text-gray-500">
                 <p>&copy; 2026 Cognisys Soft Services & IT Solutions. All rights reserved.</p>
                 <p class="mt-2 sm:mt-0">DPIIT Recognized Startup • Govt. of India</p>
@@ -493,40 +342,30 @@
         </div>
     </footer>
 
-    <!-- JS Logic -->
     <script>
         const menuBtn = document.getElementById('menuToggleBtn');
         const dropMenu = document.getElementById('dropdownMenu');
-        
         menuBtn.addEventListener('click', (e) => {
             e.stopPropagation();
-            dropMenu.classList.toggle('hidden');
-            dropMenu.classList.toggle('flex');
+            dropMenu.classList.toggle('hidden'); dropMenu.classList.toggle('flex');
             menuBtn.innerHTML = dropMenu.classList.contains('hidden') ? '<i class="fa-solid fa-bars text-lg"></i>' : '<i class="fa-solid fa-xmark text-lg"></i>';
         });
-
         document.addEventListener('click', (e) => {
             if (!dropMenu.contains(e.target) && !menuBtn.contains(e.target)) {
-                dropMenu.classList.add('hidden');
-                dropMenu.classList.remove('flex');
+                dropMenu.classList.add('hidden'); dropMenu.classList.remove('flex');
                 menuBtn.innerHTML = '<i class="fa-solid fa-bars text-lg"></i>';
             }
         });
-
-        // Simple script to show selected file name in form
         document.getElementById('resume-upload').addEventListener('change', function(e) {
-            var fileName = e.target.files[0].name;
-            document.getElementById('file-name').textContent = fileName;
-            document.getElementById('file-name').classList.remove('italic', 'text-brand-muted');
-            document.getElementById('file-name').classList.add('font-semibold', 'text-brand-black');
+            if (e.target.files.length > 0) {
+                document.getElementById('file-name').textContent = e.target.files[0].name;
+                document.getElementById('file-name').classList.remove('italic', 'text-brand-muted');
+                document.getElementById('file-name').classList.add('font-semibold', 'text-brand-black');
+            }
         });
-        
-        // Force video play manually
         document.addEventListener('DOMContentLoaded', () => {
             const vid5 = document.getElementById('bg-video-5');
-            if(vid5) {
-                vid5.play().catch(e => console.log('Video 5 autoplay prevented'));
-            }
+            if(vid5) vid5.play().catch(() => {});
         });
     </script>
 </body>
