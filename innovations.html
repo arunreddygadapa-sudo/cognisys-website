@@ -3,34 +3,58 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>In-House Innovations | Cognisys IT Solutions</title>
-    <meta name="title" content="In-House Innovations | Cognisys IT Solutions">
-    <meta name="description" content="Explore Cognisys Labs and our proprietary IP, including the Bitee digital ecosystem and the Connect mobility platform.">
     
-    <!-- Tailwind CSS & FontAwesome -->
+    <title>In-House Projects | Cognisys IT Solutions</title>
+    <meta name="application-name" content="Cognisys IT Solutions">
+    <meta name="description" content="Explore Cognisys Labs and our proprietary IP, including the Bitee digital commerce ecosystem, the Connect ride-hailing platform, and Workday HRIS frameworks.">
+    <link rel="canonical" href="https://www.cognisysitsolutions.in/innovations.html">
+
+    <meta property="og:site_name" content="Cognisys IT Solutions">
+    <meta property="og:title" content="In-House Projects | Cognisys IT Solutions">
+    <meta property="og:url" content="https://www.cognisysitsolutions.in/innovations.html">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://www.cognisysitsolutions.in/IOGO.png">
+
+    <link rel="icon" type="image/png" sizes="32x32" href="https://www.cognisysitsolutions.in/IOGO.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="https://www.cognisysitsolutions.in/IOGO.png">
+    <link rel="shortcut icon" href="IOGO.png">
+
+    <!-- Child WebPage & Breadcrumb Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "CollectionPage",
+          "@id": "https://www.cognisysitsolutions.in/innovations.html#webpage",
+          "url": "https://www.cognisysitsolutions.in/innovations.html",
+          "name": "In-House Projects",
+          "isPartOf": { "@id": "https://www.cognisysitsolutions.in/#website" }
+        },
+        {
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Cognisys IT Solutions", "item": "https://www.cognisysitsolutions.in/" },
+            { "@type": "ListItem", "position": 2, "name": "In-House Projects", "item": "https://www.cognisysitsolutions.in/innovations.html" }
+          ]
+        }
+      ]
+    }
+    </script>
+
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
     
-    <!-- Brownie White, Black, and Warm Brown Palette -->
     <script>
         tailwind.config = {
             theme: {
                 extend: {
-                    fontFamily: { 
-                        sans: ['Inter', 'sans-serif'], 
-                        heading: ['Plus Jakarta Sans', 'sans-serif'] 
-                    },
+                    fontFamily: { sans: ['Inter', 'sans-serif'], heading: ['Plus Jakarta Sans', 'sans-serif'] },
                     colors: {
                         brand: {
-                            black: '#111111',
-                            dark: '#1a1a1a',
-                            brown: '#4A3728',         
-                            copper: '#9E622B',        
-                            brownieWhite: '#FAF8F5',  
-                            pureWhite: '#ffffff',
-                            muted: '#555555',
-                            border: '#EAE6E1'
+                            black: '#111111', dark: '#1a1a1a', brown: '#4A3728',
+                            copper: '#9E622B', brownieWhite: '#FAF8F5', muted: '#3f3f46', border: '#EAE6E1'
                         }
                     }
                 }
@@ -39,354 +63,190 @@
     </script>
     
     <style>
-        body { 
-            background-color: #FAF8F5; 
-            color: #111111; 
+        body { background-color: #FAF8F5; color: #111111; overflow-x: hidden; }
+        .ambient-video {
+            position: absolute; top: 50%; left: 50%; min-width: 100%; min-height: 100%;
+            width: auto; height: auto; object-fit: cover;
+            transform: translate(-50%, -50%) scale(1.06);
+            filter: blur(6px) saturate(110%); opacity: 0.85;
         }
-        
-        /* Dark Video Overlay for Innovations Page */
-        .video-overlay-dark {
-            background: rgba(17, 17, 17, 0.92); /* Deep Black at 92% opacity */
+        .ios-glass-nav {
+            background: rgba(250, 248, 245, 0.68);
+            backdrop-filter: blur(28px) saturate(190%); -webkit-backdrop-filter: blur(28px) saturate(190%);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.8);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.04);
         }
-
-        /* Glass Navigation */
-        .glass-nav {
-            background: rgba(250, 248, 245, 0.96);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid #EAE6E1;
+        .ios-glass-section {
+            background: rgba(250, 248, 245, 0.45);
+            backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
         }
-
-        /* Clean White Cards */
-        .clean-card {
-            background-color: #ffffff;
-            border: 1px solid #EAE6E1;
-            transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+        .ios-glass-card {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.78) 0%, rgba(250, 248, 245, 0.58) 100%);
+            backdrop-filter: blur(24px) saturate(180%); -webkit-backdrop-filter: blur(24px) saturate(180%);
+            border: 1px solid rgba(255, 255, 255, 0.88);
+            box-shadow: 0 10px 35px -5px rgba(74, 55, 40, 0.08), inset 0 1px 1px 0 rgba(255, 255, 255, 0.95);
+            transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.3s ease, border-color 0.3s ease;
         }
-        .clean-card:hover {
-            transform: translateY(-4px);
-            border-color: #4A3728;
-            box-shadow: 0 12px 30px -10px rgba(74, 55, 40, 0.12);
-        }
-
-        /* Dark Cards */
-        .dark-card {
-            background-color: #111111;
-            color: #ffffff;
-            border: 1px solid #222222;
-            transition: transform 0.25s ease, border-color 0.25s ease;
-        }
-        .dark-card:hover {
-            transform: translateY(-4px);
-            border-color: #9E622B;
+        .ios-glass-card:hover {
+            transform: translateY(-5px);
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.88) 0%, rgba(250, 248, 245, 0.72) 100%);
+            border-color: rgba(74, 55, 40, 0.45);
+            box-shadow: 0 20px 45px -10px rgba(74, 55, 40, 0.15), inset 0 1px 2px 0 rgba(255, 255, 255, 1);
         }
     </style>
 </head>
 <body class="font-sans antialiased selection:bg-brand-brown selection:text-white">
 
-    <!-- ==============================================
-         GLOBAL LIVE VIDEO BACKGROUND (VIDEO 4)
-    =============================================== -->
-    <div class="fixed inset-0 z-[-2] w-full h-full overflow-hidden bg-brand-black">
-        <!-- Local Video 4 plays continuously in the background -->
-        <video id="bg-video-4" autoplay loop muted playsinline class="absolute top-1/2 left-1/2 min-w-full min-h-full w-auto h-auto object-cover transform -translate-x-1/2 -translate-y-1/2 opacity-40 mix-blend-screen grayscale z-0">
+    <!-- SOFT-BLURRED AMBIENT VIDEO 4 BACKGROUND -->
+    <div class="fixed inset-0 z-[-2] w-full h-full overflow-hidden bg-brand-brownieWhite">
+        <video id="bg-video-4" autoplay loop muted playsinline class="ambient-video">
             <source src="background-video-4.mp4" type="video/mp4">
         </video>
-        <div class="absolute inset-0 video-overlay-dark z-0"></div>
+        <div class="absolute inset-0 bg-[#FAF8F5]/65"></div>
     </div>
 
-    <!-- ==============================================
-         1. NAVIGATION HEADER 
-    =============================================== -->
-    <header class="fixed top-0 left-0 right-0 z-50 glass-nav h-24 flex items-center">
+    <!-- 1. HEADER -->
+    <header class="fixed top-0 left-0 right-0 z-50 ios-glass-nav h-24 flex items-center">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full flex justify-between items-center">
-            
-            <!-- Corporate Logo -->
             <a href="index.html" class="flex items-center gap-4 group">
-                <img 
-                    src="IOGO.png" 
-                    alt="Cognisys Logo" 
-                    class="h-14 w-auto object-contain"
-                    onerror="this.onerror=null; this.src='logo.png';"
-                >
+                <img src="IOGO.png" alt="Cognisys IT Solutions" class="h-14 w-auto object-contain transition-transform duration-300 group-hover:scale-105" onerror="this.onerror=null; this.src='logo.png';">
                 <div class="flex flex-col">
                     <span class="font-heading font-extrabold text-2xl tracking-tight text-brand-black leading-none">COGNISYS</span>
                     <span class="text-[0.65rem] font-bold uppercase tracking-[0.2em] text-brand-brown mt-1">Soft Services & IT Solutions</span>
                 </div>
             </a>
 
-            <!-- Right Controls -->
-            <div class="flex items-center gap-6">
-                <a href="index.html#contact" class="hidden sm:inline-flex items-center justify-center bg-brand-black text-white px-8 py-3 rounded-full text-xs font-bold uppercase tracking-widest hover:bg-brand-brown transition-colors">
-                    Let's Talk
-                </a>
-                
-                <button id="menuToggleBtn" aria-label="Toggle Navigation" class="flex flex-col items-center justify-center w-12 h-12 rounded-full border border-brand-border text-brand-black hover:bg-brand-black hover:text-white transition-all cursor-pointer bg-white">
+            <nav aria-label="Main Navigation" class="hidden lg:flex items-center gap-1 px-3 py-1.5 rounded-full ios-glass-card">
+                <a href="index.html" class="px-4 py-2 rounded-full text-xs font-semibold text-brand-black hover:bg-white/70 transition-colors">Home</a>
+                <a href="about.html" class="px-4 py-2 rounded-full text-xs font-semibold text-brand-black hover:bg-white/70 transition-colors">Who We Are</a>
+                <a href="services.html" class="px-4 py-2 rounded-full text-xs font-semibold text-brand-black hover:bg-white/70 transition-colors">Services & Solutions</a>
+                <a href="innovations.html" class="px-4 py-2 rounded-full text-xs font-bold bg-brand-black text-white">In-House Projects</a>
+                <a href="careers.html" class="px-4 py-2 rounded-full text-xs font-semibold text-brand-black hover:bg-white/70 transition-colors">Careers</a>
+            </nav>
+
+            <div class="flex items-center gap-4">
+                <a href="index.html#contact" class="hidden sm:inline-flex items-center justify-center bg-brand-black text-white px-7 py-3 rounded-full text-xs font-bold uppercase tracking-widest hover:bg-brand-brown transition-colors shadow-sm">Let's Talk</a>
+                <button id="menuToggleBtn" aria-label="Toggle Navigation" class="flex flex-col items-center justify-center w-12 h-12 rounded-full border border-white/80 text-brand-black hover:bg-brand-black hover:text-white transition-all cursor-pointer bg-white/75 backdrop-blur-md shadow-sm">
                     <i class="fa-solid fa-bars text-lg"></i>
                 </button>
             </div>
             
-            <!-- Dropdown Menu -->
-            <div id="dropdownMenu" class="absolute top-24 right-4 sm:right-8 w-72 bg-white border border-brand-border shadow-2xl rounded-xl hidden flex-col z-40 overflow-hidden">
-                <a href="index.html" class="px-6 py-4 text-sm font-semibold text-brand-muted border-b border-brand-border hover:bg-brand-brownieWhite hover:text-brand-black transition-colors flex items-center gap-3">
-                    <i class="fa-solid fa-house w-4 text-brand-brown"></i> Home
-                </a>
-                <a href="about.html" class="px-6 py-4 text-sm font-semibold text-brand-muted border-b border-brand-border hover:bg-brand-brownieWhite hover:text-brand-black transition-colors flex items-center gap-3">
-                    <i class="fa-solid fa-building w-4 text-brand-brown"></i> Who We Are
-                </a>
-                <a href="services.html" class="px-6 py-4 text-sm font-semibold text-brand-muted border-b border-brand-border hover:bg-brand-brownieWhite hover:text-brand-black transition-colors flex items-center gap-3">
-                    <i class="fa-solid fa-server w-4 text-brand-brown"></i> Services & Solutions
-                </a>
-                <a href="innovations.html" class="px-6 py-4 text-sm font-semibold text-brand-brown border-b border-brand-border bg-brand-brownieWhite flex items-center gap-3">
-                    <i class="fa-solid fa-lightbulb w-4 text-brand-brown"></i> In-House Projects
-                </a>
-                <a href="careers.html" class="px-6 py-4 text-sm font-semibold text-brand-black hover:bg-brand-brownieWhite hover:text-brand-brown flex justify-between items-center transition-colors">
-                    <span><i class="fa-solid fa-briefcase w-4 mr-2 text-brand-brown"></i> Careers / Hiring</span> 
-                    <i class="fa-solid fa-arrow-right text-xs"></i>
-                </a>
+            <div id="dropdownMenu" class="absolute top-24 right-4 sm:right-8 w-72 ios-glass-card rounded-2xl hidden flex-col z-40 overflow-hidden shadow-2xl">
+                <a href="index.html" class="px-6 py-4 text-sm font-semibold text-brand-black border-b border-black/5 hover:bg-white/60 transition-colors flex items-center gap-3"><i class="fa-solid fa-house w-4 text-brand-brown"></i> Home</a>
+                <a href="about.html" class="px-6 py-4 text-sm font-semibold text-brand-black border-b border-black/5 hover:bg-white/60 transition-colors flex items-center gap-3"><i class="fa-solid fa-building w-4 text-brand-brown"></i> Who We Are</a>
+                <a href="services.html" class="px-6 py-4 text-sm font-semibold text-brand-black border-b border-black/5 hover:bg-white/60 transition-colors flex items-center gap-3"><i class="fa-solid fa-server w-4 text-brand-brown"></i> Services & Solutions</a>
+                <a href="innovations.html" class="px-6 py-4 text-sm font-semibold text-brand-brown border-b border-black/5 bg-white/50 flex items-center gap-3"><i class="fa-solid fa-lightbulb w-4 text-brand-brown"></i> In-House Projects</a>
+                <a href="careers.html" class="px-6 py-4 text-sm font-semibold text-brand-black hover:bg-white/60 flex justify-between items-center transition-colors"><span><i class="fa-solid fa-briefcase w-4 mr-2 text-brand-brown"></i> Careers / Hiring</span><i class="fa-solid fa-arrow-right text-xs"></i></a>
             </div>
         </div>
     </header>
 
     <main>
-        <!-- ==============================================
-             2. HERO SECTION
-        =============================================== -->
-        <section class="relative pt-48 pb-32 border-b border-gray-900">
+        <!-- 2. HERO SECTION -->
+        <section class="relative pt-48 pb-28 border-b border-white/60">
             <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
-                <span class="text-[0.75rem] font-extrabold tracking-[0.2em] text-brand-copper uppercase mb-6 block">Cognisys Labs</span>
-                <h1 class="font-heading text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-8 leading-tight drop-shadow-sm">
-                    Proprietary <br />
-                    <span class="text-brand-copper">Ecosystems.</span>
+                <div class="inline-flex items-center gap-2 px-5 py-2 rounded-full ios-glass-card mb-6">
+                    <span class="w-2 h-2 rounded-full bg-brand-copper"></span>
+                    <span class="text-xs font-bold tracking-widest text-brand-brown uppercase">Cognisys Labs</span>
+                </div>
+                <h1 class="font-heading text-5xl md:text-6xl lg:text-7xl font-extrabold text-brand-black mb-8 leading-tight">
+                    Proprietary <br /><span class="text-brand-brown">Ecosystems.</span>
                 </h1>
-                <p class="text-lg md:text-xl text-gray-400 leading-relaxed max-w-4xl mx-auto">
-                    At Cognisys, we don't just build architectures for our clients; we incubate our own intellectual property. Explore the vision, design, and engineering behind our major in-house platforms actively scaling in the digital market.
+                <p class="text-lg md:text-xl text-brand-black/80 font-medium leading-relaxed max-w-4xl mx-auto">
+                    At Cognisys, we don't just build architectures for clients; we incubate our own intellectual property. Explore the engineering behind our in-house platforms scaling in the market.
                 </p>
             </div>
         </section>
 
-        <!-- ==============================================
-             3. PROJECT 1: BITEE ECOSYSTEM
-        =============================================== -->
-        <section class="py-24 bg-brand-brownieWhite relative border-b border-brand-border">
+        <!-- 3. PROJECT 1: BITEE ECOSYSTEM -->
+        <section class="py-24 ios-glass-section border-b border-white/60 relative z-10">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                
-                <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
-                    
-                    <!-- Text Content -->
-                    <div class="lg:col-span-7 space-y-8">
-                        <div>
-                            <span class="inline-block px-3 py-1 bg-green-100 text-green-800 text-xs font-bold rounded-full uppercase tracking-widest mb-6 border border-green-200">
-                                Live Platform
-                            </span>
-                            <div class="flex items-center gap-4 mb-6">
-                                <div class="w-16 h-16 rounded-xl bg-white border border-brand-border flex items-center justify-center text-brand-brown text-3xl shadow-sm">
-                                    <i class="fa-solid fa-mug-hot"></i>
-                                </div>
-                                <h2 class="font-heading text-4xl font-bold text-brand-black leading-tight">Bitee Ecosystem</h2>
-                            </div>
-                            
-                            <div class="space-y-6 text-brand-muted text-base leading-relaxed">
-                                <p>
-                                    Bitee is a sophisticated digital commerce platform engineered specifically to handle high-throughput transactions in emerging markets. Conceptualized, designed, and deployed entirely by Cognisys Labs, it represents our capability to build end-to-end B2C platforms.
-                                </p>
-                                <p>
-                                    The user interface is intentionally designed with a clean, brown-and-white minimalist aesthetic that prioritizes user flow, rapid navigation, and operational efficiency without unnecessary visual clutter.
-                                </p>
-                            </div>
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                    <div class="lg:col-span-7 ios-glass-card p-10 md:p-12 rounded-3xl">
+                        <span class="inline-block px-3.5 py-1 bg-green-500/15 text-green-800 text-xs font-bold rounded-full uppercase tracking-widest mb-5 border border-green-500/30">Live Platform</span>
+                        <div class="flex items-center gap-4 mb-6">
+                            <div class="w-14 h-14 rounded-2xl bg-white/80 flex items-center justify-center text-brand-brown text-2xl shadow-sm"><i class="fa-solid fa-mug-hot"></i></div>
+                            <h2 class="font-heading text-3xl sm:text-4xl font-bold text-brand-black">Bitee Ecosystem</h2>
                         </div>
-
-                        <!-- Technical Highlights -->
-                        <div class="pt-6 border-t border-brand-border">
-                            <h4 class="font-bold text-brand-black mb-4 uppercase tracking-widest text-xs">Architectural Highlights</h4>
-                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                                <div class="flex items-start gap-3">
-                                    <i class="fa-solid fa-server text-brand-copper mt-1"></i>
-                                    <div>
-                                        <h5 class="font-bold text-sm text-brand-black">Scalable Cloud Backend</h5>
-                                        <p class="text-xs text-brand-muted mt-1">Auto-scaling infrastructure to handle traffic spikes during peak hours.</p>
-                                    </div>
-                                </div>
-                                <div class="flex items-start gap-3">
-                                    <i class="fa-solid fa-network-wired text-brand-copper mt-1"></i>
-                                    <div>
-                                        <h5 class="font-bold text-sm text-brand-black">Domain Architecture</h5>
-                                        <p class="text-xs text-brand-muted mt-1">Advanced DNS and multi-region routing configurations for the bitee.in portal.</p>
-                                    </div>
-                                </div>
-                            </div>
+                        <p class="text-brand-muted text-base leading-relaxed mb-4">Bitee is a digital commerce platform engineered to handle high-throughput transactions in emerging markets. Conceptualized, designed, and deployed by Cognisys Labs, it showcases our ability to build resilient B2C ecosystems.</p>
+                        <p class="text-brand-muted text-base leading-relaxed mb-8">The interface features a clean brown-and-white minimalist aesthetic that prioritizes user flow, rapid navigation, and operational efficiency.</p>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-6 border-t border-black/10 mb-8">
+                            <div class="flex items-start gap-3"><i class="fa-solid fa-server text-brand-copper mt-1"></i><div><h5 class="font-bold text-sm text-brand-black">Scalable Cloud Backend</h5><p class="text-xs text-brand-muted">Auto-scaling infrastructure for peak concurrency.</p></div></div>
+                            <div class="flex items-start gap-3"><i class="fa-solid fa-network-wired text-brand-copper mt-1"></i><div><h5 class="font-bold text-sm text-brand-black">Domain Routing</h5><p class="text-xs text-brand-muted">Multi-region DNS and routing for bitee.in.</p></div></div>
                         </div>
-                        
-                        <div class="pt-4">
-                            <a href="https://bitee.in" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 bg-brand-black text-white px-8 py-4 rounded-full text-xs font-bold uppercase tracking-widest hover:bg-brand-brown transition-colors">
-                                Visit Bitee.in <i class="fa-solid fa-arrow-up-right-from-square ml-1"></i>
-                            </a>
-                        </div>
+                        <a href="https://bitee.in" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 bg-brand-black text-white px-8 py-4 rounded-full text-xs font-bold uppercase tracking-widest hover:bg-brand-brown transition-colors shadow-md">
+                            Visit Bitee.in <i class="fa-solid fa-arrow-up-right-from-square ml-1"></i>
+                        </a>
                     </div>
 
-                    <!-- Visual Representation -->
                     <div class="lg:col-span-5">
-                        <div class="clean-card p-10 rounded-3xl h-full flex flex-col items-center justify-center text-center bg-gradient-to-b from-white to-brand-brownieWhite min-h-[400px]">
-                            <div class="w-32 h-32 rounded-full bg-brand-brownieWhite border-4 border-white shadow-xl flex items-center justify-center mb-8">
-                                <i class="fa-solid fa-store text-5xl text-brand-brown"></i>
-                            </div>
+                        <div class="ios-glass-card p-12 rounded-3xl flex flex-col items-center justify-center text-center min-h-[380px]">
+                            <div class="w-28 h-28 rounded-full bg-white/90 shadow-lg flex items-center justify-center mb-6"><i class="fa-solid fa-store text-5xl text-brand-brown"></i></div>
                             <h3 class="font-heading text-2xl font-bold text-brand-black mb-2">Consumer Web Portal</h3>
-                            <p class="text-sm text-brand-muted">Fully integrated digital ecosystem designed for speed and reliability.</p>
+                            <p class="text-sm text-brand-muted">Integrated digital commerce ecosystem engineered for speed and reliability.</p>
                         </div>
                     </div>
-
                 </div>
             </div>
         </section>
 
-        <!-- ==============================================
-             4. PROJECT 2: CONNECT APP
-        =============================================== -->
-        <section class="py-24 bg-white relative border-b border-brand-border">
+        <!-- 4. PROJECT 2: CONNECT APP -->
+        <section class="py-24 relative z-10 border-b border-white/60">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                
-                <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
-                    
-                    <!-- Visual Representation -->
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
                     <div class="lg:col-span-5 order-2 lg:order-1">
-                        <div class="dark-card p-10 rounded-3xl h-full flex flex-col items-center justify-center text-center min-h-[400px] shadow-2xl relative overflow-hidden">
-                            <!-- Background Map graphic abstraction -->
-                            <div class="absolute inset-0 opacity-[0.03] pointer-events-none flex justify-center items-center">
-                                <i class="fa-solid fa-map-location-dot text-[20rem] text-brand-copper"></i>
-                            </div>
-                            
-                            <div class="w-32 h-32 rounded-full bg-brand-black border-4 border-gray-800 shadow-xl flex items-center justify-center mb-8 relative z-10">
-                                <i class="fa-solid fa-car-side text-5xl text-brand-copper"></i>
-                            </div>
-                            <h3 class="font-heading text-2xl font-bold text-white mb-2 relative z-10">Mobility & Ride-Hailing</h3>
-                            <p class="text-sm text-gray-400 relative z-10">Dual-sided geospatial platform for riders and passengers.</p>
+                        <div class="ios-glass-card p-12 rounded-3xl flex flex-col items-center justify-center text-center min-h-[380px]">
+                            <div class="w-28 h-28 rounded-full bg-white/90 shadow-lg flex items-center justify-center mb-6"><i class="fa-solid fa-car-side text-5xl text-brand-copper"></i></div>
+                            <h3 class="font-heading text-2xl font-bold text-brand-black mb-2">Mobility & Ride-Hailing</h3>
+                            <p class="text-sm text-brand-muted">Dual-sided geospatial platform tailored for riders and passengers.</p>
                         </div>
                     </div>
 
-                    <!-- Text Content -->
-                    <div class="lg:col-span-7 space-y-8 order-1 lg:order-2">
-                        <div>
-                            <span class="inline-block px-3 py-1 bg-blue-100 text-blue-800 text-xs font-bold rounded-full uppercase tracking-widest mb-6 border border-blue-200">
-                                In Development (Beta)
-                            </span>
-                            <div class="flex items-center gap-4 mb-6">
-                                <div class="w-16 h-16 rounded-xl bg-brand-brownieWhite border border-brand-border flex items-center justify-center text-brand-brown text-3xl shadow-sm">
-                                    <i class="fa-solid fa-location-arrow"></i>
-                                </div>
-                                <h2 class="font-heading text-4xl font-bold text-brand-black leading-tight">Connect App</h2>
-                            </div>
-                            
-                            <div class="space-y-6 text-brand-muted text-base leading-relaxed">
-                                <p>
-                                    Connect is our ambitious leap into the mobility sector. It is a next-generation ride-hailing application platform featuring uniquely optimized, highly scalable architectures tailored explicitly for both riders and passengers.
-                                </p>
-                                <p>
-                                    We are building Connect from the ground up to eliminate legacy lag, enhance route precision through advanced algorithms, and provide a superior, frictionless user experience (UX) for all parties involved in the mobility ecosystem.
-                                </p>
-                            </div>
+                    <div class="lg:col-span-7 ios-glass-card p-10 md:p-12 rounded-3xl order-1 lg:order-2">
+                        <span class="inline-block px-3.5 py-1 bg-amber-500/15 text-amber-900 text-xs font-bold rounded-full uppercase tracking-widest mb-5 border border-amber-500/30">In Development (Beta)</span>
+                        <div class="flex items-center gap-4 mb-6">
+                            <div class="w-14 h-14 rounded-2xl bg-white/80 flex items-center justify-center text-brand-brown text-2xl shadow-sm"><i class="fa-solid fa-location-arrow"></i></div>
+                            <h2 class="font-heading text-3xl sm:text-4xl font-bold text-brand-black">Connect App</h2>
                         </div>
-
-                        <!-- Technical Highlights -->
-                        <div class="pt-6 border-t border-brand-border">
-                            <h4 class="font-bold text-brand-black mb-4 uppercase tracking-widest text-xs">Architectural Highlights</h4>
-                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                                <div class="flex items-start gap-3">
-                                    <i class="fa-solid fa-map-pin text-brand-copper mt-1"></i>
-                                    <div>
-                                        <h5 class="font-bold text-sm text-brand-black">Real-Time Geospatial Tracking</h5>
-                                        <p class="text-xs text-brand-muted mt-1">Sub-second latency location updates via WebSockets.</p>
-                                    </div>
-                                </div>
-                                <div class="flex items-start gap-3">
-                                    <i class="fa-solid fa-mobile-screen text-brand-copper mt-1"></i>
-                                    <div>
-                                        <h5 class="font-bold text-sm text-brand-black">Dual-Sided UI</h5>
-                                        <p class="text-xs text-brand-muted mt-1">Distinct, highly optimized interfaces for Driver and Passenger roles.</p>
-                                    </div>
-                                </div>
-                            </div>
+                        <p class="text-brand-muted text-base leading-relaxed mb-4">Connect is our next-generation ride-hailing application platform featuring high-concurrency geospatial architectures tailored for both drivers and passengers.</p>
+                        <p class="text-brand-muted text-base leading-relaxed mb-8">Built from the ground up to eliminate dispatch latency, enhance route precision, and deliver a frictionless mobile UX.</p>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-6 border-t border-black/10">
+                            <div class="flex items-start gap-3"><i class="fa-solid fa-map-pin text-brand-copper mt-1"></i><div><h5 class="font-bold text-sm text-brand-black">Real-Time Geospatial</h5><p class="text-xs text-brand-muted">Sub-second location streaming via WebSockets.</p></div></div>
+                            <div class="flex items-start gap-3"><i class="fa-solid fa-mobile-screen text-brand-copper mt-1"></i><div><h5 class="font-bold text-sm text-brand-black">Dual-Sided UI</h5><p class="text-xs text-brand-muted">Dedicated interfaces for Driver and Passenger workflows.</p></div></div>
                         </div>
                     </div>
-
                 </div>
             </div>
         </section>
 
-        <!-- ==============================================
-             5. PROJECT 3: HRIS & ENTERPRISE TOOLS
-        =============================================== -->
-        <section class="py-24 bg-brand-brownieWhite relative">
+        <!-- 5. PROJECT 3: WORKDAY HRIS FRAMEWORKS -->
+        <section class="py-24 ios-glass-section relative z-10">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                
-                <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
-                    
-                    <!-- Text Content -->
-                    <div class="lg:col-span-7 space-y-8">
-                        <div>
-                            <span class="inline-block px-3 py-1 bg-purple-100 text-purple-800 text-xs font-bold rounded-full uppercase tracking-widest mb-6 border border-purple-200">
-                                Internal Systems
-                            </span>
-                            <div class="flex items-center gap-4 mb-6">
-                                <div class="w-16 h-16 rounded-xl bg-white border border-brand-border flex items-center justify-center text-brand-brown text-3xl shadow-sm">
-                                    <i class="fa-solid fa-sitemap"></i>
-                                </div>
-                                <h2 class="font-heading text-4xl font-bold text-brand-black leading-tight">Workday HRIS Frameworks</h2>
-                            </div>
-                            
-                            <div class="space-y-6 text-brand-muted text-base leading-relaxed">
-                                <p>
-                                    To support our massive-scale Domestic and USA IT Staffing operations, Cognisys continually develops internal training curricula and integration frameworks centered around enterprise tools. 
-                                </p>
-                                <p>
-                                    We have mapped and developed comprehensive architectures for Core HCM, Business Process Frameworks, security architecture, compensation, EIB data management, and reporting to ensure our internal recruitment and HR functions operate at peak efficiency.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Visual Representation -->
-                    <div class="lg:col-span-5">
-                        <div class="clean-card p-10 rounded-3xl h-full flex flex-col items-center justify-center text-center bg-gradient-to-b from-white to-brand-brownieWhite min-h-[350px]">
-                            <div class="w-24 h-24 rounded-full bg-brand-brownieWhite border-4 border-white shadow-xl flex items-center justify-center mb-6">
-                                <i class="fa-solid fa-users-gear text-4xl text-brand-brown"></i>
-                            </div>
-                            <h3 class="font-heading text-xl font-bold text-brand-black mb-2">Enterprise HR Integrations</h3>
-                            <p class="text-sm text-brand-muted">Streamlining global staffing, security architecture, and data management.</p>
-                        </div>
-                    </div>
-
+                <div class="ios-glass-card p-10 md:p-12 rounded-3xl">
+                    <span class="inline-block px-3.5 py-1 bg-brand-brown/15 text-brand-brown text-xs font-bold rounded-full uppercase tracking-widest mb-5">Internal Enterprise Systems</span>
+                    <h2 class="font-heading text-3xl sm:text-4xl font-bold text-brand-black mb-4">Workday HRIS & Enterprise Frameworks</h2>
+                    <p class="text-brand-muted text-base leading-relaxed max-w-4xl">
+                        To power our Domestic and USA IT Staffing operations alongside our 21-day corporate training curriculums, Cognisys develops internal architectures covering Core HCM, Business Process Frameworks, security architecture, compensation, EIB data management, and enterprise reporting.
+                    </p>
                 </div>
             </div>
         </section>
-
     </main>
 
-    <!-- ==============================================
-         6. MASTER FOOTER 
-    =============================================== -->
+    <!-- 6. MASTER FOOTER -->
     <footer class="bg-brand-black text-white pt-16 pb-12 border-t border-gray-900 relative z-20">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 mb-14">
-                
-                <!-- Col 1: Brand & About (Span 3) -->
                 <div class="lg:col-span-3">
                     <a href="index.html" class="flex items-center gap-3.5 mb-6">
-                        <img 
-                            src="IOGO.png" 
-                            alt="Cognisys Logo" 
-                            class="h-12 w-auto object-contain"
-                            onerror="this.onerror=null; this.src='logo.png';"
-                        >
+                        <img src="IOGO.png" alt="Cognisys IT Solutions" class="h-14 w-auto object-contain" onerror="this.onerror=null; this.src='logo.png';">
                         <div class="flex flex-col">
                             <span class="font-heading font-extrabold text-xl tracking-tight text-white leading-none">COGNISYS</span>
                             <span class="text-[0.6rem] font-bold uppercase tracking-[0.2em] text-gray-400 mt-1">Soft Services & IT Solutions</span>
                         </div>
                     </a>
-                    <p class="text-gray-400 text-xs leading-relaxed max-w-sm">
-                        Specializing in Custom Software Development, scalable Domestic IT Staffing in India, strategic USA IT Consulting, and collaborative Placement Training programs.
-                    </p>
+                    <p class="text-gray-400 text-xs leading-relaxed max-w-sm">Specializing in Custom Software Development, scalable Domestic IT Staffing in India, strategic USA IT Consulting, and collaborative Placement Training programs.</p>
                 </div>
-                
-                <!-- Col 2: Quick Links (Span 2) -->
                 <div class="lg:col-span-2 lg:pl-6">
                     <h3 class="text-xs font-bold uppercase tracking-widest text-brand-copper mb-5">Quick Links</h3>
                     <ul class="space-y-3 text-xs text-gray-400">
@@ -395,8 +255,6 @@
                         <li><a href="careers.html" class="hover:text-white transition-colors">Careers / Hiring</a></li>
                     </ul>
                 </div>
-                
-                <!-- Col 3: Core Services (Span 3) -->
                 <div class="lg:col-span-3">
                     <h3 class="text-xs font-bold uppercase tracking-widest text-brand-copper mb-5">Core Services</h3>
                     <ul class="space-y-3 text-xs text-gray-400">
@@ -407,38 +265,22 @@
                         <li><a href="services.html" class="hover:text-white transition-colors">Training & Placements</a></li>
                     </ul>
                 </div>
-
-                <!-- Col 4: Contact Us & LinkedIn (Span 2) -->
                 <div class="lg:col-span-2">
                     <h3 class="text-xs font-bold uppercase tracking-widest text-brand-copper mb-5">Contact Us</h3>
                     <div class="space-y-2 text-xs text-gray-400 mb-6">
                         <p><i class="fa-solid fa-envelope w-4 text-white"></i> info@cognisysitsolutions.in</p>
                         <p><i class="fa-solid fa-phone w-4 text-white"></i> +91 9885550735</p>
                     </div>
-                    
                     <h3 class="text-xs font-bold uppercase tracking-widest text-brand-copper mb-3">Follow Us</h3>
-                    <a href="https://www.linkedin.com/company/cognisys-soft-services" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white text-xl inline-block transition-colors">
-                        <i class="fa-brands fa-linkedin"></i>
-                    </a>
+                    <a href="https://www.linkedin.com/company/cognisys-soft-services" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white text-xl inline-block transition-colors"><i class="fa-brands fa-linkedin"></i></a>
                 </div>
-
-                <!-- Col 5: DPIIT Recognition Right Side (Span 2) -->
                 <div class="lg:col-span-2 flex flex-col items-start lg:items-end">
                     <h3 class="text-xs font-bold uppercase tracking-widest text-brand-copper mb-5 w-full lg:text-right">Recognition</h3>
-                    
-                    <!-- Original Colors, NO Background -->
-                    <a href="dpiit-certificate.pdf" target="_blank" title="View Certificate" class="inline-block transition-transform hover:scale-105">
-                        <img 
-                            src="startup-india-logo.png" 
-                            alt="DPIIT Recognized Startup" 
-                            class="w-full max-w-[200px] h-auto object-contain"
-                            onerror="this.style.display='none'"
-                        >
+                    <a href="dpiit-certificate.pdf" target="_blank" title="View DPIIT Certificate" class="inline-block transition-transform hover:scale-105">
+                        <img src="startup-india-logo.png" alt="DPIIT Recognized Startup" class="w-full max-w-[190px] h-auto object-contain" onerror="this.style.display='none'">
                     </a>
                 </div>
-
             </div>
-            
             <div class="border-t border-gray-900 pt-8 flex flex-col sm:flex-row justify-between items-center text-xs text-gray-500">
                 <p>&copy; 2026 Cognisys Soft Services & IT Solutions. All rights reserved.</p>
                 <p class="mt-2 sm:mt-0">DPIIT Recognized Startup • Govt. of India</p>
@@ -446,32 +288,23 @@
         </div>
     </footer>
 
-    <!-- JS Logic -->
     <script>
         const menuBtn = document.getElementById('menuToggleBtn');
         const dropMenu = document.getElementById('dropdownMenu');
-        
         menuBtn.addEventListener('click', (e) => {
             e.stopPropagation();
-            dropMenu.classList.toggle('hidden');
-            dropMenu.classList.toggle('flex');
+            dropMenu.classList.toggle('hidden'); dropMenu.classList.toggle('flex');
             menuBtn.innerHTML = dropMenu.classList.contains('hidden') ? '<i class="fa-solid fa-bars text-lg"></i>' : '<i class="fa-solid fa-xmark text-lg"></i>';
         });
-
         document.addEventListener('click', (e) => {
             if (!dropMenu.contains(e.target) && !menuBtn.contains(e.target)) {
-                dropMenu.classList.add('hidden');
-                dropMenu.classList.remove('flex');
+                dropMenu.classList.add('hidden'); dropMenu.classList.remove('flex');
                 menuBtn.innerHTML = '<i class="fa-solid fa-bars text-lg"></i>';
             }
         });
-        
-        // Force video play manually
         document.addEventListener('DOMContentLoaded', () => {
             const vid4 = document.getElementById('bg-video-4');
-            if(vid4) {
-                vid4.play().catch(e => console.log('Video 4 autoplay prevented'));
-            }
+            if(vid4) vid4.play().catch(() => {});
         });
     </script>
 </body>
