@@ -73,10 +73,10 @@
             opacity: 0.92;
         }
         .ios-glass-nav {
-            background: rgba(250, 248, 245, 0.72);
+            background: rgba(250, 248, 245, 0.75);
             backdrop-filter: blur(28px) saturate(190%); -webkit-backdrop-filter: blur(28px) saturate(190%);
             border-bottom: 1px solid rgba(255, 255, 255, 0.85);
-            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
+            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.05);
         }
         .ios-glass-section {
             background: rgba(250, 248, 245, 0.36);
@@ -95,18 +95,11 @@
             border-color: rgba(74, 55, 40, 0.45);
             box-shadow: 0 20px 45px -10px rgba(74, 55, 40, 0.15), inset 0 1px 2px 0 rgba(255, 255, 255, 1);
         }
-        .ios-dark-glass-card {
-            background: linear-gradient(135deg, rgba(24, 24, 24, 0.85) 0%, rgba(12, 12, 12, 0.75) 100%);
-            backdrop-filter: blur(24px) saturate(180%); -webkit-backdrop-filter: blur(24px) saturate(180%);
-            border: 1px solid rgba(255, 255, 255, 0.18); color: #ffffff;
-            transition: transform 0.3s ease, border-color 0.3s ease;
-        }
-        .ios-dark-glass-card:hover { transform: translateY(-5px); border-color: #9E622B; }
     </style>
 </head>
 <body class="font-sans antialiased selection:bg-brand-brown selection:text-white">
 
-    <!-- CLEAR AMBIENT VIDEO 2 BACKGROUND -->
+    <!-- SINGLE CONTINUOUS AMBIENT VIDEO BACKGROUND FOR ENTIRE PAGE -->
     <div class="fixed inset-0 z-[-2] w-full h-full overflow-hidden bg-brand-brownieWhite">
         <video id="bg-video-1" autoplay loop muted playsinline class="ambient-video">
             <source src="background-video-2.mp4" type="video/mp4">
@@ -114,34 +107,38 @@
         <div class="absolute inset-0 bg-[#FAF8F5]/48"></div>
     </div>
 
-    <!-- 1. HEADER WITH ENLARGED NAVIGATION BAR -->
-    <header class="fixed top-0 left-0 right-0 z-50 ios-glass-nav py-4">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full flex flex-wrap justify-between items-center gap-4">
-            <a href="index.html" class="flex items-center gap-4 group">
-                <img src="IOGO.png" alt="Cognisys IT Solutions" class="h-14 w-auto object-contain transition-transform duration-300 group-hover:scale-105" onerror="this.onerror=null; this.src='logo.png';">
+    <!-- 1. COMPACT SINGLE-ROW HEADER (Contact Us Directly Next to Nav Bar) -->
+    <header class="fixed top-0 left-0 right-0 z-50 ios-glass-nav h-20 flex items-center">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full flex items-center justify-between gap-4">
+            
+            <a href="index.html" class="flex items-center gap-3.5 group shrink-0">
+                <img src="IOGO.png" alt="Cognisys IT Solutions" class="h-12 w-auto object-contain transition-transform duration-300 group-hover:scale-105" onerror="this.onerror=null; this.src='logo.png';">
                 <div class="flex flex-col">
-                    <span class="font-heading font-extrabold text-2xl tracking-tight text-brand-black leading-none">COGNISYS</span>
-                    <span class="text-[0.65rem] font-bold uppercase tracking-[0.2em] text-brand-brown mt-1">Soft Services & IT Solutions</span>
+                    <span class="font-heading font-extrabold text-xl tracking-tight text-brand-black leading-none">COGNISYS</span>
+                    <span class="text-[0.6rem] font-bold uppercase tracking-[0.18em] text-brand-brown mt-1">Soft Services & IT Solutions</span>
                 </div>
             </a>
 
-            <nav aria-label="Main Navigation" class="flex flex-wrap items-center justify-center gap-1.5 sm:gap-2 px-3 py-2 rounded-full ios-glass-card order-3 lg:order-2 w-full lg:w-auto">
-                <a href="index.html" class="px-5 py-2.5 rounded-full text-sm md:text-base font-bold text-brand-black hover:bg-brand-brown hover:text-white transition-all">Home</a>
-                <a href="about.html" class="px-5 py-2.5 rounded-full text-sm md:text-base font-bold bg-brand-black text-white shadow-sm transition-all">Who We Are</a>
-                <a href="services.html" class="px-5 py-2.5 rounded-full text-sm md:text-base font-bold text-brand-black hover:bg-brand-brown hover:text-white transition-all">Services & Solutions</a>
-                <a href="innovations.html" class="px-5 py-2.5 rounded-full text-sm md:text-base font-bold text-brand-black hover:bg-brand-brown hover:text-white transition-all">In-House Projects</a>
-                <a href="careers.html" class="px-5 py-2.5 rounded-full text-sm md:text-base font-bold text-brand-black hover:bg-brand-brown hover:text-white transition-all">Careers</a>
-            </nav>
+            <div class="flex items-center gap-3 overflow-x-auto no-scrollbar py-1">
+                <nav aria-label="Main Navigation" class="flex items-center gap-1 px-2 py-1.5 rounded-full ios-glass-card shrink-0">
+                    <a href="index.html" class="px-4 py-2 rounded-full text-xs sm:text-sm font-bold text-brand-black hover:bg-brand-brown hover:text-white whitespace-nowrap transition-all">Home</a>
+                    <a href="about.html" class="px-4 py-2 rounded-full text-xs sm:text-sm font-bold bg-brand-black text-white shadow-sm whitespace-nowrap transition-all">Who We Are</a>
+                    <a href="services.html" class="px-4 py-2 rounded-full text-xs sm:text-sm font-bold text-brand-black hover:bg-brand-brown hover:text-white whitespace-nowrap transition-all">Services & Solutions</a>
+                    <a href="innovations.html" class="px-4 py-2 rounded-full text-xs sm:text-sm font-bold text-brand-black hover:bg-brand-brown hover:text-white whitespace-nowrap transition-all">In-House Projects</a>
+                    <a href="careers.html" class="px-4 py-2 rounded-full text-xs sm:text-sm font-bold text-brand-black hover:bg-brand-brown hover:text-white whitespace-nowrap transition-all">Careers</a>
+                </nav>
 
-            <div class="flex items-center order-2 lg:order-3">
-                <a href="index.html#contact" class="inline-flex items-center justify-center bg-brand-black text-white px-8 py-3.5 rounded-full text-xs sm:text-sm font-bold uppercase tracking-widest hover:bg-brand-brown transition-colors shadow-md">Contact Us</a>
+                <a href="index.html#contact" class="inline-flex items-center justify-center bg-brand-black text-white px-6 py-3 rounded-full text-xs sm:text-sm font-bold uppercase tracking-widest hover:bg-brand-brown transition-colors shadow-md whitespace-nowrap shrink-0">
+                    Contact Us
+                </a>
             </div>
+
         </div>
     </header>
 
     <main>
         <!-- 2. HERO SECTION -->
-        <section class="relative pt-48 lg:pt-44 pb-28 border-b border-white/60">
+        <section class="relative pt-36 pb-28 border-b border-white/60">
             <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
                 <div class="inline-flex items-center gap-2 px-5 py-2 rounded-full ios-glass-card mb-6">
                     <span class="w-2 h-2 rounded-full bg-brand-copper"></span>
@@ -227,47 +224,42 @@
             </div>
         </section>
 
-        <!-- 6. GLOBAL FOOTPRINT (WITH SECOND HIGH-CLARITY VIDEO 3) -->
-        <section class="py-28 relative overflow-hidden border-b border-gray-800">
-            <video id="bg-video-2" autoplay loop muted playsinline class="ambient-video z-0">
-                <source src="background-video-3.mp4" type="video/mp4">
-            </video>
-            <div class="absolute inset-0 bg-[#111111]/72 backdrop-blur-[2px] z-0"></div>
-
+        <!-- 6. GLOBAL FOOTPRINT (SINGLE BACKGROUND VIDEO + SHARP BLACK TEXT) -->
+        <section class="py-28 relative z-10 border-b border-white/60">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                 <div class="text-center max-w-3xl mx-auto mb-16">
-                    <span class="text-xs font-bold tracking-widest text-brand-copper uppercase mb-3 block">Our Presence</span>
-                    <h2 class="font-heading text-4xl md:text-5xl font-bold text-white mb-4">Global Footprint</h2>
-                    <p class="text-gray-300 text-base">Operating across continents to provide frictionless execution, client empanelment, sub-vendorship, and 24/7 technical support.</p>
+                    <span class="text-xs font-bold tracking-widest text-brand-brown uppercase mb-3 block">Our Presence</span>
+                    <h2 class="font-heading text-4xl md:text-5xl font-extrabold text-brand-black mb-4">Global Footprint</h2>
+                    <p class="text-brand-black/85 font-medium text-base">Operating across continents to provide frictionless execution, client empanelment, sub-vendorship, and 24/7 technical support.</p>
                 </div>
 
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
-                    <div class="ios-dark-glass-card p-10 rounded-3xl">
-                        <div class="flex items-center gap-5 mb-6 border-b border-white/10 pb-5">
-                            <div class="w-14 h-14 bg-white/10 rounded-2xl flex items-center justify-center text-brand-copper"><i class="fa-solid fa-location-dot text-2xl"></i></div>
+                    <div class="ios-glass-card p-10 rounded-3xl">
+                        <div class="flex items-center gap-5 mb-6 border-b border-black/10 pb-5">
+                            <div class="w-14 h-14 bg-white/90 rounded-2xl flex items-center justify-center text-brand-brown shadow-sm"><i class="fa-solid fa-location-dot text-2xl"></i></div>
                             <div>
-                                <h3 class="text-2xl font-bold text-white font-heading">Hyderabad, India</h3>
-                                <p class="text-xs uppercase tracking-widest text-brand-copper mt-1">Global Headquarters & ODC</p>
+                                <h3 class="text-2xl font-bold text-brand-black font-heading">Hyderabad, India</h3>
+                                <p class="text-xs font-bold uppercase tracking-widest text-brand-copper mt-1">Global Headquarters & ODC</p>
                             </div>
                         </div>
-                        <p class="text-sm text-gray-300 leading-relaxed mb-5">Operating from the heart of India's technology corridor, our Hyderabad center powers our engineering, client empanelment, and domestic recruitment operations.</p>
-                        <ul class="space-y-3 text-sm text-gray-300">
+                        <p class="text-sm text-brand-muted leading-relaxed mb-5">Operating from the heart of India's technology corridor, our Hyderabad center powers our engineering, client empanelment, and domestic recruitment operations.</p>
+                        <ul class="space-y-3 text-sm text-brand-black">
                             <li class="flex items-start gap-3"><i class="fa-solid fa-check text-brand-copper mt-1"></i><span><strong>Domestic IT Staffing & Sub-Vendorship:</strong> Fulfilling mandates for direct enterprise clients, GCCs, and approved Tier-1 vendors across India.</span></li>
                             <li class="flex items-start gap-3"><i class="fa-solid fa-check text-brand-copper mt-1"></i><span><strong>2-Level Screening Hub:</strong> Central technical evaluation desk ensuring every submitted candidate matches client requirements.</span></li>
                             <li class="flex items-start gap-3"><i class="fa-solid fa-check text-brand-copper mt-1"></i><span><strong>Offshore Development:</strong> Dedicated engineering pods delivering cloud and mobile codebases.</span></li>
                         </ul>
                     </div>
 
-                    <div class="ios-dark-glass-card p-10 rounded-3xl">
-                        <div class="flex items-center gap-5 mb-6 border-b border-white/10 pb-5">
-                            <div class="w-14 h-14 bg-white/10 rounded-2xl flex items-center justify-center text-brand-copper"><i class="fa-solid fa-building text-2xl"></i></div>
+                    <div class="ios-glass-card p-10 rounded-3xl">
+                        <div class="flex items-center gap-5 mb-6 border-b border-black/10 pb-5">
+                            <div class="w-14 h-14 bg-white/90 rounded-2xl flex items-center justify-center text-brand-brown shadow-sm"><i class="fa-solid fa-building text-2xl"></i></div>
                             <div>
-                                <h3 class="text-2xl font-bold text-white font-heading">United States</h3>
-                                <p class="text-xs uppercase tracking-widest text-brand-copper mt-1">Remote Operations & Advisory</p>
+                                <h3 class="text-2xl font-bold text-brand-black font-heading">United States</h3>
+                                <p class="text-xs font-bold uppercase tracking-widest text-brand-copper mt-1">Remote Operations & Advisory</p>
                             </div>
                         </div>
-                        <p class="text-sm text-gray-300 leading-relaxed mb-5">Our remote US operational framework ensures American enterprise clients and prime vendors receive responsive onshore coordination and compliant staffing.</p>
-                        <ul class="space-y-3 text-sm text-gray-300">
+                        <p class="text-sm text-brand-muted leading-relaxed mb-5">Our remote US operational framework ensures American enterprise clients and prime vendors receive responsive onshore coordination and compliant staffing.</p>
+                        <ul class="space-y-3 text-sm text-brand-black">
                             <li class="flex items-start gap-3"><i class="fa-solid fa-check text-brand-copper mt-1"></i><span><strong>Direct Client Empanelment & Procurement:</strong> Onboarding onto enterprise VMS portals and direct client vendor lists.</span></li>
                             <li class="flex items-start gap-3"><i class="fa-solid fa-check text-brand-copper mt-1"></i><span><strong>USA Sub-Vendorship (C2C / W2 / 1099):</strong> Partnering with approved US prime vendors to supply 2-level screened consultants.</span></li>
                             <li class="flex items-start gap-3"><i class="fa-solid fa-check text-brand-copper mt-1"></i><span><strong>Timezone Alignment:</strong> EST/PST overlap for daily standups and rapid requirement turnarounds.</span></li>
@@ -335,10 +327,8 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            ['bg-video-1', 'bg-video-2'].forEach(id => {
-                const v = document.getElementById(id);
-                if(v) v.play().catch(() => {});
-            });
+            const v = document.getElementById('bg-video-1');
+            if(v) v.play().catch(() => {});
         });
     </script>
 </body>
